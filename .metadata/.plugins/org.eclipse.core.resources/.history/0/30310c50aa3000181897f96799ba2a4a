@@ -1,0 +1,93 @@
+import java.util.Scanner;
+
+public class StackMain {
+	
+	 public static void main(String args[])
+	    {
+		 Scanner sc = new Scanner(System.in);
+		 
+		String st;
+		 String st2="";
+		 System.out.println("enter the value");
+		 st=sc.nextLine();
+		 char c1[] = st.toCharArray();
+		 int d=st.length();
+		 Stack s = new Stack(d);
+		 
+	        for(int i=0;i<c1.length;i++) {
+	        	s.push(c1[i]);
+	        	//st=st+1;
+	        }
+	       	      st="";
+	       // s.search(2);
+	        
+	        StackS ss = new StackS(d);
+	        while(d>0)
+	        {
+	        	char tmp =  s.pop();
+	        	st=st+tmp;
+	        	//System.out.print(tmp);
+	        	ss.push(tmp);
+	        	d--;
+	        }
+	        
+	        d=st.length();
+	        
+	       while(d>0) {
+	    	   char c= ss.pop();
+	    	   //System.out.print(c);
+	    	   st2=st2+c;
+	    	   d--;
+	       }
+	       
+	       System.out.println(st);
+	       System.out.println(st2);
+	       //char c1[] = st.toCharArray();
+	     /*  char c2[] = st2.toCharArray();
+	       int count=0;
+	       int len=c1.length-1;
+	       if(c1.length!=c2.length) {
+	    	   System.out.println("Not Palindrome");
+	       }
+	       else {
+	    	   
+		       for(int i=0;i<c1.length;i++) {
+		    	   if(c1[i]==c2[i])
+		    		   count++;
+		       }
+	       }
+	      System.out.println(count);
+	      System.out.println(c1.length);
+	       System.out.println(count==len);*/
+	       if(st.equals(st2)) 
+	    	   System.out.println("Palindrome");
+	       else
+	    	   System.out.println("Not Palindrome");
+	        
+//	        StackS ss = new StackS(5);
+//	        while(!s.isEmpty())
+//	        {
+//	        	int tmp = s.pop();
+//
+//	        	while(!ss.isEmpty() && ss.peek() > tmp)
+//	        	{
+//	        		s.push(ss.pop());
+//	        	}
+//	        	ss.push(tmp);
+//	        }
+//	        
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	       
+	    }
+}
+	        
+	        
+	        	 
+
+	        
+	    
+	 

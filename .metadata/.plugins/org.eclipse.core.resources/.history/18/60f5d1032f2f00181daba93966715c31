@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class StackMain {
+	
+	 public static void main(String args[])
+	    {
+		 Scanner sc = new Scanner(System.in);
+		 int d=5;
+		 Stack s = new Stack(d);
+		 int ar[] =new int[d];
+		 
+	        for(int i=0;i<d;i++) {
+	        	ar[i]=sc.nextInt();
+	        	s.push(ar[i]);
+	        }
+	       	      
+	       // s.search(2);
+	        
+	        StackS ss = new StackS(d);
+	        while(!s.isEmpty())
+	        {
+	        	int tmp = s.pop();
+	        	ss.push(tmp);
+	        }
+	        
+	        System.out.println(ss.pop());
+	        System.out.println(ss.pop());
+	        System.out.println(ss.pop());
+	        System.out.println(ss.pop());
+	        System.out.println(ss.pop());
+	       
+	        
+//	        StackS ss = new StackS(5);
+//	        while(!s.isEmpty())
+//	        {
+//	        	int tmp = s.pop();
+//
+//	        	while(!ss.isEmpty() && ss.peek() > tmp)
+//	        	{
+//	        		s.push(ss.pop());
+//	        	}
+//	        	ss.push(tmp);
+//	        }
+//	        
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	       
+	    }
+}
+	        
+	        
+	        	 
+
+	        
+	    
+	 

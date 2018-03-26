@@ -1,0 +1,85 @@
+import java.util.*;
+public  class AscendingMain {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size");
+		int size = sc.nextInt();
+		
+		Values c[] = new Values[size];
+		
+		for(int i=0;i<size;i++) {
+			System.out.println("Enter the values of "+i+" student");
+			c[i]=new Values();
+			c[i].name=sc.next();
+			c[i].roll=sc.nextInt();
+		}
+		
+		System.out.println("unsorted");
+		for (int i = 0; i < c.length; i++) {
+			System.out.println(c[i]);
+		}
+				System.out.println();				
+		for (int i = 0; i < c.length; i++) {
+			for (int j = i; j < c.length-1; j++)
+				if((c[j].compareTo(c[j+1]))>0)
+				{
+					Values temp=c[j];
+					c[j]=c[j+1];
+					c[j+1]=temp;
+				}
+		}
+		System.out.println("sorted by roll");
+		for (int i = 0; i < c.length; i++) {
+			System.out.println(c[i]);
+		}
+		
+//		for (int i = 0; i < c.length; i++) {
+//			for (int j = i; j < c.length-1; j++)
+//				if(compare(c[j].name,c[j+1].name)>0)
+//				{
+//					Values temp=c[j];
+//					c[j]=c[j+1];
+//					c[j+1]=temp;
+//				}
+//		}
+//		System.out.println("\nsorted by name");
+//		for (int i = 0; i < c.length; i++) {
+//			System.out.println(c[i]);
+//		}
+//		
+//	}
+//	public static int compare(String s1,String s2)
+//	{
+//		int len=0;
+//		if(s1.length()>s2.length())
+//		{
+//			len=s2.length();
+//		}
+//		else {
+//			len=s1.length();
+//		}
+//		//System.out.println(len);
+//		for (int i = 0; i < len;) {
+//			while(i<len && s1.charAt(i)-s2.charAt(i)==0)
+//			{
+//				i++;
+//			}
+//			if(s1.length()==i&&s2.length()==i)
+//				return 0;
+//			if(s1.length()==i||s2.length()==i) {
+//				if(s1.length()==i) {
+//					return -1;
+//				}
+//				else 
+//					return 1;
+//			}
+//			return (s1.charAt(i)-s2.charAt(i));
+//		}
+//		return 0;
+//	}
+
+
+}
+}

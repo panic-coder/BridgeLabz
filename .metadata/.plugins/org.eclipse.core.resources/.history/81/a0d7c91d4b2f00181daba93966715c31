@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Pattern {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter two values");
+		int a = s.nextInt();
+		int b = s.nextInt();
+		int num=1;
+		
+		for(int p=a;p>0;p--) {
+			for(int j=0;j<p;j++) {
+		}
+		
+		System.out.println();
+		for(int i=b;i>0;i--) {
+			for(int j=i;j>0;j--) {
+				System.out.print(" ");
+			}
+			//System.out.println();
+			for(int k=b;k>=i;k--) {
+				if(num%2!=0) {
+					System.out.print(num+" ");
+				}
+				num=num+2;
+			}
+			System.out.println();
+		}
+		
+	}
+}

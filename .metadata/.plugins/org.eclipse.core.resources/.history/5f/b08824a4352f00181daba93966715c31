@@ -1,0 +1,6 @@
+
+public interface Comparable {
+
+	int compareTo(Values value);
+	
+}

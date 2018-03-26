@@ -1,0 +1,13 @@
+
+public class Values {
+	int st;
+	public Values(int st) {
+		this.st = st;
+	}
+	
+	//int i=0;
+	public int toString() {
+		return " "+st;
+	}
+
+}

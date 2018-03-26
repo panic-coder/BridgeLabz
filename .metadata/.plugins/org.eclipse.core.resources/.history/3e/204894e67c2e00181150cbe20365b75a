@@ -1,0 +1,6 @@
+
+public class Sort implements CompareTo<Values> {
+	public int compare(Values a,Values b) {
+		return a.st-b.st;
+	}
+}

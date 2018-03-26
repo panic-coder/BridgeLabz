@@ -1,0 +1,34 @@
+
+public class Values implements Comparable{
+	Values(){}	
+	String name;
+	int roll;
+	int sal;
+	
+	Values(String name,int roll,int sal){
+		this.name = name;
+		this.roll = roll;
+		this.sal = sal;
+	}
+	
+	public String toString() {
+		return roll+"  "+name+" "+sal;
+	}
+
+	@Override
+	public int compareTo(Values v) {
+		if(roll==v.roll)
+			return 0;
+		else if(sal>v.sal)
+			return 1;
+		else
+			return -1;
+	}
+	
+
+
+
+	
+
+
+}

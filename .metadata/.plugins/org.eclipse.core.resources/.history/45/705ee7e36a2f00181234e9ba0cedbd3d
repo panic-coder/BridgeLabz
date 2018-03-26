@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class Pattern {
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter two values");
+		int a = s.nextInt();
+		int b = s.nextInt();
+		int num=1,num3=0,d,e;
+		for(d=1;d<=a;d++) {
+			for(e=1;e<d;e++) {
+			
+			}
+			num3=num3+e;
+			//System.out.println(num3);
+		}
+		
+		int num2[]=new int[num3];
+		
+		int arrayCount=0;
+		for(int i=b;i>0;i--) {
+			for(int j=i;j>0;j--) {
+				//System.out.print(" ");
+			}
+			//System.out.println();
+			for(int k=b;k>=i;k--) {
+				if(num%2!=0) {
+					//System.out.print(num+" ");
+					num2[arrayCount]=num;
+					arrayCount++;
+				}
+				num=num+2;
+			}
+			//System.out.println();
+		}
+		/*for(int l=0;l<num2.length;l++)
+			System.out.println(num2[l]);*/
+		int ac=0;
+		int n=a;
+		for(int p=a;p>0;p--) {
+			int m=3;
+			if(m>2)
+				ac=num3-n;
+			if(ac<0)
+				ac=0;
+			//System.out.println(ac);
+			int q;
+			for( q=0;q<p;q++) {
+				System.out.print(+num2[ac]+" ");
+				ac++;
+			}
+			m=m-1;
+			//System.out.println(m);
+			n=n+m;
+			//n=n+(m+1);
+			
+			//ac=num3-a-n;
+			System.out.println();
+			for(int r=0;r<=a-p;r++) {
+				System.out.print(" ");
+			}
+			//System.out.println("ac"+ac);
+		}
+		num =1;
+		for(int i=b;i>0;i--) {
+			for(int j=2;j<i;j++) {
+				System.out.print(" ");
+			}
+			//System.out.println();
+			for(int k=b;k>=i;k--) {
+				if(num%2!=0) {
+					System.out.print(num+" ");
+					//num2[arrayCount]=num;
+					//arrayCount++;
+				}
+				num=num+2;
+			}
+			System.out.println();
+		}
+	}
+}
+

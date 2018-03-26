@@ -1,0 +1,17 @@
+
+public class Values {
+	Values(){}	
+	String name;
+	String roll;
+	
+	Values(String name,String roll){
+		this.name = name;
+		this.roll = roll;
+		
+	}
+	
+	public String toString() {
+		return roll+" "+name;
+	}
+
+}

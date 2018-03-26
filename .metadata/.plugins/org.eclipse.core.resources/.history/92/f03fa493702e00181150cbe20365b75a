@@ -1,0 +1,50 @@
+
+
+public class StackSort {
+	
+	int b[];
+	int size;
+	int top;
+	
+	
+	public StackSort(int i) {
+		top=-1;
+		this.size=i;
+		b=new int[this.size];
+	}
+	
+
+	public void push(int item) {
+		if(isFull()) {
+			top++;
+			b[top]=item;
+		}
+	}
+	
+	public boolean isFull() {
+		if(top==size)
+			return false;
+		else
+			return true;
+	}
+	
+	public int pop() {
+		return b[top--];
+	}
+	
+
+	public boolean isEmpty() {
+		if(top!=size)
+			return true;
+		else 
+			return false;
+	}
+	
+
+	
+	public void display() {
+		for(int i=0;i<size;i++) {
+			System.out.println(b[i]);
+		}
+	}
+}

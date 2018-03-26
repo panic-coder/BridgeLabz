@@ -1,0 +1,12 @@
+
+public class AscendingMain {
+	String st;
+	public AscendingMain(String st) {
+		this.st = st;
+	}
+	
+	public String toString() {
+		return st;
+	}
+
+}

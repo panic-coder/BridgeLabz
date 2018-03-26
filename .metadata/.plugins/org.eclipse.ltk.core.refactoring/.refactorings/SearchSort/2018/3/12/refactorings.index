@@ -1,0 +1,24 @@
+1521703268078	Rename type 'Compareto'
+1521703298082	Rename type 'Compare'
+1521703368064	Rename type 'AscendingMain'
+1521703826439	Rename type 'CompareToMain'
+1521704075669	Rename type 'Values'
+1521778926168	Convert local variable 't' to field
+1521779173682	Convert local variable 't' to field
+1521780625486	Delete element
+1521780930579	Rename type 'ArrayOfObjects'
+1521783139766	Rename type 'AscendingValues'
+1521785571709	Copy compilation units
+1521785585415	Delete elements
+1521785610678	Delete element
+1521795994738	Delete element
+1521797461413	Delete element
+1521797552957	Delete element
+1521797647790	Delete element
+1521798310543	Delete element
+1521805267281	Delete element
+1521806376570	Rename type 'ArrayOfObjects'
+1521811903148	Delete element
+1521812009137	Delete element
+1521812047446	Rename type 'StackSearch'
+1521875909492	Rename type 'Comparator'

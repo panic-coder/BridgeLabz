@@ -1,0 +1,13 @@
+
+public class AscendingValues {
+	String st;
+	public AscendingValues(String st) {
+		this.st = st;
+	}
+	
+	
+	public String tStrig() {
+		return st;
+	}
+
+}

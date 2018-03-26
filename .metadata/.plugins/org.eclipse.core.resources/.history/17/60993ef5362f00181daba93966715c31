@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class StackMain {
+	
+	 public static void main(String args[])
+	    {
+		 Scanner sc = new Scanner(System.in);
+		 
+		String st;
+		 String st2="";
+		 System.out.println("enter the value");
+		 st=sc.next();
+		 int d=st.length();
+		 Stack s = new Stack(d);
+	        for(int i=0;i<st.length();i++) {
+	        	s.push(st.charAt(i));
+	        	//st=st+1;
+	        }
+	       	      
+	       // s.search(2);
+	        
+	        
+	        StackS ss = new StackS(d);
+	        while(d>0)
+	        {
+	        	char tmp = (char) s.pop();
+	        	//System.out.print(tmp);
+	        	ss.push(tmp);
+	        	d--;
+	        }
+	        
+	        d=st.length();
+	        
+	       while(d>0) {
+	    	   char c=(char) ss.pop();
+	    	   //System.out.print(c);
+	    	   st2=st2+c;
+	    	   d--;
+	       }
+	       
+	       if(st==st2)) {
+	    	   System.out.println("Palindrome");
+	       }
+	       else
+	    	   System.out.println("Not Palindrome");
+	        
+//	        StackS ss = new StackS(5);
+//	        while(!s.isEmpty())
+//	        {
+//	        	int tmp = s.pop();
+//
+//	        	while(!ss.isEmpty() && ss.peek() > tmp)
+//	        	{
+//	        		s.push(ss.pop());
+//	        	}
+//	        	ss.push(tmp);
+//	        }
+//	        
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	        System.out.println(ss.pop());
+//	       
+	    }
+}
+	        
+	        
+	        	 
+
+	        
+	    
+	 
