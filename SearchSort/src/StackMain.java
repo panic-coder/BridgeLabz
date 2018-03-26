@@ -40,9 +40,9 @@ public class StackMain {
 	    	   d--;
 	       }
 	       
-	       System.out.println(st);
+	      /* System.out.println(st);
 	       System.out.println(st2);
-	      
+	      */
 	       if(st.equals(st2)) 
 	    	   System.out.println("Palindrome");
 	       else

@@ -40,6 +40,7 @@ public class StackS {
         else
         {
             char x = a[top--];
+            //System.out.println(x);
             return x;
         }
     }

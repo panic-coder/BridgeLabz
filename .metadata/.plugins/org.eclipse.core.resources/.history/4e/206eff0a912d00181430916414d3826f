@@ -1,8 +1,0 @@
-
-public class StackMain {
-	public static void main(String[] args) {
-		StackSearch s = new StackSearch(5);
-		s.push(1);
-		
-	}
-}
