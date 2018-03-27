@@ -1,4 +1,5 @@
-
+/*1. Write a program FlipCoin.java to simulate a coin flip and print out "Heads" or
+"Tails" accordingly and finally print the percentage of Head vs Tail.*/
 import java.util.*;
 public class FlipCoin {
 	public static void main(String[] args) {

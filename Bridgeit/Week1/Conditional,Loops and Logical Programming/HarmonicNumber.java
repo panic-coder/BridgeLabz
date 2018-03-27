@@ -1,3 +1,5 @@
+/*3. Write a program HarmonicNumber.java that takes a command­line argument n
+and prints the nth harmonic number. Harmonic Number is of the form*/
 import java.util.Scanner;
 
 public class HarmonicNumber {

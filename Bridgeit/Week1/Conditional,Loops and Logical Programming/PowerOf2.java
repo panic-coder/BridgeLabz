@@ -1,3 +1,5 @@
+/*2. Write a program PowerOf2.java that takes a command­line argument n and prints a
+table of the powers of 2 that are less than or equal to 2^n.*/
 import java.util.Scanner;
 
 public class PowerOf2 {
