@@ -22,22 +22,25 @@ public class PrintThreeNames {
 
 		}
 
-		System.out.println("unsorted");
+		/*System.out.println("unsorted");
 		for (int i = 0; i < c.length; i++) {
 			System.out.println(c[i]);
-		}
+		}*/
 
 		for (int i = 0; i < c.length; i++) {
-			for (int j = i; j < c.length - 1; j++)
+			for (int j = 0; j < c.length - 1; j++)
 				if (compare(c[j].name, c[j + 1].name) > 0) {
 					Values temp = c[j];
 					c[j] = c[j+1];
 					c[j+1] = temp;
 				}
 		}
-		System.out.println("\nsorted by name");
+		System.out.print("Hi ");
 		for (int i = 0; i < c.length; i++) {
-			System.out.println(c[i]);
+			if(i>=0 && i<c.length-1)
+				System.out.print(c[i]+", ");
+			else if(i<c.length)
+				System.out.print("and "+c[i]);
 			s.close();
 		}
 
@@ -51,19 +54,19 @@ public class PrintThreeNames {
 			l = str1.length();
 		for (int i = 0; i < l; i++) {
 
-			while (i < l && str1.charAt(i) - str2.charAt(i) == 0) {
+			while (i < l && str2.charAt(i) - str1.charAt(i) == 0) {
 
 				i++;
 			}
-			if (str1.length() == str2.length() && str2.length() == i)
+			if (str1.length() == str2.length() && str1.length() == i)
 				return 0;
 			if (str1.length() == i || str2.length() == i) {
-				if (str1.length() == i)
-					return -1;
+				if (str2.length() == i)
+					return +1;
 				else
-					return 1;
+					return -1;
 			}
-			return str1.charAt(i) - str2.charAt(i);
+			return str2.charAt(i) - str1.charAt(i);
 		}
 		return 0;
 	}

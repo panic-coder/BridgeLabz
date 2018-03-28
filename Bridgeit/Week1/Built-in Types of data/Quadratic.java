@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Quadratic {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		double a,b,c,delta,x1,x2,root;
+		double a,b,c,delta,x1,x2;
 		System.out.println("Enter the values of a, b & c");
 		a = s.nextInt();
 		b = s.nextInt();
@@ -20,11 +20,14 @@ public class Quadratic {
 		//System.out.println(delta);
 		x1 = (-b+Math.sqrt(delta))/(2*a);
 		x2 = (-b-Math.sqrt(delta))/(2*a);
-		//System.out.println(x1);
-		//System.out.println(x2);
-		root = (a*x1*x2)+(b*x1)+c;
-		//System.out.println(root);
-		System.out.println(Math.sqrt(9));
+		if(x1>0)
+			System.out.println("First Root "+x1);
+		else
+			System.out.println("First Root "+x1+"i");
+		if(x2>0)
+			System.out.println("Second Root "+x2);
+		else
+			System.out.println("Second Root "+x2+"i");
 		
 		s.close();
 	}
