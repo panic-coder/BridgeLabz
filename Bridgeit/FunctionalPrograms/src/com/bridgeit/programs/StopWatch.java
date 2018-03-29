@@ -1,3 +1,9 @@
+/*Simulate Stopwatch Program
+Desc -> Write a Stopwatch Program for measuring the time that elapses between the start and end clicks
+I/P -> Start the Stopwatch and End the Stopwatch
+Logic -> Measure the elapsed time between start and end
+O/P -> Print the elapsed time.
+*/
 package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
@@ -16,3 +22,4 @@ public class StopWatch {
 
 	
 }
+/*28-March-2018*/

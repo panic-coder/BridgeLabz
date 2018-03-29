@@ -4,6 +4,8 @@ import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.bridgeit.programs.Values;
+
 public class Utility {
 	Scanner scanner;
 	Random random;
@@ -277,20 +279,35 @@ public class Utility {
 		return p;
 	}
 
-	public String permutation(String st) {
+	public Values[] permutationIterative(String st, int size) {
 		char[] c = st.toCharArray();
-		st = "";
-		for (int i = 0; i < c.length; i++) {
-			for (int j = 1; j < c.length - 1; j++) {
+		Values value[] = new Values[size];
 
+		st = "";
+		int z = 0;
+		while (z < size) {
+			for (int i = 0; i < c.length; i++) {
+				for (int j = 0; j < c.length; j++) {
+					char temp = c[i];
+					c[i] = c[j];
+					// st=st+c[i];
+					c[j] = temp;
+					// st=st+c[j];
+				}
 			}
+			Values val = new Values();
+			val.name = st;
+			value[z] = val;
+			z++;
 		}
-		return null;
+		return value;
 	}
 
 	public void ticTacToe() {
+		int pc = 0;
+		int user = 0;
 		int[][] a = new int[3][3];
-		int t = 0, count = 0, s = 0;
+		int t = 0, count = 0, s = 0, u = 0;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				a[i][j] = -1;
@@ -299,11 +316,21 @@ public class Utility {
 		while (t == 0) {
 			count = 0;
 			s = 0;
+			u = 0;
 			int r = inputRandom(3);
 			int c = inputRandom(3);
+			int countPcIn = 0;
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					if (a[i][j] == -1)
+						countPcIn++;
+				}
+			}
 
-			while (s == 0) {
+			while (s == 0 && countPcIn > 0) {
+				// System.out.println(r + "R" + c);
 				if (a[r][c] == -1) {
+					System.out.println(r + " " + c);
 					a[r][c] = 0;
 					s = 1;
 				} else {
@@ -311,7 +338,53 @@ public class Utility {
 					c = inputRandom(3);
 				}
 			}
-			System.out.println("Empty cells are");
+
+			if (a[0][0] == 0 && a[0][1] == 0 && a[0][2] == 0) {
+				pc++;
+				break;
+			} else if (a[1][0] == 0 && a[1][1] == 0 && a[1][2] == 0) {
+				pc++;
+				break;
+			} else if (a[2][0] == 0 && a[2][1] == 0 && a[2][2] == 0) {
+				pc++;
+				break;
+			} else if (a[0][0] == 0 && a[1][0] == 0 && a[2][0] == 0) {
+				pc++;
+				break;
+			} else if (a[0][1] == 0 && a[1][1] == 0 && a[2][1] == 0) {
+				pc++;
+				break;
+			} else if (a[0][2] == 0 && a[1][2] == 0 && a[2][2] == 0) {
+				pc++;
+				break;
+			} else if (a[0][0] == 0 && a[1][1] == 0 && a[2][2] == 0) {
+				pc++;
+				break;
+			} else if (a[0][2] == 0 && a[1][1] == 0 && a[2][0] == 0) {
+				pc++;
+				break;
+			}
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					if (a[i][j] >= 0)
+						System.out.print(" " + a[i][j] + " ");
+					else
+						System.out.print(a[i][j] + " ");
+				}
+				System.out.println();
+			}
+			System.out.println("==========\n");
+			int countUserIn = 0;
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					if (a[i][j] == -1)
+						countUserIn++;
+				}
+			}
+
+			if (countUserIn > 0)
+				System.out.println("Empty cells are");
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
 					if (a[i][j] == -1) { // || a[i][j]!=0 || a[i][j]!=1) {
@@ -319,13 +392,62 @@ public class Utility {
 					}
 				}
 			}
-			
-			
-			System.out.println("Enter the cell");
-			r = inputInteger();
-			c = inputInteger();
 
-			a[r][c] = 1;
+			if (countUserIn > 0) {
+				System.out.println("Enter the cell");
+				r = inputInteger();
+				c = inputInteger();
+			}
+
+			while (u == 0 && countUserIn > 0) {
+				if (a[r][c] == -1) {
+					a[r][c] = 1;
+					u = 1;
+				} else {
+					System.out.println("Enter the cells numbers from\nabove indexes");
+					r = inputInteger();
+					c = inputInteger();
+				}
+			}
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					if (a[i][j] >= 0)
+						System.out.print(" " + a[i][j] + " ");
+					else
+						System.out.print(a[i][j] + " ");
+				}
+				System.out.println();
+			}
+			System.out.println("==========\n");
+
+			// a[r][c] = 1;
+
+			if (a[0][0] == 1 && a[0][1] == 1 && a[0][2] == 1) {
+				user++;
+				break;
+			} else if (a[1][0] == 1 && a[1][1] == 1 && a[1][2] == 1) {
+				user++;
+				break;
+			} else if (a[2][0] == 1 && a[2][1] == 1 && a[2][2] == 1) {
+				user++;
+				break;
+			} else if (a[0][0] == 1 && a[1][0] == 1 && a[2][0] == 1) {
+				user++;
+				break;
+			} else if (a[0][1] == 1 && a[1][1] == 1 && a[2][1] == 1) {
+				user++;
+				break;
+			} else if (a[0][2] == 1 && a[1][2] == 1 && a[2][2] == 1) {
+				user++;
+				break;
+			} else if (a[0][0] == 1 && a[1][1] == 1 && a[2][2] == 1) {
+				user++;
+				break;
+			} else if (a[0][2] == 1 && a[1][1] == 1 && a[2][0] == 1) {
+				user++;
+				break;
+			}
 
 			for (int i = 0; i < 3; i++) {
 				for (int j = 0; j < 3; j++) {
@@ -341,7 +463,22 @@ public class Utility {
 			}
 
 		}
+		System.out.println("==========");
+		System.out.println();
+		if (pc > 0)
+			System.out.println("Computer wins");
+		else if (user > 0)
+			System.out.println("User wins");
 		System.out.println("Ends");
+	}
+
+	public int factorial(int size) {
+		int f = 1;
+		for (int i = size; i > 0; i--) {
+			f = f * i;
+		}
+
+		return f;
 	}
 
 }
