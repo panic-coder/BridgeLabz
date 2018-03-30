@@ -7,6 +7,11 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**Purpose: Finding if two strings are anagram or not.
+ * 
+ * @author Kumar Shubham
+ * @since  29-03-2018
+ */
 public class Anagram {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -21,4 +26,3 @@ public class Anagram {
 			System.out.println("Not Anagram");
 	}
 }
-/*29-March-2018*/

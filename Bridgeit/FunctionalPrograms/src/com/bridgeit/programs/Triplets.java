@@ -8,6 +8,14 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Finding if sum the continuous elements in array is zero,
+ * if its zero they are triplets. 
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class Triplets {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -26,4 +34,3 @@ public class Triplets {
 		}
 	}
 }
-/*28-March-2018*/

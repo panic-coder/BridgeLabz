@@ -7,6 +7,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Taking input "String" and print "hi String".  
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class Username {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

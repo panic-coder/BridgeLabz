@@ -14,6 +14,19 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Checking of 
+ *  binarySearch method for integer
+ *  binarySearch method for String
+ *  insertionSort method for integer
+ *  insertionSort method for String
+ *  bubbleSort method for integer
+ *  bubbleSort method for String
+ * 
+ * @author Kumar Shubham
+ * @since  29-03-2018
+ *
+ */
 public class SearchSortElapsedTime {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

@@ -9,6 +9,14 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Finding how many total random numbers should be 
+ * created for all the  numbers to be distinct.
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class CouponNumbers {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -19,4 +27,3 @@ public class CouponNumbers {
 	}
 
 }
-/*28-March-2018*/

@@ -9,10 +9,16 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Creating a tic tac toe game.
+ * 
+ * @author Kumar Shubham
+ * @since  29-03-2018
+ *
+ */
 public class TicTacToe {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
 		utility.ticTacToe();
 	}
 }
-/*29-March-2018*/

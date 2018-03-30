@@ -7,6 +7,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Calculating distance using Euclidean distance.
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class Distance {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -18,4 +25,3 @@ public class Distance {
 		System.out.println(d);
 	}
 }
-/*28-March-2018*/

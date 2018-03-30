@@ -8,6 +8,14 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: reading int, double and boolean in input array
+ * and printing using PrintWriter.
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class Array2D {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -29,4 +37,3 @@ public class Array2D {
 		}
 	}
 }
-/*28-March-2018*/

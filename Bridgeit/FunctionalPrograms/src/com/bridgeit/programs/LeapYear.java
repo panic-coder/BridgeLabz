@@ -7,6 +7,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Find if the year is leap or not.
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class LeapYear {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -19,4 +26,3 @@ public class LeapYear {
 			System.out.println(year + " is not a Leap Year");
 	}
 }
-/*28-March-2018*/

@@ -8,6 +8,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Find out wins, win percentage and loss of a gambler.
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class Gambler {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -19,4 +26,3 @@ public class Gambler {
 		utility.gambler(stake, goals, trails);
 	}
 }
-/*28-March-2018*/

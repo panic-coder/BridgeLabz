@@ -8,6 +8,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Find the sum of Harmonic numbers.
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class HarmonicNumber {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -16,4 +23,3 @@ public class HarmonicNumber {
 		System.out.println(sum);
 	}
 }
-/*28-March-2018*/

@@ -7,6 +7,14 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Checking if a range of number whether they are prime 
+ * and anagram and palindrome.
+ * 
+ * @author Kumar Shubham
+ * @since  29-03-2018
+ *
+ */
 public class PrimeAnagramPalindrome {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -30,4 +38,3 @@ public class PrimeAnagramPalindrome {
 		//Utility.palindrome(152);
 	}
 }
-/*29-March-2018*/

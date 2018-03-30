@@ -8,6 +8,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Searching a String in a String array.
+ * 
+ * @author Kumar Shubham
+ * @since  29-03-2018
+ *
+ */
 public class BinarySearchString {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -27,4 +34,3 @@ public class BinarySearchString {
 			System.out.println(value+" is not present");
 	}
 }
-/*29-March-2018*/

@@ -7,6 +7,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Sorting integer array using bubble sort.
+ * 
+ * @author Kumar Shubham
+ * @since  29-03-2018
+ *
+ */
 public class BubbleSort {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -22,4 +29,3 @@ public class BubbleSort {
 	}
 
 }
-/*29-March-2018*/

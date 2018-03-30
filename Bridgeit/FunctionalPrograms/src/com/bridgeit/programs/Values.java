@@ -3,6 +3,11 @@
  * Check if the arrays returned by two string functions are equal. */
 package com.bridgeit.programs;
 
+/**
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class Values {
 	public Values(){}
 	public String name;

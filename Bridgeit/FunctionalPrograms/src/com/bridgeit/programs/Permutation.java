@@ -5,6 +5,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Find the total numbers of permutation.
+ * 
+ * @author Kumar Shubham
+ * @since  29-03-2018
+ *
+ */
 public class Permutation {
 	static int size;
 
@@ -47,4 +54,3 @@ public class Permutation {
 		return ar;
 	}
 }
-/*29-March-2018*/

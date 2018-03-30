@@ -4,6 +4,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Checking prime for a range of values.
+ * 
+ * @author Kumar Shubham
+ * @since  29-03-2018
+ *
+ */
 public class PrimeRange {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -20,4 +27,3 @@ public class PrimeRange {
 		}
 	}
 }
-/*29-March-2018*/

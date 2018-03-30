@@ -14,6 +14,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Finding the chill in wind.
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class WindChill {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -26,4 +33,3 @@ public class WindChill {
 		System.out.println("Wind Chill = "+w);
 	}
 }
-/*28-March-2018*/

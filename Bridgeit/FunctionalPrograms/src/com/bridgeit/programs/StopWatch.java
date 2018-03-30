@@ -8,6 +8,13 @@ package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 
+/**
+ * Purpose: Starting and Stopping of stop watch and finding the difference.
+ * 
+ * @author Kumar Shubham
+ * @since  28-03-2018
+ *
+ */
 public class StopWatch {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
@@ -22,4 +29,3 @@ public class StopWatch {
 
 	
 }
-/*28-March-2018*/
