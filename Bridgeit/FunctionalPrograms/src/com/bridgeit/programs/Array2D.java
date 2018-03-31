@@ -20,6 +20,7 @@ public class Array2D {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
 		System.out.println("1. for integers\n" + "2. for doubles\n" + "3. for booleans\nEnter your choice");
+		int[][] a= new int[3][3];
 		int ch = utility.inputInteger();
 		switch (ch) {
 		case 1:
@@ -35,5 +36,6 @@ public class Array2D {
 			System.out.println("Wrong Choice");
 			break;
 		}
+		//utility.display(a,3,3);
 	}
 }

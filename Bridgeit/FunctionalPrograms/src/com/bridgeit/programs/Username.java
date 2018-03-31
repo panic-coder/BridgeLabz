@@ -18,16 +18,17 @@ public class Username {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
 		int n = 1;
-		String user = "";
+		String user = "Hello <<UserName>>, How are you?";
+		String userName="";
 		System.out.println("Enter Username");
 		while (n > 0) {
-			user = utility.inputString();
-			if (user.length() < 3)
+			userName = utility.inputString();
+			if (userName.length() < 3)
 				System.out.println("Please Ensure UserName has \nminimum 3 characters ");
 			else
 				n--;
 		}
-		utility.username(user);
+		utility.username(userName,user);
 	}
 }
 /*28-March-2018*/

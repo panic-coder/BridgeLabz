@@ -24,12 +24,21 @@ import com.bridgeit.utility.Utility;
 public class WindChill {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
+		int tempCount=0,windCount=0;
+		double temperature=0,velocity=0;
+		while(tempCount==0) {
 		System.out.println("Enter the temperature t \nwhere t>50");
-		double t = utility.inputDouble();
+		temperature = utility.inputDouble();
+		if(temperature>50)
+			tempCount++;
+		}
+		while(windCount==0) {
 		System.out.println("Enter the speed of wind v \nwhere 3<v<120 ");
-		double v = utility.inputDouble();
-		double w=0;
-		w = 35.74 + (0.6215*t) + ((0.4275*t)-35.75)* Math.pow(v, 0.16);
-		System.out.println("Wind Chill = "+w);
+		velocity = utility.inputDouble();
+		if(velocity>3 && velocity<120)
+			windCount++;
+		}
+		double windchill=utility.windChill(temperature,velocity);
+		System.out.println("Wind Chill = "+windchill);
 	}
 }

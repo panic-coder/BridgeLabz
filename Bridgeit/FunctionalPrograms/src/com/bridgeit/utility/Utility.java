@@ -77,24 +77,24 @@ public class Utility {
 	/**
 	 * @param n
 	 */
-	public void flipcoin(int n) {
-		int m = n;
-		double h = 0, t = 0;
-		double hp = 1, tp = 1;
-		while (n > 0) {
-			int num = inputRandom(2);
+	public void flipcoin(int userTestcases) {
+		int totalTestcases = userTestcases;
+		double heads = 0, tails = 0;
+		double headPercentage = 1, tailPercentage = 1;
+		while (userTestcases > 0) {
+			int RandomNumber = inputRandom(2);
 			// System.out.println(num);
-			if (num == 1)
-				h++;
+			if (RandomNumber == 1)
+				heads++;
 			// System.out.println(h);
-			if (num == 0)
-				t++;
-			n--;
+			if (RandomNumber == 0)
+				tails++;
+			userTestcases--;
 		}
-		hp = (h / m) * 100;
-		tp = (t / m) * 100;
-		System.out.println("Heads Percentage = " + hp);
-		System.out.println("Tails Percentage = " + tp);
+		headPercentage = (heads / totalTestcases) * 100;
+		tailPercentage = (tails / totalTestcases) * 100;
+		System.out.println("Heads Percentage = " + headPercentage);
+		System.out.println("Tails Percentage = " + tailPercentage);
 	}
 
 	public boolean leapyear(int year) {
@@ -110,8 +110,34 @@ public class Utility {
 		}
 	}
 
-	public void username(String user) {
-		System.out.println("Hello " + user);
+	public void username(String userName, String user) {
+		char[] c = user.toCharArray();
+		String newUser = "",newUser2="";int z=0,x=0;
+		for (int i = 0; i < c.length; i++) {
+			if (c[i] == '<') {
+				z++;
+				x++;
+				//System.out.println(x);System.out.println("====");
+			} 
+			
+			else if(c[i] == '>') {
+				x=x-1;
+				//System.out.println(x);
+			}
+			if(z==0){
+				newUser = newUser + c[i];
+			}
+			else if(x==0 && c[i]!='>') {
+				newUser2 = newUser2 +c[i];
+			}
+			
+		}
+		String newUserName =newUser+userName+newUser2;
+		//System.out.println(newUser);
+		//System.out.println(newUser2);
+		System.out.println(user);
+		System.out.println(newUserName);
+
 	}
 
 	public int powerOf2(int n) {
@@ -139,7 +165,7 @@ public class Utility {
 	public void primeFactor(int n) {
 		int m = n;
 		int i = 2;
-		while (i * i <= n) {
+		while (i <= n) {
 			if (m % i == 0) {
 				System.out.print(i + " ");
 				m = m / i;
@@ -149,37 +175,44 @@ public class Utility {
 		}
 	}
 
-	public void gambler(int stake, int goals, int trails) {
-		double won = 0, bets = 0, g = stake;
+	public void gambler(int cash, int stake, int goals, int trails) {
+		double won = 0, bets = 0, loss = 0;
 		int current;
 
-		while (trails > 0 && stake > 0 && goals > 0) {
+		while (trails > 0 /* && stake > 0 */ && goals >= cash && cash > 0) {
 			bets++;
 			current = inputRandom(2);
 			System.out.println(current);
 			if (current == 1) {
-				stake++;
-				goals--;
+				// stake++;
+				cash = cash + stake;
 				won++;
 			} else {
-				stake--;
+				// stake--;
+				cash = cash - stake;
+				loss++;
 			}
-
+			// cash = cash - stake;
 			trails--;
 		}
 
-		System.out.println("Total number of wins = " + won);
+		// System.out.println("Total number of wins = " + won);
 		System.out.println("Win % = " + (won / bets) * 100);
-		System.out.println("Average number of bets = " + (g / bets));
+		System.out.println("Loss % = " + (loss / bets) * 100);
+		// System.out.println("Average number of bets = " + (g / bets));
 
 	}
 
 	public int couponNumbers(int n) {
-		int count = n;
+		int count = n, m = 0, r = 0;
 		int a[] = new int[n];
 		int i = 0;
 		while (i < n) {
-			int r = inputRandom(10);
+
+			while (m > 0) {
+
+				r = inputRandom(10);
+			}
 			a[i] = r;
 			if (i > 0) {
 				for (int j = 0; j < i; j++) {
@@ -190,6 +223,7 @@ public class Utility {
 			System.out.println(a[i]);
 			i++;
 		}
+
 		return count;
 	}
 
@@ -258,10 +292,14 @@ public class Utility {
 
 	public int triplets(int[] a) {
 		int count = 0;
-		for (int i = 0; i < a.length - 2; i++) {
-			if (a[i] + a[i + 1] + a[i + 2] == 0) {
-				count++;
-				System.out.println(a[i] + " " + a[i + 1] + " " + a[i + 2]);
+		for (int k = 0; k < a.length; k++) {
+			for (int j = k + 1; j < a.length; j++) {
+				for (int i = j + 1; i < a.length; i++) {
+					if (a[k] + a[j] + a[i] == 0) {
+						count++;
+						System.out.println(a[k] + " " + a[j] + " " + a[i]);
+					}
+				}
 			}
 		}
 		return count;
@@ -479,6 +517,21 @@ public class Utility {
 		}
 
 		return f;
+	}
+
+	public void display(int[][] a, int m, int n) {
+		PrintWriter pw = new PrintWriter(System.out, true);
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				pw.print(a[i][j] + " ");
+			}
+			pw.println();
+		}
+		pw.println();
+	}
+
+	public double windChill(double temperature, double velocity) {
+		return 35.74 + (0.6215 * temperature) + ((0.4275 * temperature) - 35.75) * Math.pow(velocity, 0.16);
 	}
 
 }

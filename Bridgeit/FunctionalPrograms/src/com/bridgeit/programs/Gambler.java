@@ -18,11 +18,12 @@ import com.bridgeit.utility.Utility;
 public class Gambler {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
-		System.out.println("Enter the STAKE, GOALS \nand trails ");
-		int stake, goals, trails;
+		System.out.println("Enter TOTAL CASH, STAKE, GOALS \nand trails ");
+		int cash, stake, goals, trails;
+		cash = utility.inputInteger();
 		stake = utility.inputInteger();
 		goals = utility.inputInteger();
 		trails = utility.inputInteger();
-		utility.gambler(stake, goals, trails);
+		utility.gambler(cash, stake, goals, trails);
 	}
 }

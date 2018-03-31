@@ -550,20 +550,21 @@ public class Utility {
 
 	}
 
+	/**
+	 * @param c
+	 */
 	public static void sqrt(double c) {
-		double t;
+		double t=0;
 		t = c;
-		t = ((c / t) + c) / 2;
 		double epsilon = 1e-15;
-		if (Math.abs(t - c / t) > (epsilon * t)) {
-			sqrt(c);
-		} else
-			return;
+		do {
+			t = ((c / t) + t) / 2;
+		}while((Math.abs(t - (c / t))) > (epsilon * t));
 		/*
 		 * for(t=c;Math.abs(t - c/t) > (epsilon*t );) { t=((c/t)+c)/2;
 		 * System.out.println("1"); }
 		 */
-		// System.out.println(t);
+		System.out.println(t);
 	}
 
 	/**
