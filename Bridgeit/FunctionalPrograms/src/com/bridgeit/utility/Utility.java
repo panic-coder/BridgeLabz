@@ -226,68 +226,78 @@ public class Utility {
 
 		return count;
 	}
-
+	static PrintWriter pw = new PrintWriter(System.out, true);
+	
 	public void intArray() {
-		PrintWriter pw = new PrintWriter(System.out, true);
 		pw.println("Enter the value of rows and columns\nfor int array");
 		int m = inputInteger();
 		int n = inputInteger();
-		int[][] a = new int[m][n];
+		Integer[][] a = new Integer[m][n];
 		pw.println("Enter " + (m * n) + " integer values");
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				a[i][j] = inputInteger();
 			}
 		}
-		for (int i = 0; i < m; i++) {
+		/*for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				pw.print(a[i][j] + " ");
 			}
 			pw.println();
 		}
+		pw.println();*/
+		printArray2D(a,m,n);
+	}
+	
+	public static <E> void printArray2D(E[][] a,int m,int n) {
+		for(int i=0;i<m;i++) {
+			for(int j=0;j<n;j++) {
+				pw.printf("%s ",a[i][j]);
+			}
 		pw.println();
+		}
 	}
 
 	public void doubleArray() {
-		PrintWriter pw = new PrintWriter(System.out, true);
 		pw.println("Enter the value of rows and columns\nfor double array");
 		int m = inputInteger();
 		int n = inputInteger();
-		double[][] a = new double[m][n];
+		Double[][] a = new Double[m][n];
 		pw.println("Enter " + (m * n) + " double values");
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				a[i][j] = inputDouble();
 			}
 		}
-		for (int i = 0; i < m; i++) {
+		/*for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				pw.print(a[i][j] + " ");
 			}
 			pw.println();
 		}
-		pw.println();
+		pw.println();*/
+		printArray2D(a,m,n);
 	}
 
 	public void booleanArray() {
-		PrintWriter pw = new PrintWriter(System.out, true);
 		pw.println("Enter the value of rows and columns\nfor boolean array");
 		int m = inputInteger();
 		int n = inputInteger();
-		boolean[][] a = new boolean[m][n];
+		Boolean[][] a = new Boolean[m][n];
 		pw.println("Enter " + (m * n) + " boolean values");
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				a[i][j] = inputBoolean();
 			}
 		}
-		for (int i = 0; i < m; i++) {
+		/*for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				pw.print(a[i][j] + " ");
 			}
 			pw.println();
 		}
-		pw.println();
+		pw.println();*/
+		printArray2D(a,m,n);
 	}
 
 	public int triplets(int[] a) {

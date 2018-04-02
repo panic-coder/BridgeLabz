@@ -219,9 +219,9 @@ public class Utility {
 	 * @param a
 	 * @return Sorting of Integer array via Insertion Sort.
 	 */
-	public static int[] insertionSort(int[] a) {
+	public static Integer[] insertionSort(Integer[] a) {
 		for (int i = 1; i < a.length; i++) {
-			int ne = a[i];
+			Integer ne = a[i];
 			int j;
 			for (j = i; j > 0 && a[j - 1] > ne; j--) {
 				a[j] = a[j - 1];
@@ -243,7 +243,7 @@ public class Utility {
 		for (int i = 1; i < a.length; i++) {
 			String ne = a[i];
 			int j;
-			for (j = i; j > 0 && compare(a[j - 1], ne) > 0; j--) {
+			for (j = i; j > 0 && (a[j - 1].compareTo(ne)) > 0; j--) {
 				a[j] = a[j - 1];
 			}
 			a[j] = ne;
@@ -294,23 +294,31 @@ public class Utility {
 	}
 
 	/**
+	 * @param <E>
 	 * @param d
 	 * @return Sorting a integer array via Bubble sort.
 	 */
-	public static int[] bubbleSort(int[] d) {
-		int temp = 0;
+	public static <E> Integer[] bubbleSort(Integer[] d) {
+		Integer temp;
 		for (int i = 0; i < d.length; i++) {
 			for (int j = 0; j < d.length - 1; j++) {
-				if (d[j] > d[j + 1]) {
-					temp = d[j];
-					d[j] = d[j + 1];
-					d[j + 1] = temp;
+				int result = ((Comparable<Integer>) d[j]).compareTo((Integer) d[j+1]);
+				if (result==1) {
+					temp = d[j+1];
+					d[j+1] = d[j];
+					d[j] = temp;
 				}
 			}
 		}
-		return d;
+		return (Integer[]) d;
 	}
-
+	
+	public static <E> void displayArray(E[] array,int n) {
+		for(int i=0;i<n;i++) {
+			System.out.printf("%s ",array[i]);
+		}
+	}
+	
 	/**
 	 * @param d
 	 * @return Sorting a String array via Bubble Sort.
@@ -330,18 +338,20 @@ public class Utility {
 	}
 
 	/**
+	 * @param <E>
 	 * @param a
 	 * @param value
 	 * @return Check whether element is present or not via Binary Search.
 	 */
-	public static boolean binarySearch(int[] a, int value) {
+	@SuppressWarnings("unchecked")
+	public static <E> boolean binarySearch(E[] a, Integer value) {
 		int start = 0;
 		int end = a.length;
 		while (start < end) {
 			int midp = (start + end) / 2;
 			if (a[midp] == value) {
 				return true;
-			} else if (a[midp] < value) {
+			} else if ((( (Comparable<Integer>) a[midp]).compareTo(value))>0) {
 				start = midp + 1;
 			} else {
 				end = midp;
@@ -363,7 +373,7 @@ public class Utility {
 			int midp = (start + end) / 2;
 			if (a[midp].equals(value)) {
 				return true;
-			} else if (compare(a[midp], value) < 0) {
+			} else if ((a[midp].compareTo(value)) < 0) {
 				start = midp + 1;
 			} else {
 				end = midp;
@@ -430,7 +440,6 @@ public class Utility {
 				end = midp;
 			}
 		}
-
 		return -1;
 	}
 

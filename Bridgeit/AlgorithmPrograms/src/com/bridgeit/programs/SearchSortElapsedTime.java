@@ -39,32 +39,32 @@ public class SearchSortElapsedTime {
 			;
 			int n = utility.inputInteger();
 			System.out.println("Enter " + n + " elements");
-			int[] a = new int[n];
+			Integer[] a = new Integer[n];
 			for (int i = 0; i < n; i++) {
 				a[i] = utility.inputInteger();
 			}
 
 			long timeInsertionStart = System.currentTimeMillis();
-			int[] b = Utility.insertionSort(a);
+			Integer[] arrayInsertion = Utility.insertionSort(a);
 			long timeInsertionStop = System.currentTimeMillis();
 			System.out.println("==========");
 			System.out.println(
 					"Insertion Sort time elapsed = " + (timeInsertionStop - timeInsertionStart) + " milliseconds");
 			System.out.println("==========");
-			Utility.display(b);
+			Utility.displayArray(arrayInsertion,n);
 			System.out.println();
 
 			long timeBubbleStart = System.currentTimeMillis();
-			int[] c = Utility.bubbleSort(a);
+			Integer array[]=  Utility.bubbleSort(a);
 			long timeBubbleStop = System.currentTimeMillis();
 			System.out.println("==========");
 			System.out.println("Bubble Sort time elapsed = " + (timeBubbleStop - timeBubbleStart) + " milliseconds");
 			System.out.println("==========");
-			Utility.display(c);
+			Utility.displayArray(array,n);
 
 			System.out.println();
 			System.out.println("Enter the values to be searched");
-			int value = utility.inputInteger();
+			Integer value = utility.inputInteger();
 			long timeBinaryStart = System.currentTimeMillis();
 			boolean d = Utility.binarySearch(a, value);
 			long timeBinaryStop = System.currentTimeMillis();
@@ -83,34 +83,34 @@ public class SearchSortElapsedTime {
 			;
 			int ns = utility.inputInteger();
 			System.out.println("Enter " + ns + " elements");
-			String[] as = new String[ns];
+			String[] stringArray = new String[ns];
 			for (int i = 0; i < ns; i++) {
-				as[i] = utility.inputString();
+				stringArray[i] = utility.inputString();
 			}
 
 			long timeInsertionStartS = System.currentTimeMillis();
-			String[] bs = Utility.insertionSortString(as);
+			String[] stringInsertionSort = Utility.insertionSortString(stringArray);
 			long timeInsertionStopS = System.currentTimeMillis();
 			System.out.println("==========");
 			System.out.println(
 					"Insertion Sort time elapsed = " + (timeInsertionStopS - timeInsertionStartS) + " milliseconds");
 			System.out.println("==========");
-			Utility.displayString(bs);
+			Utility.displayArray(stringInsertionSort,ns);
 			System.out.println();
 
 			long timeBubbleStartS = System.currentTimeMillis();
-			String[] cs = Utility.bubbleSortString(as);
+			String[] sortedStringArray = Utility.bubbleSortString(stringArray);
 			long timeBubbleStopS = System.currentTimeMillis();
 			System.out.println("==========");
 			System.out.println("Bubble Sort time elapsed = " + (timeBubbleStopS - timeBubbleStartS) + " milliseconds");
 			System.out.println("==========");
-			Utility.displayString(cs);
+			Utility.displayArray(sortedStringArray,ns);
 
 			System.out.println();
 			System.out.println("Enter the values to be searched");
 			String values = utility.inputString();
 			long timeBinaryStartS = System.currentTimeMillis();
-			boolean ds = Utility.binarySearchString(as, values);
+			boolean ds = Utility.binarySearchString(stringArray, values);
 			long timeBinaryStopS = System.currentTimeMillis();
 			System.out.println("==========");
 			System.out
@@ -129,4 +129,3 @@ public class SearchSortElapsedTime {
 		}
 	}
 }
-/*29-March-2018*/

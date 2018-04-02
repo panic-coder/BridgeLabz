@@ -19,13 +19,13 @@ public class BubbleSort {
 		Utility utility = new Utility();
 		System.out.println("Enter the size");
 		int n = utility.inputInteger();
-		int[] a = new int[n];
+		Integer[] a = new Integer[n];
 		System.out.println("Enter " + n + " Integers");
 		for(int i=0;i<n;i++) {
 			a[i]=utility.inputInteger();
 		}
 		a=Utility.bubbleSort(a);
-		Utility.display(a);
+		Utility.displayArray(a,n);
 	}
 
 }

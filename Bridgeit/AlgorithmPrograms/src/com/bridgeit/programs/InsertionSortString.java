@@ -28,6 +28,6 @@ public class InsertionSortString {
 		}
 
 		s = Utility.insertionSortString(s);
-		Utility.displayString(s);
+		Utility.displayArray(s,n);
 	}
 }
