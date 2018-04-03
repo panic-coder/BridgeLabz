@@ -1,7 +1,9 @@
 package com.bridgeit.utility;
 
+import java.io.*;
 import java.util.*;
 
+import com.bridgeit.programs.LinkedList;
 import com.bridgeit.programs.Node;
 
 public class Utility {
@@ -169,7 +171,6 @@ public class Utility {
 				z++;
 			}
 		}
-		int[] x= new int[10];
 		int c100=0,c200=0,c300=0,c400=0,c500=0,c600=0,c700=0,
 				c800=0,c900=0,c1000=0;
 		for(int i=0;i<prime.length;i++) {
@@ -199,6 +200,14 @@ public class Utility {
 		System.out.println(c100+" "+c200+" "+c300+" "+c400+" "
 				+c500+" "+c600+" "+c700+" "
 				+c800+" "+c900+" "+c1000);
+		int[] x = {c100,c200,c300,c400,c500,c600,c700,c800,c900,c100};
+		int arr[][]= new int[10][25];
+		int pi=0;
+		for(int i=0;i<10;i++) {
+			for(int j=0;j<25;j++) {
+				
+			}
+		}
 	}
 
 	private static boolean isPrime(int n) {
@@ -212,5 +221,77 @@ public class Utility {
 			return true;
 		else
 			return false;
+	}
+
+	private static String st;
+	
+	public static void unOrderedList(String userInput) throws Exception {
+		LinkedList<String> list = new LinkedList<String>();
+		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/UnOrderedList");
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String str="";
+		while((st = br.readLine())!=null) {
+			str=str+st;
+		}
+		br.close();
+		//System.out.println(str);
+		for(String fileString : str.split("\\s",0)) {
+			//System.out.println(fileString);
+			list.add(fileString);
+		}
+		System.out.println("Before Search");
+		System.out.println("=====");
+		list.display();
+		boolean b =list.search(userInput);
+		if(b) {
+			//System.out.println(b);
+			list.remove(userInput);
+		}else {
+			//System.out.println(b);
+			list.add(userInput);
+		}
+		System.out.println("=====");
+		System.out.println("After Search");
+		System.out.println("=====");
+		list.display();
+		try {
+            FileWriter writer = new FileWriter("UnOrderedListOutput.txt", true);
+            writer.write("Hello World");
+           
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		st="";
+	}
+	
+	static String stint;
+	
+	public static void orderedList(String searchItem) throws Exception {
+		LinkedList<String> list = new LinkedList<String>();
+		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/OrderedList");
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String str="";
+		while((stint=br.readLine())!=null) {
+			str=str+stint;
+		}
+		br.close();
+		for(String fileInt : str.split("\\s",0)) {
+			//System.out.println(fileString);
+			list.add(fileInt);
+		}
+		System.out.println("Before Search");
+		System.out.println("=====");
+		list.display();
+		boolean b =list.search(searchItem);
+		if(b) {
+			list.remove(searchItem);
+		}else {
+			list.add(searchItem);
+		}
+		System.out.println("=====");
+		System.out.println("After Search");
+		System.out.println("=====");
+		list.display();
 	}
 }

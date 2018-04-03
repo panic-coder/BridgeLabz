@@ -1,13 +1,14 @@
 package com.bridgeit.programs;
 
-public class Node {
-	public Node next;
-	public int data;
-	public Node(int data) {
+public class Node<T> {
+	public Node<T> next;
+	public T data;
+	public Node(T data) {
 		this.data=data;
 	}
 	
 }
+
 /*Utility utility = new Utility();
 File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/Text");
 BufferedReader br = new BufferedReader(new FileReader(file));

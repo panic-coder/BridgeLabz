@@ -2,32 +2,33 @@ package com.bridgeit.programs;
 
 //import com.bridgeit.utility.Utility;
 
-public class LinkedList {
-	Node head;
+public class LinkedList<T> {
+	Node<T> head;
 
-	public void add(int data) {
-		Node n = new Node(data);
-		n.data = data;
-		n.next = null;
-		if(head==null)
+	public void add(T fileInt) {
+		Node<T> n = new Node<T>(fileInt);
+		
+		if(head==null) {
 			head=n;
+		}
 		else {
-			Node t=head;
+			Node<T> t=head;
 			while(t.next!=null) {
 				t=t.next;
 			}
 			t.next=n;
-		}
+		}	
 	}
 	
-	public boolean search(int item) {
+	public boolean search(T item) {
 		int c=0;
-		if(head==null)
+		if(head==null) {
 			return false;
+		}
 		else {
-			Node t=head;
+			Node<T> t=head;
 			while(t.next!=null ) {
-				if(item==t.data) {
+				if(item.equals(t.data)) {
 					c++;
 					break;
 				}
@@ -40,11 +41,11 @@ public class LinkedList {
 			return false;
 	}
 	
-	public void append(int data) {
-		Node n = new Node(data);
+	public void append(T data) {
+		Node<T> n = new Node<T>(data);
 		n.data = data;
 		n.next = null;
-		Node t = head;
+		Node<T> t = head;
 		while(t.next!=null) {
 			t=t.next;
 		}
@@ -52,19 +53,20 @@ public class LinkedList {
 	}
 
 	public void display() {
-		Node t=head;
+		Node<T> t=head;
 		while(t!=null) {
 			System.out.println(t.data);
 			t=t.next;
 		}
+		
 	}
 	
-	public int index(int item) {
+	public int index(T item) {
 		int c=0,i=0;
 		if(head==null) {
 			return -1;
 		}else {
-			Node t = head;
+			Node<T> t = head;
 			while(t!=null) {
 				i++;
 				if(item==t.data) {
@@ -82,14 +84,14 @@ public class LinkedList {
 	}
 	
 	public void pop() {
-		Node t=head;
+		Node<T> t=head;
 		while(t.next!=null) 
 			t=t.next;
 		System.out.println(t.data);
 	}
 	
 	public void pop(int pos) {
-		Node t=head;
+		Node<T> t=head;
 		int i=1;
 		while(t!=null && i<pos ) {
 			t=t.next;
@@ -110,7 +112,7 @@ public class LinkedList {
 		if(head==null)
 			return 0;
 		else {
-			Node t= head;
+			Node<T> t= head;
 			while(t!=null) {
 				t=t.next;
 				i++;
@@ -119,8 +121,50 @@ public class LinkedList {
 		return i;
 	}
 	
+	public void remove(T item) {
+		//System.out.println(item);
+		Node<T> temp = head,prev=null;
+		if(head.data==item) {
+			head = head.next;
+			return;
+		}
+		while(temp!=null && temp.data!=item) {
+			prev = temp;
+			temp = temp.next;
+		}
+		if(temp==null)
+			return;
+		prev.next=temp.next;
+		temp.next=null;
+	}
+	
+	public void insert(int index, T data) {
+		Node<T> n = new Node<T>(data);
+		n.data=data;
+		n.next=null;
+		if(index ==0) {
+			addFirst(data);
+		}
+		else {
+			Node<T> temp = head;
+			for(int i=0;i<index-1;i++) {
+				temp=temp.next;
+			}
+			n.next = temp.next;
+			temp.next=n;
+		}
+	}
+	
+	private void addFirst(T data) {
+		Node<T> n = new Node<T>(data);
+		Node<T> temp = head;
+		n.next=temp;
+		head=n;
+		
+	}
+
 	public static void main(String[] args)throws Exception {
-		LinkedList list = new LinkedList();
+		LinkedList<Integer> list = new LinkedList<Integer>();
 		list.add(1);
 		list.add(2);
 		list.add(3);
@@ -152,7 +196,14 @@ public class LinkedList {
 			System.out.println("Not present");
 		else
 			System.out.println("Present at index "+index);
-		
+		System.out.println("=====");
+		System.out.println("Remove");
+		list.remove(1);
+		list.display();
+		System.out.println("=====");
+		System.out.println("Insert");
+		list.insert(4, 10);
+		list.display();
 	}	
 		
 }
