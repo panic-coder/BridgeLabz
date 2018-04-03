@@ -1,5 +1,7 @@
 package com.bridgeit.utility;
 
+import com.bridgeit.programs.*;
+
 import java.io.*;
 import java.util.*;
 
@@ -293,5 +295,81 @@ public class Utility {
 		System.out.println("After Search");
 		System.out.println("=====");
 		list.display();
+	}
+	static Utility utility = new Utility();
+	
+	public int bankCashCounter(int size) {
+		int cashBalance=1000000;
+		int size1=size;
+		MyQueue<Integer> queue = new MyQueue<Integer>(size);
+		for(int i=0;i<size;i++)
+			queue.enqueue(i);
+		//int z=0;
+		while(size1>0) {
+			int count=0,option=0;
+			
+			while(count==0) {
+				 
+				System.out.println("1. for Withdrawal \n2. for Deposit");
+				option = utility.inputInteger();
+				if(option==1 || option==2)
+					count++;
+			}
+			if(option==1) {
+				int amount = 0 ; 
+				int countW = 0;
+				while(countW==0){
+					System.out.println("Enter the amount for withdraw\nless than 40,000");
+					amount = utility.inputInteger();
+					if(amount<=40000)
+						countW++;
+				}
+				cashBalance = cashBalance - amount;
+				queue.dequeue();
+			}else if(option==2) {
+				int  amount = 0;
+				int countD = 0;
+				while(countD==0) {
+					System.out.println("Enter the amount to deposit");
+					amount = utility.inputInteger();
+					if(amount<=100000)
+						countD++;
+				}
+				cashBalance = cashBalance + amount;
+				queue.dequeue();
+			}
+			size1--;
+		}
+		return cashBalance;
+	}
+
+	public static boolean palindromeChecker(String word) {
+		MyDeque<Character> dq = new MyDeque<Character>();
+		char[] c = word.toCharArray();
+		for(int i=0;i<c.length;i++) {
+			//if(i>2)
+			dq.addFront(c[i]);
+			//else dq.addLast(c[i]);
+		}
+		/*int j = dq.size();
+		System.out.println(j);
+		dq.display();
+		dq.removeLast();
+		System.out.println("===");
+		dq.display();
+		dq.removeLast();
+		System.out.println("===");*/
+		//dq.display();
+		String s="";
+		for(int i=0;i<c.length;i++) {
+			Node<Character> ch= dq.removeFront();
+			//System.out.println(ch.data);
+			s=s+ch.data;
+		}
+		System.out.println(s);
+		if(s.equals(word))
+			return true;
+		else 
+			return false;
 	}
 }

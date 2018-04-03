@@ -122,10 +122,9 @@ public class LinkedList<T> {
 	}
 	
 	public void remove(T item) {
-		//System.out.println(item);
 		Node<T> temp = head,prev=null;
-		if(head.data==item) {
-			head = head.next;
+		if(temp.data==item) {
+			head = temp.next;
 			return;
 		}
 		while(temp!=null && temp.data!=item) {
@@ -135,7 +134,6 @@ public class LinkedList<T> {
 		if(temp==null)
 			return;
 		prev.next=temp.next;
-		temp.next=null;
 	}
 	
 	public void insert(int index, T data) {
