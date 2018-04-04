@@ -20,9 +20,9 @@ public class PrimeAnagramPalindrome {
 		Utility utility = new Utility();
 		System.out.println("Enter the Range");
 		int n = utility.inputInteger();
-		int i=1;
+		int i=1,count=0;
 		boolean j,k=false;
-		
+		System.out.println("Palindrome");
 		 while(i<=n) {
 			j=Utility.prime(i);
 			if(j) {
@@ -30,11 +30,29 @@ public class PrimeAnagramPalindrome {
 				k=Utility.palindrome(i);
 				if(k)
 					System.out.println(i);
+				count++;
 			}
 			
 				//System.out.println(i);
 			i++;
 		}
+		 System.out.println();
+		 System.out.println("Anagram");
 		//Utility.palindrome(152);
+		 int[] prime= new int[count];
+		 i=1;
+		 int z=0;
+		 while(i<=n) {
+			 j=Utility.prime(i);
+			 if(j) {
+				 prime[z]=i;
+				 z++;
+			 }
+			 i++;
+		 }
+		 Utility.anagram(prime);
+		 /*for(int m=0;m<prime.length;m++) {
+			 System.out.println(prime[m]);
+		 }*/
 	}
 }

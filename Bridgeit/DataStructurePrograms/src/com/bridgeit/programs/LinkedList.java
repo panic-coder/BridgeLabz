@@ -20,6 +20,17 @@ public class LinkedList<T> {
 		}	
 	}
 	
+	public void hashAdd(T number) {
+		Node<T> n = new Node<T>(number);
+		Object pos;
+		position(number);
+	}
+	
+	private void position(T number) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public boolean search(T item) {
 		int c=0;
 		if(head==null) {
@@ -123,11 +134,11 @@ public class LinkedList<T> {
 	
 	public void remove(T item) {
 		Node<T> temp = head,prev=null;
-		if(temp.data==item) {
+		if(temp.data.equals(item)) {
 			head = temp.next;
 			return;
 		}
-		while(temp!=null && temp.data!=item) {
+		while(temp!=null && !temp.data.equals(item)) {
 			prev = temp;
 			temp = temp.next;
 		}

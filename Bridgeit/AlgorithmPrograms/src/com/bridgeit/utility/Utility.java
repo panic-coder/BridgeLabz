@@ -631,4 +631,113 @@ public class Utility {
 		return sum;
 	}
 
+	public static void anagram(int[] prime) {
+		boolean z;
+		int count=0,countAna=0;
+		for(int i=0;i<prime.length;i++) {
+			for(int j=i+1;j<prime.length;j++) {
+				z=numberCheck(prime[i],prime[j]);
+				//System.out.println(z);
+				
+				if(z && count==0) {
+					//System.out.println(prime[i]);
+					//System.out.println(prime[j]);
+					countAna++;
+					count++;
+					z=false;
+				}
+				
+			}
+			if(count>0) {
+				//System.out.println(prime[i]);
+			countAna++;
+			count=0;
+			}
+		}
+		int[] anagramTotal = new int[countAna];
+		int x=0;
+		//System.out.println(countAna+" count");
+		for(int i=0;i<prime.length;i++) {
+			for(int j=i+1;j<prime.length;j++) {
+				z=numberCheck(prime[i],prime[j]);
+				//System.out.println(z);
+				
+				if(z && count==0) {
+					//System.out.println(prime[i]);
+					//System.out.println(prime[j]);
+					anagramTotal[x]=prime[j];
+					x++;
+					count++;
+					z=false;
+				}
+				
+			}
+			if(count>0) {
+				//System.out.println(prime[i]);
+				anagramTotal[x]=prime[i];
+				x++;
+			count=0;
+			}
+		}
+		
+		System.out.println("====");
+		for(int i=0;i<anagramTotal.length;i++) {
+			for(int j=0;j<anagramTotal.length-1;j++) {
+				if(anagramTotal[j]>anagramTotal[j+1]) {
+					int temp = anagramTotal[j];
+					anagramTotal[j] = anagramTotal[j+1];
+					anagramTotal[j+1] = temp;
+				}
+			}
+		}
+		
+		for(int i=0;i<anagramTotal.length;i++) {
+			for(int j=0;j<anagramTotal.length-1;j++) {
+				if(anagramTotal[j]==anagramTotal[j+1]) {
+					anagramTotal[j+1]=-1;
+				}
+			}
+		}
+		
+		for(int i=0;i<anagramTotal.length;i++) {
+			if(anagramTotal[i]!=-1)
+				System.out.println(anagramTotal[i]);
+		}
+		/*for(int i=0;i<total.length;i++) {
+			if(total[i]!=-1) {
+				System.out.println(total[i]);
+			}
+		}*/
+	}
+
+	public static boolean numberCheck(int i, int j) {
+		String a = Integer.toString(i);
+		String b = Integer.toString(j);
+		char c[] = a.toCharArray();
+		char d[] = b.toCharArray();
+		a = arrange(c);
+		b = arrange(d);
+		return a.equals(b);
+	}
+
+	public static String arrange(char[] c) {
+		String s = "";
+		for (int i = 0; i < c.length; i++) {
+			for (int j = 0; j < c.length - 1; j++) {
+				if (c[j] > c[j + 1]) {
+					char temp = c[j];
+					c[j] = c[j + 1];
+					c[j + 1] = temp;
+				}
+
+			}
+		}
+		for (int i = 0; i < c.length; i++) {
+			s = s + c[i];
+		}
+		return s;
+	}
+	
+	
+
 }
