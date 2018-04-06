@@ -104,7 +104,7 @@ public class Utility<T> {
 		}
 		int[][] totalDays = new int[6][7];
 		boolean leap = leapYear(year);
-		if (leap) {
+		if (leap && month==1) {
 			monthDay = 29;
 		}
 		int z = 1;
@@ -144,6 +144,67 @@ public class Utility<T> {
 			}
 			System.out.println();
 		}
+	}
+
+	public static int[][] calenderQueue(int month, int year) {
+		int year1, month1, x, day = 1, day1;
+		year1 = year - (14 - month) / 12;
+		x = year1 + (year1 / 4) - (year1 / 100) + (year1 / 400);
+		month1 = month + 12 * ((14 - month) / 12) - 2;
+		day1 = (day + x + (31 * month1) / 12) % 7;
+		String[] monthName = { "January", "February", "March", "April", "May", "June", "July", "August", "September",
+				"October", "November", "December" };
+		int[] monthDays = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int monthDay = 0;
+		for (int i = 0; i < monthDays.length; i++) {
+			if (i == month - 1) {
+				monthDay = monthDays[i];
+			}
+		}
+		int[][] totalDays = new int[6][7];
+		boolean leap = leapYear(year);
+		if (leap && month==1) {
+			monthDay = 29;
+		}
+		int z = 1;
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				if (i == 0 && j < day1) {
+					totalDays[i][j] = -1;
+				} else if (z <= monthDay) {
+					totalDays[i][j] = z;
+					z++;
+				} else {
+					totalDays[i][j] = -1;
+				}
+			}
+		}
+		for (int i = 0; i < 12; i++) {
+			if (month == i + 1) {
+				System.out.print(monthName[i] + " " + year);
+			}
+		}
+		System.out.println();
+		/*String[] dayName = { "S", "M", "T", "W", "T", "F", "S" };
+		for (int i = 0; i < 7; i++) {
+			System.out.print(dayName[i] + "  ");
+		}
+		System.out.println();
+		// System.out.println(day1);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 7; j++) {
+				if (totalDays[i][j] != -1) {
+					if (totalDays[i][j] < 10)
+						System.out.print(totalDays[i][j] + "  ");
+					else
+						System.out.print(totalDays[i][j] + " ");
+				} else
+					System.out.print("   ");
+			}
+			System.out.println();
+		}*/
+		return totalDays;
+		
 	}
 
 	public static boolean leapYear(int year) {
@@ -222,15 +283,8 @@ public class Utility<T> {
 		System.out.println("After Search");
 		System.out.println("=====");
 		list.display();
-		try {
-			FileWriter writer = new FileWriter("UnOrderedListOutput.txt", true);
-			writer.write("Hello World");
-
-			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		st = "";
+		list.write();
+		
 	}
 
 	static String stint;
@@ -257,10 +311,12 @@ public class Utility<T> {
 		} else {
 			list.add(searchItem);
 		}
+		//list.sort();
 		System.out.println("=====");
-		System.out.println("After Search");
+		System.out.println("After Search and sort");
 		System.out.println("=====");
 		list.display();
+		list.write();
 	}
 
 	static Utility utility = new Utility();
@@ -433,43 +489,43 @@ public class Utility<T> {
 				}
 			}
 		}
-		int positive=0;
-		  for(int i=0;i<anagramTotal.length;i++) { 
-			  if(anagramTotal[i]!=-1) {
-				  //System.out.print(anagramTotal[i]+" ");
-				  positive++;
-			  }
-		  }
-		//  System.out.println(positive);
-		 int[] ana = new int[positive+1];
+		int positive = 0;
+		for (int i = 0; i < anagramTotal.length; i++) {
+			if (anagramTotal[i] != -1) {
+				// System.out.print(anagramTotal[i]+" ");
+				positive++;
+			}
+		}
+		// System.out.println(positive);
+		int[] ana = new int[positive + 1];
 		int zz = 1;
-		int yy=0;
-		for(int i=0;i<anagramTotal.length;i++) {
-			if(anagramTotal[i]!=-1) {
-				ana[yy]=anagramTotal[i];
+		int yy = 0;
+		for (int i = 0; i < anagramTotal.length; i++) {
+			if (anagramTotal[i] != -1) {
+				ana[yy] = anagramTotal[i];
 				yy++;
 			}
 		}
-		/*for(int i=0;i<ana.length;i++) {
-			System.out.println(ana[i]);
-		}*/
-		
+		/*
+		 * for(int i=0;i<ana.length;i++) { System.out.println(ana[i]); }
+		 */
+
 		int[][] total = new int[10][100];
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
 				total[i][j] = zz;
 				zz++;
-				//System.out.print(total[i][j]+" ");
+				// System.out.print(total[i][j]+" ");
 			}
-			//System.out.println();
+			// System.out.println();
 		}
 		int xx = 0;
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
-				if (ana[xx] == total[i][j] && xx<ana.length) {
+				if (ana[xx] == total[i][j] && xx < ana.length) {
 					total[i][j] = ana[xx];
 					xx++;
-					//System.out.println(total[i][j]);
+					// System.out.println(total[i][j]);
 				} else {
 					total[i][j] = -1;
 				}
@@ -478,7 +534,7 @@ public class Utility<T> {
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
 				if (total[i][j] != -1) {
-					System.out.print(total[i][j]+" ");
+					System.out.print(total[i][j] + " ");
 				}
 			}
 			System.out.println();
@@ -512,4 +568,187 @@ public class Utility<T> {
 		}
 		return s;
 	}
+
+	public static void primeAnagramLinkedListStack(int[] prime) {
+		boolean z;
+		int count = 0, countAna = 0;
+		for (int i = 0; i < prime.length; i++) {
+			for (int j = i + 1; j < prime.length; j++) {
+				z = numberCheck(prime[i], prime[j]);
+				// System.out.println(z);
+
+				if (z && count == 0) {
+					// System.out.println(prime[i]);
+					// System.out.println(prime[j]);
+					countAna++;
+					count++;
+					z = false;
+				}
+
+			}
+			if (count > 0) {
+				// System.out.println(prime[i]);
+				countAna++;
+				count = 0;
+			}
+		}
+		int[] anagramTotal = new int[countAna];
+		int x = 0;
+		// System.out.println(countAna+" count");
+		for (int i = 0; i < prime.length; i++) {
+			for (int j = i + 1; j < prime.length; j++) {
+				z = numberCheck(prime[i], prime[j]);
+				// System.out.println(z);
+
+				if (z && count == 0) {
+					// System.out.println(prime[i]);
+					// System.out.println(prime[j]);
+					anagramTotal[x] = prime[j];
+					x++;
+					count++;
+					z = false;
+				}
+
+			}
+			if (count > 0) {
+				// System.out.println(prime[i]);
+				anagramTotal[x] = prime[i];
+				x++;
+				count = 0;
+			}
+		}
+
+		for (int i = 0; i < anagramTotal.length; i++) {
+			for (int j = 0; j < anagramTotal.length - 1; j++) {
+				if (anagramTotal[j] > anagramTotal[j + 1]) {
+					int temp = anagramTotal[j];
+					anagramTotal[j] = anagramTotal[j + 1];
+					anagramTotal[j + 1] = temp;
+				}
+			}
+		}
+
+		for (int i = 0; i < anagramTotal.length; i++) {
+			for (int j = 0; j < anagramTotal.length - 1; j++) {
+				if (anagramTotal[j] == anagramTotal[j + 1]) {
+					anagramTotal[j + 1] = -1;
+				}
+			}
+		}
+		int positive = 0;
+		for (int i = 0; i < anagramTotal.length; i++) {
+			if (anagramTotal[i] != -1) {
+				// System.out.print(anagramTotal[i]+" ");
+				positive++;
+			}
+		}
+		// System.out.println(positive);
+		int[] ana = new int[positive + 1];
+		int zz = 1;
+		int yy = 0;
+		for (int i = 0; i < anagramTotal.length; i++) {
+			if (anagramTotal[i] != -1) {
+				ana[yy] = anagramTotal[i];
+				yy++;
+			}
+		}
+		LinkedStack<Integer> listStack = new LinkedStack<Integer>();
+		for (int i = 0; i < ana.length - 1; i++) {
+			// System.out.println(ana[i]);
+			listStack.add(ana[i]);
+		}
+		listStack.display();
+	}
+
+	public static void primeAnagramLinkedListQueue(int[] prime) {
+		boolean z;
+		int count = 0, countAna = 0;
+		for (int i = 0; i < prime.length; i++) {
+			for (int j = i + 1; j < prime.length; j++) {
+				z = numberCheck(prime[i], prime[j]);
+				// System.out.println(z);
+
+				if (z && count == 0) {
+					// System.out.println(prime[i]);
+					// System.out.println(prime[j]);
+					countAna++;
+					count++;
+					z = false;
+				}
+
+			}
+			if (count > 0) {
+				// System.out.println(prime[i]);
+				countAna++;
+				count = 0;
+			}
+		}
+		int[] anagramTotal = new int[countAna];
+		int x = 0;
+		// System.out.println(countAna+" count");
+		for (int i = 0; i < prime.length; i++) {
+			for (int j = i + 1; j < prime.length; j++) {
+				z = numberCheck(prime[i], prime[j]);
+				// System.out.println(z);
+
+				if (z && count == 0) {
+					// System.out.println(prime[i]);
+					// System.out.println(prime[j]);
+					anagramTotal[x] = prime[j];
+					x++;
+					count++;
+					z = false;
+				}
+
+			}
+			if (count > 0) {
+				// System.out.println(prime[i]);
+				anagramTotal[x] = prime[i];
+				x++;
+				count = 0;
+			}
+		}
+
+		for (int i = 0; i < anagramTotal.length; i++) {
+			for (int j = 0; j < anagramTotal.length - 1; j++) {
+				if (anagramTotal[j] > anagramTotal[j + 1]) {
+					int temp = anagramTotal[j];
+					anagramTotal[j] = anagramTotal[j + 1];
+					anagramTotal[j + 1] = temp;
+				}
+			}
+		}
+
+		for (int i = 0; i < anagramTotal.length; i++) {
+			for (int j = 0; j < anagramTotal.length - 1; j++) {
+				if (anagramTotal[j] == anagramTotal[j + 1]) {
+					anagramTotal[j + 1] = -1;
+				}
+			}
+		}
+		int positive = 0;
+		for (int i = 0; i < anagramTotal.length; i++) {
+			if (anagramTotal[i] != -1) {
+				// System.out.print(anagramTotal[i]+" ");
+				positive++;
+			}
+		}
+		// System.out.println(positive);
+		int[] ana = new int[positive + 1];
+		int zz = 1;
+		int yy = 0;
+		for (int i = 0; i < anagramTotal.length; i++) {
+			if (anagramTotal[i] != -1) {
+				ana[yy] = anagramTotal[i];
+				yy++;
+			}
+		}
+		LinkedQueue<Integer> listQueue = new LinkedQueue<Integer>();
+		for (int i = 0; i < ana.length - 1; i++) {
+			// System.out.println(ana[i]);
+			listQueue.add(ana[i]);
+		}
+		listQueue.display();
+	}
+
 }

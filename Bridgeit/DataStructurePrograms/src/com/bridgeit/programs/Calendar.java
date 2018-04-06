@@ -1,5 +1,14 @@
 package com.bridgeit.programs;
 
+/**
+ * Purpose: Display calendar of a month after month and year as input 
+ * 
+ * @author Kumar Shubham
+ * 
+ * @since 03-04-2018
+ *
+ */
+
 import com.bridgeit.utility.Utility;
 
 public class Calendar {

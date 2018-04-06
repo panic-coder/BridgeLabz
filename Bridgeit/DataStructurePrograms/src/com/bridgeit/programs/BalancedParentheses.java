@@ -1,5 +1,14 @@
 package com.bridgeit.programs;
 
+/**
+ * Purpose: Checking if parentheses in an equation is balanced or not.
+ * 
+ * @author Kumar Shubham
+ * 
+ * @since 02-04-2018
+ *
+ */
+
 import com.bridgeit.utility.Utility;
 
 public class BalancedParentheses {

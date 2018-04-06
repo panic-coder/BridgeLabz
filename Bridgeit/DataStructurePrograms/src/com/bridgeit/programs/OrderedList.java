@@ -1,5 +1,14 @@
 package com.bridgeit.programs;
 
+/**
+ * Purpose: Checking numbers,if present remove it and if not present add it.
+ * 
+ * @author Kumar Shubham
+ * 
+ * @since 04-04-2018
+ *
+ */
+
 import com.bridgeit.utility.Utility;
 
 public class OrderedList {

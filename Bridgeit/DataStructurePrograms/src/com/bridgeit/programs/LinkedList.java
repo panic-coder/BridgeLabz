@@ -1,5 +1,15 @@
 package com.bridgeit.programs;
 
+import java.io.*;
+
+/**
+ * Linked List without using collection librabry 
+ * 
+ * @author Kumar Shubham
+ *
+ * @param <T>
+ */
+
 //import com.bridgeit.utility.Utility;
 
 public class LinkedList<T> {
@@ -70,6 +80,20 @@ public class LinkedList<T> {
 			t=t.next;
 		}
 		
+	}
+	
+	public void write() throws Exception {
+		Node<T> t = head;
+		try {
+		PrintStream o = new PrintStream(new File("A.txt"));
+		System.setOut(o);
+		while(t!=null) {
+			System.out.println(t.data);
+			t=t.next;
+		}
+		}catch(Exception e) {
+			System.out.println("File not found");
+		}
 	}
 	
 	public int index(T item) {
@@ -164,21 +188,38 @@ public class LinkedList<T> {
 		}
 	}
 	
-	private void addFirst(T data) {
+	public void addFirst(T data) {
 		Node<T> n = new Node<T>(data);
 		Node<T> temp = head;
 		n.next=temp;
 		head=n;
 		
 	}
-
+	
+	public void sort() {
+		Node<T> t= head,j=head;
+		while(t!=null) {
+			while(j!=null) {
+				if((((Integer) j.data).compareTo((Integer) t.data))<0) {
+					T temp = j.data;
+					j.data =t.data;
+					t.data = temp;
+				}
+				j=j.next;
+			}
+			t=t.next;
+		}
+	}
+	
+	
+	
 	public static void main(String[] args)throws Exception {
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		list.add(1);
 		list.add(2);
-		list.add(3);
 		list.add(4);
 		list.add(5);
+		list.add(3);
 		list.display();
 		System.out.println("=====");
 		System.out.println("pop method prints");
@@ -212,6 +253,7 @@ public class LinkedList<T> {
 		System.out.println("=====");
 		System.out.println("Insert");
 		list.insert(4, 10);
+		list.sort();
 		list.display();
 	}	
 		
