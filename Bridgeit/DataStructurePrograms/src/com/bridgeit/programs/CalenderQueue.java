@@ -10,7 +10,9 @@ public class CalenderQueue {
 		int year = utility.inputInteger();
 		int[][] calender = Utility.calenderQueue(month,year);
 		String[] days = {"S","M","T","W","T","F","S"};
-		LinkedQueue<LinkedQueue> list1 = new LinkedQueue<LinkedQueue>();
+		for(int i=0;i<days.length;i++)
+			System.out.print(days+"  ");
+		//LinkedQueue<LinkedQueue> list1 = new LinkedQueue<LinkedQueue>();
 		LinkedQueue<Integer> list = new LinkedQueue<Integer>();
 		for(int i=0;i<6;i++) {
 			
@@ -19,10 +21,10 @@ public class CalenderQueue {
 				
 				list.add(calender[i][j]);
 			}
-			list1.add(list);
+			//list1.add(list);
 			//System.out.println();
 		}
-		list1.display1();
+		list.display();
 		
 		
 	}

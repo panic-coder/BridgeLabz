@@ -16,30 +16,27 @@ public class LinkedQueue<T> {
 	
 	public void display() {
 		Node<T> t=head;
+		int p=1;Integer a=10;
 		if(!isEmpty()) {
 		while(t!=null) {
-			if(!(t.data.equals(-1)))
-				System.out.println(t.data+" ");
+			
+			if(!(t.data.equals(-1))) {
+				System.out.print(t.data+" ");
+			}
 			else
 				System.out.print("  ");
 			t=t.next;
+			if(p%7==0) {
+				System.out.println();
+			}
+			p++;
 		}
 		System.out.println();
 		}
 	}
 	
 	public void display1() {
-		T temp=remove();
-		Node<T> t=head;
-		while(t!=null) {
-			Node<T> z=t;
-			while(z!=null) {
-				System.out.print(z.data+" ");
-				z=z.next;
-			}
-			System.out.println();
-			t=t.next;
-		}
+		//Weekdays w = new Weekdays();
 	}
 	
 	public T remove() {

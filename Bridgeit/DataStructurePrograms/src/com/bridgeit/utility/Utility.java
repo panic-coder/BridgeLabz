@@ -1,12 +1,10 @@
 package com.bridgeit.utility;
 
-import com.bridgeit.programs.*;
-
 import java.io.*;
 import java.util.*;
 
+import com.bridgeit.programs.*;
 import com.bridgeit.programs.LinkedList;
-import com.bridgeit.programs.Node;
 
 public class Utility<T> {
 	Scanner scanner;
@@ -87,6 +85,10 @@ public class Utility<T> {
 		return false;
 	}
 
+	/**
+	 * @param month
+	 * @param year
+	 */
 	public static void calender(int month, int year) {
 		int year1, month1, x, day = 1, day1;
 		year1 = year - (14 - month) / 12;
@@ -146,6 +148,11 @@ public class Utility<T> {
 		}
 	}
 
+	/**
+	 * @param month
+	 * @param year
+	 * @return total number of days in the entered month and year
+	 */
 	public static int[][] calenderQueue(int month, int year) {
 		int year1, month1, x, day = 1, day1;
 		year1 = year - (14 - month) / 12;
@@ -207,6 +214,10 @@ public class Utility<T> {
 		
 	}
 
+	/**
+	 * @param year
+	 * @return true if year is leap and false if year is not leap year
+	 */
 	public static boolean leapYear(int year) {
 		if (year % 100 != 0 && year % 4 == 0) {
 			return true;
@@ -220,6 +231,9 @@ public class Utility<T> {
 		}
 	}
 
+	/**
+	 * Prints total prime numbers up to 1000 in a 2d array
+	 */
 	public static void prime2DArray() {
 		int[][] array = new int[10][100];
 		int z = 1;
@@ -239,6 +253,10 @@ public class Utility<T> {
 		}
 	}
 
+	/**
+	 * @param n
+	 * @return true if number is prime and false if number is not prime
+	 */
 	private static boolean isPrime(int n) {
 		int count = 0;
 		for (int i = 2; i <= n / 2; i++) {
@@ -254,6 +272,10 @@ public class Utility<T> {
 
 	private static String st;
 
+	/**
+	 * @param userInput
+	 * @throws Exception
+	 */
 	public static void unOrderedList(String userInput) throws Exception {
 		LinkedList<String> list = new LinkedList<String>();
 		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/UnOrderedList");
@@ -289,6 +311,10 @@ public class Utility<T> {
 
 	static String stint;
 
+	/**
+	 * @param searchItem
+	 * @throws Exception
+	 */
 	public static void orderedList(String searchItem) throws Exception {
 		LinkedList<String> list = new LinkedList<String>();
 		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/OrderedList");
@@ -311,7 +337,8 @@ public class Utility<T> {
 		} else {
 			list.add(searchItem);
 		}
-		//list.sort();
+		String s="0";
+		//list.sort(s);
 		System.out.println("=====");
 		System.out.println("After Search and sort");
 		System.out.println("=====");
@@ -321,6 +348,10 @@ public class Utility<T> {
 
 	static Utility utility = new Utility();
 
+	/**
+	 * @param size
+	 * @return the total cash left in bank after all the transactions
+	 */
 	public int bankCashCounter(int size) {
 		int cashBalance = 1000000;
 		int size1 = size;
@@ -366,6 +397,10 @@ public class Utility<T> {
 		return cashBalance;
 	}
 
+	/**
+	 * @param word
+	 * @return true if String is palindrome and false if not palindrome
+	 */
 	public static boolean palindromeChecker(String word) {
 		MyDeque<Character> dq = new MyDeque<Character>();
 		char[] c = word.toCharArray();
@@ -393,22 +428,10 @@ public class Utility<T> {
 			return false;
 	}
 
-	public static void hashing(Integer size) {
-		Integer[] arr = new Integer[size];
-		String y;
-		do {
-			System.out.println("Enter a number to be inserted");
-			Integer number = utility.inputInteger();
-			hashAdd(number, size);
-			System.out.println("y for entering numbers\nno for exit");
-			y = utility.inputString();
-		} while (y == "y");
-	}
-
-	private static void hashAdd(Integer number, Integer size) {
-
-	}
-
+	/**
+	 * @param i
+	 * @return true for prime and false for not prime
+	 */
 	public static boolean prime(int i) {
 		int count = 0;
 		for (int j = 2; j <= i / 2; j++) {
@@ -423,6 +446,9 @@ public class Utility<T> {
 			return false;
 	}
 
+	/**
+	 * @param prime
+	 */
 	public static void primeAnagram2DArray(int[] prime) {
 		boolean z;
 		int count = 0, countAna = 0;
@@ -541,6 +567,11 @@ public class Utility<T> {
 		}
 	}
 
+	/**
+	 * @param i
+	 * @param j
+	 * @return true if i and j are equal and false if not equal
+	 */
 	public static boolean numberCheck(int i, int j) {
 		String a = Integer.toString(i);
 		String b = Integer.toString(j);
@@ -551,6 +582,10 @@ public class Utility<T> {
 		return a.equals(b);
 	}
 
+	/**
+	 * @param c
+	 * @return arranged char array in ascending order
+	 */
 	public static String arrange(char[] c) {
 		String s = "";
 		for (int i = 0; i < c.length; i++) {
@@ -569,6 +604,9 @@ public class Utility<T> {
 		return s;
 	}
 
+	/**
+	 * @param prime
+	 */
 	public static void primeAnagramLinkedListStack(int[] prime) {
 		boolean z;
 		int count = 0, countAna = 0;
@@ -660,6 +698,9 @@ public class Utility<T> {
 		listStack.display();
 	}
 
+	/**
+	 * @param prime
+	 */
 	public static void primeAnagramLinkedListQueue(int[] prime) {
 		boolean z;
 		int count = 0, countAna = 0;
@@ -749,6 +790,30 @@ public class Utility<T> {
 			listQueue.add(ana[i]);
 		}
 		listQueue.display();
+	}
+
+	/**
+	 * @param totalNodes
+	 * @return total number of binary search tree that can be made by totalNodes 
+	 */
+	public static long numberOfBinarySearchTree(long totalNodes) {
+		long numerator = factorial(2*totalNodes);
+		long denominator = (factorial(totalNodes+1))*(factorial(totalNodes));
+		long differentTrees = numerator/denominator;
+		return differentTrees;
+	}
+
+	/**
+	 * @param i
+	 * @return factorial of the given number
+	 */
+	public static long factorial(long i) {
+		long fact=1;
+		while(i>0) {
+			fact=fact*i;
+			i--;
+		}
+		return fact;
 	}
 
 }

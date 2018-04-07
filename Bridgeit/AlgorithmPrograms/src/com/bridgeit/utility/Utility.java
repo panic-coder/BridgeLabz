@@ -280,18 +280,15 @@ public class Utility {
 		return 0;
 	}
 
-	public static void display(int[] b) {
+	/*public static void display(int[] b) {
 		for (int i = 0; i < b.length; i++)
 			System.out.print(b[i] + " ");
-	}
+	}*/
 
-	/**
-	 * @param b
-	 */
-	public static void displayString(String[] b) {
+	/*public static void displayString(String[] b) {
 		for (int i = 0; i < b.length; i++)
 			System.out.print(b[i] + " ");
-	}
+	}*/
 
 	/**
 	 * @param <E>
@@ -313,6 +310,10 @@ public class Utility {
 		return (Integer[]) d;
 	}
 	
+	/**
+	 * @param array
+	 * @param n
+	 */
 	public static <E> void displayArray(E[] array,int n) {
 		for(int i=0;i<n;i++) {
 			System.out.printf("%s ",array[i]);
@@ -383,6 +384,12 @@ public class Utility {
 		return false;
 	}
 
+	/**
+	 * @param a
+	 * @param start
+	 * @param end
+	 * @return sorted array via merge sort
+	 */
 	public static int[] mergeSort(int[] a, int start, int end) {
 		if (start < end) {
 			int mid = (start + end) / 2;
@@ -393,6 +400,13 @@ public class Utility {
 		return a;
 	}
 
+	/**
+	 * @param a
+	 * @param start
+	 * @param mid
+	 * @param end
+	 * @return merging done by merge sort
+	 */
 	private static int[] merge(int[] a, int start, int mid, int end) {
 		int p = start, q = mid + 1, k = 0;
 		int[] ar = new int[end - start + 1];
@@ -412,6 +426,11 @@ public class Utility {
 		return ar;
 	}
 
+	/**
+	 * @param n
+	 * @param i
+	 * @return power of 'i' to the 'n'
+	 */
 	public static int power(int n, int i) {
 		int sum = 1;
 		for (int j = 0; j < n; j++) {
@@ -631,6 +650,10 @@ public class Utility {
 		return sum;
 	}
 
+	
+	/**
+	 * @param prime
+	 */
 	public static void anagram(int[] prime) {
 		boolean z;
 		int count=0,countAna=0;
@@ -710,6 +733,11 @@ public class Utility {
 		}*/
 	}
 
+	/**
+	 * @param i
+	 * @param j
+	 * @return true if i and j are equal or else false
+	 */
 	public static boolean numberCheck(int i, int j) {
 		String a = Integer.toString(i);
 		String b = Integer.toString(j);
@@ -720,6 +748,10 @@ public class Utility {
 		return a.equals(b);
 	}
 
+	/**
+	 * @param c
+	 * @return arranged in ascending order
+	 */
 	public static String arrange(char[] c) {
 		String s = "";
 		for (int i = 0; i < c.length; i++) {

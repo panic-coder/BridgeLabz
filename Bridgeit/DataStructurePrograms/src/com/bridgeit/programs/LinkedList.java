@@ -196,20 +196,34 @@ public class LinkedList<T> {
 		
 	}
 	
-	public void sort() {
-		Node<T> t= head,j=head;
-		while(t!=null) {
-			while(j!=null) {
-				if((((Integer) j.data).compareTo((Integer) t.data))<0) {
-					T temp = j.data;
-					j.data =t.data;
-					t.data = temp;
+	public void sort(T i) {
+		Node<T> t,a,prev,pos;
+		pos = new Node<T>(i);
+		pos.next=head;
+		head = pos;
+		while(pos.next!=null) {
+			t=pos.next;
+			prev=pos;
+			a=t.next;
+			while(a!=null) {
+				if(((String) a.data).compareTo((String) t.data)>0) {
+					Node<T> temp = a.next;
+					a.next = prev.next;
+					prev.next = t.next;
+					t.next = temp;
+					prev=a;
+					a=temp;
 				}
-				j=j.next;
+				else {
+					a=a.next;
+					t=t.next;
+					prev=prev.next;
+				}
 			}
-			t=t.next;
+			pos=pos.next;
+			head=head.next;
 		}
-	}
+		}	
 	
 	
 	
@@ -253,7 +267,7 @@ public class LinkedList<T> {
 		System.out.println("=====");
 		System.out.println("Insert");
 		list.insert(4, 10);
-		list.sort();
+		//list.sort(0);
 		list.display();
 	}	
 		
