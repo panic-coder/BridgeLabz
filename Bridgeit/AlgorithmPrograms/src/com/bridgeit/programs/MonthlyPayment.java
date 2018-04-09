@@ -28,7 +28,7 @@ public class MonthlyPayment {
 		double R = utility.inputInteger();
 		double n = 12 * y;
 		double r = R / (12 * 100);
-		double payment = Utility.monthlyPayment(p, r, n);
+		double payment = Utility.getMonthlyPayment(p, r, n);
 		System.out.println("Monthly Payment = " + payment);
 	}
 }

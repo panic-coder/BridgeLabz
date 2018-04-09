@@ -26,9 +26,9 @@ public class DayOfWeek {
 		int d = utility.inputInteger();
 		System.out.println("Enter year");
 		int y = utility.inputInteger();
-		int days = Utility.dayOfWeek(m, d, y);
+		//int days = Utility.getDayOfWeek(m, d, y);
 		System.out.println("==========");
-		switch (days) {
+		switch (Utility.getDayOfWeek(m, d, y)) {
 		case 0: {
 			System.out.println("Sunday");
 			break;

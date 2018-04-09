@@ -17,11 +17,9 @@ public class PrimeRange {
 		System.out.println("Enter the range between 0-1000");
 		int n = utility.inputInteger();
 		int i=1;
-		boolean j;
 		System.out.println("Prime number range upto "+n);
 		while(i<=n) {
-			j=Utility.prime(i);
-			if(j)
+			if(Utility.isPrimeNumber(i))
 				System.out.println(i);
 			i++;
 		}

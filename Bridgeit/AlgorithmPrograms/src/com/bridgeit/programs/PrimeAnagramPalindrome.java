@@ -24,16 +24,11 @@ public class PrimeAnagramPalindrome {
 		boolean j,k=false;
 		System.out.println("Palindrome");
 		 while(i<=n) {
-			j=Utility.prime(i);
-			if(j) {
-				//System.out.println(i);
-				k=Utility.palindrome(i);
-				if(k)
+			if(Utility.isPrimeNumber(i)) {
+				if(Utility.isPalindrome(i))
 					System.out.println(i);
 				count++;
 			}
-			
-				//System.out.println(i);
 			i++;
 		}
 		 System.out.println();
@@ -43,7 +38,7 @@ public class PrimeAnagramPalindrome {
 		 i=1;
 		 int z=0;
 		 while(i<=n) {
-			 j=Utility.prime(i);
+			 j=Utility.isPrimeNumber(i);
 			 if(j) {
 				 prime[z]=i;
 				 z++;

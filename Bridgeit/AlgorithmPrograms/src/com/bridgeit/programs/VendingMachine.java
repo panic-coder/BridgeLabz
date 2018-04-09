@@ -22,6 +22,6 @@ public class VendingMachine {
 		Utility utility = new Utility();
 		System.out.println("Enter the Amount to be withdrawl");
 		int n = utility.inputInteger();
-		Utility.vendingMachine(n);
+		Utility.getNotes(n);
 	}
 }

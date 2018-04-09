@@ -24,13 +24,13 @@ public class TemperatureConversion {
 		case 1:
 			System.out.println("Enter the Celsius value");
 			double c = utility.inputInteger();
-			double f = Utility.celsiusToFahrenheit(c);
+			double f = Utility.convertToFahrenheit(c);
 			System.out.println(c+" Celsius is "+f+" Fahrenheit");
 			break;
 		case 2:
 			System.out.println("Enter the Fahrenheit value");
 			double f1 = utility.inputInteger();
-			double c1 = Utility.fahrenheitToCelsius(f1);
+			double c1 = Utility.convertToCelsius(f1);
 			System.out.println(f1+" Fahrenheit is "+c1+" Celsius");
 			break;
 		default:

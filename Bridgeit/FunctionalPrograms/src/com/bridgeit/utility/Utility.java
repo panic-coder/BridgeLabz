@@ -110,7 +110,7 @@ public class Utility {
 		}
 	}
 
-	public void username(String userName, String user) {
+	public void replaceUsername(String userName, String user) {
 		char[] c = user.toCharArray();
 		String newUser = "",newUser2="";int z=0,x=0;
 		for (int i = 0; i < c.length; i++) {

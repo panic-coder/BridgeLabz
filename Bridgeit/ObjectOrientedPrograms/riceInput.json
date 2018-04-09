@@ -1,0 +1,17 @@
+[
+	{
+		"name":"Rice",
+		"weight":"110",
+		"price":"60"
+	}
+	{
+		"name":"Pulses",
+		"weight":"10",
+		"price":"100"
+	}
+	{
+		"name":"Wheat",
+		"weight":"200",
+		"price":"40"
+	}
+]

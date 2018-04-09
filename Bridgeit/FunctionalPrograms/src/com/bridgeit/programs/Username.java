@@ -28,7 +28,7 @@ public class Username {
 			else
 				n--;
 		}
-		utility.username(userName,user);
+		utility.replaceUsername(userName,user);
 	}
 }
 /*28-March-2018*/

@@ -19,7 +19,7 @@ public class Anagram {
 		String s1 = utility.inputStringLine();
 		System.out.println("Enter the Second String");
 		String s2 = utility.inputStringLine();
-		boolean b = Utility.anagram(s1,s2);
+		boolean b = Utility.checkAnagram(s1,s2);
 		if(b)
 			System.out.println("Anagram");
 		else

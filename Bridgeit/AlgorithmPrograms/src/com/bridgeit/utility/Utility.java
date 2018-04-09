@@ -85,7 +85,7 @@ public class Utility {
 	 * @param s2
 	 * @return true if Strings are anagram or else false.
 	 */
-	public static boolean anagram(String s1, String s2) {
+	public static boolean checkAnagram(String s1, String s2) {
 		char[] c1 = s1.toCharArray();
 		char[] c2 = s2.toCharArray();
 
@@ -183,7 +183,7 @@ public class Utility {
 	 * @param i
 	 * @return true if prime or else false.
 	 */
-	public static boolean prime(int i) {
+	public static boolean isPrimeNumber(int i) {
 		int count = 0;
 		for (int j = 2; j <= i / 2; j++) {
 			if (i % j == 0) {
@@ -201,7 +201,7 @@ public class Utility {
 	 * @param i
 	 * @return true if Palindrome or else false
 	 */
-	public static boolean palindrome(int i) {
+	public static boolean isPalindrome(int i) {
 		int sum = 0, r, j = i;
 		while (i > 0) {
 			r = i % 10;
@@ -468,7 +468,7 @@ public class Utility {
 	 * 
 	 * @param n
 	 */
-	public static void vendingMachine(int n) {
+	public static void getNotes(int n) {
 		int t1000, f500, h100, f50, t20, t10, f5, t2, o1;
 		if (n < 0) {
 			return;
@@ -476,47 +476,47 @@ public class Utility {
 			t1000 = n / 1000;
 			n = n % 1000;
 			System.out.println("Thousand Notes = " + t1000);
-			vendingMachine(n);
+			getNotes(n);
 		} else if (n >= 500) {
 			f500 = n / 500;
 			n = n % 500;
 			System.out.println("Five hundred Notes = " + f500);
-			vendingMachine(n);
+			getNotes(n);
 		} else if (n >= 100) {
 			h100 = n / 100;
 			n = n % 100;
 			System.out.println("One hundred Notes = " + h100);
-			vendingMachine(n);
+			getNotes(n);
 		} else if (n >= 50) {
 			f50 = n / 50;
 			n = n % 50;
 			System.out.println("Fifty Notes = " + f50);
-			vendingMachine(n);
+			getNotes(n);
 		} else if (n >= 20) {
 			t20 = n / 20;
 			n = n % 20;
 			System.out.println("Twenty Notes = " + t20);
-			vendingMachine(n);
+			getNotes(n);
 		} else if (n >= 10) {
 			t10 = n / 10;
 			n = n % 10;
 			System.out.println("Ten Notes = " + t10);
-			vendingMachine(n);
+			getNotes(n);
 		} else if (n >= 5) {
 			f5 = n / 5;
 			n = n % 5;
 			System.out.println("Five Notes = " + f5);
-			vendingMachine(n);
+			getNotes(n);
 		} else if (n >= 2) {
 			t2 = n / 2;
 			n = n % 2;
 			System.out.println("Two Notes = " + t2);
-			vendingMachine(n);
+			getNotes(n);
 		} else if (n >= 1) {
 			o1 = n / 1;
 			n = n % 1;
 			System.out.println("One Note = " + o1);
-			vendingMachine(n);
+			getNotes(n);
 		}
 	}
 
@@ -528,7 +528,7 @@ public class Utility {
 	 * @param y
 	 * @return 0-6 for days of week.
 	 */
-	public static int dayOfWeek(int m, int d, int y) {
+	public static int getDayOfWeek(int m, int d, int y) {
 		int m1, d1, y1;
 		y1 = y - (14 - m) / 12;
 		int x = y1 + (y1 / 4) - (y1 / 100) + (y1 / 400);
@@ -541,15 +541,15 @@ public class Utility {
 	 * @param c
 	 * @return Fahrenheit value.
 	 */
-	public static double celsiusToFahrenheit(double c) {
-		return ((c * (9 / 5)) + 35);
+	public static double convertToFahrenheit(double c) {
+		return ((c * (9 / 5)) + 32);
 	}
 
 	/**
 	 * @param f1
 	 * @return Celsius value.
 	 */
-	public static double fahrenheitToCelsius(double f1) {
+	public static double convertToCelsius(double f1) {
 		return (((f1 - 32) * 5) / 9);
 	}
 
@@ -559,7 +559,7 @@ public class Utility {
 	 * @param n
 	 * @return the payment per month.
 	 */
-	public static double monthlyPayment(double p, double r, double n) {
+	public static double getMonthlyPayment(double p, double r, double n) {
 		return ((p * r) / (1 - 1 / (powerDouble((1 + r), (n)))));
 	}
 
