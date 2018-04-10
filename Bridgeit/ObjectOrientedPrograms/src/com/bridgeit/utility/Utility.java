@@ -3,7 +3,10 @@ package com.bridgeit.utility;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -125,8 +128,12 @@ import org.json.simple.parser.JSONParser;
 			st=st.replaceAll("<<name>>", firstName);
 			st=st.replaceAll("<<full name>>", lastName);
 			st=st.replaceAll("xxxxxxxxxx", phoneNumber);
-			LocalDate date = java.time.LocalDate.now();
-			String day = String.valueOf(date);
+			LocalDate ldate = LocalDate.now();
+			 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			 //Date date = new Date(0, 0, 0);
+			 String day=ldate.format(formatter);  
+			
+			//String day = String.valueOf(date);
 			st=st.replaceAll("01/01/2016", day);
 			return st;
 			

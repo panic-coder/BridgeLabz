@@ -27,7 +27,7 @@ public class InsertionSortString {
 			s[i] = utility.inputString();
 		}
 
-		s = Utility.insertionSortString(s);
+		s = Utility.insertionSort(s);
 		Utility.displayArray(s,n);
 	}
 }

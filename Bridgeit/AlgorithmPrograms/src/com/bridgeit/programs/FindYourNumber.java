@@ -24,20 +24,20 @@ public class FindYourNumber {
 		Utility utility = new Utility();
 		System.out.println("Enter the number");
 		int n = utility.inputInteger();
-		System.out.println("Enter true for number is present\n"
+		/*System.out.println("Enter true for number is present\n"
 				+ "false if the number is not present ");
-		boolean b = utility.inputBoolean();
+		boolean b = utility.inputBoolean();*/
 		int N = Utility.power(n,2); 
 		//System.out.println(N);
 		int[] a = new int[N];
 		for(int i=0;i<N;i++) {
 			a[i]=i;
 		}
-		int d=Utility.binarySearchOutputBound(a, n);
-		if(d!=-1 && b)
+		Utility.binarySearchOutputBound(a, n);
+		/*if(d)
 			System.out.println("You were true, number is present in "+d+1);
 		else
 			System.out.println("You were false, number is not present");
-		
+		*/
 	}
 }

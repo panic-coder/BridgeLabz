@@ -30,102 +30,93 @@ import com.bridgeit.utility.Utility;
 public class SearchSortElapsedTime {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
-		System.out.println("1. for integer\n2. for String");
+		System.out.println("1. Binary Search for Integer"
+				+ "\n2. Binary Search for String"
+				+ "\n3. Insertion Sort for Integer"
+				+ "\n4. Insertion Sort for String"
+				+ "\n5. BubbleSort for Integer"
+				+ "\n6. BubbleSort for String");
 		int ch = utility.inputInteger();
-		switch (ch) {
-
-		case 1: {
-			System.out.println("Enter the size of array");
-			;
-			int n = utility.inputInteger();
-			System.out.println("Enter " + n + " elements");
-			Integer[] a = new Integer[n];
-			for (int i = 0; i < n; i++) {
-				a[i] = utility.inputInteger();
-			}
-
-			long timeInsertionStart = System.currentTimeMillis();
-			Integer[] arrayInsertion = Utility.insertionSort(a);
-			long timeInsertionStop = System.currentTimeMillis();
-			System.out.println("==========");
-			System.out.println(
-					"Insertion Sort time elapsed = " + (timeInsertionStop - timeInsertionStart) + " milliseconds");
-			System.out.println("==========");
-			Utility.displayArray(arrayInsertion,n);
-			System.out.println();
-
-			long timeBubbleStart = System.currentTimeMillis();
-			Integer array[]=  Utility.bubbleSort(a);
-			long timeBubbleStop = System.currentTimeMillis();
-			System.out.println("==========");
-			System.out.println("Bubble Sort time elapsed = " + (timeBubbleStop - timeBubbleStart) + " milliseconds");
-			System.out.println("==========");
-			Utility.displayArray(array,n);
-
-			System.out.println();
-			System.out.println("Enter the values to be searched");
-			Integer value = utility.inputInteger();
-			long timeBinaryStart = System.currentTimeMillis();
-			boolean d = Utility.binarySearch(a, value);
-			long timeBinaryStop = System.currentTimeMillis();
-			System.out.println("==========");
-			System.out.println("Binary Search time elapsed = " + (timeBinaryStop - timeBinaryStart) + " milliseconds");
-			System.out.println("==========");
-			if (d) {
-				System.out.println(value + " is present");
-			} else {
-				System.out.println(value + " is not present");
-			}
+		int size=0;
+		System.out.println("Enter the size of array");
+		size = utility.inputInteger();
+		Integer[] a;
+		String[] st;
+		String itemS;
+		Integer  item;
+		long start;
+		long end;
+		
+		switch(ch) {
+		case 1:
+			a=utility.getInputInt(size);
+			a=Utility.bubbleSort(a);
+			Utility.displayArray(a, size);
+			System.out.println("\nEnter the number to be searched");
+			item = utility.inputInteger();
+			start = System.nanoTime();
+			if(Utility.binarySearch(a, item))
+				System.out.println("Present");
+			else
+				System.out.println("Not Present");
+			end = System.nanoTime();
+			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
 			break;
-		}
-		case 2: {
-			System.out.println("Enter the size of array");
-			;
-			int ns = utility.inputInteger();
-			System.out.println("Enter " + ns + " elements");
-			String[] stringArray = new String[ns];
-			for (int i = 0; i < ns; i++) {
-				stringArray[i] = utility.inputString();
-			}
-
-			long timeInsertionStartS = System.currentTimeMillis();
-			String[] stringInsertionSort = Utility.insertionSortString(stringArray);
-			long timeInsertionStopS = System.currentTimeMillis();
-			System.out.println("==========");
-			System.out.println(
-					"Insertion Sort time elapsed = " + (timeInsertionStopS - timeInsertionStartS) + " milliseconds");
-			System.out.println("==========");
-			Utility.displayArray(stringInsertionSort,ns);
-			System.out.println();
-
-			long timeBubbleStartS = System.currentTimeMillis();
-			String[] sortedStringArray = Utility.bubbleSortString(stringArray);
-			long timeBubbleStopS = System.currentTimeMillis();
-			System.out.println("==========");
-			System.out.println("Bubble Sort time elapsed = " + (timeBubbleStopS - timeBubbleStartS) + " milliseconds");
-			System.out.println("==========");
-			Utility.displayArray(sortedStringArray,ns);
-
-			System.out.println();
-			System.out.println("Enter the values to be searched");
-			String values = utility.inputString();
-			long timeBinaryStartS = System.currentTimeMillis();
-			boolean ds = Utility.binarySearchString(stringArray, values);
-			long timeBinaryStopS = System.currentTimeMillis();
-			System.out.println("==========");
-			System.out
-					.println("Binary Search time elapsed = " + (timeBinaryStopS - timeBinaryStartS) + " milliseconds");
-			System.out.println("==========");
-			if (ds) {
-				System.out.println(values + " is present");
-			} else {
-				System.out.println(values + " is not present");
-			}
+			
+		case 2:
+			st=utility.getInputString(size);
+			st=Utility.bubbleSort(st);
+			Utility.displayArray(st, size);
+			System.out.println("\nEnter the String to be searched");
+			itemS = utility.inputString();
+			start = System.nanoTime();
+			if(Utility.binarySearch(st, itemS))
+				System.out.println("Present");
+			else
+				System.out.println("Not Present");
+			end = System.nanoTime();
+			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
 			break;
-		}
+			
+		case 3:
+			a=utility.getInputInt(size);
+			start = System.nanoTime();
+			a=Utility.insertionSort(a);
+			end = System.nanoTime();
+			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
+			Utility.displayArray(a, size);
+			break;
+			
+		case 4:
+			st=utility.getInputString(size);
+			start = System.nanoTime();
+			st=Utility.insertionSort(st);
+			end = System.nanoTime();
+			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
+			Utility.displayArray(st, size);
+			break;
+			
+		case 5:
+			a=utility.getInputInt(size);
+			start = System.nanoTime();
+			a = Utility.bubbleSort(a);
+			end = System.nanoTime();
+			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
+			Utility.displayArray(a, size);
+			break;
+			
+		case 6:
+			st=utility.getInputString(size);
+			start = System.nanoTime();
+			st=Utility.bubbleSort(st);
+			end = System.nanoTime();
+			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
+			Utility.displayArray(st, size);
+			break;
+			
 		default:
-			System.out.println("Wrong choice");
-			break;
+				System.out.println("Wrong Choice");
+				break;
 		}
 	}
 }

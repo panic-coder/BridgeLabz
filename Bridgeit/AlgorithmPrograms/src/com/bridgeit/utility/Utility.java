@@ -2,7 +2,7 @@ package com.bridgeit.utility;
 
 import java.util.*;
 
-public class Utility {
+public class Utility<T> {
 	Scanner scanner;
 	Random random;
 
@@ -10,7 +10,7 @@ public class Utility {
 		scanner = new Scanner(System.in);
 		random = new Random();
 	}
-
+	
 	// RANDOM Numbers
 	public int inputRandom(int bound) {
 		try {
@@ -215,174 +215,92 @@ public class Utility {
 			return false;
 	}
 
-	/**
-	 * @param a
-	 * @return Sorting of Integer array via Insertion Sort.
-	 */
-	public static Integer[] insertionSort(Integer[] a) {
-		for (int i = 1; i < a.length; i++) {
-			Integer ne = a[i];
-			int j;
-			for (j = i; j > 0 && a[j - 1] > ne; j--) {
-				a[j] = a[j - 1];
-			}
-			a[j] = ne;
+	public Integer[] getInputInt(int size) {
+		Integer[] array = new Integer[size];
+		System.out.println("Enter "+size+" elements");
+		for(int i=0;i<size;i++) {
+			array[i]=inputInteger();
 		}
+		return array;
+	}
 
-		/*
-		 * for(int i=0;i<a.length;i++) System.out.print(a[i]+" ");
-		 */
-		return a;
+	public String[] getInputString(int size) {
+		String[] array = new String[size];
+		System.out.println("Enter "+size+" elements");
+		for(int i=0;i<size;i++) {
+			array[i]=inputString();
+		}
+		return array;
 	}
 
 	/**
 	 * @param a
 	 * @return Sorting of String array via Insertion sort.
 	 */
-	public static String[] insertionSortString(String[] a) {
+	public static <T extends Comparable<T>> T[] insertionSort(T[] a) {
 		for (int i = 1; i < a.length; i++) {
-			String ne = a[i];
+			T ne = a[i];
 			int j;
 			for (j = i; j > 0 && (a[j - 1].compareTo(ne)) > 0; j--) {
 				a[j] = a[j - 1];
 			}
 			a[j] = ne;
 		}
-
-		/*
-		 * for(int i=0;i<a.length;i++) System.out.print(a[i]+" ");
-		 */
 		return a;
 	}
-
-	private static int compare(String s1, String s2) {
-		int len = 0;
-		if (s1.length() > s2.length()) {
-			len = s2.length();
-		} else {
-			len = s1.length();
-		}
-		for (int i = 0; i < len; i++) {
-			while (i < len && s1.charAt(i) - s2.charAt(i) == 0) {
-				i++;
-			}
-			if (s1.length() == i && s2.length() == i)
-				return 0;
-			if (s1.length() == i || s2.length() == i) {
-				if (s1.length() == i) {
-					return -1;
-				} else
-					return 1;
-			}
-			return (s1.charAt(i) - s2.charAt(i));
-
-		}
-		return 0;
-	}
-
-	/*public static void display(int[] b) {
-		for (int i = 0; i < b.length; i++)
-			System.out.print(b[i] + " ");
-	}*/
-
-	/*public static void displayString(String[] b) {
-		for (int i = 0; i < b.length; i++)
-			System.out.print(b[i] + " ");
-	}*/
-
+	
 	/**
 	 * @param <E>
 	 * @param d
 	 * @return Sorting a integer array via Bubble sort.
 	 */
-	public static <E> Integer[] bubbleSort(Integer[] d) {
-		Integer temp;
+	public static <T extends Comparable<T>> T[] bubbleSort(T[] d) {
+		T temp;
 		for (int i = 0; i < d.length; i++) {
 			for (int j = 0; j < d.length - 1; j++) {
-				int result = ((Comparable<Integer>) d[j]).compareTo((Integer) d[j+1]);
-				if (result==1) {
+				if (( d[j]).compareTo(d[j+1])>0) {
 					temp = d[j+1];
 					d[j+1] = d[j];
 					d[j] = temp;
 				}
 			}
 		}
-		return (Integer[]) d;
-	}
-	
-	/**
-	 * @param array
-	 * @param n
-	 */
-	public static <E> void displayArray(E[] array,int n) {
-		for(int i=0;i<n;i++) {
-			System.out.printf("%s ",array[i]);
-		}
-	}
-	
-	/**
-	 * @param d
-	 * @return Sorting a String array via Bubble Sort.
-	 */
-	public static String[] bubbleSortString(String[] d) {
-		String temp = "";
-		for (int i = 0; i < d.length; i++) {
-			for (int j = 0; j < d.length - 1; j++) {
-				if (compare(d[j], d[j + 1]) > 0) {
-					temp = d[j];
-					d[j] = d[j + 1];
-					d[j + 1] = temp;
-				}
-			}
-		}
 		return d;
 	}
-
+	
 	/**
-	 * @param <E>
+	 * @param <T>
 	 * @param a
 	 * @param value
 	 * @return Check whether element is present or not via Binary Search.
 	 */
-	@SuppressWarnings("unchecked")
-	public static <E> boolean binarySearch(E[] a, Integer value) {
-		int start = 0;
-		int end = a.length;
-		while (start < end) {
-			int midp = (start + end) / 2;
-			if (a[midp] == value) {
-				return true;
-			} else if ((( (Comparable<Integer>) a[midp]).compareTo(value))>0) {
-				start = midp + 1;
-			} else {
-				end = midp;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * @param a
-	 * @param value
-	 * @return true if String present in String array or else false
-	 */
-	public static boolean binarySearchString(String[] a, String value) {
+	public static <T extends Comparable<T>> boolean binarySearch(T[] a, T value) {
 		int start = 0;
 		int end = a.length;
 		while (start < end) {
 			int midp = (start + end) / 2;
 			if (a[midp].equals(value)) {
 				return true;
-			} else if ((a[midp].compareTo(value)) < 0) {
+			} else if (((a[midp]).compareTo(value))<0) {
 				start = midp + 1;
 			} else {
 				end = midp;
 			}
 		}
-
 		return false;
 	}
+
+	/**
+	 * @param array
+	 * @param n
+	 */
+	public static <T> void displayArray(T[] array,int n) {
+		for(int i=0;i<n;i++) {
+			System.out.printf("%s ",array[i]);
+		}
+	}
+	
+	
 
 	/**
 	 * @param a
@@ -444,23 +362,41 @@ public class Utility {
 	 * 
 	 * @param a
 	 * @param value
-	 * @return index if found else -1
+	 * @return true or false
 	 */
-	public static int binarySearchOutputBound(int[] a, int value) {
-		int start = 0;
-		int end = a.length;
-		while (start < end) {
-			int midp = (start + end) / 2;
-			if (a[midp] == value) {
-				return midp;
-			} else if (a[midp] < value) {
-				start = midp + 1;
-			} else {
-				end = midp;
+		public static boolean binarySearchOutputBound(int[] a, int value) {
+			int start = 0;
+			Utility utility = new Utility();
+			int end = a.length;
+			while (start < end) {
+				System.out.println("Enter true for higher bound and\nfalse for lower bound");
+				boolean b = utility.inputBoolean();
+				int midp = (start + end) / 2;
+				if (a[midp]==(value)) {
+					if(b)
+						System.out.println("You were right \nNumber Found");
+					else
+						System.out.println("You were wrong\nbut number Found");
+					return true;
+				} else if ((a[midp])<(value)) {
+					if(b)
+						System.out.println("You were right");
+					else
+						System.out.println("You were wrong");
+					start = midp + 1;
+				} else {
+					if(!b)
+						System.out.println("You were right");
+					else
+						System.out.println("You were wrong");
+					end = midp;
+					//break;
+				}
 			}
+			System.out.println("Number not found");
+			return false;
 		}
-		return -1;
-	}
+	
 
 	/**
 	 * Finding minimum number of notes coming out for a fulfilling a particular
@@ -769,6 +705,12 @@ public class Utility {
 		}
 		return s;
 	}
+
+/*	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}*/
 	
 	
 

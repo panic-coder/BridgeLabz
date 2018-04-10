@@ -6,6 +6,12 @@ O/P -> Print the result if the word is found or not
 */
 package com.bridgeit.programs;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import com.bridgeit.utility.Utility;
 
 /**
@@ -16,19 +22,39 @@ import com.bridgeit.utility.Utility;
  *
  */
 public class BinarySearchString {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Utility utility = new Utility();
-		System.out.println("Enter the size");
-		int n = utility.inputInteger();
-		String[] s = new String[n];
-		System.out.println("Enter "+n+" Strings");
-		for(int i=0;i<n;i++) {
-			s[i]=utility.inputString();
+		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/AlgorithmPrograms/file");
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		String str = "";
+		String st;
+		int i=0;
+		int j=0;
+		while ((st = br.readLine()) != null) {
+			str = str + st;
 		}
-		System.out.println("Enter the String to be searched");
+		System.out.println(str);
+		br.close();
+		char[] c = str.toCharArray();
+		for(i=0;i<c.length;i++) {
+			if(c[i]==',')
+				j++;
+		}
+		String[] array = new String[j+1];
+		// System.out.println(str);
+		i=0;
+		for (String fileString : str.split(",")) {
+			 //System.out.println(fileString);
+			array[i]=fileString;
+			//System.out.println(array[i]);
+			i++;
+		}
+		array=Utility.bubbleSort(array);
+		Utility.displayArray(array, array.length);
+		
+		System.out.println("\nEnter the String to be searched");
 		String value = utility.inputString();
-		boolean b = Utility.binarySearchString(s, value);
-		if(b)
+		if(Utility.binarySearch(array, value))
 			System.out.println(value+" is present");
 		else
 			System.out.println(value+" is not present");

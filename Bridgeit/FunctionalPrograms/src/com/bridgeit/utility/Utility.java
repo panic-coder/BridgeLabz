@@ -249,7 +249,7 @@ public class Utility {
 		printArray2D(a,m,n);
 	}
 	
-	public static <E> void printArray2D(E[][] a,int m,int n) {
+	public static <T> void printArray2D(T[][] a,int m,int n) {
 		for(int i=0;i<m;i++) {
 			for(int j=0;j<n;j++) {
 				pw.printf("%s ",a[i][j]);
