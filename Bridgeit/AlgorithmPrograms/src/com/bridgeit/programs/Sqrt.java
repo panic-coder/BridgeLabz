@@ -1,7 +1,3 @@
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Finding square root of a non negative number.
  * 
@@ -9,6 +5,11 @@ import com.bridgeit.utility.Utility;
  * @since  31-08-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class Sqrt {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

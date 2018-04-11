@@ -1,3 +1,12 @@
+/**
+ * Purpose: Replacing name, full name and phone number in a string and and validating the user 
+ * input before replacing
+ * 
+ * @author Kumar Shubham
+ * @since  09-04-2018
+ *
+ */
+
 package com.bridgeit.programs;
 
 import java.io.IOException;

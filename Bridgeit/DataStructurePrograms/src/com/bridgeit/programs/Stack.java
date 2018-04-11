@@ -1,3 +1,12 @@
+/**
+ * Purpose: Stack implementation using array method 
+ * 
+ * @author Kumar Shubham
+ * @since  02-04-2018
+ *
+ * @param <T>
+ */
+
 package com.bridgeit.programs;
 
 public class Stack<T> {

@@ -1,3 +1,11 @@
+/**
+ * Purpose: Finding anagram from the prime numbers up to 1000 using stack
+ *  
+ * @author Kumar Shubham
+ * @since  06-04-2018
+ *
+ */
+
 package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;

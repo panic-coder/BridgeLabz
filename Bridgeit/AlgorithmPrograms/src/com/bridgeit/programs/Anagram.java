@@ -1,17 +1,13 @@
-/*An Anagram Detection Example
-Desc -> One string is an anagram of another if the second is simply a rearrangement of the first. For example, 'heart' and 'earth' are anagrams...
-I/P -> Take 2 Strings as Input such abcd and dcba and Check for Anagrams
-O/P -> The Two Strings are Anagram or not....
-*/
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**Purpose: Finding if two strings are anagram or not.
  * 
  * @author Kumar Shubham
  * @since  29-03-2018
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class Anagram {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

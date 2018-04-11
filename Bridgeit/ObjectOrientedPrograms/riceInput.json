@@ -1,17 +1,1 @@
-[
-	{
-		"name":"Rice",
-		"weight":"110",
-		"price":"60"
-	}
-	{
-		"name":"Pulses",
-		"weight":"10",
-		"price":"100"
-	}
-	{
-		"name":"Wheat",
-		"weight":"200",
-		"price":"40"
-	}
-]
+[{"Price":"5","Weight":"3","Name":"w"},{"Price":"6","Weight":"4","Name":"r"},{"Price":"6","Weight":"4","Name":"p"}]

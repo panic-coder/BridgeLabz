@@ -1,3 +1,11 @@
+/**
+ * Purpose: Checking words,if present remove it and if not present add it.
+ * 
+ * @author Kumar Shubham
+ * @since 04-04-2018
+ *
+ */
+
 package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;

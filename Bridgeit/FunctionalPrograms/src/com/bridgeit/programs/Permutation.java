@@ -1,10 +1,3 @@
-/*Write static functions to return all permutation of a
- *  String using iterative method and Recursion method. 
- *  Check if the arrays returned by two string functions are equal. */
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Find the total numbers of permutation.
  * 
@@ -12,6 +5,11 @@ import com.bridgeit.utility.Utility;
  * @since  29-03-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class Permutation {
 	static int size;
 

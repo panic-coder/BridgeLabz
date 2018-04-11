@@ -1,13 +1,3 @@
-/*Sum of three Integer adds to ZERO
-Desc -> A program with cubic running time. Read in N integers and counts the   number of triples that sum to exactly 0.
-I/P -> N number of integer, and N integer input array
-Logic -> Find distinct triples (i, j, k) such that a[i] + a[j] + a[k] = 0
-O/P -> One Output is number of distinct triplets as well as the second output is to print the distinct triplets.
-*/
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Finding if sum the continuous elements in array is zero,
  * if its zero they are triplets. 
@@ -16,6 +6,11 @@ import com.bridgeit.utility.Utility;
  * @since  28-03-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class Triplets {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

@@ -1,5 +1,3 @@
-package com.bridgeit.programs;
-
 /**
  * Purpose: Checking if parentheses in an equation is balanced or not.
  * 
@@ -8,6 +6,8 @@ package com.bridgeit.programs;
  * @since 02-04-2018
  *
  */
+
+package com.bridgeit.programs;
 
 import com.bridgeit.utility.Utility;
 

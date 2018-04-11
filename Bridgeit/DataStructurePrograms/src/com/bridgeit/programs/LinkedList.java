@@ -1,14 +1,14 @@
-package com.bridgeit.programs;
-
-import java.io.*;
-
 /**
- * Linked List without using collection librabry 
+ *Purpose: Linked List without using collection librabry 
  * 
  * @author Kumar Shubham
  *
  * @param <T>
  */
+
+package com.bridgeit.programs;
+
+import java.io.*;
 
 //import com.bridgeit.utility.Utility;
 

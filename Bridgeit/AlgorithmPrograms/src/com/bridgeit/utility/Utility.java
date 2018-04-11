@@ -10,7 +10,7 @@ public class Utility<T> {
 		scanner = new Scanner(System.in);
 		random = new Random();
 	}
-	
+
 	// RANDOM Numbers
 	public int inputRandom(int bound) {
 		try {
@@ -81,35 +81,35 @@ public class Utility<T> {
 	}
 
 	/**
-	 * @param s1
-	 * @param s2
+	 * @param word1
+	 * @param word2
 	 * @return true if Strings are anagram or else false.
 	 */
-	public static boolean checkAnagram(String s1, String s2) {
-		char[] c1 = s1.toCharArray();
-		char[] c2 = s2.toCharArray();
+	public static boolean checkAnagram(String word1, String word2) {
+		char[] c1 = word1.toCharArray();
+		char[] c2 = word2.toCharArray();
 
-		s1 = "";
-		s2 = "";
-		s1 = removeSpace(c1);
-		s2 = removeSpace(c2);
+		word1 = "";
+		word2 = "";
+		word1 = removeSpace(c1);
+		word2 = removeSpace(c2);
 		// System.out.println(s1+" "+s2);
 
-		c1 = s1.toCharArray();
-		c2 = s2.toCharArray();
+		c1 = word1.toCharArray();
+		c2 = word2.toCharArray();
 
-		s1 = "";
-		s2 = "";
-		s1 = toLowerCase(c1);
-		s2 = toLowerCase(c2);
+		word1 = "";
+		word2 = "";
+		word1 = toLowerCase(c1);
+		word2 = toLowerCase(c2);
 
-		c1 = s1.toCharArray();
-		c2 = s2.toCharArray();
+		c1 = word1.toCharArray();
+		c2 = word2.toCharArray();
 
-		s1 = "";
-		s2 = "";
-		s1 = sort(c1);
-		s2 = sort(c2);
+		word1 = "";
+		word2 = "";
+		word1 = sort(c1);
+		word2 = sort(c2);
 
 		// System.out.println(s1+" "+s2);
 		// System.out.println(s1 + " " + s2);
@@ -118,61 +118,61 @@ public class Utility<T> {
 		 * for(int i=0;i<c1.length;i++) System.out.print(c1[i]);
 		 */
 
-		if (s1.equals(s2))
+		if (word1.equals(word2))
 			return true;
 		else
 			return false;
 	}
 
 	/**
-	 * @param c
+	 * @param charArray
 	 * @return String after sorting the char array and converts it into String.
 	 */
-	private static String sort(char[] c) {
+	private static String sort(char[] charArray) {
 		String s = "";
-		for (int i = 0; i < c.length; i++) {
-			for (int j = 0; j < c.length - 1; j++) {
-				if (c[j] > c[j + 1]) {
-					char temp = c[j];
-					c[j] = c[j + 1];
-					c[j + 1] = temp;
+		for (int i = 0; i < charArray.length; i++) {
+			for (int j = 0; j < charArray.length - 1; j++) {
+				if (charArray[j] > charArray[j + 1]) {
+					char temp = charArray[j];
+					charArray[j] = charArray[j + 1];
+					charArray[j + 1] = temp;
 				}
 
 			}
 		}
-		for (int i = 0; i < c.length; i++) {
-			s = s + c[i];
+		for (int i = 0; i < charArray.length; i++) {
+			s = s + charArray[i];
 		}
 		return s;
 	}
 
 	/**
-	 * @param c
+	 * @param charArray
 	 * @return char array and converts Upper case into Lower case if any.
 	 */
-	private static String toLowerCase(char[] c) {
+	private static String toLowerCase(char[] charArray) {
 		String s = "";
-		for (int i = 0; i < c.length; i++) {
-			if (c[i] >= 65 && c[i] <= 91) {
+		for (int i = 0; i < charArray.length; i++) {
+			if (charArray[i] >= 65 && charArray[i] <= 91) {
 
-				c[i] = (char) (c[i] + 32);
-				s = s + c[i];
+				charArray[i] = (char) (charArray[i] + 32);
+				s = s + charArray[i];
 			} else {
-				s = s + c[i];
+				s = s + charArray[i];
 			}
 		}
 		return s;
 	}
 
 	/**
-	 * @param c
+	 * @param charArray
 	 * @return char array with spaces removed if in between.
 	 */
-	public static String removeSpace(char[] c) {
+	public static String removeSpace(char[] charArray) {
 		String s = "";
-		for (int i = 0; i < c.length; i++) {
-			if (c[i] != ' ') {
-				s = s + c[i];
+		for (int i = 0; i < charArray.length; i++) {
+			if (charArray[i] != ' ') {
+				s = s + charArray[i];
 			}
 
 		}
@@ -180,13 +180,13 @@ public class Utility<T> {
 	}
 
 	/**
-	 * @param i
-	 * @return true if prime or else false.
+	 * @param number
+	 * @return true if number is prime or else false.
 	 */
-	public static boolean isPrimeNumber(int i) {
+	public static boolean isPrimeNumber(int number) {
 		int count = 0;
-		for (int j = 2; j <= i / 2; j++) {
-			if (i % j == 0) {
+		for (int j = 2; j <= number / 2; j++) {
+			if (number % j == 0) {
 				count++;
 				break;
 			}
@@ -198,90 +198,99 @@ public class Utility<T> {
 	}
 
 	/**
-	 * @param i
+	 * @param number
 	 * @return true if Palindrome or else false
 	 */
-	public static boolean isPalindrome(int i) {
-		int sum = 0, r, j = i;
-		while (i > 0) {
-			r = i % 10;
+	public static boolean isPalindrome(int number) {
+		int sum = 0, r;
+		int numberCopy = number;
+		while (number > 0) {
+			r = number % 10;
 			sum = sum * 10 + r;
-			i = i / 10;
+			number = number / 10;
 		}
 		// System.out.println(sum);
-		if (j == sum)
+		if (numberCopy == sum)
 			return true;
 		else
 			return false;
 	}
 
+	/**
+	 * @param size
+	 * @return takes integer input up to the size and return it
+	 */
 	public Integer[] getInputInt(int size) {
 		Integer[] array = new Integer[size];
-		System.out.println("Enter "+size+" elements");
-		for(int i=0;i<size;i++) {
-			array[i]=inputInteger();
+		System.out.println("Enter " + size + " elements");
+		for (int i = 0; i < size; i++) {
+			array[i] = inputInteger();
 		}
 		return array;
 	}
 
+	/**
+	 * @param size
+	 * @return takes string input up to the size and return it
+	 */
 	public String[] getInputString(int size) {
 		String[] array = new String[size];
-		System.out.println("Enter "+size+" elements");
-		for(int i=0;i<size;i++) {
-			array[i]=inputString();
+		System.out.println("Enter " + size + " elements");
+		for (int i = 0; i < size; i++) {
+			array[i] = inputString();
 		}
 		return array;
 	}
 
 	/**
-	 * @param a
+	 * @param array
 	 * @return Sorting of String array via Insertion sort.
 	 */
-	public static <T extends Comparable<T>> T[] insertionSort(T[] a) {
-		for (int i = 1; i < a.length; i++) {
-			T ne = a[i];
+	public static <T extends Comparable<T>> T[] insertionSort(T[] array) {
+		for (int i = 1; i < array.length; i++) {
+			T ne = array[i];
 			int j;
-			for (j = i; j > 0 && (a[j - 1].compareTo(ne)) > 0; j--) {
-				a[j] = a[j - 1];
+			for (j = i; j > 0 && (array[j - 1].compareTo(ne)) > 0; j--) {
+				array[j] = array[j - 1];
 			}
-			a[j] = ne;
+			array[j] = ne;
 		}
-		return a;
+		return array;
 	}
-	
+
 	/**
-	 * @param <E>
-	 * @param d
+	 * @param <T>
+	 * @param array
 	 * @return Sorting a integer array via Bubble sort.
 	 */
-	public static <T extends Comparable<T>> T[] bubbleSort(T[] d) {
+	public static <T extends Comparable<T>> T[] bubbleSort(T[] array) {
 		T temp;
-		for (int i = 0; i < d.length; i++) {
-			for (int j = 0; j < d.length - 1; j++) {
-				if (( d[j]).compareTo(d[j+1])>0) {
-					temp = d[j+1];
-					d[j+1] = d[j];
-					d[j] = temp;
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array.length - 1; j++) {
+				if ((array[j]).compareTo(array[j + 1]) > 0) {
+					temp = array[j + 1];
+					array[j + 1] = array[j];
+					array[j] = temp;
 				}
 			}
 		}
-		return d;
+		return array;
 	}
-	
+
 	/**
 	 * @param <T>
-	 * @param a
+	 * @param array
 	 * @param value
 	 * @return Check whether element is present or not via Binary Search.
 	 */
-	public static <T extends Comparable<T>> boolean binarySearch(T[] a, T value) {
+	public static <T extends Comparable<T>> boolean binarySearch(T[] array, T value) {
 		int start = 0;
-		int end = a.length;
+		int end = array.length;
 		while (start < end) {
 			int midp = (start + end) / 2;
-			if (a[midp].equals(value)) {
+			if (array[midp].equals(value)) {
 				return true;
-			} else if (((a[midp]).compareTo(value))<0) {
+			} else if (((array[midp]).compareTo(value)) < 0) {
 				start = midp + 1;
 			} else {
 				end = midp;
@@ -292,67 +301,65 @@ public class Utility<T> {
 
 	/**
 	 * @param array
-	 * @param n
+	 * @param size
 	 */
-	public static <T> void displayArray(T[] array,int n) {
-		for(int i=0;i<n;i++) {
-			System.out.printf("%s ",array[i]);
+	public static <T> void displayArray(T[] array, int size) {
+		for (int i = 0; i < size; i++) {
+			System.out.printf("%s ", array[i]);
 		}
 	}
-	
-	
 
 	/**
-	 * @param a
+	 * @param array
 	 * @param start
 	 * @param end
 	 * @return sorted array via merge sort
 	 */
-	public static int[] mergeSort(int[] a, int start, int end) {
+	public static int[] mergeSort(int[] array, int start, int end) {
 		if (start < end) {
 			int mid = (start + end) / 2;
-			mergeSort(a, start, mid);
-			mergeSort(a, mid + 1, end);
-			a = merge(a, start, mid, end);
+			mergeSort(array, start, mid);
+			mergeSort(array, mid + 1, end);
+			array = merge(array, start, mid, end);
 		}
-		return a;
+		return array;
 	}
 
 	/**
-	 * @param a
+	 * @param array
 	 * @param start
-	 * @param mid
+	 * @param middle
 	 * @param end
 	 * @return merging done by merge sort
 	 */
-	private static int[] merge(int[] a, int start, int mid, int end) {
-		int p = start, q = mid + 1, k = 0;
+	private static int[] merge(int[] array, int start, int middle, int end) {
+		int p = start, q = middle + 1, k = 0;
 		int[] ar = new int[end - start + 1];
 		for (int i = start; i <= end; i++) {
-			if (p > mid)
-				ar[k++] = a[q++];
+			if (p > middle)
+				ar[k++] = array[q++];
 			else if (q > end)
-				ar[k++] = a[p++];
-			else if (a[p] < a[q])
-				ar[k++] = a[p];
+				ar[k++] = array[p++];
+			else if (array[p] < array[q])
+				ar[k++] = array[p];
 			else
-				ar[k++] = a[q++];
+				ar[k++] = array[q++];
 		}
 		for (int j = 0; j < k; j++) {
-			a[start++] = ar[j];
+			array[start++] = ar[j];
 		}
 		return ar;
 	}
 
 	/**
-	 * @param n
-	 * @param i
-	 * @return power of 'i' to the 'n'
+	 * @param exponent
+	 * @param number
+	 * @return power of number to the given exponent
 	 */
-	public static int power(int n, int i) {
+	public static int power(int exponent, int number) {
 		int sum = 1;
-		for (int j = 0; j < n; j++) {
-			sum = sum * i;
+		for (int j = 0; j < exponent; j++) {
+			sum = sum * number;
 		}
 		return sum;
 	}
@@ -360,155 +367,155 @@ public class Utility<T> {
 	/**
 	 * Search an element using Binary Search
 	 * 
-	 * @param a
+	 * @param array
 	 * @param value
 	 * @return true or false
 	 */
-		public static boolean binarySearchOutputBound(int[] a, int value) {
-			int start = 0;
-			Utility utility = new Utility();
-			int end = a.length;
-			while (start < end) {
-				System.out.println("Enter true for higher bound and\nfalse for lower bound");
-				boolean b = utility.inputBoolean();
-				int midp = (start + end) / 2;
-				if (a[midp]==(value)) {
-					if(b)
-						System.out.println("You were right \nNumber Found");
-					else
-						System.out.println("You were wrong\nbut number Found");
-					return true;
-				} else if ((a[midp])<(value)) {
-					if(b)
-						System.out.println("You were right");
-					else
-						System.out.println("You were wrong");
-					start = midp + 1;
-				} else {
-					if(!b)
-						System.out.println("You were right");
-					else
-						System.out.println("You were wrong");
-					end = midp;
-					//break;
-				}
+	public static boolean binarySearchOutputBound(int[] array, int value) {
+		int start = 0;
+		Utility utility = new Utility();
+		int end = array.length;
+		while (start < end) {
+			System.out.println("Enter true for higher bound and\nfalse for lower bound");
+			boolean b = utility.inputBoolean();
+			int midp = (start + end) / 2;
+			if (array[midp] == (value)) {
+				if (b)
+					System.out.println("You were right \nNumber Found");
+				else
+					System.out.println("You were wrong\nbut number Found");
+				return true;
+			} else if ((array[midp]) < (value)) {
+				if (b)
+					System.out.println("You were right");
+				else
+					System.out.println("You were wrong");
+				start = midp + 1;
+			} else {
+				if (!b)
+					System.out.println("You were right");
+				else
+					System.out.println("You were wrong");
+				end = midp;
+				// break;
 			}
-			System.out.println("Number not found");
-			return false;
 		}
-	
+		System.out.println("Number not found");
+		return false;
+	}
 
 	/**
 	 * Finding minimum number of notes coming out for a fulfilling a particular
 	 * amount.
 	 * 
-	 * @param n
+	 * @param amount
 	 */
-	public static void getNotes(int n) {
-		int t1000, f500, h100, f50, t20, t10, f5, t2, o1;
-		if (n < 0) {
+	public static void getNotes(int amount) {
+		int thousandNotes, fiveHundredNotes, hundredNotes, fiftyNotes, twentyNotes, tenNotes, fiveNotes, twoNotes,
+				oneNotes;
+		if (amount < 0) {
 			return;
-		} else if (n >= 1000) {
-			t1000 = n / 1000;
-			n = n % 1000;
-			System.out.println("Thousand Notes = " + t1000);
-			getNotes(n);
-		} else if (n >= 500) {
-			f500 = n / 500;
-			n = n % 500;
-			System.out.println("Five hundred Notes = " + f500);
-			getNotes(n);
-		} else if (n >= 100) {
-			h100 = n / 100;
-			n = n % 100;
-			System.out.println("One hundred Notes = " + h100);
-			getNotes(n);
-		} else if (n >= 50) {
-			f50 = n / 50;
-			n = n % 50;
-			System.out.println("Fifty Notes = " + f50);
-			getNotes(n);
-		} else if (n >= 20) {
-			t20 = n / 20;
-			n = n % 20;
-			System.out.println("Twenty Notes = " + t20);
-			getNotes(n);
-		} else if (n >= 10) {
-			t10 = n / 10;
-			n = n % 10;
-			System.out.println("Ten Notes = " + t10);
-			getNotes(n);
-		} else if (n >= 5) {
-			f5 = n / 5;
-			n = n % 5;
-			System.out.println("Five Notes = " + f5);
-			getNotes(n);
-		} else if (n >= 2) {
-			t2 = n / 2;
-			n = n % 2;
-			System.out.println("Two Notes = " + t2);
-			getNotes(n);
-		} else if (n >= 1) {
-			o1 = n / 1;
-			n = n % 1;
-			System.out.println("One Note = " + o1);
-			getNotes(n);
+		} else if (amount >= 1000) {
+			thousandNotes = amount / 1000;
+			amount = amount % 1000;
+			System.out.println("Thousand Notes = " + thousandNotes);
+			getNotes(amount);
+		} else if (amount >= 500) {
+			fiveHundredNotes = amount / 500;
+			amount = amount % 500;
+			System.out.println("Five hundred Notes = " + fiveHundredNotes);
+			getNotes(amount);
+		} else if (amount >= 100) {
+			hundredNotes = amount / 100;
+			amount = amount % 100;
+			System.out.println("One hundred Notes = " + hundredNotes);
+			getNotes(amount);
+		} else if (amount >= 50) {
+			fiftyNotes = amount / 50;
+			amount = amount % 50;
+			System.out.println("Fifty Notes = " + fiftyNotes);
+			getNotes(amount);
+		} else if (amount >= 20) {
+			twentyNotes = amount / 20;
+			amount = amount % 20;
+			System.out.println("Twenty Notes = " + twentyNotes);
+			getNotes(amount);
+		} else if (amount >= 10) {
+			tenNotes = amount / 10;
+			amount = amount % 10;
+			System.out.println("Ten Notes = " + tenNotes);
+			getNotes(amount);
+		} else if (amount >= 5) {
+			fiveNotes = amount / 5;
+			amount = amount % 5;
+			System.out.println("Five Notes = " + fiveNotes);
+			getNotes(amount);
+		} else if (amount >= 2) {
+			twoNotes = amount / 2;
+			amount = amount % 2;
+			System.out.println("Two Notes = " + twoNotes);
+			getNotes(amount);
+		} else if (amount >= 1) {
+			oneNotes = amount / 1;
+			amount = amount % 1;
+			System.out.println("One Note = " + oneNotes);
+			getNotes(amount);
 		}
 	}
 
 	/**
 	 * Find the day using Gregorian calendar Formula
 	 * 
-	 * @param m
-	 * @param d
-	 * @param y
+	 * @param month
+	 * @param day
+	 * @param year
 	 * @return 0-6 for days of week.
 	 */
-	public static int getDayOfWeek(int m, int d, int y) {
-		int m1, d1, y1;
-		y1 = y - (14 - m) / 12;
-		int x = y1 + (y1 / 4) - (y1 / 100) + (y1 / 400);
-		m1 = m + 12 * ((14 - m) / 12) - 2;
-		d1 = (d + x + (31 * m1) / 12) % 7;
-		return d1;
+	public static int getDayOfWeek(int month, int day, int year) {
+		int calculationMonth, calculationDay, calculationYear;
+		calculationYear = year - (14 - month) / 12;
+		int x = calculationYear + (calculationYear / 4) - (calculationYear / 100) + (calculationYear / 400);
+		calculationMonth = month + 12 * ((14 - month) / 12) - 2;
+		calculationDay = (day + x + (31 * calculationMonth) / 12) % 7;
+		return calculationDay;
 	}
 
 	/**
-	 * @param c
+	 * @param celsius
 	 * @return Fahrenheit value.
 	 */
-	public static double convertToFahrenheit(double c) {
-		return ((c * (9 / 5)) + 32);
+	public static double convertToFahrenheit(double celsius) {
+		return ((celsius * (9 / 5)) + 32);
 	}
 
 	/**
-	 * @param f1
+	 * @param fahrenheit
 	 * @return Celsius value.
 	 */
-	public static double convertToCelsius(double f1) {
-		return (((f1 - 32) * 5) / 9);
+	public static double convertToCelsius(double fahrenheit) {
+		return (((fahrenheit - 32) * 5) / 9);
 	}
 
 	/**
-	 * @param p
-	 * @param r
-	 * @param n
+	 * @param principal
+	 * @param rate
+	 * @param time
 	 * @return the payment per month.
 	 */
-	public static double getMonthlyPayment(double p, double r, double n) {
-		return ((p * r) / (1 - 1 / (powerDouble((1 + r), (n)))));
+	public static double getMonthlyPayment(double principal, double rate, double time) {
+		return ((principal * rate) / (1 - 1 / (powerDouble((1 + rate), (time)))));
 	}
 
 	/**
-	 * @param i
-	 * @param n
+	 * @param number
+	 * @param exponent
 	 * @return return the power of i^n and in double data type.
 	 */
-	private static double powerDouble(double i, double n) {
+	private static double powerDouble(double number, double exponent) {
 
 		double sum = 1;
-		for (int j = 0; j < n; j++) {
-			sum = sum * i;
+		for (int j = 0; j < exponent; j++) {
+			sum = sum * number;
 		}
 		return sum;
 
@@ -518,12 +525,12 @@ public class Utility<T> {
 	 * @param c
 	 */
 	public static void sqrt(double c) {
-		double t=0;
+		double t = 0;
 		t = c;
 		double epsilon = 1e-15;
 		do {
 			t = ((c / t) + t) / 2;
-		}while((Math.abs(t - (c / t))) > (epsilon * t));
+		} while ((Math.abs(t - (c / t))) > (epsilon * t));
 		/*
 		 * for(t=c;Math.abs(t - c/t) > (epsilon*t );) { t=((c/t)+c)/2;
 		 * System.out.println("1"); }
@@ -532,42 +539,42 @@ public class Utility<T> {
 	}
 
 	/**
-	 * @param n
+	 * @param decimalNumber
 	 * @return binary of the given decimal.
 	 */
-	public static String toBinary(int n) {
-		String s = "";
-		int r;
-		while (n > 0) {
-			r = n % 2;
-			s = s + r;
-			n = n / 2;
+	public static String toBinary(int decimalNumber) {
+		String answerInBinary = "";
+		int remainder;
+		while (decimalNumber > 0) {
+			remainder = decimalNumber % 2;
+			answerInBinary = answerInBinary + remainder;
+			decimalNumber = decimalNumber / 2;
 		}
-		String rev = "";
-		char[] c = s.toCharArray();
-		for (int i = c.length - 1; i >= 0; i--) {
-			rev = rev + c[i];
+		String reverse = "";
+		char[] reverseAnswer = answerInBinary.toCharArray();
+		for (int i = reverseAnswer.length - 1; i >= 0; i--) {
+			reverse = reverse + reverseAnswer[i];
 		}
-		return rev;
+		return reverse;
 	}
 
 	/**
-	 * @param s
+	 * @param binaryInput
 	 * @return returns swapped nibbles
 	 */
-	public static String swapNibble(String s) {
-		char[] c = s.toCharArray();
-		String st = "";
+	public static String swapNibble(String binaryInput) {
+		char[] c = binaryInput.toCharArray();
+		String swapedNibbles = "";
 
 		for (int i = c.length / 2; i < c.length; i++) {
-			st = st + c[i];
+			swapedNibbles = swapedNibbles + c[i];
 		}
 		if (((c.length / 2) - 1) < 3)
-			st = st + "0";
+			swapedNibbles = swapedNibbles + "0";
 		for (int i = 0; i < (c.length / 2); i++) {
-			st = st + c[i];
+			swapedNibbles = swapedNibbles + c[i];
 		}
-		return st;
+		return swapedNibbles;
 	}
 
 	/**
@@ -586,132 +593,129 @@ public class Utility<T> {
 		return sum;
 	}
 
-	
 	/**
+	 * Purpose: Checks prime numbers up to 1000 are anagram or not
+	 * 
 	 * @param prime
 	 */
 	public static void anagram(int[] prime) {
 		boolean z;
-		int count=0,countAna=0;
-		for(int i=0;i<prime.length;i++) {
-			for(int j=i+1;j<prime.length;j++) {
-				z=numberCheck(prime[i],prime[j]);
-				//System.out.println(z);
-				
-				if(z && count==0) {
-					//System.out.println(prime[i]);
-					//System.out.println(prime[j]);
-					countAna++;
+		int count = 0, countAnagram = 0;
+		for (int i = 0; i < prime.length; i++) {
+			for (int j = i + 1; j < prime.length; j++) {
+				z = checkForEquality(prime[i], prime[j]);
+				// System.out.println(z);
+
+				if (z && count == 0) {
+					// System.out.println(prime[i]);
+					// System.out.println(prime[j]);
+					countAnagram++;
 					count++;
-					z=false;
+					z = false;
 				}
-				
+
 			}
-			if(count>0) {
-				//System.out.println(prime[i]);
-			countAna++;
-			count=0;
+			if (count > 0) {
+				// System.out.println(prime[i]);
+				countAnagram++;
+				count = 0;
 			}
 		}
-		int[] anagramTotal = new int[countAna];
-		int x=0;
-		//System.out.println(countAna+" count");
-		for(int i=0;i<prime.length;i++) {
-			for(int j=i+1;j<prime.length;j++) {
-				z=numberCheck(prime[i],prime[j]);
-				//System.out.println(z);
-				
-				if(z && count==0) {
-					//System.out.println(prime[i]);
-					//System.out.println(prime[j]);
-					anagramTotal[x]=prime[j];
+		int[] anagramTotal = new int[countAnagram];
+		int x = 0;
+		// System.out.println(countAna+" count");
+		for (int i = 0; i < prime.length; i++) {
+			for (int j = i + 1; j < prime.length; j++) {
+				z = checkForEquality(prime[i], prime[j]);
+				// System.out.println(z);
+
+				if (z && count == 0) {
+					// System.out.println(prime[i]);
+					// System.out.println(prime[j]);
+					anagramTotal[x] = prime[j];
 					x++;
 					count++;
-					z=false;
+					z = false;
 				}
-				
+
 			}
-			if(count>0) {
-				//System.out.println(prime[i]);
-				anagramTotal[x]=prime[i];
+			if (count > 0) {
+				// System.out.println(prime[i]);
+				anagramTotal[x] = prime[i];
 				x++;
-			count=0;
+				count = 0;
 			}
 		}
-		
+
 		System.out.println("====");
-		for(int i=0;i<anagramTotal.length;i++) {
-			for(int j=0;j<anagramTotal.length-1;j++) {
-				if(anagramTotal[j]>anagramTotal[j+1]) {
+		for (int i = 0; i < anagramTotal.length; i++) {
+			for (int j = 0; j < anagramTotal.length - 1; j++) {
+				if (anagramTotal[j] > anagramTotal[j + 1]) {
 					int temp = anagramTotal[j];
-					anagramTotal[j] = anagramTotal[j+1];
-					anagramTotal[j+1] = temp;
+					anagramTotal[j] = anagramTotal[j + 1];
+					anagramTotal[j + 1] = temp;
 				}
 			}
 		}
-		
-		for(int i=0;i<anagramTotal.length;i++) {
-			for(int j=0;j<anagramTotal.length-1;j++) {
-				if(anagramTotal[j]==anagramTotal[j+1]) {
-					anagramTotal[j+1]=-1;
+
+		for (int i = 0; i < anagramTotal.length; i++) {
+			for (int j = 0; j < anagramTotal.length - 1; j++) {
+				if (anagramTotal[j] == anagramTotal[j + 1]) {
+					anagramTotal[j + 1] = -1;
 				}
 			}
 		}
-		
-		for(int i=0;i<anagramTotal.length;i++) {
-			if(anagramTotal[i]!=-1)
+
+		for (int i = 0; i < anagramTotal.length; i++) {
+			if (anagramTotal[i] != -1)
 				System.out.println(anagramTotal[i]);
 		}
-		/*for(int i=0;i<total.length;i++) {
-			if(total[i]!=-1) {
-				System.out.println(total[i]);
-			}
-		}*/
+		/*
+		 * for(int i=0;i<total.length;i++) { if(total[i]!=-1) {
+		 * System.out.println(total[i]); } }
+		 */
 	}
 
 	/**
-	 * @param i
-	 * @param j
-	 * @return true if i and j are equal or else false
+	 * @param firstValue
+	 * @param secondValue
+	 * @return true if firstValue and secondValue are equal or else false
 	 */
-	public static boolean numberCheck(int i, int j) {
-		String a = Integer.toString(i);
-		String b = Integer.toString(j);
-		char c[] = a.toCharArray();
-		char d[] = b.toCharArray();
-		a = arrange(c);
-		b = arrange(d);
-		return a.equals(b);
+	public static boolean checkForEquality(int firstValue, int secondValue) {
+		String firstValueString = Integer.toString(firstValue);
+		String secondValueString = Integer.toString(secondValue);
+		char firstValueCharArray[] = firstValueString.toCharArray();
+		char secondValueCharArray[] = secondValueString.toCharArray();
+		firstValueString = arrange(firstValueCharArray);
+		secondValueString = arrange(secondValueCharArray);
+		return firstValueString.equals(secondValueString);
 	}
 
 	/**
-	 * @param c
+	 * @param item
 	 * @return arranged in ascending order
 	 */
-	public static String arrange(char[] c) {
-		String s = "";
-		for (int i = 0; i < c.length; i++) {
-			for (int j = 0; j < c.length - 1; j++) {
-				if (c[j] > c[j + 1]) {
-					char temp = c[j];
-					c[j] = c[j + 1];
-					c[j + 1] = temp;
+	public static String arrange(char[] item) {
+		String arrangedItem = "";
+		for (int i = 0; i < item.length; i++) {
+			for (int j = 0; j < item.length - 1; j++) {
+				if (item[j] > item[j + 1]) {
+					char temp = item[j];
+					item[j] = item[j + 1];
+					item[j + 1] = temp;
 				}
 
 			}
 		}
-		for (int i = 0; i < c.length; i++) {
-			s = s + c[i];
+		for (int i = 0; i < item.length; i++) {
+			arrangedItem = arrangedItem + item[i];
 		}
-		return s;
+		return arrangedItem;
 	}
 
-/*	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}*/
-	
-	
+	/*
+	 * @Override public int compareTo(Object o) { // TODO Auto-generated method stub
+	 * return 0; }
+	 */
 
 }

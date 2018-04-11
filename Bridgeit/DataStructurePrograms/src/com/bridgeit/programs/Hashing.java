@@ -1,3 +1,12 @@
+/**
+ * Purpose: Taking input from a file and saving the number in a hash map.
+ * search a number if present pop it or else insert it 
+ * 
+ * @author Kumar Shubham
+ * @since  07-04-2018
+ *
+ */
+
 package com.bridgeit.programs;
 
 import java.io.BufferedReader;

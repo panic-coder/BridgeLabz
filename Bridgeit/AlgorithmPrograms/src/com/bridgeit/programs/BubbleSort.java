@@ -1,12 +1,3 @@
-/*Bubble Sort 
-Desc -> Reads in integers prints them in sorted order using Bubble Sort
-I/P -> read in the list ints
-O/P -> Print the Sorted List 
-*/
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Sorting integer array using bubble sort.
  * 
@@ -14,6 +5,11 @@ import com.bridgeit.utility.Utility;
  * @since  29-03-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class BubbleSort {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

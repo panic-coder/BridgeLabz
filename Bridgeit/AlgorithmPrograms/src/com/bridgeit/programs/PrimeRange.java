@@ -1,9 +1,3 @@
-/*Take a range of 0 - 1000 Numbers and 
- * find the Prime numbers in that range. */
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Checking prime for a range of values.
  * 
@@ -11,6 +5,11 @@ import com.bridgeit.utility.Utility;
  * @since  29-03-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class PrimeRange {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

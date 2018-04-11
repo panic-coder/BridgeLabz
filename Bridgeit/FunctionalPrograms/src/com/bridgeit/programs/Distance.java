@@ -1,12 +1,3 @@
-/*Write a program Distance.java that takes two integer 
- * command-line arguments x and y and prints the Euclidean distance 
- * from the point (x, y) to the origin (0, 0). 
- * The formulae to calculate distance = sqrt(x*x + y*y). 
- * Use Math.power function*/
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Calculating distance using Euclidean distance.
  * 
@@ -14,6 +5,11 @@ import com.bridgeit.utility.Utility;
  * @since  28-03-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class Distance {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

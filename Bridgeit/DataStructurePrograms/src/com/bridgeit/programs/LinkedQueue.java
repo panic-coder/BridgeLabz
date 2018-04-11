@@ -1,3 +1,11 @@
+/**
+ *Purpose: Queue via Linked list method without using collection library 
+ * 
+ * @author Kumar Shubham
+ *
+ * @param <T>
+ */
+
 package com.bridgeit.programs;
 
 public class LinkedQueue<T> {
@@ -16,20 +24,24 @@ public class LinkedQueue<T> {
 	
 	public void display() {
 		Node<T> t=head;
-		int p=1;Integer a=10;
+		/*int p=1;*/Integer a=10;
 		if(!isEmpty()) {
 		while(t!=null) {
 			
 			if(!(t.data.equals(-1))) {
-				System.out.print(t.data+" ");
+				if((((Integer) t.data)).compareTo(a)<0){
+					System.out.print(t.data+"  ");
+				}
+				else
+					System.out.print(t.data+" ");
 			}
 			else
-				System.out.print("  ");
+				System.out.print("   ");
 			t=t.next;
-			if(p%7==0) {
+			/*if(p%7==0) {
 				System.out.println();
-			}
-			p++;
+			}*/
+			//p++;
 		}
 		System.out.println();
 		}

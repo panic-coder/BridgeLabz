@@ -1,14 +1,3 @@
-/*Insertion Sort 
-Desc -> Reads in strings from standard input and prints them in sorted order.
-Uses insertion sort.
-I/P -> read in the list words
-Logic -> Use Insertion Sort to sort the words in the String array
-O/P -> Print the Sorted List
-*/
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Sorting of String array using insertion sort.
  * 
@@ -16,6 +5,11 @@ import com.bridgeit.utility.Utility;
  * @since  29-03-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class InsertionSortString {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

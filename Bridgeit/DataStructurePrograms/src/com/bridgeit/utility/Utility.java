@@ -254,13 +254,13 @@ public class Utility<T> {
 	}
 
 	/**
-	 * @param n
+	 * @param number
 	 * @return true if number is prime and false if number is not prime
 	 */
-	private static boolean isPrime(int n) {
+	private static boolean isPrime(int number) {
 		int count = 0;
-		for (int i = 2; i <= n / 2; i++) {
-			if (n % i == 0) {
+		for (int i = 2; i <= number / 2; i++) {
+			if (number % i == 0) {
 				count++;
 			}
 		}
@@ -278,7 +278,7 @@ public class Utility<T> {
 	 */
 	public static void unOrderedList(String userInput) throws Exception {
 		LinkedList<String> list = new LinkedList<String>();
-		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/UnOrderedList");
+		File file = new File("UnOrderedList");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String str = "";
 		while ((st = br.readLine()) != null) {
@@ -317,7 +317,7 @@ public class Utility<T> {
 	 */
 	public static void orderedList(String searchItem) throws Exception {
 		LinkedList<String> list = new LinkedList<String>();
-		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/OrderedList");
+		File file = new File("OrderedList");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String str = "";
 		while ((stint = br.readLine()) != null) {
@@ -349,17 +349,17 @@ public class Utility<T> {
 	static Utility utility = new Utility();
 
 	/**
-	 * @param size
+	 * @param numberOfPeople
 	 * @return the total cash left in bank after all the transactions
 	 */
-	public int bankCashCounter(int size) {
+	public int bankCashCounter(int numberOfPeople) {
 		int cashBalance = 1000000;
-		int size1 = size;
-		MyQueue<Integer> queue = new MyQueue<Integer>(size);
-		for (int i = 0; i < size; i++)
+		int testCases = numberOfPeople;
+		MyQueue<Integer> queue = new MyQueue<Integer>(numberOfPeople);
+		for (int i = 0; i < numberOfPeople; i++)
 			queue.enqueue(i);
 		// int z=0;
-		while (size1 > 0) {
+		while (testCases > 0) {
 			int count = 0, option = 0;
 
 			while (count == 0) {
@@ -371,28 +371,28 @@ public class Utility<T> {
 			}
 			if (option == 1) {
 				int amount = 0;
-				int countW = 0;
-				while (countW == 0) {
+				int countWithdrawal = 0;
+				while (countWithdrawal == 0) {
 					System.out.println("Enter the amount for withdraw\nless than 40,000");
 					amount = utility.inputInteger();
 					if (amount <= 40000)
-						countW++;
+						countWithdrawal++;
 				}
 				cashBalance = cashBalance - amount;
 				queue.dequeue();
 			} else if (option == 2) {
 				int amount = 0;
-				int countD = 0;
-				while (countD == 0) {
+				int countDeposit = 0;
+				while (countDeposit == 0) {
 					System.out.println("Enter the amount to deposit");
 					amount = utility.inputInteger();
 					if (amount <= 100000)
-						countD++;
+						countDeposit++;
 				}
 				cashBalance = cashBalance + amount;
 				queue.dequeue();
 			}
-			size1--;
+			testCases--;
 		}
 		return cashBalance;
 	}
@@ -429,13 +429,13 @@ public class Utility<T> {
 	}
 
 	/**
-	 * @param i
+	 * @param number
 	 * @return true for prime and false for not prime
 	 */
-	public static boolean prime(int i) {
+	public static boolean prime(int number) {
 		int count = 0;
-		for (int j = 2; j <= i / 2; j++) {
-			if (i % j == 0) {
+		for (int j = 2; j <= number / 2; j++) {
+			if (number % j == 0) {
 				count++;
 				break;
 			}
@@ -568,13 +568,13 @@ public class Utility<T> {
 	}
 
 	/**
-	 * @param i
-	 * @param j
-	 * @return true if i and j are equal and false if not equal
+	 * @param valueOne
+	 * @param valueTwo
+	 * @return true if valueOne and valueTwo are equal and false if not equal
 	 */
-	public static boolean numberCheck(int i, int j) {
-		String a = Integer.toString(i);
-		String b = Integer.toString(j);
+	public static boolean numberCheck(int valueOne, int valueTwo) {
+		String a = Integer.toString(valueOne);
+		String b = Integer.toString(valueTwo);
 		char c[] = a.toCharArray();
 		char d[] = b.toCharArray();
 		a = arrange(c);
@@ -796,10 +796,10 @@ public class Utility<T> {
 	 * @param totalNodes
 	 * @return total number of binary search tree that can be made by totalNodes 
 	 */
-	public static long numberOfBinarySearchTree(long totalNodes) {
-		long numerator = factorial(2*totalNodes);
-		long denominator = (factorial(totalNodes+1))*(factorial(totalNodes));
-		long differentTrees = numerator/denominator;
+	public static double numberOfBinarySearchTree(double totalNodes) {
+		double numerator = factorial(2*totalNodes);
+		double denominator = (factorial(totalNodes+1))*(factorial(totalNodes));
+		double differentTrees = numerator/denominator;
 		return differentTrees;
 	}
 
@@ -807,8 +807,8 @@ public class Utility<T> {
 	 * @param i
 	 * @return factorial of the given number
 	 */
-	public static long factorial(long i) {
-		long fact=1;
+	public static double factorial(double i) {
+		double fact=1;
 		while(i>0) {
 			fact=fact*i;
 			i--;

@@ -1,19 +1,3 @@
-/*To the Utility Class write the following static methods
-Desc -> Create Utility Class having following static methods
-binarySearch method for integer
-binarySearch method for String
-insertionSort method for integer
-insertionSort method for String
-bubbleSort method for integer
-bubbleSort method for String
-I/P -> Write main function to call the utility function
-Logic -> Check using Stopwatch the Elapsed Time for every method call
-O/P -> Output the Search and Sorted List. More importantly print elapsed time performance in descending order
-*/
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Checking of 
  *  binarySearch method for integer
@@ -27,6 +11,11 @@ import com.bridgeit.utility.Utility;
  * @since  29-03-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class SearchSortElapsedTime {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

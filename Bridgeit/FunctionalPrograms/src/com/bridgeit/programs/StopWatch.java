@@ -1,13 +1,3 @@
-/*Simulate Stopwatch Program
-Desc -> Write a Stopwatch Program for measuring the time that elapses between the start and end clicks
-I/P -> Start the Stopwatch and End the Stopwatch
-Logic -> Measure the elapsed time between start and end
-O/P -> Print the elapsed time.
-*/
-package com.bridgeit.programs;
-
-import com.bridgeit.utility.Utility;
-
 /**
  * Purpose: Starting and Stopping of stop watch and finding the difference.
  * 
@@ -15,6 +5,11 @@ import com.bridgeit.utility.Utility;
  * @since  28-03-2018
  *
  */
+
+package com.bridgeit.programs;
+
+import com.bridgeit.utility.Utility;
+
 public class StopWatch {
 	public static void main(String[] args) {
 		Utility utility = new Utility();

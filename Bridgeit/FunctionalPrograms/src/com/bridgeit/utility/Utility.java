@@ -75,7 +75,7 @@ public class Utility {
 	}
 
 	/**
-	 * @param n
+	 * @param testCases
 	 */
 	public void flipcoin(int userTestcases) {
 		int totalTestcases = userTestcases;
@@ -97,6 +97,10 @@ public class Utility {
 		System.out.println("Tails Percentage = " + tailPercentage);
 	}
 
+	/**
+	 * @param year
+	 * @return true for leap year false for non leap year
+	 */
 	public boolean leapyear(int year) {
 		if (year % 100 != 0 && year % 4 == 0) {
 			return true;
@@ -110,8 +114,14 @@ public class Utility {
 		}
 	}
 
-	public void replaceUsername(String userName, String user) {
-		char[] c = user.toCharArray();
+	/**
+	 * @param userName
+	 * @param user
+	 * @return replaced String with userName
+	 */
+	public String replaceUsername(String userName, String user) {
+		return user.replaceAll("<<UserName>>", userName);
+	/*	char[] c = user.toCharArray();
 		String newUser = "",newUser2="";int z=0,x=0;
 		for (int i = 0; i < c.length; i++) {
 			if (c[i] == '<') {
@@ -137,9 +147,13 @@ public class Utility {
 		//System.out.println(newUser2);
 		System.out.println(user);
 		System.out.println(newUserName);
-
+*/
 	}
 
+	/**
+	 * @param n
+	 * @return power of 2 up to the given number
+	 */
 	public int powerOf2(int n) {
 		int p = 1;
 		for (int i = 0; i < n; i++) {
@@ -150,6 +164,10 @@ public class Utility {
 		return p;
 	}
 
+	/**
+	 * @param n
+	 * @return sum of Harmonic Number
+	 */
 	public double harmonicNumber(int n) {
 		double sum = 0.0;
 		for (double i = 1; i <= n; i++) {
@@ -162,6 +180,9 @@ public class Utility {
 		return sum;
 	}
 
+	/**
+	 * @param number which prime factorization is to be done
+	 */
 	public void primeFactor(int n) {
 		int m = n;
 		int i = 2;
@@ -175,6 +196,12 @@ public class Utility {
 		}
 	}
 
+	/**
+	 * @param cash
+	 * @param stake
+	 * @param goals
+	 * @param trails
+	 */
 	public void gambler(int cash, int stake, int goals, int trails) {
 		double won = 0, bets = 0, loss = 0;
 		int current;
@@ -203,6 +230,10 @@ public class Utility {
 
 	}
 
+	/**
+	 * @param n
+	 * @return total number of distinct counts
+	 */
 	public int couponNumbers(int n) {
 		int count = n, m = 0, r = 0;
 		int a[] = new int[n];
@@ -228,6 +259,9 @@ public class Utility {
 	}
 	static PrintWriter pw = new PrintWriter(System.out, true);
 	
+	/**
+	 * Integer 2D array print
+	 */
 	public void intArray() {
 		pw.println("Enter the value of rows and columns\nfor int array");
 		int m = inputInteger();
@@ -249,15 +283,24 @@ public class Utility {
 		printArray2D(a,m,n);
 	}
 	
-	public static <T> void printArray2D(T[][] a,int m,int n) {
-		for(int i=0;i<m;i++) {
-			for(int j=0;j<n;j++) {
-				pw.printf("%s ",a[i][j]);
+	/**
+	 * Purpose: Generic print method
+	 * @param array
+	 * @param rows
+	 * @param columns
+	 */
+	public static <T> void printArray2D(T[][] array,int rows,int columns) {
+		for(int i=0;i<rows;i++) {
+			for(int j=0;j<columns;j++) {
+				pw.printf("%s ",array[i][j]);
 			}
 		pw.println();
 		}
 	}
 
+	/**
+	 * Double 2D array print
+	 */
 	public void doubleArray() {
 		pw.println("Enter the value of rows and columns\nfor double array");
 		int m = inputInteger();
@@ -279,6 +322,9 @@ public class Utility {
 		printArray2D(a,m,n);
 	}
 
+	/**
+	 * Boolean 2D array print
+	 */
 	public void booleanArray() {
 		pw.println("Enter the value of rows and columns\nfor boolean array");
 		int m = inputInteger();
@@ -300,14 +346,18 @@ public class Utility {
 		printArray2D(a,m,n);
 	}
 
-	public int triplets(int[] a) {
+	/**
+	 * @param array
+	 * @return total number of triplets
+	 */
+	public int triplets(int[] array) {
 		int count = 0;
-		for (int k = 0; k < a.length; k++) {
-			for (int j = k + 1; j < a.length; j++) {
-				for (int i = j + 1; i < a.length; i++) {
-					if (a[k] + a[j] + a[i] == 0) {
+		for (int k = 0; k < array.length; k++) {
+			for (int j = k + 1; j < array.length; j++) {
+				for (int i = j + 1; i < array.length; i++) {
+					if (array[k] + array[j] + array[i] == 0) {
 						count++;
-						System.out.println(a[k] + " " + a[j] + " " + a[i]);
+						System.out.println(array[k] + " " + array[j] + " " + array[i]);
 					}
 				}
 			}
@@ -315,18 +365,33 @@ public class Utility {
 		return count;
 	}
 
-	public double distance(double x, double y) {
-		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+	/**
+	 * @param valueOne
+	 * @param valueTwo
+	 * @return Distance using Euclidean formula between origin to (valueOne ,valueTwo) 
+	 */
+	public double distance(double valueOne, double valueTwo) {
+		return Math.sqrt(Math.pow(valueOne, 2) + Math.pow(valueTwo, 2));
 	}
 
-	public int power(int size, int i) {
+	/**
+	 * @param number
+	 * @param exponent
+	 * @return power of number to the given exponent 
+	 */
+	public int power(int number, int exponent) {
 		int p = 1;
-		for (int j = 1; j <= i; j++) {
-			p = p * size;
+		for (int j = 1; j <= exponent; j++) {
+			p = p * number;
 		}
 		return p;
 	}
 
+	/**
+	 * @param st
+	 * @param size
+	 * @return permuted array
+	 */
 	public Values[] permutationIterative(String st, int size) {
 		char[] c = st.toCharArray();
 		Values value[] = new Values[size];
@@ -351,6 +416,9 @@ public class Utility {
 		return value;
 	}
 
+	/**
+	 * TictacToe game with PC
+	 */
 	public void ticTacToe() {
 		int pc = 0;
 		int user = 0;
@@ -520,26 +588,24 @@ public class Utility {
 		System.out.println("Ends");
 	}
 
-	public int factorial(int size) {
+	/**
+	 * @param number
+	 * @return factorial to a number
+	 */
+	public int factorial(int number) {
 		int f = 1;
-		for (int i = size; i > 0; i--) {
+		for (int i = number; i > 0; i--) {
 			f = f * i;
 		}
 
 		return f;
 	}
 
-	public void display(int[][] a, int m, int n) {
-		PrintWriter pw = new PrintWriter(System.out, true);
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				pw.print(a[i][j] + " ");
-			}
-			pw.println();
-		}
-		pw.println();
-	}
-
+	/**
+	 * @param temperature
+	 * @param velocity
+	 * @return windChill
+	 */
 	public double windChill(double temperature, double velocity) {
 		return 35.74 + (0.6215 * temperature) + ((0.4275 * temperature) - 35.75) * Math.pow(velocity, 0.16);
 	}

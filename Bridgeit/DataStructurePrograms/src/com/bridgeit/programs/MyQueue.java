@@ -1,3 +1,11 @@
+/**
+ * Purpose: Queue via array method without using collection library 
+ * 
+ * @author Kumar Shubham
+ *
+ * @param <T>
+ */
+
 package com.bridgeit.programs;
 
 public class MyQueue<T> {
