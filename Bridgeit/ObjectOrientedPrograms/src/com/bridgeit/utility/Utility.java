@@ -248,6 +248,96 @@ public class Utility {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			
 		}
+
+	public void stockTotalShares() {
+		JSONParser jsonParser = new JSONParser();
+		try {
+			JSONArray jsonArray = (JSONArray)jsonParser.parse(new FileReader("stockAccountInput.json"));
+			System.out.println(jsonArray);
+			System.out.println("=================================================");
+			System.out.println("Symbol\t  Price Per Share    Total Shares");
+			System.out.println("======\t  ===============    ============");
+			for(Object o : jsonArray) {
+				JSONObject jsonObject = (JSONObject)o;
+				//String name = (String)jsonObject.get("Company");
+				//System.out.print(name+"\t\t");
+				String symbol = (String)jsonObject.get("Symbol");
+				System.out.print(symbol+"\t\t");
+				long priceperShare = (long) jsonObject.get("PricePerShare");
+				System.out.print(priceperShare+"\t\t");
+				long totalShare=(long)jsonObject.get("TotalShare");
+				System.out.print(totalShare+"\t\t");
+				System.out.println();
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	public void buyShares(int amount, String userSymbol) {
+		JSONParser jsonParser = new JSONParser();
+		long totalShare;
+		long pricePerShare;
+		long totalSharesAfterPurchase;
+		long[] totalShareArray = new long[3];
+		//long[] 
+		try {
+			JSONArray jsonArrayOut = new JSONArray();
+			JSONArray jsonArray = (JSONArray)jsonParser.parse(new FileReader("stockAccountInput.json"));
+			for(Object o : jsonArray) {
+				JSONObject jsonObject = (JSONObject)o;
+				String company = (String)jsonObject.get("Company");
+				String symbol = (String)jsonObject.get("Symbol");
+				totalShare = (long)jsonObject.get("TotalShare");
+				if(symbol.equals(userSymbol)) {
+					pricePerShare = (long)jsonObject.get("PricePerShare");
+					//System.out.println(pricePerShare);
+					totalSharesAfterPurchase = totalShare-(amount/pricePerShare);
+					System.out.println("Updated Stock");
+					System.out.println("=================================================");
+					System.out.println("Symbol\t  Price Per Share    Total Shares");
+					System.out.println("======\t  ===============    ============");
+					System.out.print(symbol+"\t\t");
+					System.out.print(pricePerShare+"\t\t");
+					System.out.println(totalSharesAfterPurchase+"\t\t");
+					//jsonObject.put(key, value)
+				}
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void sellShares(int amount, String userSymbol) {
+		JSONParser jsonParser = new JSONParser();
+		long totalShare;
+		long pricePerShare;
+		long totalSharesAfterPurchase;
+		try {
+			JSONArray jsonArray = (JSONArray)jsonParser.parse(new FileReader("stockAccountInput.json"));
+			for(Object o : jsonArray) {
+				JSONObject jsonObject = (JSONObject)o;
+				String symbol = (String)jsonObject.get("Symbol");
+				totalShare = (long)jsonObject.get("TotalShare");
+				if(symbol.equals(userSymbol)) {
+					pricePerShare = (long)jsonObject.get("PricePerShare");
+					//System.out.println(pricePerShare);
+					totalSharesAfterPurchase = totalShare+(amount/pricePerShare);
+					System.out.println("Updated Stock");
+					System.out.println("=================================================");
+					System.out.println("Symbol\t  Price Per Share    Total Shares");
+					System.out.println("======\t  ===============    ============");
+					System.out.print(symbol+"\t\t");
+					System.out.print(pricePerShare+"\t\t");
+					System.out.println(totalSharesAfterPurchase+"\t\t");
+					
+				}
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

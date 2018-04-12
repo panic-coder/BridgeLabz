@@ -1,0 +1,20 @@
+[
+	{
+		"Company":"Reliance",
+		"Symbol":"RIL",
+		"PricePerShare":20,
+		"TotalShare":1000
+	},
+	{
+		"Company":"Cipla",
+		"Symbol":"CPL",
+		"PricePerShare":15,
+		"TotalShare":1000
+	},
+	{	
+		"Company":"BridgeLabz",
+		"Symbol":"BDL",
+		"PricePerShare":10,
+		"TotalShare":1000
+	}
+]
