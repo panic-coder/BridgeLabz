@@ -140,7 +140,7 @@ public class Utility {
 		FileWriter file = new FileWriter("riceInput.json");
 		file.write(ja.toJSONString());
 		file.flush();
-		System.out.println("Success");
+		System.out.println("Successfully taken user input and written in file\n");
 	}catch(
 	Exception e)
 	{
@@ -156,18 +156,23 @@ public class Utility {
 		System.out.println(jsonArray);
 		for (Object obj : jsonArray) {
 			JSONObject jsonObject = (JSONObject) obj;
+
 			name = (String) jsonObject.get("Name");
 			// System.out.println(name);
-			weight = (String) jsonObject.get("weight");
-			weightInt = Integer.parseInt(weight);
-			weightSum += weightInt;
-			// System.out.println(weight);
+			
 			price = (String) jsonObject.get("Price");
 			priceInt = Integer.parseInt(price);
 			// System.out.println(price);
+			
+			weight = (String) jsonObject.get("Weight");
+			weightInt = Integer.parseInt(weight);
+			weightSum += weightInt;
+			// System.out.println(weight);
+			
+			
 			totalPrice = totalPrice + (priceInt * weightInt);
 		}
-		System.out.println(totalPrice);
+		System.out.println("================\nTotal Price : "+totalPrice+"\n================\n");
 		try {
 			JSONObject jo = new JSONObject();
 			jo.put("TotalWeight", weightSum);
@@ -178,7 +183,7 @@ public class Utility {
 			FileWriter file = new FileWriter("riceOutput.json");
 			file.write(ja.toJSONString());
 			file.flush();
-			System.out.println("Success");
+			System.out.println("Successfully written output in file");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

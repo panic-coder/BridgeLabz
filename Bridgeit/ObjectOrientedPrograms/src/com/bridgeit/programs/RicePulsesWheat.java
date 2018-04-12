@@ -17,4 +17,6 @@ public class RicePulsesWheat {
 		int numberOfItems = utility.inputInteger();*/
 		utility.ricePulseWheat();
 	}
+	
+	
 }
