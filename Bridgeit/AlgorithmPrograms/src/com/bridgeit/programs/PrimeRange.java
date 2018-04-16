@@ -18,7 +18,7 @@ public class PrimeRange {
 		int i=1;
 		System.out.println("Prime number range upto "+n);
 		while(i<=n) {
-			if(Utility.isPrimeNumber(i))
+			if(utility.isPrimeNumber(i))
 				System.out.println(i);
 			i++;
 		}

@@ -20,7 +20,6 @@ public class InsertionSortString {
 		for (int i = 0; i < n; i++) {
 			s[i] = utility.inputString();
 		}
-
 		s = Utility.insertionSort(s);
 		Utility.displayArray(s,n);
 	}

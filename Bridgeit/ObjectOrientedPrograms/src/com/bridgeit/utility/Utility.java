@@ -7,12 +7,16 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import com.bridgeit.stock.Company;
 
 public class Utility {
 	Scanner scanner;
@@ -353,5 +357,30 @@ public class Utility {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void fetch() {
+		ArrayList<String> companyList = new ArrayList<String>();
+		JSONParser jsonParser = new JSONParser();
+		try {
+
+			File file = new File("stockAccountInput.json");
+			String path = file.getAbsolutePath();
+			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("stockAccountInput.json"));
+			System.out.println(jsonArray);
+			for(Object o : jsonArray) {
+				JSONObject jsonObject = (JSONObject)o;
+				String companyName = (String)jsonObject.get("Company");
+				companyList.add(companyName);
+			}
+			//	companyList.add();
+			
+			for(String item:companyList) {
+				System.out.println(item);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

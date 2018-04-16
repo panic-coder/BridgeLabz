@@ -17,7 +17,7 @@ public class Distance {
 		double x,y;
 		x = utility.inputDouble();
 		y = utility.inputDouble();
-		double d=utility.distance(x,y);
-		System.out.println(d);
+		double distance=utility.distance(x,y);
+		System.out.println(distance);
 	}
 }

@@ -22,7 +22,7 @@ public class PowerOf2 {
 				count++;
 		}
 		int i = 0;
-		while (i < n) {
+		while (i <= n) {
 			int num = utility.powerOf2(i);
 			System.out.println(num + " ");
 			i++;

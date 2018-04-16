@@ -30,6 +30,5 @@ public class Array2D {
 			System.out.println("Wrong Choice");
 			break;
 		}
-		//utility.display(a,3,3);
 	}
 }

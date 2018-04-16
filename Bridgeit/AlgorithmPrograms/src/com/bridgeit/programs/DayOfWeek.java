@@ -15,47 +15,14 @@ public class DayOfWeek {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
 		System.out.println("Enter month");
-		int m = utility.inputInteger();
+		int month = utility.inputInteger();
 		System.out.println("Enter day");
-		int d = utility.inputInteger();
+		int day = utility.inputInteger();
 		System.out.println("Enter year");
-		int y = utility.inputInteger();
-		//int days = Utility.getDayOfWeek(m, d, y);
+		int year = utility.inputInteger();
 		System.out.println("==========");
-		switch (Utility.getDayOfWeek(m, d, y)) {
-		case 0: {
-			System.out.println("Sunday");
-			break;
-		}
-		case 1: {
-			System.out.println("Monday");
-			break;
-		}
-		case 2: {
-			System.out.println("Tuesday");
-			break;
-		}
-		case 3: {
-			System.out.println("Wednesday");
-			break;
-		}
-		case 4: {
-			System.out.println("Thursday");
-			break;
-		}
-		case 5: {
-			System.out.println("Friday");
-			break;
-		}
-		case 6: {
-			System.out.println("Saturday");
-			break;
-		}
-		default: {
-			System.out.println("Error");
-			break;
-		}
-
-		}
+		String week[] = {"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+		int weekDay = Utility.getDayOfWeek(month, day, year);
+		System.out.println(week[weekDay]);
 	}
 }

@@ -27,4 +27,3 @@ public class Username {
 		System.out.println(utility.replaceUsername(userName,user));
 	}
 }
-/*28-March-2018*/

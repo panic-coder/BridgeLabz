@@ -19,9 +19,7 @@ public class Quadratic {
 	a = utility.inputInteger();
 	b = utility.inputInteger();
 	c = utility.inputInteger();
-	//System.out.println(a+" "+b+" "+c);
 	delta = (b*b)-(4*a*c);
-	//System.out.println(delta);
 	x1 = (-b+Math.sqrt(delta))/(2*a);
 	x2 = (-b-Math.sqrt(delta))/(2*a);
 	if(x1>0)

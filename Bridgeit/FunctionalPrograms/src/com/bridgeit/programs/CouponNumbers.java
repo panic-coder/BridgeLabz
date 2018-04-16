@@ -15,9 +15,9 @@ public class CouponNumbers {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
 		System.out.println("Enter the size of Distinct \nCoupon Numbers");
-		int n = utility.inputInteger();
-		int m = utility.couponNumbers(n);
-		System.out.println("Total Random numbers needed for \nall Distinct Numbers are " + m);
+		int arraySize = utility.inputInteger();
+		int totalDistinctNumber = utility.couponNumbers(arraySize);
+		System.out.println("Total Random numbers needed for \nall Distinct Numbers are " + totalDistinctNumber);
 	}
 
 }

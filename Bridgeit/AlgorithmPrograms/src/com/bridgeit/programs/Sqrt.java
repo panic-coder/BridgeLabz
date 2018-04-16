@@ -15,8 +15,6 @@ public class Sqrt {
 		Utility utility = new Utility();
 		System.out.println("Enter a non negative number");
 		double c= utility.inputInteger();
-		
-		//System.out.println(Math.sqrt(c));
 		Utility.sqrt(c);
 	}
 }

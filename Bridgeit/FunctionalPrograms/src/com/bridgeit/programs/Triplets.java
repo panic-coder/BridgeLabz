@@ -15,13 +15,13 @@ public class Triplets {
 	public static void main(String[] args) {
 		Utility utility = new Utility();
 		System.out.println("Enter the size of array");
-		int n = utility.inputInteger();
-		int[] a = new int[n];
-		System.out.println("Enter " + n + " numbers in array");
-		for (int i = 0; i < n; i++) {
-			a[i] = utility.inputInteger();
+		int size = utility.inputInteger();
+		int[] array = new int[size];
+		System.out.println("Enter " + size + " numbers in array");
+		for (int i = 0; i < size; i++) {
+			array[i] = utility.inputInteger();
 		}
-		int count = utility.triplets(a);
+		int count = utility.triplets(array);
 		if (count == 0) {
 			System.out.println("No distinct triplets found");
 		} else {
