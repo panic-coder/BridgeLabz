@@ -421,13 +421,18 @@ public class Utility {
 			company.setSymbol(symbol);
 			long pricePerShare = (long) jsonObject.get("PricePerShare");
 			company.setPricePerShare(pricePerShare);
-			long totalShare = (long) jsonObject.get("TotalShare");
+			long totalShare = (long) jsonObject.get("SharesAvailable");
 			company.setTotalShares(totalShare);
 			companyList.add(company);
 		}
 		return companyList;
 	}
 
+	/**
+	 * Creates new file with the name of the user and keeps all their transactions
+	 * 
+	 * @param filename name with which new json file is being created
+	 */
 	public void createNewAccount(String filename) {
 		File file = new File(filename + ".json");
 		boolean fileCreated = false;
@@ -442,6 +447,12 @@ public class Utility {
 			System.out.println("Failed to creat file : " + file.getPath());
 	}
 
+	/**
+	 * Calculates total values of all the shares in the stock 
+	 * 
+	 * @param company list where all info is present
+	 * @return total value of all the shares share
+	 */
 	public long totalValuesOfShares(List<Company> company) {
 		long totalShares = 0;
 		for (Company c : company) {
@@ -452,7 +463,14 @@ public class Utility {
 		return totalShares;
 	}
 
-	public /*List<Company>*/void buy(long amount, String symbol, List<Company> company) {
+	/**
+	 * Buying of shares from stock 
+	 * 
+	 * @param amount for buying
+	 * @param symbol of company for buying
+	 * @param company list
+	 */
+	public void buy(String existingCustomerName,long amount, String symbol, List<Company> company) {
 		for (Company c : company) {
 			if (c.getSymbol().equals(symbol)) {
 				long price = c.getPricePerShare();
@@ -466,13 +484,173 @@ public class Utility {
 				}
 			}
 		}
-		//return company;
 	}
 
+	/**
+	 * Displays the values stored in the array list company  
+	 * 
+	 * @param company list
+	 */
 	public void display(List<Company> company) {
 		for (Company c : company) {
 			System.out.println(c);
 		}
+	}
+
+	/**
+	 * Writes the array list in json file
+	 * 
+	 * @param company list
+	 * @throws IOException
+	 */
+	@SuppressWarnings("unchecked")
+	public void writeInFile(List<Company> company) throws IOException {
+		
+		JSONArray jsonArray = new JSONArray();
+		try {
+		for(Company c : company) {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("Symbol",c.getSymbol());
+			jsonObject.put("SharesAvailable", c.getTotalShares());
+			jsonObject.put("PricePerShare", c.getPricePerShare());
+			jsonArray.add(jsonObject);
+		}
+		FileWriter file = new FileWriter("stockAccountInput.json");
+		file.write(jsonArray.toJSONString());
+		file.flush();
+		file.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Sell the shares Customer is having 
+	 * 
+	 * @param amount for selling
+	 * @param symbol of company to buy shares
+	 * @param company list
+	 */
+	public void sell(String existingCustomerName, long amount, String symbol, List<Company> company) {
+		for (Company c : company) {
+			if (c.getSymbol().equals(symbol)) {
+				long price = c.getPricePerShare();
+				if (amount >= price) {
+					long numberOfShares = amount / price;
+					long totalShares = c.getTotalShares();
+					c.setTotalShares(totalShares + numberOfShares);
+					System.out.println(c.getTotalShares());
+				}else {
+					System.out.println("Amount entered is larger than price of all the share");
+				}
+			}
+		}
+	}
+
+	public int[][] suffle() {
+		int size = 9;
+		int[] clubs = new int[size];
+		int[] diamonds = new int[size];
+		int[] hearts = new int[size];
+		int[] spades = new int[size];
+		clubs = randomArray(size);
+		diamonds = randomArray(size);
+		hearts = randomArray(size);
+		spades = randomArray(size);
+		int[][] array = new int[4][size];
+		for(int i = 0;i<4;i++) {
+			for(int j=0;j<size;j++) {
+				if(i==0) 
+					array[i][j] = clubs[j];
+				else if(i==1)
+					array[i][j] = diamonds[j];
+				else if(i==2)
+					array[i][j] = hearts[j];
+				else if(i==3)
+					array[i][j] = spades[j];
+			}
+		}
+		return array;
+	}
+
+	private int[] randomArray(int size) {
+		int r=0;
+		int random = 0;
+		int x = 0;
+		int bound = 13;
+		int[] array = new int[size];
+		while(r<size) {
+			if(r==0)
+				array[r] = inputRandom(bound);
+			else {
+				int z = 0;
+				while(z==0) {
+					random = inputRandom(bound);
+					x=0;
+					for(int i=0;i<r;i++) 
+						if(array[i]==random)
+							x++;
+					if(x==0) {
+						array[r] = random;
+						z++;
+					}
+				}
+			}
+			r++;
+		}
+		return array;
+	}
+
+	public int[][] sort(int[][] deck) {
+		int size = 9;
+		int[] clubs = new int[size];
+		int[] diamonds = new int[size];
+		int[] hearts = new int[size];
+		int[] spades = new int[size];
+		for(int i=0;i<4;i++) {
+			for(int j=0;j<size;j++) {
+				if(i==0)
+					clubs[j] = deck[i][j];
+				else if(i==1)
+					diamonds[j] = deck[i][j];
+				else if(i==2)
+					hearts[j] = deck[i][j];
+				else if(i==3)
+					spades[j] = deck[i][j];
+			}
+		}
+		clubs = bubbleSort(clubs);
+		diamonds = bubbleSort(diamonds);
+		hearts = bubbleSort(hearts);
+		spades = bubbleSort(spades);
+		int[][] array = new int[4][size];
+		for(int i = 0;i<4;i++) {
+			for(int j=0;j<size;j++) {
+				if(i==0) 
+					array[i][j] = clubs[j];
+				else if(i==1)
+					array[i][j] = diamonds[j];
+				else if(i==2)
+					array[i][j] = hearts[j];
+				else if(i==3)
+					array[i][j] = spades[j];
+			}
+		}
+
+		return array;
+	}
+
+	private int[] bubbleSort(int[] array) {
+		for(int i=0;i<array.length;i++) {
+			for(int j=0;j<array.length-1;j++) {
+				if(array[j]>array[j+1]) {
+					int temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
+				}
+			}
+		}
+		return array;
 	}
 
 	

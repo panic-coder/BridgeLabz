@@ -38,11 +38,7 @@ public class LinkedQueue<T> {
 			else
 				System.out.print("   ");
 			t=t.next;
-			/*if(p%7==0) {
-				System.out.println();
-			}*/
-			//p++;
-		}
+			}
 		System.out.println();
 		}
 	}

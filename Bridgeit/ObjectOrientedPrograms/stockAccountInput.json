@@ -1,20 +1,17 @@
 [
 	{
-		"Company": "Reliance",
-		"PricePerShare": 20,
+		"PricePerShare": 10,
 		"Symbol": "RIL",
-		"TotalShare": 1000
+		"SharesAvailable": 25
 	},
 	{
-		"Company": "Tata Group",
-		"TotalShare": 50,
 		"PricePerShare": 10,
-		"Symbol": "TATA"
+		"Symbol": "TATA",
+		"SharesAvailable": 25
 	},
 	{
-		"Company": "State Bank of India",
-		"TotalShare": 30,
 		"PricePerShare": 10,
-		"Symbol": "SBI"
+		"Symbol": "SBI",
+		"SharesAvailable": 30
 	}
 ]

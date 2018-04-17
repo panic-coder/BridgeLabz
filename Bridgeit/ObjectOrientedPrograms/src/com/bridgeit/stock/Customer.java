@@ -1,15 +1,9 @@
 package com.bridgeit.stock;
 
 public class Customer {
-	private String name;
 	private String symbol;
-	private long amount;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	private long pricePerShare;
+	private long shares;
 	public String getSymbol() {
 		return symbol;
 	}
@@ -17,9 +11,15 @@ public class Customer {
 		this.symbol = symbol;
 	}
 	public long getAmount() {
-		return amount;
+		return pricePerShare;
 	}
 	public void setAmount(long amount) {
-		this.amount = amount;
+		this.pricePerShare = amount;
+	}
+	public long getShares() {
+		return shares;
+	}
+	public void setShares(long shares) {
+		this.shares = shares;
 	}
 }
