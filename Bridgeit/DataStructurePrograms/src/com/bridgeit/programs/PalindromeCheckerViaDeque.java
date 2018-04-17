@@ -16,7 +16,6 @@ public class PalindromeCheckerViaDeque {
 		System.out.println("Enter the word to check palindrome");
 		String word = utility.inputString();
 		boolean b = Utility.palindromeChecker(word);
-		//System.out.println(b);
 		if(b)
 			System.out.println("Palindrome");
 		else

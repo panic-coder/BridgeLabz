@@ -16,7 +16,12 @@ public class Utility<T> {
 
 	}
 
-	// RANDOM Numbers
+	/**
+	 * Generating Random Numbers with bound
+	 * 
+	 * @param bound
+	 * @return generated Random Number
+	 */
 	public int inputRandom(int bound) {
 		try {
 			return random.nextInt(bound);
@@ -25,7 +30,12 @@ public class Utility<T> {
 		}
 		return 0;
 	}
-
+	
+	/**
+	 * Generating Random Numbers without bound
+	 * 
+	 * @return generated Random Number
+	 */
 	public int inputRandom() {
 		try {
 			return random.nextInt();
@@ -35,7 +45,11 @@ public class Utility<T> {
 		return 0;
 	}
 
-	// INPUT STRING
+	/**
+	 * Takes input with the user via Scanner for String
+	 * 
+	 * @return INPUT STRING
+	 */
 	public String inputString() {
 		try {
 			return scanner.next();
@@ -45,7 +59,11 @@ public class Utility<T> {
 		return "";
 	}
 
-	// INPUT STRING_LINE
+	/**
+	 * Takes input with the user via Scanner for StringLine
+	 * 
+	 * @return INPUT STRING LINE
+	 */
 	public String inputStringLine() {
 		try {
 			return scanner.nextLine();
@@ -55,7 +73,11 @@ public class Utility<T> {
 		return "";
 	}
 
-	// INPUT Integer
+	/**
+	 * Takes input with the user via Scanner for Integer
+	 * 
+	 * @return INPUT INTEGER
+	 */
 	public int inputInteger() {
 		try {
 			return scanner.nextInt();
@@ -65,7 +87,11 @@ public class Utility<T> {
 		return 0;
 	}
 
-	// INPUT Double
+	/**
+	 * Takes input with the user via Scanner for Double
+	 * 
+	 * @return INPUT DOUBLE
+	 */
 	public double inputDouble() {
 		try {
 			return scanner.nextDouble();
@@ -75,7 +101,11 @@ public class Utility<T> {
 		return 0;
 	}
 
-	// INPUT Boolean
+	/**
+	 * Takes input with the user via Scanner for Boolean
+	 * 
+	 * @return INPUT BOOLEAN
+	 */
 	public boolean inputBoolean() {
 		try {
 			return scanner.nextBoolean();
@@ -86,6 +116,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Prints calendar of a month taking month and year as input
+	 * 
 	 * @param month
 	 * @param year
 	 */
@@ -133,7 +165,6 @@ public class Utility<T> {
 			System.out.print(dayName[i] + "  ");
 		}
 		System.out.println();
-		// System.out.println(day1);
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 7; j++) {
 				if (totalDays[i][j] != -1) {
@@ -149,6 +180,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Calculating calendar in 2D array
+	 * 
 	 * @param month
 	 * @param year
 	 * @return total number of days in the entered month and year
@@ -215,6 +248,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Finding if a year is Leap Year or not
+	 * 
 	 * @param year
 	 * @return true if year is leap and false if year is not leap year
 	 */
@@ -254,6 +289,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Checking if a number is prime or not
+	 * 
 	 * @param number
 	 * @return true if number is prime and false if number is not prime
 	 */
@@ -273,6 +310,9 @@ public class Utility<T> {
 	private static String st;
 
 	/**
+	 * Reading data from file and taking a user input and deleting a number 
+	 * if present or adding if not present via unordered list
+	 * 
 	 * @param userInput
 	 * @throws Exception
 	 */
@@ -312,6 +352,9 @@ public class Utility<T> {
 	static String stint;
 
 	/**
+	 * Reading data from file and taking a user input and deleting a number 
+	 * if present or adding if not present via ordered list
+	 * 
 	 * @param searchItem
 	 * @throws Exception
 	 */
@@ -349,6 +392,8 @@ public class Utility<T> {
 	static Utility utility = new Utility();
 
 	/**
+	 * Calculating total cash in bank after total transactions
+	 * 
 	 * @param numberOfPeople
 	 * @return the total cash left in bank after all the transactions
 	 */
@@ -398,6 +443,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Checking if a word is palindrome or not
+	 * 
 	 * @param word
 	 * @return true if String is palindrome and false if not palindrome
 	 */
@@ -429,6 +476,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Checks whether number id prime or not
+	 * 
 	 * @param number
 	 * @return true for prime and false for not prime
 	 */
@@ -447,6 +496,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Checks total number of anagram numbers in a given array of prime numbers
+	 * 
 	 * @param prime
 	 */
 	public static void primeAnagram2DArray(int[] prime) {
@@ -568,6 +619,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Checks whether two passed values are anagram or not
+	 * 
 	 * @param valueOne
 	 * @param valueTwo
 	 * @return true if valueOne and valueTwo are equal and false if not equal
@@ -583,6 +636,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Arranges given character array with respect to ASCII values
+	 * 
 	 * @param c
 	 * @return arranged char array in ascending order
 	 */
@@ -605,6 +660,9 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Finding anagram number in an array of prime numbers via stack 
+	 * implemented using linked list 
+	 * 
 	 * @param prime
 	 */
 	public static void primeAnagramLinkedListStack(int[] prime) {
@@ -699,6 +757,9 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Finding anagram number in an array of prime numbers via queue 
+	 * implemented using linked list 
+	 * 
 	 * @param prime
 	 */
 	public static void primeAnagramLinkedListQueue(int[] prime) {
@@ -793,6 +854,9 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Finding number of ways nodes can be arranged in a binary search tree
+	 * via Catalan Numbers
+	 * 
 	 * @param totalNodes
 	 * @return total number of binary search tree that can be made by totalNodes 
 	 */
@@ -804,6 +868,8 @@ public class Utility<T> {
 	}
 
 	/**
+	 * Calculating the factorial of the given number
+	 * 
 	 * @param i
 	 * @return factorial of the given number
 	 */

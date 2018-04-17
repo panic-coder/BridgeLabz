@@ -63,7 +63,6 @@ public class Utility<T> {
 	 * 
 	 * @return INPUT STRING LINE
 	 */
-
 	public String inputStringLine() {
 		try {
 			return scanner.nextLine();
@@ -78,7 +77,6 @@ public class Utility<T> {
 	 * 
 	 * @return INPUT INTEGER
 	 */
-
 	public int inputInteger() {
 		try {
 			return scanner.nextInt();
@@ -368,7 +366,7 @@ public class Utility<T> {
 		int end = array.length;
 		int midp = (start+end)/2;
 		while (start < end) {
-			System.out.println("You are between "+(start)+" and "+(end-1)+"\nEnter true or false");
+			System.out.println("You are between "+(start+1)+" and "+(end)+"\nEnter true or false");
 			boolean b = utility.inputBoolean();
 			midp = (start + end) / 2;
 			if (b==true) {

@@ -21,7 +21,6 @@ public class CalenderQueue {
 		for(int i=0;i<days.length;i++)
 			System.out.print(days[i]+"  ");
 		System.out.println();
-		//LinkedQueue<LinkedQueue> list1 = new LinkedQueue<LinkedQueue>();
 		LinkedQueue<Integer> list[] = new LinkedQueue[6];
 		for(int i=0;i<6;i++) {
 			list[i]=new LinkedQueue();

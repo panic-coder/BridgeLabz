@@ -1,1 +1,20 @@
-[{"Company":"Reliance","PricePerShare":20,"Symbol":"RIL","TotalShare":1000}]
+[
+	{
+		"Company": "Reliance",
+		"PricePerShare": 20,
+		"Symbol": "RIL",
+		"TotalShare": 1000
+	},
+	{
+		"Company": "Tata Group",
+		"TotalShare": 50,
+		"PricePerShare": 10,
+		"Symbol": "TATA"
+	},
+	{
+		"Company": "State Bank of India",
+		"TotalShare": 30,
+		"PricePerShare": 10,
+		"Symbol": "SBI"
+	}
+]

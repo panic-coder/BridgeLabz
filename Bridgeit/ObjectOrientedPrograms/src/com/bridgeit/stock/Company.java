@@ -1,7 +1,7 @@
 package com.bridgeit.stock;
 
 public class Company {
-	private String company;
+	//private String company;
 	private String symbol;
 	private long pricePerShare;
 	private long totalShares;
@@ -12,12 +12,12 @@ public class Company {
 		this.pricePerShare = pricePerShare;
 		this.totalShares = totalShares;
 	}*/
-	public String getCompany() {
+	/*public String getCompany() {
 		return company;
 	}
 	public void setCompany(String company) {
 		this.company = company;
-	}
+	}*/
 	public String getSymbol() {
 		return symbol;
 	}
@@ -37,7 +37,7 @@ public class Company {
 		this.totalShares = totalShares;
 	}
 	public String toString() {
-		return company+" "+symbol+" "+pricePerShare+" "+" "+totalShares;
+		return " "+symbol+" "+pricePerShare+" "+" "+totalShares;
 		
 	}
 }
