@@ -549,91 +549,96 @@ public class Utility {
 
 	public int[][] suffle() {
 		int size = 9;
-		int[] clubs = new int[size];
-		int[] diamonds = new int[size];
-		int[] hearts = new int[size];
-		int[] spades = new int[size];
-		clubs = randomArray(size);
-		diamonds = randomArray(size);
-		hearts = randomArray(size);
-		spades = randomArray(size);
-		int[][] array = new int[4][size];
-		for(int i = 0;i<4;i++) {
-			for(int j=0;j<size;j++) {
-				if(i==0) 
-					array[i][j] = clubs[j];
-				else if(i==1)
-					array[i][j] = diamonds[j];
-				else if(i==2)
-					array[i][j] = hearts[j];
-				else if(i==3)
-					array[i][j] = spades[j];
-			}
-		}
-		return array;
+		int[][] cards= new int[4][size];
+		
+		cards = randomArray(size);
+		//System.out.println("Suffle");
+		/*for(int i = 0;i<4;i++) {
+			for(int j=0;j<size;j++) 
+				
+		}*/
+		return cards;
 	}
 
-	private int[] randomArray(int size) {
+	private int[][] randomArray(int size) {
 		int r=0;
+		int c=0;
 		int random = 0;
 		int x = 0;
-		int bound = 13;
-		int[] array = new int[size];
+		//int j=0;
+		int bound = 52;
+		int[][] array = new int[4][size];
+		//System.out.println("random");
+		while(c<4) {
+			//System.out.println("Sufle");
+			r=0;
+			x=0;
+			
 		while(r<size) {
-			if(r==0)
-				array[r] = inputRandom(bound);
+			if(r==0 && c==0 )
+				array[c][r] = inputRandom(bound);
 			else {
 				int z = 0;
+				x = 0;
 				while(z==0) {
 					random = inputRandom(bound);
 					x=0;
-					for(int i=0;i<r;i++) 
-						if(array[i]==random)
-							x++;
+					z=0;
+					for(int i=0;i<4;i++) {
+						for(int j=0;j<size;j++) {
+							if(array[i][j]==random)
+								x++;
+						}
+					}
 					if(x==0) {
-						array[r] = random;
+						array[c][r] = random;
 						z++;
 					}
 				}
-			}
+				}
 			r++;
+			}
+		//j++;
+		c++;
 		}
 		return array;
-	}
+		}
+		
+	
 
 	public int[][] sort(int[][] deck) {
 		int size = 9;
-		int[] clubs = new int[size];
-		int[] diamonds = new int[size];
-		int[] hearts = new int[size];
-		int[] spades = new int[size];
+		int[] player1 = new int[size];
+		int[] player2 = new int[size];
+		int[] player3 = new int[size];
+		int[] player4 = new int[size];
 		for(int i=0;i<4;i++) {
 			for(int j=0;j<size;j++) {
 				if(i==0)
-					clubs[j] = deck[i][j];
+					player1[j] = deck[i][j];
 				else if(i==1)
-					diamonds[j] = deck[i][j];
+					player2[j] = deck[i][j];
 				else if(i==2)
-					hearts[j] = deck[i][j];
+					player3[j] = deck[i][j];
 				else if(i==3)
-					spades[j] = deck[i][j];
+					player4[j] = deck[i][j];
 			}
 		}
-		clubs = bubbleSort(clubs);
-		diamonds = bubbleSort(diamonds);
-		hearts = bubbleSort(hearts);
-		spades = bubbleSort(spades);
+		player1 = bubbleSort(player1);
+		player2 = bubbleSort(player2);
+		player3 = bubbleSort(player3);
+		player4 = bubbleSort(player4);
 		int[][] array = new int[4][size];
 		for(int i = 0;i<4;i++) {
 			for(int j=0;j<size;j++) {
 				if(i==0) 
-					array[i][j] = clubs[j];
+					array[i][j] = player1[j];
 				else if(i==1)
-					array[i][j] = diamonds[j];
+					array[i][j] = player2[j];
 				else if(i==2)
-					array[i][j] = hearts[j];
+					array[i][j] = player3[j];
 				else if(i==3)
-					array[i][j] = spades[j];
+					array[i][j] = player4[j];
 			}
 		}
 
@@ -643,7 +648,7 @@ public class Utility {
 	private int[] bubbleSort(int[] array) {
 		for(int i=0;i<array.length;i++) {
 			for(int j=0;j<array.length-1;j++) {
-				if(array[j]>array[j+1]) {
+				if((array[j]%13)>(array[(j+1)])%13) {
 					int temp = array[j];
 					array[j] = array[j+1];
 					array[j+1] = temp;

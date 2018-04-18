@@ -1,0 +1,12 @@
+
+Nsquid:S1643"Use a StringBuilder instead.(üßêÓüÿÿÿÿH£'RMINORZ
+CODE_SMELL
+nsquid:S1075"ARefactor your code to get this URI from a customizable parameter.(Ò‡ßðH¤'RMINORZ
+CODE_SMELL
+ysquid:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(¹®ÙœÿÿÿÿÿH¥'RBLOCKERZBUG
+j
+squid:S106"9Replace this use of System.out or System.err by a logger.(¨ƒÔ»ÿÿÿÿÿH¦'RMAJORZ
+CODE_SMELL
+j
+squid:S106%"9Replace this use of System.out or System.err by a logger.(“ÛàïýÿÿÿÿH§'RMAJORZ
+CODE_SMELL

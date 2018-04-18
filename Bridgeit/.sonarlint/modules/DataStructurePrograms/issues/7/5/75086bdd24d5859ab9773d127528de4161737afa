@@ -1,0 +1,118 @@
+
+†squid:S22935"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ‚ñêH&RMINORZ
+CODE_SMELL
+k
+squid:S106ï"9Replace this use of System.out or System.err by a logger.(ÏªÃûÿÿÿÿH¢&RMAJORZ
+CODE_SMELL
+e
+squid:S106î"9Replace this use of System.out or System.err by a logger.(›¹à%H¡&RMAJORZ
+CODE_SMELL
+jsquid:S2259z"?A "NullPointerException" could be thrown; "t" is nullable here.(ë„áÎûÿÿÿÿH±&RMAJORZBUG
+¹%squid:RedundantThrowsDeclarationCheckÙ"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤ŞıÿÿÿÿH…&RMINORZ
+CODE_SMELL
+f
+squid:S106ò"9Replace this use of System.out or System.err by a logger.(ÈÄ®H¥&RMAJORZ
+CODE_SMELL
+…squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰öÎHŒ&RMINORZ
+CODE_SMELL
+k
+squid:S106ÿ"9Replace this use of System.out or System.err by a logger.(õè€ ıÿÿÿÿH­&RMAJORZ
+CODE_SMELL
+nsquid:S2259"BA "NullPointerException" could be thrown; "prev" is nullable here.(ÄÎ³ıÿÿÿÿH°&RMAJORZBUG
+tsquid:S00112H"FDefine and throw a dedicated exception instead of using a generic one.(‚‹ÉøH²&RMAJORZ
+CODE_SMELL
+e
+squid:S106ş"9Replace this use of System.out or System.err by a logger.(›¹à%H¬&RMAJORZ
+CODE_SMELL
+f
+squid:S106é"9Replace this use of System.out or System.err by a logger.(±áôH&RMAJORZ
+CODE_SMELL
+f
+squid:S106û"9Replace this use of System.out or System.err by a logger.(•óçÂH«&RMAJORZ
+CODE_SMELL
+Usquid:S1659“""Declare "prev" on a separate line.(Û¶™ôüÿÿÿÿH‡&RMINORZ
+CODE_SMELL
+k
+squid:S106ó"9Replace this use of System.out or System.err by a logger.(ñäÔŞıÿÿÿÿH¦&RMAJORZ
+CODE_SMELL
+Tsquid:S1659»"!Declare "pos" on a separate line.(ùÜü§øÿÿÿÿHŠ&RMINORZ
+CODE_SMELL
+e
+squid:S106ú"9Replace this use of System.out or System.err by a logger.(›¹à%Hª&RMAJORZ
+CODE_SMELL
+j
+squid:S106p"9Replace this use of System.out or System.err by a logger.(ë„áÎûÿÿÿÿH–&RMAJORZ
+CODE_SMELL
+e
+squid:S106ô"9Replace this use of System.out or System.err by a logger.(›¹à%H§&RMAJORZ
+CODE_SMELL
+k
+squid:S106ğ"9Replace this use of System.out or System.err by a logger.(İ˜½…ùÿÿÿÿH£&RMAJORZ
+CODE_SMELL
+‡squid:S2293¢"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ‚ñêH&RMINORZ
+CODE_SMELL
+‡squid:S2293³"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ‚ñêH&RMINORZ
+CODE_SMELL
+k
+squid:S106ù"9Replace this use of System.out or System.err by a logger.(åÒ˜øÿÿÿÿH©&RMAJORZ
+CODE_SMELL
+msquid:S1126~"AReplace this if-then-else statement by a single return statement.(«ğH¯&RMINORZ
+CODE_SMELL
+k
+squid:S106÷"9Replace this use of System.out or System.err by a logger.(ÀÑÖÎùÿÿÿÿH¨&RMAJORZ
+CODE_SMELL
+‡squid:S2293¼"YReplace the type specification in this constructor call with the diamond operator ("<>").(§µÊH&RMINORZ
+CODE_SMELL
+vsquid:S1192á"FDefine a constant instead of duplicating this literal "=====" 9 times.(›¹à%H‹&RCRITICALZ
+CODE_SMELL
+j
+squid:S106N"9Replace this use of System.out or System.err by a logger.(ë„áÎûÿÿÿÿH”&RMAJORZ
+CODE_SMELL
+e
+squid:S106á"9Replace this use of System.out or System.err by a logger.(›¹à%H˜&RMAJORZ
+CODE_SMELL
+Rsquid:S1659»"Declare "a" on a separate line.(ùÜü§øÿÿÿÿHˆ&RMINORZ
+CODE_SMELL
+‡squid:S2293Ú"YReplace the type specification in this constructor call with the diamond operator ("<>").(¤ç§¸H‘&RMINORZ
+CODE_SMELL
+k
+squid:S106â"9Replace this use of System.out or System.err by a logger.(·ÆĞ€ÿÿÿÿÿH™&RMAJORZ
+CODE_SMELL
+f
+squid:S106è"9Replace this use of System.out or System.err by a logger.(Ã€ƒÇH&RMAJORZ
+CODE_SMELL
+e
+squid:S106ä"9Replace this use of System.out or System.err by a logger.(›¹à%Hš&RMAJORZ
+CODE_SMELL
+Qsquid:S1659W"Declare "i" on a separate line.(âÊ¶ÜúÿÿÿÿH†&RMINORZ
+CODE_SMELL
+ssquid:S1126."AReplace this if-then-else statement by a single return statement.(¡µÉÖûÿÿÿÿH®&RMINORZ
+CODE_SMELL
+ysquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(É…ŒÔH’&RMAJORZ
+CODE_SMELL
+j
+squid:S106z"9Replace this use of System.out or System.err by a logger.(ë„áÎûÿÿÿÿH—&RMAJORZ
+CODE_SMELL
+j
+squid:S106R"9Replace this use of System.out or System.err by a logger.(¨ØÎûÿÿÿÿH•&RMAJORZ
+CODE_SMELL
+Usquid:S1659»""Declare "prev" on a separate line.(ùÜü§øÿÿÿÿH‰&RMINORZ
+CODE_SMELL
+j
+squid:S106B"9Replace this use of System.out or System.err by a logger.(ë„áÎûÿÿÿÿH“&RMAJORZ
+CODE_SMELL
+e
+squid:S106ñ"9Replace this use of System.out or System.err by a logger.(›¹à%H¤&RMAJORZ
+CODE_SMELL
+e
+squid:S106ç"9Replace this use of System.out or System.err by a logger.(›¹à%Hœ&RMAJORZ
+CODE_SMELL
+k
+squid:S106ë"9Replace this use of System.out or System.err by a logger.(ğ€ÙÅøÿÿÿÿH &RMAJORZ
+CODE_SMELL
+e
+squid:S106ê"9Replace this use of System.out or System.err by a logger.(›¹à%HŸ&RMAJORZ
+CODE_SMELL
+f
+squid:S106å"9Replace this use of System.out or System.err by a logger.(œ ş¶H›&RMAJORZ
+CODE_SMELL

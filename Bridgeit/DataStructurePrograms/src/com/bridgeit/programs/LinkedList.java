@@ -10,8 +10,6 @@ package com.bridgeit.programs;
 
 import java.io.*;
 
-//import com.bridgeit.utility.Utility;
-
 public class LinkedList<T> {
 	Node<T> head;
 
@@ -30,17 +28,6 @@ public class LinkedList<T> {
 		}	
 	}
 	
-	public void hashAdd(T number) {
-		Node<T> n = new Node<T>(number);
-		Object pos;
-		position(number);
-	}
-	
-	private void position(T number) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public boolean search(T item) {
 		int c=0;
 		if(head==null) {
@@ -48,7 +35,7 @@ public class LinkedList<T> {
 		}
 		else {
 			Node<T> t=head;
-			while(t.next!=null ) {
+			while(t!=null ) {
 				if(item.equals(t.data)) {
 					c++;
 					break;

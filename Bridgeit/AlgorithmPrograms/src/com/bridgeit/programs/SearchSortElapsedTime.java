@@ -29,8 +29,8 @@ public class SearchSortElapsedTime {
 		int size=0;
 		System.out.println("Enter the size of array");
 		size = utility.inputInteger();
-		Integer[] a;
-		String[] st;
+		Integer[] array;
+		String[] stringArray;
 		String itemS;
 		Integer  item;
 		long start;
@@ -38,13 +38,13 @@ public class SearchSortElapsedTime {
 		
 		switch(ch) {
 		case 1:
-			a=utility.getInputInt(size);
-			a=Utility.bubbleSort(a);
-			Utility.displayArray(a, size);
+			array=utility.getInputInt(size);
+			array=Utility.bubbleSort(array);
+			Utility.displayArray(array, size);
 			System.out.println("\nEnter the number to be searched");
 			item = utility.inputInteger();
 			start = System.nanoTime();
-			if(Utility.binarySearch(a, item))
+			if(Utility.binarySearch(array, item))
 				System.out.println("Present");
 			else
 				System.out.println("Not Present");
@@ -53,13 +53,13 @@ public class SearchSortElapsedTime {
 			break;
 			
 		case 2:
-			st=utility.getInputString(size);
-			st=Utility.bubbleSort(st);
-			Utility.displayArray(st, size);
+			stringArray=utility.getInputString(size);
+			stringArray=Utility.bubbleSort(stringArray);
+			Utility.displayArray(stringArray, size);
 			System.out.println("\nEnter the String to be searched");
 			itemS = utility.inputString();
 			start = System.nanoTime();
-			if(Utility.binarySearch(st, itemS))
+			if(Utility.binarySearch(stringArray, itemS))
 				System.out.println("Present");
 			else
 				System.out.println("Not Present");
@@ -68,39 +68,39 @@ public class SearchSortElapsedTime {
 			break;
 			
 		case 3:
-			a=utility.getInputInt(size);
+			array=utility.getInputInt(size);
 			start = System.nanoTime();
-			a=Utility.insertionSort(a);
+			array=Utility.insertionSort(array);
 			end = System.nanoTime();
 			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
-			Utility.displayArray(a, size);
+			Utility.displayArray(array, size);
 			break;
 			
 		case 4:
-			st=utility.getInputString(size);
+			stringArray=utility.getInputString(size);
 			start = System.nanoTime();
-			st=Utility.insertionSort(st);
+			stringArray=Utility.insertionSort(stringArray);
 			end = System.nanoTime();
 			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
-			Utility.displayArray(st, size);
+			Utility.displayArray(stringArray, size);
 			break;
 			
 		case 5:
-			a=utility.getInputInt(size);
+			array=utility.getInputInt(size);
 			start = System.nanoTime();
-			a = Utility.bubbleSort(a);
+			array = Utility.bubbleSort(array);
 			end = System.nanoTime();
 			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
-			Utility.displayArray(a, size);
+			Utility.displayArray(array, size);
 			break;
 			
 		case 6:
-			st=utility.getInputString(size);
+			stringArray=utility.getInputString(size);
 			start = System.nanoTime();
-			st=Utility.bubbleSort(st);
+			stringArray=Utility.bubbleSort(stringArray);
 			end = System.nanoTime();
 			System.out.println("Time elapsed : "+(end-start)+" nano seconds");
-			Utility.displayArray(st, size);
+			Utility.displayArray(stringArray, size);
 			break;
 			
 		default:

@@ -1,0 +1,205 @@
+
+j
+squid:S1069"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿHÑ"RMAJORZ
+CODE_SMELL
+ˆsquid:S3776½"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ŸÒ—ùÿÿÿÿHû"RCRITICALZ
+CODE_SMELL
+asquid:S1481…"'Remove this unused "zz" local variable.(á»‰¡ùÿÿÿÿ8ÂĞÃ­,Hô%RMINORZ
+CODE_SMELL
+squid:S2293Ú"YReplace the type specification in this constructor call with the diamond operator ("<>").(‡¡åğ8÷˜€Ã­,H™#RMINORZ
+CODE_SMELL
+squid:S2095Ü"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(¹®Ùœÿÿÿÿÿ8÷˜€Ã­,HŸ#RBLOCKERZBUG
+m
+squid:S106ï"9Replace this use of System.out or System.err by a logger.(®’Úá8ªÁÊÃ­,Hª%RMAJORZ
+CODE_SMELL
+k
+squid:S106²"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿHİ"RMAJORZ
+CODE_SMELL
+vsquid:S1126ñ"AReplace this if-then-else statement by a single return statement.(ŞÏÕû8÷˜€Ã­,HÑ#RMINORZ
+CODE_SMELL
+Vsquid:S1643æ"Use a StringBuilder instead.(¯öšĞşÿÿÿÿ8÷˜€Ã­,H‘#RMINORZ
+CODE_SMELL
+asquid:S1481±"'Remove this unused "zz" local variable.(á»‰¡ùÿÿÿÿ8ÂĞÃ­,Hõ%RMINORZ
+CODE_SMELL
+r
+squid:S106¾"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8÷˜€Ã­,HÎ#RMAJORZ
+CODE_SMELL
+squid:S2095¶"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(¹®Ùœÿÿÿÿÿ8÷˜€Ã­,H #RBLOCKERZBUG
+osquid:S1126¾"AReplace this if-then-else statement by a single return statement.(™‚‡Hò"RMINORZ
+CODE_SMELL
+r
+squid:S106•"9Replace this use of System.out or System.err by a logger.(õÒæúÿÿÿÿ8÷˜€Ã­,HÏ#RMAJORZ
+CODE_SMELL
+}squid:S1192À"FDefine a constant instead of duplicating this literal "=====" 6 times.(›¹à%8÷˜€Ã­,H—#RCRITICALZ
+CODE_SMELL
+Tsquid:S1659}""Declare "day1" on a separate line.(×ºËƒşÿÿÿÿH’"RMINORZ
+CODE_SMELL
+Rsquid:S1659¾"Declare "x" on a separate line.(×ºËƒşÿÿÿÿH”"RMINORZ
+CODE_SMELL
+f
+squid:S106°"9Replace this use of System.out or System.err by a logger.(×•œ²HÜ"RMAJORZ
+CODE_SMELL
+f
+squid:S106¥"9Replace this use of System.out or System.err by a logger.(úâ¹ëHØ"RMAJORZ
+CODE_SMELL
+k
+squid:S106¿"9Replace this use of System.out or System.err by a logger.(ÍîÛ×ûÿÿÿÿHï"RMAJORZ
+CODE_SMELL
+`squid:S1659È"&Declare "countAna" on a separate line.(å¿­úÿÿÿÿ8ÛáÊÃ­,H¸%RMINORZ
+CODE_SMELL
+m
+squid:S106’"9Replace this use of System.out or System.err by a logger.(²õ¹Ì8ï‘…Ã­,Hœ$RMAJORZ
+CODE_SMELL
+Šsquid:S3776İ"RRefactor this method to reduce its Cognitive Complexity from 53 to the 15 allowed.(İë®ª8÷˜€Ã­,HØ#RCRITICALZ
+CODE_SMELL
+m
+squid:S106É"9Replace this use of System.out or System.err by a logger.(¼çì–8÷˜€Ã­,HÆ#RMAJORZ
+CODE_SMELL
+{squid:S1126¤"AReplace this if-then-else statement by a single return statement.(­¡çˆüÿÿÿÿ8÷˜€Ã­,HÒ#RMINORZ
+CODE_SMELL
+‡squid:S3776|"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(Ô¸‘íúÿÿÿÿHú"RCRITICALZ
+CODE_SMELL
+Qsquid:S1643»"Use a StringBuilder instead.(áÛÆö8ÛáÊÃ­,H¶%RMINORZ
+CODE_SMELL
+isquid:S1854"5Remove this useless assignment to local variable "z".(’Å¶(8ÂĞÃ­,Hø%RMAJORZ
+CODE_SMELL
+f
+squid:S106¬"9Replace this use of System.out or System.err by a logger.(áÄÌHÚ"RMAJORZ
+CODE_SMELL
+isquid:S1854û"5Remove this useless assignment to local variable "z".(’Å¶(8ÛáÊÃ­,HÑ%RMAJORZ
+CODE_SMELL
+j
+squid:S106+"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿHĞ"RMAJORZ
+CODE_SMELL
+k
+squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(ƒú£æøÿÿÿÿHÖ"RMAJORZ
+CODE_SMELL
+squid:S2293²"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚8÷˜€Ã­,H›#RMINORZ
+CODE_SMELL
+j
+squid:S106U"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿHÓ"RMAJORZ
+CODE_SMELL
+isquid:S1854ç"5Remove this useless assignment to local variable "z".(’Å¶(8ÛáÊÃ­,HÒ%RMAJORZ
+CODE_SMELL
+Šsquid:S3776ş"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(³™Û8÷˜€Ã­,H×#RCRITICALZ
+CODE_SMELL
+j
+squid:S106G"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿHÒ"RMAJORZ
+CODE_SMELL
+l
+squid:S106È"9Replace this use of System.out or System.err by a logger.(›¹à%8÷˜€Ã­,HÇ#RMAJORZ
+CODE_SMELL
+f
+squid:S106»"9Replace this use of System.out or System.err by a logger.(€«ªÄHè"RMAJORZ
+CODE_SMELL
+Qsquid:S1643ß"Use a StringBuilder instead.(–¦Õ¤8÷˜€Ã­,H#RMINORZ
+CODE_SMELL
+j
+squid:S106"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿHÏ"RMAJORZ
+CODE_SMELL
+l
+squid:S106‰"9Replace this use of System.out or System.err by a logger.(°«¾%8÷˜€Ã­,HÈ#RMAJORZ
+CODE_SMELL
+Qsquid:S1659}"Declare "x" on a separate line.(×ºËƒşÿÿÿÿH"RMINORZ
+CODE_SMELL
+e
+squid:S106À"9Replace this use of System.out or System.err by a logger.(›¹à%Hì"RMAJORZ
+CODE_SMELL
+`squid:S1659ó"&Declare "countAna" on a separate line.(å¿­úÿÿÿÿ8ÂĞÃ­,Hğ%RMINORZ
+CODE_SMELL
+k
+squid:S106ã"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿHß"RMAJORZ
+CODE_SMELL
+rsquid:S1197Í"8Move the array designator from the variable to the type.(­Î‹çøÿÿÿÿ8ÛáÊÃ­,H¹%RMINORZ
+CODE_SMELL
+Msquid:S2326	"T is not used in the class.(öô¿ÅıÿÿÿÿH€#RMAJORZ
+CODE_SMELL
+isquid:S1854ú"5Remove this useless assignment to local variable "z".(’Å¶(8ÂĞÃ­,Hù%RMAJORZ
+CODE_SMELL
+r
+squid:S106å"9Replace this use of System.out or System.err by a logger.(ÍîÛ×ûÿÿÿÿ8÷˜€Ã­,HÍ#RMAJORZ
+CODE_SMELL
+Wsquid:S1659¾"$Declare "month1" on a separate line.(×ºËƒşÿÿÿÿH“"RMINORZ
+CODE_SMELL
+r
+squid:S106“"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8÷˜€Ã­,HÌ#RMAJORZ
+CODE_SMELL
+`squid:S1659ß"&Declare "countAna" on a separate line.(å¿­úÿÿÿÿ8ÛáÊÃ­,H·%RMINORZ
+CODE_SMELL
+“squid:S2293¹"YReplace the type specification in this constructor call with the diamond operator ("<>").(¢×Şïşÿÿÿÿ8ÛáÊÃ­,H»%RMINORZ
+CODE_SMELL
+usquid:S1126Ò"AReplace this if-then-else statement by a single return statement.(—êŸ8÷˜€Ã­,HĞ#RMINORZ
+CODE_SMELL
+l
+squid:S106ğ"9Replace this use of System.out or System.err by a logger.(›¹à%8÷˜€Ã­,HË#RMAJORZ
+CODE_SMELL
+lsquid:S1197Ì"8Move the array designator from the variable to the type.(ŒÀ¥o8—½ÉÃ­,Hò$RMINORZ
+CODE_SMELL
+Šsquid:S3776û"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Œ¤ó8ï‘…Ã­,H$RCRITICALZ
+CODE_SMELL
+l
+squid:S106î"9Replace this use of System.out or System.err by a logger.(›¹à%8„À“Ä­,Hı%RMAJORZ
+CODE_SMELL
+k
+squid:S106½"9Replace this use of System.out or System.err by a logger.(Å­ËİúÿÿÿÿHå"RMAJORZ
+CODE_SMELL
+Vsquid:S1643¹"Use a StringBuilder instead.(üßêÓüÿÿÿÿ8÷˜€Ã­,H#RMINORZ
+CODE_SMELL
+j
+squid:S106q"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿHÕ"RMAJORZ
+CODE_SMELL
+k
+squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(¾ÑÆéûÿÿÿÿHä"RMAJORZ
+CODE_SMELL
+†squid:S1450ª"QRemove the "st" field and declare it as a local variable in the relevant methods.(¯İù¼8÷˜€Ã­,H#RMINORZ
+CODE_SMELL
+l
+squid:S106æ"9Replace this use of System.out or System.err by a logger.(›¹à%8ï‘…Ã­,H$RMAJORZ
+CODE_SMELL
+isquid:S1854Ğ"5Remove this useless assignment to local variable "z".(’Å¶(8ÂĞÃ­,Hú%RMAJORZ
+CODE_SMELL
+k
+squid:S106à"9Replace this use of System.out or System.err by a logger.(ƒú£æøÿÿÿÿHŞ"RMAJORZ
+CODE_SMELL
+k
+squid:S106¢"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿH×"RMAJORZ
+CODE_SMELL
+Tsquid:S1659¾"!Declare "day" on a separate line.(×ºËƒşÿÿÿÿH•"RMINORZ
+CODE_SMELL
+k
+squid:S106§"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿHÙ"RMAJORZ
+CODE_SMELL
+“squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÌÅÕ¢øÿÿÿÿ8ÂĞÃ­,Hñ%RMINORZ
+CODE_SMELL
+Usquid:S1659¾""Declare "day1" on a separate line.(×ºËƒşÿÿÿÿH–"RMINORZ
+CODE_SMELL
+m
+squid:S106‘"9Replace this use of System.out or System.err by a logger.(ßÌôí8ÛáÊÃ­,HË%RMAJORZ
+CODE_SMELL
+e
+squid:S106Ê"9Replace this use of System.out or System.err by a logger.(›¹à%Hğ"RMAJORZ
+CODE_SMELL
+^squid:S1659…"$Declare "option" on a separate line.(ù×¡Çúÿÿÿÿ8÷˜€Ã­,H’#RMINORZ
+CODE_SMELL
+Vsquid:S1659}"$Declare "month1" on a separate line.(×ºËƒşÿÿÿÿH"RMINORZ
+CODE_SMELL
+f
+squid:S106®"9Replace this use of System.out or System.err by a logger.(áÄÌHÛ"RMAJORZ
+CODE_SMELL
+squid:S2293´"YReplace the type specification in this constructor call with the diamond operator ("<>").(‡¡åğ8÷˜€Ã­,H˜#RMINORZ
+CODE_SMELL
+squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(†Ù„8ÂĞÃ­,Hò%RMINORZ
+CODE_SMELL
+›squid:S1488"fImmediately return this expression instead of assigning it to the temporary variable "differentTrees".(…éº—8ÂĞÃ­,Hó%RMINORZ
+CODE_SMELL
+squid:S3776ñ"RRefactor this method to reduce its Cognitive Complexity from 37 to the 15 allowed.(éşÃœøÿÿÿÿ8ÛáÊÃ­,HÏ%RCRITICALZ
+CODE_SMELL
+squid:S3776Æ"RRefactor this method to reduce its Cognitive Complexity from 37 to the 15 allowed.(®öÌ¼úÿÿÿÿ8ÂĞÃ­,Hö%RCRITICALZ
+CODE_SMELL
+isquid:S1854â"5Remove this useless assignment to local variable "z".(’Å¶(8ÂĞÃ­,H÷%RMAJORZ
+CODE_SMELL
+j
+squid:S106c"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿHÔ"RMAJORZ
+CODE_SMELL
+Ssquid:S1659}"!Declare "day" on a separate line.(×ºËƒşÿÿÿÿH‘"RMINORZ
+CODE_SMELL

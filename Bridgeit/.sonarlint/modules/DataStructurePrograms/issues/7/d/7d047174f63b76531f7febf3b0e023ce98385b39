@@ -1,0 +1,15 @@
+
+Tsquid:S1659""Declare "rear" on a separate line.(·ïîéþÿÿÿÿHÖ&RMINORZ
+CODE_SMELL
+†squid:S2293!"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ‚ñêH×&RMINORZ
+CODE_SMELL
+†squid:S2293-"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ‚ñêHØ&RMINORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLineC"<This block of commented-out lines of code should be removed.(Ä–û HÙ&RMAJORZ
+CODE_SMELL
+j
+squid:S106J"9Replace this use of System.out or System.err by a logger.(ë„áÎûÿÿÿÿHÚ&RMAJORZ
+CODE_SMELL
+ssquid:S1126"AReplace this if-then-else statement by a single return statement.(¾˜×ÔüÿÿÿÿHÛ&RMINORZ
+CODE_SMELL
+msquid:S2259D"BA "NullPointerException" could be thrown; "prev" is nullable here.(…ëŒìüÿÿÿÿHÜ&RMAJORZBUG

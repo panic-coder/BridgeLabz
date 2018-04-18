@@ -13,7 +13,7 @@ public class MyQueue<T> {
 	int size;
 	int front;
 	int rear;
-	@SuppressWarnings("unchecked")
+	
 	public MyQueue(int size) {
 		this.size=size;
 		q = (T[]) new Object[size];

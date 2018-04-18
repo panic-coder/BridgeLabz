@@ -30,7 +30,7 @@ public class Utility<T> {
 		}
 		return 0;
 	}
-	
+
 	/**
 	 * Generating Random Numbers without bound
 	 * 
@@ -138,7 +138,7 @@ public class Utility<T> {
 		}
 		int[][] totalDays = new int[6][7];
 		boolean leap = leapYear(year);
-		if (leap && month==1) {
+		if (leap && month == 1) {
 			monthDay = 29;
 		}
 		int z = 1;
@@ -203,7 +203,7 @@ public class Utility<T> {
 		}
 		int[][] totalDays = new int[6][7];
 		boolean leap = leapYear(year);
-		if (leap && month==1) {
+		if (leap && month == 1) {
 			monthDay = 29;
 		}
 		int z = 1;
@@ -225,26 +225,8 @@ public class Utility<T> {
 			}
 		}
 		System.out.println();
-		/*String[] dayName = { "S", "M", "T", "W", "T", "F", "S" };
-		for (int i = 0; i < 7; i++) {
-			System.out.print(dayName[i] + "  ");
-		}
-		System.out.println();
-		// System.out.println(day1);
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 7; j++) {
-				if (totalDays[i][j] != -1) {
-					if (totalDays[i][j] < 10)
-						System.out.print(totalDays[i][j] + "  ");
-					else
-						System.out.print(totalDays[i][j] + " ");
-				} else
-					System.out.print("   ");
-			}
-			System.out.println();
-		}*/
 		return totalDays;
-		
+
 	}
 
 	/**
@@ -256,13 +238,10 @@ public class Utility<T> {
 	public static boolean leapYear(int year) {
 		if (year % 100 != 0 && year % 4 == 0) {
 			return true;
-			// System.out.println(year+" is a leap year");
 		} else if (year % 100 == 0 && year % 400 == 0) {
 			return true;
-			// System.out.println(year+" is a leap year");
 		} else {
 			return false;
-			// System.out.println(year+" is not a leap year");
 		}
 	}
 
@@ -271,6 +250,7 @@ public class Utility<T> {
 	 */
 	public static void prime2DArray() {
 		int[][] array = new int[10][100];
+		int[][] prime = new int[10][100];
 		int z = 1;
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
@@ -281,8 +261,16 @@ public class Utility<T> {
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
 				if (isPrime(array[i][j])) {
-					System.out.print(array[i][j] + " ");
+					prime[i][j] = array[i][j];
+				} else {
+					prime[i][j] = -1;
 				}
+			}
+		}
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 100; j++) {
+				if (prime[i][j] != -1)
+					System.out.print(prime[i][j] + " ");
 			}
 			System.out.println();
 		}
@@ -310,8 +298,8 @@ public class Utility<T> {
 	private static String st;
 
 	/**
-	 * Reading data from file and taking a user input and deleting a number 
-	 * if present or adding if not present via unordered list
+	 * Reading data from file and taking a user input and deleting a number if
+	 * present or adding if not present via unordered list
 	 * 
 	 * @param userInput
 	 * @throws Exception
@@ -325,9 +313,7 @@ public class Utility<T> {
 			str = str + st;
 		}
 		br.close();
-		// System.out.println(str);
 		for (String fileString : str.split("\\s", 0)) {
-			// System.out.println(fileString);
 			list.add(fileString);
 		}
 		System.out.println("Before Search");
@@ -335,10 +321,8 @@ public class Utility<T> {
 		list.display();
 		boolean b = list.search(userInput);
 		if (b) {
-			// System.out.println(b);
 			list.remove(userInput);
 		} else {
-			// System.out.println(b);
 			list.add(userInput);
 		}
 		System.out.println("=====");
@@ -346,14 +330,14 @@ public class Utility<T> {
 		System.out.println("=====");
 		list.display();
 		list.write();
-		
+
 	}
 
 	static String stint;
 
 	/**
-	 * Reading data from file and taking a user input and deleting a number 
-	 * if present or adding if not present via ordered list
+	 * Reading data from file and taking a user input and deleting a number if
+	 * present or adding if not present via ordered list
 	 * 
 	 * @param searchItem
 	 * @throws Exception
@@ -364,11 +348,10 @@ public class Utility<T> {
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String str = "";
 		while ((stint = br.readLine()) != null) {
-			str = str + stint;
+			str = str + stint+" ";
 		}
 		br.close();
 		for (String fileInt : str.split("\\s", 0)) {
-			// System.out.println(fileString);
 			list.add(fileInt);
 		}
 		System.out.println("Before Search");
@@ -380,8 +363,6 @@ public class Utility<T> {
 		} else {
 			list.add(searchItem);
 		}
-		String s="0";
-		//list.sort(s);
 		System.out.println("=====");
 		System.out.println("After Search and sort");
 		System.out.println("=====");
@@ -389,6 +370,7 @@ public class Utility<T> {
 		list.write();
 	}
 
+	@SuppressWarnings("rawtypes")
 	static Utility utility = new Utility();
 
 	/**
@@ -403,7 +385,6 @@ public class Utility<T> {
 		MyQueue<Integer> queue = new MyQueue<Integer>(numberOfPeople);
 		for (int i = 0; i < numberOfPeople; i++)
 			queue.enqueue(i);
-		// int z=0;
 		while (testCases > 0) {
 			int count = 0, option = 0;
 
@@ -418,10 +399,12 @@ public class Utility<T> {
 				int amount = 0;
 				int countWithdrawal = 0;
 				while (countWithdrawal == 0) {
-					System.out.println("Enter the amount for withdraw\nless than 40,000");
+					System.out.println("Enter the amount ");
 					amount = utility.inputInteger();
-					if (amount <= 40000)
+					if (amount > cashBalance) {
+						System.out.println("Sorry we don't have required cash\nvisit another day");
 						countWithdrawal++;
+					}
 				}
 				cashBalance = cashBalance - amount;
 				queue.dequeue();
@@ -431,8 +414,7 @@ public class Utility<T> {
 				while (countDeposit == 0) {
 					System.out.println("Enter the amount to deposit");
 					amount = utility.inputInteger();
-					if (amount <= 100000)
-						countDeposit++;
+					countDeposit++;
 				}
 				cashBalance = cashBalance + amount;
 				queue.dequeue();
@@ -452,20 +434,12 @@ public class Utility<T> {
 		MyDeque<Character> dq = new MyDeque<Character>();
 		char[] c = word.toCharArray();
 		for (int i = 0; i < c.length; i++) {
-			// if(i>2)
 			dq.addFront(c[i]);
-			// else dq.addLast(c[i]);
 		}
-		/*
-		 * int j = dq.size(); System.out.println(j); dq.display(); dq.removeLast();
-		 * System.out.println("==="); dq.display(); dq.removeLast();
-		 * System.out.println("===");
-		 */
-		// dq.display();
+
 		String s = "";
 		for (int i = 0; i < c.length; i++) {
 			Node<Character> ch = dq.removeFront();
-			// System.out.println(ch.data);
 			s = s + ch.data;
 		}
 		System.out.println(s);
@@ -506,11 +480,8 @@ public class Utility<T> {
 		for (int i = 0; i < prime.length; i++) {
 			for (int j = i + 1; j < prime.length; j++) {
 				z = numberCheck(prime[i], prime[j]);
-				// System.out.println(z);
 
 				if (z && count == 0) {
-					// System.out.println(prime[i]);
-					// System.out.println(prime[j]);
 					countAna++;
 					count++;
 					z = false;
@@ -518,22 +489,17 @@ public class Utility<T> {
 
 			}
 			if (count > 0) {
-				// System.out.println(prime[i]);
 				countAna++;
 				count = 0;
 			}
 		}
 		int[] anagramTotal = new int[countAna];
 		int x = 0;
-		// System.out.println(countAna+" count");
 		for (int i = 0; i < prime.length; i++) {
 			for (int j = i + 1; j < prime.length; j++) {
 				z = numberCheck(prime[i], prime[j]);
-				// System.out.println(z);
 
 				if (z && count == 0) {
-					// System.out.println(prime[i]);
-					// System.out.println(prime[j]);
 					anagramTotal[x] = prime[j];
 					x++;
 					count++;
@@ -542,7 +508,6 @@ public class Utility<T> {
 
 			}
 			if (count > 0) {
-				// System.out.println(prime[i]);
 				anagramTotal[x] = prime[i];
 				x++;
 				count = 0;
@@ -569,11 +534,9 @@ public class Utility<T> {
 		int positive = 0;
 		for (int i = 0; i < anagramTotal.length; i++) {
 			if (anagramTotal[i] != -1) {
-				// System.out.print(anagramTotal[i]+" ");
 				positive++;
 			}
 		}
-		// System.out.println(positive);
 		int[] ana = new int[positive + 1];
 		int zz = 1;
 		int yy = 0;
@@ -583,18 +546,13 @@ public class Utility<T> {
 				yy++;
 			}
 		}
-		/*
-		 * for(int i=0;i<ana.length;i++) { System.out.println(ana[i]); }
-		 */
 
 		int[][] total = new int[10][100];
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
 				total[i][j] = zz;
 				zz++;
-				// System.out.print(total[i][j]+" ");
 			}
-			// System.out.println();
 		}
 		int xx = 0;
 		for (int i = 0; i < 10; i++) {
@@ -602,7 +560,6 @@ public class Utility<T> {
 				if (ana[xx] == total[i][j] && xx < ana.length) {
 					total[i][j] = ana[xx];
 					xx++;
-					// System.out.println(total[i][j]);
 				} else {
 					total[i][j] = -1;
 				}
@@ -660,8 +617,8 @@ public class Utility<T> {
 	}
 
 	/**
-	 * Finding anagram number in an array of prime numbers via stack 
-	 * implemented using linked list 
+	 * Finding anagram number in an array of prime numbers via stack implemented
+	 * using linked list
 	 * 
 	 * @param prime
 	 */
@@ -671,11 +628,8 @@ public class Utility<T> {
 		for (int i = 0; i < prime.length; i++) {
 			for (int j = i + 1; j < prime.length; j++) {
 				z = numberCheck(prime[i], prime[j]);
-				// System.out.println(z);
 
 				if (z && count == 0) {
-					// System.out.println(prime[i]);
-					// System.out.println(prime[j]);
 					countAna++;
 					count++;
 					z = false;
@@ -683,22 +637,17 @@ public class Utility<T> {
 
 			}
 			if (count > 0) {
-				// System.out.println(prime[i]);
 				countAna++;
 				count = 0;
 			}
 		}
 		int[] anagramTotal = new int[countAna];
 		int x = 0;
-		// System.out.println(countAna+" count");
 		for (int i = 0; i < prime.length; i++) {
 			for (int j = i + 1; j < prime.length; j++) {
 				z = numberCheck(prime[i], prime[j]);
-				// System.out.println(z);
 
 				if (z && count == 0) {
-					// System.out.println(prime[i]);
-					// System.out.println(prime[j]);
 					anagramTotal[x] = prime[j];
 					x++;
 					count++;
@@ -707,7 +656,6 @@ public class Utility<T> {
 
 			}
 			if (count > 0) {
-				// System.out.println(prime[i]);
 				anagramTotal[x] = prime[i];
 				x++;
 				count = 0;
@@ -734,11 +682,9 @@ public class Utility<T> {
 		int positive = 0;
 		for (int i = 0; i < anagramTotal.length; i++) {
 			if (anagramTotal[i] != -1) {
-				// System.out.print(anagramTotal[i]+" ");
 				positive++;
 			}
 		}
-		// System.out.println(positive);
 		int[] ana = new int[positive + 1];
 		int zz = 1;
 		int yy = 0;
@@ -750,15 +696,14 @@ public class Utility<T> {
 		}
 		LinkedStack<Integer> listStack = new LinkedStack<Integer>();
 		for (int i = 0; i < ana.length - 1; i++) {
-			// System.out.println(ana[i]);
 			listStack.add(ana[i]);
 		}
 		listStack.display();
 	}
 
 	/**
-	 * Finding anagram number in an array of prime numbers via queue 
-	 * implemented using linked list 
+	 * Finding anagram number in an array of prime numbers via queue implemented
+	 * using linked list
 	 * 
 	 * @param prime
 	 */
@@ -768,11 +713,8 @@ public class Utility<T> {
 		for (int i = 0; i < prime.length; i++) {
 			for (int j = i + 1; j < prime.length; j++) {
 				z = numberCheck(prime[i], prime[j]);
-				// System.out.println(z);
 
 				if (z && count == 0) {
-					// System.out.println(prime[i]);
-					// System.out.println(prime[j]);
 					countAna++;
 					count++;
 					z = false;
@@ -780,22 +722,16 @@ public class Utility<T> {
 
 			}
 			if (count > 0) {
-				// System.out.println(prime[i]);
 				countAna++;
 				count = 0;
 			}
 		}
 		int[] anagramTotal = new int[countAna];
 		int x = 0;
-		// System.out.println(countAna+" count");
 		for (int i = 0; i < prime.length; i++) {
 			for (int j = i + 1; j < prime.length; j++) {
 				z = numberCheck(prime[i], prime[j]);
-				// System.out.println(z);
-
 				if (z && count == 0) {
-					// System.out.println(prime[i]);
-					// System.out.println(prime[j]);
 					anagramTotal[x] = prime[j];
 					x++;
 					count++;
@@ -804,7 +740,6 @@ public class Utility<T> {
 
 			}
 			if (count > 0) {
-				// System.out.println(prime[i]);
 				anagramTotal[x] = prime[i];
 				x++;
 				count = 0;
@@ -831,11 +766,9 @@ public class Utility<T> {
 		int positive = 0;
 		for (int i = 0; i < anagramTotal.length; i++) {
 			if (anagramTotal[i] != -1) {
-				// System.out.print(anagramTotal[i]+" ");
 				positive++;
 			}
 		}
-		// System.out.println(positive);
 		int[] ana = new int[positive + 1];
 		int zz = 1;
 		int yy = 0;
@@ -847,23 +780,22 @@ public class Utility<T> {
 		}
 		LinkedQueue<Integer> listQueue = new LinkedQueue<Integer>();
 		for (int i = 0; i < ana.length - 1; i++) {
-			// System.out.println(ana[i]);
 			listQueue.add(ana[i]);
 		}
 		listQueue.display();
 	}
 
 	/**
-	 * Finding number of ways nodes can be arranged in a binary search tree
-	 * via Catalan Numbers
+	 * Finding number of ways nodes can be arranged in a binary search tree via
+	 * Catalan Numbers
 	 * 
 	 * @param totalNodes
-	 * @return total number of binary search tree that can be made by totalNodes 
+	 * @return total number of binary search tree that can be made by totalNodes
 	 */
 	public static double numberOfBinarySearchTree(double totalNodes) {
-		double numerator = factorial(2*totalNodes);
-		double denominator = (factorial(totalNodes+1))*(factorial(totalNodes));
-		double differentTrees = numerator/denominator;
+		double numerator = factorial(2 * totalNodes);
+		double denominator = (factorial(totalNodes + 1)) * (factorial(totalNodes));
+		double differentTrees = numerator / denominator;
 		return differentTrees;
 	}
 
@@ -874,9 +806,9 @@ public class Utility<T> {
 	 * @return factorial of the given number
 	 */
 	public static double factorial(double i) {
-		double fact=1;
-		while(i>0) {
-			fact=fact*i;
+		double fact = 1;
+		while (i > 0) {
+			fact = fact * i;
 			i--;
 		}
 		return fact;

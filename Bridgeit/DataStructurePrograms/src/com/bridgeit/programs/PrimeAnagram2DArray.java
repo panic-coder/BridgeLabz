@@ -37,8 +37,6 @@ public class PrimeAnagram2DArray {
 			 }
 			 i++;
 		 }
-		 /*for(int q=0;q<prime.length;q++)
-			 System.out.println(prime[q]);*/
 		Utility.primeAnagram2DArray(prime);
 	}
 }

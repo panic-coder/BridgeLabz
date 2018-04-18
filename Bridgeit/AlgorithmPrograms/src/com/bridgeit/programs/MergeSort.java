@@ -14,7 +14,7 @@ public static void main(String args[])
 	}
     System.out.println("Given Array");
     utility.printArray(arr);
-    utility.sort(arr, 0, arr.length-1);
+    utility.mergeSort(arr, 0, arr.length-1);
     System.out.println("\nSorted array");
     utility.printArray(arr);
 }

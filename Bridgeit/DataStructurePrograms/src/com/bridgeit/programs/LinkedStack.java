@@ -33,7 +33,12 @@ public class LinkedStack<T> {
 		Node<T> t=head;
 		head = t.next;
 	}
-	
+	public Integer pop(){
+		Node<T> t=head;
+		Integer temp = (Integer) t.data;
+		head = t.next;
+		return temp;
+	}
 	
 	public static void main(String[] args) {
 		LinkedStack<Integer> l = new LinkedStack<Integer>();
@@ -41,7 +46,6 @@ public class LinkedStack<T> {
 		l.add(10);
 		l.add(5);
 		l.display();
-		//l.remove();
 		System.out.println("==");
 		l.display();
 	}

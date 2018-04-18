@@ -29,7 +29,6 @@ public class HashChaining {
 	public void insert(int val) {
 		size++;
 		int pos=myhash(val);
-		//System.out.println(pos);
 		Node n = new Node(val);
 		if(table[pos]==null)
 			table[pos]=n;
@@ -39,10 +38,29 @@ public class HashChaining {
 		}
 	}
 
+	public void remove(int val) {
+		int pos = myhash(val);
+		Node temp = table[pos];
+		Node previous = null;
+		Integer t = (Integer) temp.data;
+		if(temp.data.equals(temp)) {
+			head = temp.next;
+			return;
+		}
+		while(temp!=null) {
+			t = (Integer) temp.data;
+			if(t.equals(val))
+				break;
+			else
+				previous = temp;
+				temp=temp.next;
+		}
+		previous.next = temp.next;
+	}
+	
 	public int myhash(int value) {
 		int hashVal=value;
 		hashVal = hashVal % table.length;
-		//System.out.println(hashVal);
 		return hashVal;
 	}
 	
@@ -86,13 +104,16 @@ public class HashChaining {
 				c++;
 				break;
 			}
-
 			t=t.next;
 		}
-		if(c>0)
-			System.out.println("File found at table position "+pos);
-		else
-			System.out.println("File not found");
+		if(c>0) {
+			System.out.println("File found at table position "+pos+"\nfile removed");
+			remove(value);
+		}
+		else {
+			System.out.println("File not found\nfile added");
+			insert(value);
+		}
 	}
 	
 }

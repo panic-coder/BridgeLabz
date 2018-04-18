@@ -366,9 +366,9 @@ public class Utility<T> {
 		int end = array.length;
 		int midp = (start+end)/2;
 		while (start < end) {
-			System.out.println("You are between "+(start+1)+" and "+(end)+"\nEnter true or false");
+			System.out.println("You are between "+(start)+" and "+(end-1)+"\nEnter true or false");
 			boolean b = utility.inputBoolean();
-			midp = (start + end) / 2;
+			midp = ((start + 1 + end) / 2);
 			if (b==true) {
 				start = midp + 1;
 			} else if(b==false){
@@ -724,13 +724,13 @@ public class Utility<T> {
 	    }
 	}
 
-	public void sort(int arr[], int l, int r)
+	public void mergeSort(int arr[], int l, int r)
 	{
 	    if (l < r)
 	    {
 	        int m = (l+r)/2;
-	        sort(arr, l, m);
-	        sort(arr , m+1, r);
+	        mergeSort(arr, l, m);
+	        mergeSort(arr , m+1, r);
 	        merge(arr, l, m, r);
 	    }
 	}

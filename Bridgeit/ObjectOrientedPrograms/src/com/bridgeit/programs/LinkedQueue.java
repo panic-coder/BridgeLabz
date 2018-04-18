@@ -8,7 +8,7 @@
 
 package com.bridgeit.programs;
 
-public class LinkedQueue<T> {
+public class LinkedQueue<T>{
 	Node<T> head;
 	public void add(T data) {
 		Node<T> n = new Node<T>(data);
@@ -24,22 +24,27 @@ public class LinkedQueue<T> {
 	
 	public void display() {
 		Node<T> t=head;
-		Integer a=10;
-		if(!isEmpty()) {
+		String[] cards = {"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
+		String[] names = {"Clubs","Diamonds","Hearts","Spades"};
+		int j = 0;
+		if(!isEmpty())
 		while(t!=null) {
-			
-			if(!(t.data.equals(-1))) {
-				if((((Integer) t.data)).compareTo(a)<0){
-					System.out.print(t.data+"  ");
-				}
-				else
-					System.out.print(t.data+" ");
-			}
-			else
-				System.out.print("   ");
+			j++;
+			Integer data = (Integer) t.data;
+			//System.out.print(t.data+" ");
+			if(data>=0 && data<=12)
+				System.out.print(names[0]+"["+cards[data%13]+"]\t");
+			else if(data>=13 && data<=25)
+				System.out.print(names[1]+"["+cards[data%13]+"]\t");
+			else if(data>=26 && data<=38)
+				System.out.print(names[2]+"["+cards[data%13]+"]\t");
+			else if(data>=39 && data<=51)
+				System.out.print(names[3]+"["+cards[data%13]+"]\t");
+		
 			t=t.next;
-			}
-		System.out.println();
+			if(j%9==0)
+				System.out.println("\n");
+			
 		}
 	}
 	

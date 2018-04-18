@@ -298,14 +298,14 @@ public class Utility {
 		printWriter.println("Enter the value of rows and columns\nfor int array");
 		int row = inputInteger();
 		int column = inputInteger();
-		Integer[][] a = new Integer[row][column];
+		Integer[][] array = new Integer[row][column];
 		printWriter.println("Enter " + (row * column) + " integer values");
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
-				a[i][j] = inputInteger();
+				array[i][j] = inputInteger();
 			}
 		}
-		printArray2D(a, row, column);
+		printArray2D(array, row, column);
 	}
 
 	/**
@@ -329,16 +329,16 @@ public class Utility {
 	 */
 	public void doubleArray() {
 		printWriter.println("Enter the value of rows and columns\nfor double array");
-		int m = inputInteger();
-		int n = inputInteger();
-		Double[][] a = new Double[m][n];
-		printWriter.println("Enter " + (m * n) + " double values");
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				a[i][j] = inputDouble();
+		int rows = inputInteger();
+		int column = inputInteger();
+		Double[][] array = new Double[rows][column];
+		printWriter.println("Enter " + (rows * column) + " double values");
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < column; j++) {
+				array[i][j] = inputDouble();
 			}
 		}
-		printArray2D(a, m, n);
+		printArray2D(array, rows, column);
 	}
 
 	/**
@@ -346,16 +346,16 @@ public class Utility {
 	 */
 	public void booleanArray() {
 		printWriter.println("Enter the value of rows and columns\nfor boolean array");
-		int m = inputInteger();
-		int n = inputInteger();
-		Boolean[][] a = new Boolean[m][n];
-		printWriter.println("Enter " + (m * n) + " boolean values");
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				a[i][j] = inputBoolean();
+		int rows = inputInteger();
+		int column = inputInteger();
+		Boolean[][] array = new Boolean[rows][column];
+		printWriter.println("Enter " + (rows * column) + " boolean values");
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < column; j++) {
+				array[i][j] = inputBoolean();
 			}
 		}
-		printArray2D(a, m, n);
+		printArray2D(array, rows, column);
 	}
 
 	/**
