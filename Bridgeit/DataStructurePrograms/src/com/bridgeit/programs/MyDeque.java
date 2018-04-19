@@ -64,7 +64,6 @@ public class MyDeque<T> {
 			prev=t;
 			t=t.next;
 		}
-		//Node<T> temp = t;
 		prev.next=null;
 		return t;
 	}

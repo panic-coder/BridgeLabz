@@ -1,5 +1,5 @@
 /**
- * Purpose: Takes a command-line argument N, asks you to think of
++ * Purpose: Takes a command-line argument N, asks you to think of
  *  a number between 0 and N-1, where N = 2^n, and always guesses 
  *  the answer with n questions.
  *
@@ -20,7 +20,7 @@ public class FindYourNumber {
 		int numberPower = Utility.power(number, 2);
 		int[] array = new int[numberPower];
 		for(int i=0;i<numberPower;i++) {
-			array[i]=i+1;
+			array[i]=i;
 		}
 		Utility.binarySearchOutputBound(array);
 	}

@@ -366,16 +366,36 @@ public class Utility<T> {
 		int end = array.length;
 		int midp = (start+end)/2;
 		while (start < end) {
-			System.out.println("You are between "+(start)+" and "+(end-1)+"\nEnter true or false");
+			if(start == end-1)
+				break;
+			
+			System.out.println("You are between "+(start)+" and "+(end-1)+"\nEnter false for "
+					+ ""+start+" to "+(((start+end)/2)-1)+"  "
+							+ "\nor true for "+(((start+end)/2))+" to "+(end-1));
 			boolean b = utility.inputBoolean();
-			midp = ((start + 1 + end) / 2);
+			if(end-start==1) {
+				if(b) {
+					midp=end;
+				}
+				else
+					midp=start;
+				break;
+			}if(end-start==2) {
+				if(b) {
+					midp=end-1;
+				}
+				else
+					midp=start;
+				break;
+			}
+			midp = ((start + end) / 2);
 			if (b==true) {
-				start = midp + 1;
+				start = midp;
 			} else if(b==false){
 				end = midp;
 			}
 		}
-		System.out.println("Your Number is : "+array[midp]);
+		System.out.println("Your Number is : "+(array[midp]));
 	}
 
 	/**

@@ -28,7 +28,6 @@ public class Stack<T> {
 	}
 	public boolean isEmpty() {
 		if(top==0) {
-			//System.out.println(top);
 			return true;
 		}
 		else 
