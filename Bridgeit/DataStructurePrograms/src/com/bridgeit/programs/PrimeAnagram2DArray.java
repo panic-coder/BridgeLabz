@@ -14,7 +14,8 @@ import com.bridgeit.utility.Utility;
 public class PrimeAnagram2DArray {
 	public static void main(String[] args) {
 		int size = 1000;
-		int primeCount=1,count=0;
+		int primeCount=1;
+		int count=0;
 		 while(primeCount<=size) {
 			if(Utility.prime(primeCount)) {
 				count++;
