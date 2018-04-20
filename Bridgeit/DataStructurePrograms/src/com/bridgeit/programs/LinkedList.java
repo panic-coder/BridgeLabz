@@ -72,7 +72,7 @@ public class LinkedList<T> {
 	public void write() throws Exception {
 		Node<T> t = head;
 		try {
-		PrintStream o = new PrintStream(new File("A.txt"));
+		PrintStream o = new PrintStream(new File("UnOrderedList"));
 		System.setOut(o);
 		while(t!=null) {
 			System.out.println(t.data);

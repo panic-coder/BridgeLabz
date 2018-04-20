@@ -21,23 +21,23 @@ public class Hashing {
 		Utility utility = new Utility();
 		System.out.println("Enter the size");
 		int size = utility.inputInteger();
-		HashChaining hc = new HashChaining(size);
+		HashChaining linkedHash = new HashChaining(size);
 		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/HashInput");
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		String str = "";
-		String st;
-		while ((st = br.readLine()) != null) {
-			str = str + st;
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+		String readFileStore = "";
+		String readFile;
+		while ((readFile = bufferedReader.readLine()) != null) {
+			readFileStore = readFileStore + readFile +" ";
 		}
-		br.close();
-		for (String fileString : str.split("\\s", 0)) {
+		bufferedReader.close();
+		for (String fileString : readFileStore.split("\\s", 0)) {
 			int number = Integer.parseInt(fileString);
-			hc.insert(number);
+			linkedHash.insert(number);
 		}
 		System.out.println("Find the number to be searched");
 		int value = utility.inputInteger();
-		hc.search(value);
-		hc.display();
-		hc.write();
+		linkedHash.search(value);
+		linkedHash.display();
+		linkedHash.write();
 	}
 }

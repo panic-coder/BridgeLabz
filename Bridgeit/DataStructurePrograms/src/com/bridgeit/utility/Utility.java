@@ -310,7 +310,7 @@ public class Utility<T> {
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String str = "";
 		while ((st = br.readLine()) != null) {
-			str = str + st;
+			str = str + st+" ";
 		}
 		br.close();
 		for (String fileString : str.split("\\s", 0)) {
@@ -386,6 +386,7 @@ public class Utility<T> {
 		for (int i = 0; i < numberOfPeople; i++)
 			queue.enqueue(i);
 		while (testCases > 0) {
+			System.out.println("Bank Cash : "+cashBalance);
 			int count = 0, option = 0;
 
 			while (count == 0) {
@@ -401,12 +402,14 @@ public class Utility<T> {
 				while (countWithdrawal == 0) {
 					System.out.println("Enter the amount ");
 					amount = utility.inputInteger();
-					if (amount > cashBalance) {
+					if (amount > cashBalance) 
 						System.out.println("Sorry we don't have required cash\nvisit another day");
-						countWithdrawal++;
-					}
+					else
+						cashBalance = cashBalance - amount;
+					countWithdrawal++;
+					
 				}
-				cashBalance = cashBalance - amount;
+				
 				queue.dequeue();
 			} else if (option == 2) {
 				int amount = 0;

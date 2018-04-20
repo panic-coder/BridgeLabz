@@ -29,7 +29,7 @@ public class Utility<T> {
 		}
 		return 0;
 	}
-	
+
 	/**
 	 * Generating Random Numbers without bound
 	 * 
@@ -116,15 +116,15 @@ public class Utility<T> {
 
 	/**
 	 * Checking anagram of two strings
+	 * 
 	 * @param word1
 	 * @param word2
 	 * @return true if Strings are anagram or else false.
 	 */
 	public static boolean checkAnagram(String word1, String word2) {
-		
-		
-		word1 = sort(word1.replaceAll("\\s+","").toLowerCase().toCharArray());
-		word2 = sort(word2.replaceAll("\\s+","").toLowerCase().toCharArray());
+
+		word1 = sort(word1.replaceAll("\\s+", "").toLowerCase().toCharArray());
+		word2 = sort(word2.replaceAll("\\s+", "").toLowerCase().toCharArray());
 
 		if (word1.equals(word2))
 			return true;
@@ -339,7 +339,7 @@ public class Utility<T> {
 	}
 
 	/**
-	 * Calculating power of a number 
+	 * Calculating power of a number
 	 * 
 	 * @param exponent
 	 * @param number
@@ -364,38 +364,39 @@ public class Utility<T> {
 		int start = 0;
 		Utility utility = new Utility();
 		int end = array.length;
-		int midp = (start+end)/2;
+		int midp = (start + end) / 2;
 		while (start < end) {
-			if(start == end-1)
+			if (start == end - 1)
 				break;
-			
-			System.out.println("You are between "+(start)+" and "+(end-1)+"\nEnter false for "
-					+ ""+start+" to "+(((start+end)/2)-1)+"  "
-							+ "\nor true for "+(((start+end)/2))+" to "+(end-1));
+			if (start != ((start + end) / 2) - 1 && ((start + end) / 2) != end - 1) {
+				System.out.println("You are between " + (start) + " and " + (end - 1) + "\nEnter false for " + ""
+						+ start + " to " + (((start + end) / 2) - 1) + "  " + "\nor true for " + (((start + end) / 2))
+						+ " to " + (end - 1));
+			} else
+				System.out.println("false for " + start + " and true for " + (end - 1));
 			boolean b = utility.inputBoolean();
-			if(end-start==1) {
-				if(b) {
-					midp=end;
-				}
-				else
-					midp=start;
+			if (end - start == 1) {
+				if (b) {
+					midp = end;
+				} else
+					midp = start;
 				break;
-			}if(end-start==2) {
-				if(b) {
-					midp=end-1;
-				}
-				else
-					midp=start;
+			}
+			if (end - start == 2) {
+				if (b) {
+					midp = end - 1;
+				} else
+					midp = start;
 				break;
 			}
 			midp = ((start + end) / 2);
-			if (b==true) {
+			if (b == true) {
 				start = midp;
-			} else if(b==false){
+			} else if (b == false) {
 				end = midp;
 			}
 		}
-		System.out.println("Your Number is : "+(array[midp]));
+		System.out.println("Your Number is : " + (array[midp]));
 	}
 
 	/**
@@ -405,18 +406,18 @@ public class Utility<T> {
 	 * @param amount
 	 */
 	public static void getNotes(int amount) {
-		int[] notes = {1000,500,100,50,20,10,5,2,1};
-		int[] notesCount = {0,0,0,0,0,0,0,0,0};
-		for(int i=0;i<notes.length;i++) {
-			if(amount<0)
+		int[] notes = { 1000, 500, 100, 50, 20, 10, 5, 2, 1 };
+		int[] notesCount = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		for (int i = 0; i < notes.length; i++) {
+			if (amount < 0)
 				return;
-			else if(amount >= notes[i]) {
-				notesCount[i] = amount/notes[i] ;
+			else if (amount >= notes[i]) {
+				notesCount[i] = amount / notes[i];
 				amount = amount % notes[i];
 			}
 		}
-		for(int i=0;i<notes.length;i++) {
-			System.out.println(notes[i]+" notes : "+notesCount[i]);
+		for (int i = 0; i < notes.length; i++) {
+			System.out.println(notes[i] + " notes : " + notesCount[i]);
 		}
 	}
 
@@ -458,7 +459,7 @@ public class Utility<T> {
 	}
 
 	/**
-	 * Calculation of monthly payment of a 
+	 * Calculation of monthly payment of a
 	 * 
 	 * @param principal
 	 * @param rate
@@ -502,7 +503,7 @@ public class Utility<T> {
 	}
 
 	/**
-	 * Finding the Binary of Entered Decimal Number 
+	 * Finding the Binary of Entered Decimal Number
 	 * 
 	 * @param decimalNumber
 	 * @return binary of the given decimal.
@@ -532,21 +533,21 @@ public class Utility<T> {
 	public static String swapNibble(String binaryInput) {
 		char[] c = binaryInput.toCharArray();
 		String swapedNibbles = "";
-		if(c.length<8) {
-			int count = 8-c.length;
-			while(count>0) {
-				swapedNibbles+="0"; 
+		if (c.length < 8) {
+			int count = 8 - c.length;
+			while (count > 0) {
+				swapedNibbles += "0";
 				count--;
 			}
 		}
-		for(int i=0;i<c.length;i++) {
-			swapedNibbles+=c[i];
+		for (int i = 0; i < c.length; i++) {
+			swapedNibbles += c[i];
 		}
-		c=swapedNibbles.toCharArray();
-		swapedNibbles="";
+		c = swapedNibbles.toCharArray();
+		swapedNibbles = "";
 		System.out.println(swapedNibbles);
 		for (int i = c.length / 2; i < c.length; i++) {
-			
+
 			swapedNibbles = swapedNibbles + c[i];
 		}
 		for (int i = 0; i < (c.length / 2); i++) {
@@ -644,7 +645,7 @@ public class Utility<T> {
 	}
 
 	/**
-	 * Check equality of the number 
+	 * Check equality of the number
 	 * 
 	 * @param firstValue
 	 * @param secondValue
@@ -662,7 +663,7 @@ public class Utility<T> {
 
 	/**
 	 * Arrange the items in ascending order
-	 *  
+	 * 
 	 * @param item
 	 * @return arranged in ascending order
 	 */
@@ -695,8 +696,8 @@ public class Utility<T> {
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String str = "";
 		String st;
-		int i=0;
-		int j=0;
+		int i = 0;
+		int j = 0;
 		while ((st = br.readLine()) != null) {
 			str = str + st;
 		}
@@ -704,63 +705,54 @@ public class Utility<T> {
 		br.close();
 		return str;
 	}
-	public void merge(int arr[], int l, int m, int r)
-	{
-	    int n1 = m - l + 1;
-	    int n2 = r - m;
-	    int L[] = new int [n1];
-	    int R[] = new int [n2];
-	    for (int i=0; i<n1; ++i)
-	        L[i] = arr[l + i];
-	    for (int j=0; j<n2; ++j)
-	        R[j] = arr[m + 1+ j];
-	    int i = 0, j = 0;
-	    int k = l;
-	    while (i < n1 && j < n2)
-	    {
-	        if (L[i] <= R[j])
-	        {
-	            arr[k] = L[i];
-	            i++;
-	        }
-	        else
-	        {
-	            arr[k] = R[j];
-	            j++;
-	        }
-	        k++;
-	    }
-	    while (i < n1)
-	    {
-	        arr[k] = L[i];
-	        i++;
-	        k++;
-	    }
-	    while (j < n2)
-	    {
-	        arr[k] = R[j];
-	        j++;
-	        k++;
-	    }
+
+	public void merge(int arr[], int l, int m, int r) {
+		int n1 = m - l + 1;
+		int n2 = r - m;
+		int L[] = new int[n1];
+		int R[] = new int[n2];
+		for (int i = 0; i < n1; ++i)
+			L[i] = arr[l + i];
+		for (int j = 0; j < n2; ++j)
+			R[j] = arr[m + 1 + j];
+		int i = 0, j = 0;
+		int k = l;
+		while (i < n1 && j < n2) {
+			if (L[i] <= R[j]) {
+				arr[k] = L[i];
+				i++;
+			} else {
+				arr[k] = R[j];
+				j++;
+			}
+			k++;
+		}
+		while (i < n1) {
+			arr[k] = L[i];
+			i++;
+			k++;
+		}
+		while (j < n2) {
+			arr[k] = R[j];
+			j++;
+			k++;
+		}
 	}
 
-	public void mergeSort(int arr[], int l, int r)
-	{
-	    if (l < r)
-	    {
-	        int m = (l+r)/2;
-	        mergeSort(arr, l, m);
-	        mergeSort(arr , m+1, r);
-	        merge(arr, l, m, r);
-	    }
-	}
-	 public void printArray(int arr[])
-	{
-	    int n = arr.length;
-	    for (int i=0; i<n; ++i)
-	        System.out.print(arr[i] + " ");
-	    System.out.println();
+	public void mergeSort(int arr[], int l, int r) {
+		if (l < r) {
+			int m = (l + r) / 2;
+			mergeSort(arr, l, m);
+			mergeSort(arr, m + 1, r);
+			merge(arr, l, m, r);
+		}
 	}
 
-	
+	public void printArray(int arr[]) {
+		int n = arr.length;
+		for (int i = 0; i < n; ++i)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+
 }
