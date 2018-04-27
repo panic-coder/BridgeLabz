@@ -1,9 +1,0 @@
-
-
-public class LinkMain {
-	public static void main(String[] args) {
-		LinkedList l = new LinkedList();
-		int a[]=new int[] {10,2,7,11};
-		Node temp=null;
-	}
-}

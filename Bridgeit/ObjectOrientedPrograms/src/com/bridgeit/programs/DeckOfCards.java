@@ -38,7 +38,6 @@ public class DeckOfCards {
 		for(int i=0;i<4;i++) {
 			for(int j=0;j<9;j++) {
 				queue.add(deck[i][j]);
-					System.out.print(names[3]+"["+cards[(deck[i][j])%13]+"]\t");
 			}
 		}
 		queue.display();

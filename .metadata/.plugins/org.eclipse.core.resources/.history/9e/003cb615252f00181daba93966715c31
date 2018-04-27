@@ -1,4 +1,0 @@
-
-public interface Comparator {
-	public int compare(int roll1,int roll2);
-}

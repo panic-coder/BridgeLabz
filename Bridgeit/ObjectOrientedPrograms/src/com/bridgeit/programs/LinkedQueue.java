@@ -31,7 +31,6 @@ public class LinkedQueue<T>{
 		while(t!=null) {
 			j++;
 			Integer data = (Integer) t.data;
-			//System.out.print(t.data+" ");
 			if(data>=0 && data<=12)
 				System.out.print(names[0]+"["+cards[data%13]+"]\t");
 			else if(data>=13 && data<=25)

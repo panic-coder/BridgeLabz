@@ -1,0 +1,9 @@
+a:link, a:visited {
+    color: green;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+a:link:active, a:visited:active {
+    color: black;
+}
