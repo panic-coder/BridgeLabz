@@ -511,11 +511,24 @@ public class Utility<T> {
 	public static String toBinary(int decimalNumber) {
 		String answerInBinary = "";
 		int remainder;
+		int count = 0;
+		String printNumber="";
+		System.out.print(decimalNumber+" = ");
 		while (decimalNumber > 0) {
 			remainder = decimalNumber % 2;
+			if(remainder == 1) {
+				int power = power(count,2);
+				if((decimalNumber-1)==0)
+					printNumber = printNumber + power + " ";
+				else
+					printNumber = printNumber + power + " + ";
+			}
+			count++;
 			answerInBinary = answerInBinary + remainder;
 			decimalNumber = decimalNumber / 2;
 		}
+		System.out.print(printNumber);
+		System.out.println();
 		String reverse = "";
 		char[] reverseAnswer = answerInBinary.toCharArray();
 		for (int i = reverseAnswer.length - 1; i >= 0; i--) {

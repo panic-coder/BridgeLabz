@@ -1,9 +1,68 @@
-a:link, a:visited {
-    color: green;
-    text-decoration: underline;
-    cursor: auto;
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: gray;
 }
 
-a:link:active, a:visited:active {
-    color: black;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+/* li{
+float:left;
+} */
+
+li {
+  display: inline-block;
+  padding: 16px;
+  cursor: pointer;
+}
+
+li>a {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+li:hover {
+  background-color: #545454;
+}
+
+.city {
+  background-color: tomato;
+  color: white;
+  padding: 10px;
+}
+
+.form {
+  padding:  200px;
+}
+
+.h {
+  color: #111111;
+}
+
+.log {
+  color: #696969;
+}
+form{
+  border: 3px solid #f1f1f1;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.log {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 28%;
+}
+.log:hover{
+  opacity: 0.8;
 }
