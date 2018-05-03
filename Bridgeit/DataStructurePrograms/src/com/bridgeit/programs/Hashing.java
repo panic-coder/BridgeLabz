@@ -22,7 +22,7 @@ public class Hashing {
 		System.out.println("Enter the size");
 		int size = utility.inputInteger();
 		HashChaining linkedHash = new HashChaining(size);
-		File file = new File("/home/bridgeit/eclipse-workspace/Bridgeit/DataStructurePrograms/HashInput");
+		File file = new File("HashInput");
 		BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 		String readFileStore = "";
 		String readFile;
