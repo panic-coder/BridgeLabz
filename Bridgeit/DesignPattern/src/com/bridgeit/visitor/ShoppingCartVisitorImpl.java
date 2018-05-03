@@ -1,3 +1,4 @@
+package com.bridgeit.visitor;
 
 public class ShoppingCartVisitorImpl implements ShoppingCartVisitor {
 
