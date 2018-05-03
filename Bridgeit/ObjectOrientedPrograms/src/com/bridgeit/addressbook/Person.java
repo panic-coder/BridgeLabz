@@ -1,14 +1,10 @@
 package com.bridgeit.addressbook;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Person {
 	String firstName;
 	String lastName;
 	Address address;
 	String phoneNumber;
-	List<Person> list = new ArrayList<>();
 
 	public String getFirstName() {
 		return firstName;
@@ -44,12 +40,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", phoneNumber="
+		return "Person [First Name=" + firstName + ", Last Name=" + lastName + ", Address=" + address + ", Phone Number="
 				+ phoneNumber + "]";
 	}
 
-	public List<Person> getPersonList() {
-		return list;
-
-	}
 }

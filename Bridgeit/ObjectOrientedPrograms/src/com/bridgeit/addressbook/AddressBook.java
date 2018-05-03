@@ -8,5 +8,5 @@ public interface AddressBook {
 	public void remove();
 	public void sortByName();
 	public void sortByZip();
-	public void printAll(List<Person> addPerson);
+	public void printAll();
 }

@@ -4,19 +4,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import com.bridgeit.utility.Utility;
 
-public class AddressBookManger {
+public class AddressBookMain {
+	
 	public static void main(String[] args) throws IOException {
 		Utility utility = new Utility();
-		Create create = new Create();
+		AddressBookManagerImpl create = new AddressBookManagerImpl();
 		String existingAddressBook = "";
 		int loop = 0;
+		
 		while (loop == 0) {
 			AddressBookImpl addressBook = new AddressBookImpl();
-			Person person = new Person();
-
-			List<Person> addPerson = new ArrayList<>();
 			System.out.println("1. Create new Address Book\n" + "2. Open existing Address Book\n"
 					+ "3. Save Address Book\n" + "4. Close Address Book");
 			int choice = utility.inputInteger();
@@ -30,6 +31,7 @@ public class AddressBookManger {
 				existingAddressBook = utility.inputString();
 				if (create.checkAddress(existingAddressBook)) {
 					System.out.println("File Exists");
+					create.read(existingAddressBook);
 					int i = 0;
 					while (i == 0) {
 						System.out.println("1. Add\n" + "2. Edit\n" + "3. Remove\n" + "4. Sort By Name\n"
@@ -37,21 +39,25 @@ public class AddressBookManger {
 						int choose = utility.inputInteger();
 						switch (choose) {
 						case 1:
-							addPerson = addressBook.add();
+							addressBook.add();
 							break;
 						case 2:
+							addressBook.edit();
 							break;
 						case 3:
+							addressBook.remove();
 							break;
 						case 4:
+							addressBook.sortByName();
 							break;
 						case 5:
+							addressBook.sortByZip();
 							break;
 						case 6:
-							addressBook.printAll(addPerson);
+							addressBook.printAll();
 							break;
 						case 7:
-							System.out.println("Closing address book named " + existingAddressBook);
+							System.out.println("Closing address book named '" + existingAddressBook+"'");
 							i = 1;
 							break;
 						default:
@@ -67,7 +73,7 @@ public class AddressBookManger {
 				}
 				break;
 			case 3:
-				addressBook.save(existingAddressBook);
+				create.save(existingAddressBook);
 				break;
 			case 4:
 				System.out.println("Closing Address Book...!\nThank You");

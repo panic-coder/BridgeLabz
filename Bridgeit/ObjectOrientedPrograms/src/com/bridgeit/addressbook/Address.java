@@ -24,7 +24,7 @@ public class Address {
 	}
 	@Override
 	public String toString() {
-		return "Address [city=" + city + ", state=" + state + ", zip=" + zip + "]";
+		return "Address [City=" + city + ", State=" + state + ", Zip=" + zip + "]";
 	}
 	
 }
