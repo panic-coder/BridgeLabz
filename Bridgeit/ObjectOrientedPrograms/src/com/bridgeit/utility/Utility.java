@@ -141,7 +141,7 @@ public class Utility {
 			ja.add(jo1);
 			ja.add(jo2);
 			@SuppressWarnings("resource")
-			FileWriter file = new FileWriter("riceInput.json");
+			FileWriter file = new FileWriter("json/riceInput.json");
 			file.write(ja.toJSONString());
 			file.flush();
 			System.out.println("Successfully taken user input and written in file\n");
@@ -154,7 +154,7 @@ public class Utility {
 		int priceInt = 0, weightInt = 0, totalPrice = 0, weightSum = 0;
 		JSONParser jsonParser = new JSONParser();
 		try {
-			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("riceInput.json"));
+			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/riceInput.json"));
 			System.out.println(jsonArray);
 			for (Object obj : jsonArray) {
 				JSONObject jsonObject = (JSONObject) obj;
@@ -181,7 +181,7 @@ public class Utility {
 				JSONArray ja = new JSONArray();
 				ja.add(jo);
 				@SuppressWarnings("resource")
-				FileWriter file = new FileWriter("riceOutput.json");
+				FileWriter file = new FileWriter("json/riceOutput.json");
 				file.write(ja.toJSONString());
 				file.flush();
 				System.out.println("Successfully written output in file");
@@ -237,7 +237,7 @@ public class Utility {
 		System.out.println("Company\t\t\t\tShares\t\t\t\tPrice per share\t\tPrice");
 		System.out.println("=======\t\t\t\t======\t\t\t\t===============\t\t=====");
 		try {
-			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("stockInput.json"));
+			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockInput.json"));
 			// System.out.println(jsonArray);
 			for (Object o : jsonArray) {
 				JSONObject jsonObject = (JSONObject) o;
@@ -264,7 +264,7 @@ public class Utility {
 	public void stockTotalShares() {
 		JSONParser jsonParser = new JSONParser();
 		try {
-			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("stockAccountInput.json"));
+			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockAccountInput.json"));
 			System.out.println(jsonArray);
 			System.out.println("=================================================");
 			System.out.println("Symbol\t  Price Per Share    Total Shares");
@@ -304,7 +304,7 @@ public class Utility {
 		// long[]
 		try {
 			JSONArray jsonArrayOut = new JSONArray();
-			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("stockAccountInput.json"));
+			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockAccountInput.json"));
 			for (Object o : jsonArray) {
 				JSONObject jsonObject = (JSONObject) o;
 				String company = (String) jsonObject.get("Company");
@@ -333,7 +333,7 @@ public class Utility {
 				}
 				jsonArrayOut.add(jsonObject);
 			}
-			FileWriter file = new FileWriter("stockAccountInput.json");
+			FileWriter file = new FileWriter("json/stockAccountInput.json");
 			file.write(jsonArrayOut.toJSONString());
 			file.flush();
 			file.close();
@@ -358,7 +358,7 @@ public class Utility {
 		long pricePerShare;
 		long totalSharesAfterPurchase;
 		try {
-			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("stockAccountInput.json"));
+			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockAccountInput.json"));
 			for (Object o : jsonArray) {
 				JSONObject jsonObject = (JSONObject) o;
 				String symbol = (String) jsonObject.get("Symbol");
@@ -411,7 +411,7 @@ public class Utility {
 	public List<Company> getCompanyInfo() throws Exception, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
 		List<Company> companyList = new ArrayList<>();
-		JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("stockAccountInput.json"));
+		JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockAccountInput.json"));
 		for (Object o : jsonArray) {
 			JSONObject jsonObject = (JSONObject) o;
 			Company company = new Company();
@@ -434,7 +434,7 @@ public class Utility {
 	 * @param filename name with which new json file is being created
 	 */
 	public void createNewAccount(String filename) {
-		File file = new File(filename + ".json");
+		File file = new File("json/" + filename + ".json");
 		boolean fileCreated = false;
 		try {
 			fileCreated = file.createNewFile();
@@ -515,7 +515,7 @@ public class Utility {
 			jsonObject.put("PricePerShare", c.getPricePerShare());
 			jsonArray.add(jsonObject);
 		}
-		FileWriter file = new FileWriter("stockAccountInput.json");
+		FileWriter file = new FileWriter("json/stockAccountInput.json");
 		file.write(jsonArray.toJSONString());
 		file.flush();
 		file.close();
@@ -552,7 +552,7 @@ public class Utility {
 		int[][] cards= new int[4][size];
 		
 		cards = randomArray(size);
-		//System.out.println("Suffle");
+		//System.out.println("Shuffle");
 		/*for(int i = 0;i<4;i++) {
 			for(int j=0;j<size;j++) 
 				
@@ -570,7 +570,7 @@ public class Utility {
 		int[][] array = new int[4][size];
 		//System.out.println("random");
 		while(c<4) {
-			//System.out.println("Sufle");
+			//System.out.println("Shuffle");
 			r=0;
 			x=0;
 			

@@ -1,41 +1,51 @@
 package com.bridgeit.addressbook;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.codehaus.jackson.map.ObjectMapper;
-
 import com.bridgeit.utility.Utility;
 
 public class AddressBookMain {
-	
-	public static void main(String[] args) throws IOException {
+
+	public static void main(String[] args) throws Exception {
 		Utility utility = new Utility();
-		AddressBookManagerImpl create = new AddressBookManagerImpl();
+		AddressBookManagerImpl addressBookManagerImpl = new AddressBookManagerImpl();
 		String existingAddressBook = "";
 		int loop = 0;
-		
+
 		while (loop == 0) {
 			AddressBookImpl addressBook = new AddressBookImpl();
-			System.out.println("1. Create new Address Book\n" + "2. Open existing Address Book\n"
-					+ "3. Save Address Book\n" + "4. Close Address Book");
+			System.out.println("\t\t\t_________________________________________________\n"
+					+ "\t\t\t|\t\t Address Book\t\t\t|\n"
+					+ "\t\t\t|\t\t--------------\t\t\t|\n"
+					+ "\t\t\t|\t1. Create new Address Book\t\t|\n"
+					+ "\t\t\t|\t2. Open existing Address Book\t\t|\n"
+					+ "\t\t\t|\t3. Save Address Book\t\t\t|\n"  
+					+ "\t\t\t|\t4. Close Address Book\t\t\t|\n"
+					+ "\t\t\t|_______________________________________________|\n");
 			int choice = utility.inputInteger();
 			switch (choice) {
 			case 1:
-				create.createAddress();
+				addressBookManagerImpl.create();
 				break;
 			case 2:
-				create.readAddress();
-				System.out.println("Enter the name of the address book");
+				addressBookManagerImpl.readAddress();
+				System.out.println("\n\t\t\tEnter the name of the address book\n");
 				existingAddressBook = utility.inputString();
-				if (create.checkAddress(existingAddressBook)) {
-					System.out.println("File Exists");
-					create.read(existingAddressBook);
+				if (addressBookManagerImpl.checkAddress(existingAddressBook)) {
+					System.out.println("\t\t\tFile Exists\n");
+
+					addressBookManagerImpl.read(existingAddressBook);
 					int i = 0;
 					while (i == 0) {
-						System.out.println("1. Add\n" + "2. Edit\n" + "3. Remove\n" + "4. Sort By Name\n"
-								+ "5. Sort By Zip\n" + "6. Display\n" + "7. Exit");
+						System.out.println("\t\t\t___________________\n"
+								+ "\t\t\t|       Menu       |\n"
+								+ "\t\t\t|      ------      |\n"
+								+ "\t\t\t| 1. Add           |\n"
+								+ "\t\t\t| 2. Edit          |\n"
+								+ "\t\t\t| 3. Remove        |\n"
+								+ "\t\t\t| 4. Sort By Name  |\n"
+								+ "\t\t\t| 5. Sort By Zip   |\n"
+								+ "\t\t\t| 6. Display       |\n"
+								+ "\t\t\t| 7. Exit          |\n"
+								+ "\t\t\t|__________________|");
 						int choose = utility.inputInteger();
 						switch (choose) {
 						case 1:
@@ -57,11 +67,11 @@ public class AddressBookMain {
 							addressBook.printAll();
 							break;
 						case 7:
-							System.out.println("Closing address book named '" + existingAddressBook+"'");
+							System.out.println("\t\t\tClosing address book named '" + existingAddressBook + "'");
 							i = 1;
 							break;
 						default:
-							System.out.println("Wrong data recieved\n" + "Address Book named '" + existingAddressBook
+							System.out.println("\t\t\tWrong data recieved\n" + "\t\t\tAddress Book named '" + existingAddressBook
 									+ "' closed\n");
 							i = 1;
 							break;
@@ -69,18 +79,18 @@ public class AddressBookMain {
 						}
 					}
 				} else {
-					System.out.println("Entered filename doesn't exist");
+					System.out.println("\t\t\tEntered filename doesn't exist");
 				}
 				break;
 			case 3:
-				create.save(existingAddressBook);
+				addressBookManagerImpl.save(existingAddressBook);
 				break;
 			case 4:
-				System.out.println("Closing Address Book...!\nThank You");
+				System.out.println("\t\t\tClosing Address Book...!\n\t\t\tThank You");
 				loop = 1;
 				break;
 			default:
-				System.out.println("Sorry, Something went wrong...!\n" + "Address Book closed\nThank You");
+				System.out.println("\t\t\tSorry, Something went wrong...!\n" + "\t\t\tAddress Book closed\n\t\t\tThank You");
 				loop = 1;
 				break;
 			}

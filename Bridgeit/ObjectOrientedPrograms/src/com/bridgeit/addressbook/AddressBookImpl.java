@@ -1,7 +1,8 @@
 package com.bridgeit.addressbook;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,6 +11,7 @@ import java.util.List;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
 
 import com.bridgeit.utility.Utility;
 
@@ -17,6 +19,7 @@ public class AddressBookImpl implements AddressBook {
 	Utility utility = new Utility();
 	public static List<Person> list = new ArrayList<Person>();
 	ObjectMapper mapper = new ObjectMapper();
+
 	public List<Person> add() {
 		list.add(addUser());
 		for (Person P : list) {
@@ -24,14 +27,15 @@ public class AddressBookImpl implements AddressBook {
 		}
 		return list;
 	}
-
+	static int count = 0;
 	public void edit() {
-		System.out.println("Enter first name");
+		System.out.println("\n\t\t\tEnter first name");
 		String firstName = utility.inputString();
 		for (Person P : list) {
 			if (firstName.equals(P.getFirstName())) {
-				System.out.println("Data found");
-				System.out.println("1. To edit Address\n" + "2. To edit Phone Number");
+				count++;
+				System.out.println("\n\t\t\tData found\n");
+				System.out.println("\t\t\t1. To edit Address\n" + "\t\t\t2. To edit Phone Number\n");
 				int editChoice = utility.inputInteger();
 				switch (editChoice) {
 				case 1:
@@ -41,93 +45,95 @@ public class AddressBookImpl implements AddressBook {
 					editAddressPhone(P, 2);
 					break;
 				default:
-					System.out.println("Something went wrong\n" + "Try again later");
+					System.out.println("\t\t\tSomething went wrong\n" + "\t\t\tTry again later");
 				}
-			} else {
-				System.out.println("Sorry, no such data found");
-			}
+			} 
 		}
+		if(count==0)
+			System.out.println("\n\t\t\tData not found");
 	}
 
-	public void remove() {
-		System.out.println("Enter first name whose data is to be removed");
+	public void remove() throws Exception {
+		System.out.println("\n\t\t\tEnter first name whose data is to be removed");
 		String firstName = utility.inputString();
 		int count = 0;
-		for(Person P : list) {
-			if(firstName.equals(P.getFirstName())) {
-				System.out.println("Data found");
-				list.remove(P);
+		List<Person> toRemove = new ArrayList<>();
+		for (Person P : list) {
+			if (firstName.equals(P.getFirstName())) {
+				System.out.println("\n\t\t\tData found\n\n\t\t\tData Removed");
+				toRemove.add(P);
 				count++;
 			}
 		}
-		if(count==0)
-			System.out.println("Sorry, no such data found");
+		list.removeAll(toRemove);
+		if (count == 0)
+			System.out.println("\n\t\t\tSorry, no such data found");
 	}
 
 	public void sortByName() {
 		Collections.sort(list, new SortByName());
-		for(Person person : list) {
+		for (Person person : list) {
 			System.out.println(person.toString());
 		}
 	}
 
 	public void sortByZip() {
 		Collections.sort(list, new SortByZip());
-		for(Person person : list) {
+		for (Person person : list) {
 			System.out.println(person.toString());
 		}
 	}
 
 	public void printAll() {
 		for (Person P : list) {
-			System.out.println(P.toString() + " Hi");
+			System.out.println(P.toString());
 		}
 	}
 
 	private Person addUser() {
 		Person person = new Person();
 		Address address = new Address();
-		System.out.println("Enter First Name");
+		System.out.println("\n\t\t\tEnter First Name");
 		person.setFirstName(utility.inputString());
 		System.out.println(person.getFirstName());
-		System.out.println("Enter Last Name");
+		System.out.println("\n\t\t\tEnter Last Name");
 		person.setLastName(utility.inputString());
-		System.out.println("Enter city");
+		System.out.println("\n\t\t\tEnter city");
 		address.setCity(utility.inputString());
-		System.out.println("Enter State");
+		System.out.println("\n\t\t\tEnter State");
 		address.setState(utility.inputString());
-		System.out.println("Enter ZipCode");
+		System.out.println("\n\t\t\tEnter ZipCode");
 		address.setZip(utility.inputInteger());
-		System.out.println("Enter Phone Number");
+		System.out.println("\n\t\t\tEnter Phone Number");
 		person.setPhoneNumber(utility.inputString());
 		person.setAddress(address);
 		return person;
 	}
-	
+
 	private void editAddressPhone(Person P, int i) {
 		switch (i) {
 		case 1:
-			System.out.println("Enter the state");
+			System.out.println("\n\t\t\tEnter the state");
 			P.address.setState(utility.inputString());
-			System.out.println("Enter the city");
+			System.out.println("\n\t\t\tEnter the city");
 			P.address.setCity(utility.inputString());
-			System.out.println("Enter the ZipCode");
+			System.out.println("\n\t\t\tEnter the ZipCode");
 			P.address.setZip(utility.inputInteger());
-			System.out.println("New Address updated");
+			System.out.println("\n\t\t\tNew Address updated");
 			break;
 		case 2:
-			System.out.println("Enter the new Phone Number");
+			System.out.println("\n\t\t\tEnter the new Phone Number");
 			String phoneNumber = utility.inputString();
 			P.setPhoneNumber(phoneNumber);
-			System.out.println("New Phone Number updated ");
+			System.out.println("\n\t\t\tNew Phone Number updated ");
 			break;
 		}
 	}
 
 	public void save(String file) {
-
 		try {
-			mapper.writeValue(new File("AddressBook/"+file+".json"), list);
+			mapper.writeValue(new File("AddressBook/" + file + ".json"), list);
+			System.out.println("\n\t\t\tSaved");
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -137,17 +143,20 @@ public class AddressBookImpl implements AddressBook {
 		}
 	}
 
-	public void read(String file) {
-		
-		 try {
-			list = (List<Person>) mapper.readValue(new FileInputStream("AddressBook/"+file+".json"), Person.class );
+	public void read(String existingAddressBook) throws Exception {
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("AddressBook/" + existingAddressBook + ".json"));
+			String arrayToJson;
+			if ((arrayToJson = reader.readLine()) != null) {
+				TypeReference<ArrayList<Person>> type = new TypeReference<ArrayList<Person>>() {
+				};
+				list = objectMapper.readValue(arrayToJson, type);
+				reader.close();
+			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-
-
-
 }

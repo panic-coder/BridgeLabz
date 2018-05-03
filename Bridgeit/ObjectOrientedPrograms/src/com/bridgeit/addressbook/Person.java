@@ -40,8 +40,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [First Name=" + firstName + ", Last Name=" + lastName + ", Address=" + address + ", Phone Number="
-				+ phoneNumber + "]";
+		return "\n\t\t\tPerson \n\t\t\t\tFirst Name : " + firstName + "\n\t\t\t\tLast Name  : " + lastName + "\n\t\t\t\tAddress  " + address + "\n\t\t\t\tPhone Number : "
+				+ phoneNumber + "\n\n";
 	}
 
 }
