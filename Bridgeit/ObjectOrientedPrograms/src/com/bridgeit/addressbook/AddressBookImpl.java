@@ -159,4 +159,15 @@ public class AddressBookImpl implements AddressBook {
 		}
 
 	}
+
+	public void close(String existingAddressBook) {
+		list.clear();
+	}
+
+	public void saveAs() {
+		System.out.println("\n\t\t\tEnter the name of the new file");
+		String fileNameNew = utility.inputString();
+		save(fileNameNew);
+		System.out.println("\n\t\t\tData saved in new file");
+	}
 }

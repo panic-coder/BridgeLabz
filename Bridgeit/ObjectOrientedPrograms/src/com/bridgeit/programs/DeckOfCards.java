@@ -15,7 +15,7 @@ public class DeckOfCards {
 		Utility utility = new Utility();
 		String[] cards = {"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
 		String[] names = {"Clubs","Diamonds","Hearts","Spades"};
-		int deck[][] = utility.suffle();
+		int deck[][] = utility.shuffle();
 		System.out.println("Before sorting \n==============");
 		for(int i=0;i<4;i++) {
 			for(int j=0;j<9;j++) {

@@ -12,20 +12,23 @@ public class AddressBookMain {
 
 		while (loop == 0) {
 			AddressBookImpl addressBook = new AddressBookImpl();
-			System.out.println("\t\t\t_________________________________________________\n"
+			System.out.println("\t\t\t________________________________________________\n"
 					+ "\t\t\t|\t\t Address Book\t\t\t|\n"
 					+ "\t\t\t|\t\t--------------\t\t\t|\n"
 					+ "\t\t\t|\t1. Create new Address Book\t\t|\n"
 					+ "\t\t\t|\t2. Open existing Address Book\t\t|\n"
-					+ "\t\t\t|\t3. Save Address Book\t\t\t|\n"  
-					+ "\t\t\t|\t4. Close Address Book\t\t\t|\n"
+					+ "\t\t\t|\t3. Save Address Book\t\t\t|\n"
+					+ "\t\t\t|\t4. Save As Address Book\t\t\t|\n"
+					+ "\t\t\t|\t5. Close Address Book\t\t\t|\n"  
 					+ "\t\t\t|_______________________________________________|\n");
 			int choice = utility.inputInteger();
 			switch (choice) {
 			case 1:
 				addressBookManagerImpl.create();
+				addressBookManagerImpl.close(existingAddressBook);
 				break;
 			case 2:
+				addressBookManagerImpl.close(existingAddressBook);
 				addressBookManagerImpl.readAddress();
 				System.out.println("\n\t\t\tEnter the name of the address book\n");
 				existingAddressBook = utility.inputString();
@@ -67,12 +70,13 @@ public class AddressBookMain {
 							addressBook.printAll();
 							break;
 						case 7:
-							System.out.println("\t\t\tClosing address book named '" + existingAddressBook + "'");
+							System.out.println("\t\t\tTraversing to Main Menu");
 							i = 1;
 							break;
 						default:
 							System.out.println("\t\t\tWrong data recieved\n" + "\t\t\tAddress Book named '" + existingAddressBook
 									+ "' closed\n");
+							addressBook.close(existingAddressBook);
 							i = 1;
 							break;
 
@@ -86,6 +90,9 @@ public class AddressBookMain {
 				addressBookManagerImpl.save(existingAddressBook);
 				break;
 			case 4:
+				addressBookManagerImpl.saveAs();
+				break;
+			case 5:
 				System.out.println("\t\t\tClosing Address Book...!\n\t\t\tThank You");
 				loop = 1;
 				break;

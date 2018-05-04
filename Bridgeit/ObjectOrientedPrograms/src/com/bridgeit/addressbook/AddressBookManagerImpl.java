@@ -57,4 +57,15 @@ public class AddressBookManagerImpl implements AddressBookManager {
 		else
 			return false;
 	}
+
+	public void close(String existingAddressBook) {
+		AddressBookImpl ab = new AddressBookImpl();
+		ab.close(existingAddressBook);
+	}
+
+	public void saveAs() {
+		AddressBookImpl ab = new AddressBookImpl();
+		ab.saveAs();
+		
+	}
 }

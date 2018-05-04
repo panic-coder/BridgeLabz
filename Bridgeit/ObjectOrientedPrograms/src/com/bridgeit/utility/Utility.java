@@ -31,7 +31,12 @@ public class Utility {
 		random = new Random();
 	}
 
-	// RANDOM Numbers
+	/**
+	 * Generating Random Numbers with bound
+	 * 
+	 * @param bound
+	 * @return generated Random Number
+	 */
 	public int inputRandom(int bound) {
 		try {
 			return random.nextInt(bound);
@@ -40,7 +45,11 @@ public class Utility {
 		}
 		return 0;
 	}
-
+	/**
+	 * Generating Random Numbers without bound
+	 * 
+	 * @return generated Random Number
+	 */
 	public int inputRandom() {
 		try {
 			return random.nextInt();
@@ -50,7 +59,11 @@ public class Utility {
 		return 0;
 	}
 
-	// INPUT STRING
+	/**
+	 * Takes input with the user via Scanner for String
+	 * 
+	 * @return INPUT STRING
+	 */
 	public String inputString() {
 		try {
 			return scanner.next();
@@ -59,8 +72,26 @@ public class Utility {
 		}
 		return "";
 	}
+	
+	/**
+	 * Takes input with the user via Scanner for StringLine
+	 * 
+	 * @return INPUT STRING LINE
+	 */
+	public String inputStringLine() {
+		try {
+			return scanner.nextLine();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return "";
+	}
 
-	// INPUT Integer
+	/**
+	 * Takes input with the user via Scanner for Integer
+	 * 
+	 * @return INPUT INTEGER
+	 */
 	public int inputInteger() {
 		try {
 			return scanner.nextInt();
@@ -70,7 +101,11 @@ public class Utility {
 		return 0;
 	}
 
-	// INPUT Double
+	/**
+	 * Takes input with the user via Scanner for Double
+	 * 
+	 * @return INPUT DOUBLE
+	 */
 	public double inputDouble() {
 		try {
 			return scanner.nextDouble();
@@ -80,7 +115,11 @@ public class Utility {
 		return 0;
 	}
 
-	// INPUT Boolean
+	/**
+	 * Takes input with the user via Scanner for Boolean
+	 * 
+	 * @return INPUT BOOLEAN
+	 */
 	public boolean inputBoolean() {
 		try {
 			return scanner.nextBoolean();
@@ -108,8 +147,8 @@ public class Utility {
 		int r = 0;
 		while (r < 3) {
 
-			System.out.println("Enter the name ");
-			items[r] = inputString();
+			System.out.println("Enter the details for "+items[r]);
+			//items[r] = inputString();
 			System.out.println("Enter weight");
 			item2[r] = inputString();
 			System.out.println("Enter price");
@@ -134,9 +173,8 @@ public class Utility {
 			jo2.put("Price", item3[2]);
 			jo2.put("Weight", item2[2]);
 			jo2.put("Name", items[2]);
-			/*
-			 * jo.put("Name", name); jo.put("Weight", weight); jo.put("Price", price);
-			 */ JSONArray ja = new JSONArray();
+			
+			JSONArray ja = new JSONArray();
 			ja.add(jo);
 			ja.add(jo1);
 			ja.add(jo2);
@@ -148,9 +186,6 @@ public class Utility {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		/*
-		 * String name; String weight; String price;
-		 */
 		int priceInt = 0, weightInt = 0, totalPrice = 0, weightSum = 0;
 		JSONParser jsonParser = new JSONParser();
 		try {
@@ -160,16 +195,13 @@ public class Utility {
 				JSONObject jsonObject = (JSONObject) obj;
 
 				name = (String) jsonObject.get("Name");
-				// System.out.println(name);
 
 				price = (String) jsonObject.get("Price");
 				priceInt = Integer.parseInt(price);
-				// System.out.println(price);
 
 				weight = (String) jsonObject.get("Weight");
 				weightInt = Integer.parseInt(weight);
 				weightSum += weightInt;
-				// System.out.println(weight);
 
 				totalPrice = totalPrice + (priceInt * weightInt);
 			}
@@ -214,10 +246,8 @@ public class Utility {
 		string = string.replaceAll("xxxxxxxxxx", phoneNumber);
 		LocalDate ldate = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		// Date date = new Date(0, 0, 0);
 		String day = ldate.format(formatter);
 
-		// String day = String.valueOf(date);
 		string = string.replaceAll("01/01/2016", day);
 		return string;
 
@@ -238,7 +268,6 @@ public class Utility {
 		System.out.println("=======\t\t\t\t======\t\t\t\t===============\t\t=====");
 		try {
 			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockInput.json"));
-			// System.out.println(jsonArray);
 			for (Object o : jsonArray) {
 				JSONObject jsonObject = (JSONObject) o;
 				name = (String) jsonObject.get("Company");
@@ -271,8 +300,6 @@ public class Utility {
 			System.out.println("======\t  ===============    ============");
 			for (Object o : jsonArray) {
 				JSONObject jsonObject = (JSONObject) o;
-				// String name = (String)jsonObject.get("Company");
-				// System.out.print(name+"\t\t");
 				String symbol = (String) jsonObject.get("Symbol");
 				System.out.print(symbol + "\t\t");
 				long priceperShare = (long) jsonObject.get("PricePerShare");
@@ -301,7 +328,6 @@ public class Utility {
 		long totalShare;
 		long pricePerShare;
 		long totalSharesAfterPurchase;
-		// long[]
 		try {
 			JSONArray jsonArrayOut = new JSONArray();
 			JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockAccountInput.json"));
@@ -312,7 +338,6 @@ public class Utility {
 				totalShare = (long) jsonObject.get("TotalShare");
 				pricePerShare = (long) jsonObject.get("PricePerShare");
 				if (symbol.equals(userSymbol)) {
-					// System.out.println(pricePerShare);
 					totalSharesAfterPurchase = totalShare - (amount / pricePerShare);
 					System.out.println("Updated Stock");
 					System.out.println("=================================================");
@@ -365,7 +390,6 @@ public class Utility {
 				totalShare = (long) jsonObject.get("TotalShare");
 				if (symbol.equals(userSymbol)) {
 					pricePerShare = (long) jsonObject.get("PricePerShare");
-					// System.out.println(pricePerShare);
 					totalSharesAfterPurchase = totalShare + (amount / pricePerShare);
 					System.out.println("Updated Stock");
 					System.out.println("=================================================");
@@ -382,23 +406,7 @@ public class Utility {
 		}
 	}
 
-	/*
-	 * public void fetch() { ArrayList<String> companyList = new
-	 * ArrayList<String>(); JSONParser jsonParser = new JSONParser(); try {
-	 * 
-	 * File file = new File("stockAccountInput.json"); String path =
-	 * file.getAbsolutePath(); JSONArray jsonArray = (JSONArray)
-	 * jsonParser.parse(new FileReader("stockAccountInput.json"));
-	 * System.out.println(jsonArray); for(Object o : jsonArray) { JSONObject
-	 * jsonObject = (JSONObject)o; String companyName =
-	 * (String)jsonObject.get("Company"); companyList.add(companyName); } //
-	 * companyList.add();
-	 * 
-	 * for(String item:companyList) { System.out.println(item); } }catch(Exception
-	 * e) { e.printStackTrace(); }
-	 * 
-	 * }
-	 */
+	
 	/**
 	 * Reads json file and stores its data in an array list
 	 * 
@@ -415,8 +423,6 @@ public class Utility {
 		for (Object o : jsonArray) {
 			JSONObject jsonObject = (JSONObject) o;
 			Company company = new Company();
-			// String companyName = (String) jsonObject.get("Company");
-			// company.setCompany(companyName);
 			String symbol = (String) jsonObject.get("Symbol");
 			company.setSymbol(symbol);
 			long pricePerShare = (long) jsonObject.get("PricePerShare");
@@ -547,30 +553,29 @@ public class Utility {
 		}
 	}
 
-	public int[][] suffle() {
+	/**
+	 * @return shuffled array 
+	 */
+	public int[][] shuffle() {
 		int size = 9;
 		int[][] cards= new int[4][size];
 		
 		cards = randomArray(size);
-		//System.out.println("Shuffle");
-		/*for(int i = 0;i<4;i++) {
-			for(int j=0;j<size;j++) 
-				
-		}*/
 		return cards;
 	}
 
+	/**
+	 * @param size is the number of cards each player receives
+	 * @return the 2D array of 4x9 with random cards for 4 players
+	 */
 	private int[][] randomArray(int size) {
 		int r=0;
 		int c=0;
 		int random = 0;
 		int x = 0;
-		//int j=0;
 		int bound = 52;
 		int[][] array = new int[4][size];
-		//System.out.println("random");
 		while(c<4) {
-			//System.out.println("Shuffle");
 			r=0;
 			x=0;
 			
@@ -598,7 +603,6 @@ public class Utility {
 				}
 			r++;
 			}
-		//j++;
 		c++;
 		}
 		return array;
@@ -606,6 +610,10 @@ public class Utility {
 		
 	
 
+	/**
+	 * @param deck is the array where all the player cards are stored in random order
+	 * @return the cards of each player in ascending order 
+	 */
 	public int[][] sort(int[][] deck) {
 		int size = 9;
 		int[] player1 = new int[size];
@@ -645,6 +653,10 @@ public class Utility {
 		return array;
 	}
 
+	/**
+	 * @param array
+	 * @return sorted array
+	 */
 	private int[] bubbleSort(int[] array) {
 		for(int i=0;i<array.length;i++) {
 			for(int j=0;j<array.length-1;j++) {

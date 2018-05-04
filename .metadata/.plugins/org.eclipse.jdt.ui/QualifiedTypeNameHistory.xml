@@ -4,4 +4,10 @@
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.bridgelabz.model.Appointment"/>
+    <fullyQualifiedTypeName name="com.bridgelabz.model.Doctor"/>
+    <fullyQualifiedTypeName name="com.bridgelabz.model.Patient"/>
+    <fullyQualifiedTypeName name="com.bridgeit.utility.Utility"/>
+    <fullyQualifiedTypeName name="com.bridgelabz.utility.Utility"/>
 </qualifiedTypeNameHistroy>
