@@ -1,10 +1,11 @@
 package com.bridgelabz.model;
 
 public class Doctor {
-	String name;
-	long id;
-	String Specialization;
-	String Availability;
+	private String name;
+	private long id;
+	private String Specialization;
+	private String Availability;
+	
 	public String getName() {
 		return name;
 	}
@@ -28,5 +29,10 @@ public class Doctor {
 	}
 	public void setAvailability(String availability) {
 		Availability = availability;
+	}
+	@Override
+	public String toString() {
+		return "Doctor [name=" + name + ", id=" + id + ", Specialization=" + Specialization + ", Availability="
+				+ Availability + "]";
 	}
 }

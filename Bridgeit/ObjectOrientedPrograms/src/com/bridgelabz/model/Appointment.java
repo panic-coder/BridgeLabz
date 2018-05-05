@@ -15,4 +15,8 @@ public class Appointment {
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
+	@Override
+	public String toString() {
+		return "Appointment [patient=" + patient + ", doctor=" + doctor + "]";
+	}
 }

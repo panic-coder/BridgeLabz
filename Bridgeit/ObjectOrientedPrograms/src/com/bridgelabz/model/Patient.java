@@ -3,7 +3,7 @@ package com.bridgelabz.model;
 public class Patient {
 	private String name;
 	private long id;
-	private long phone;
+	private String phone;
 	private long age;
 	public String getName() {
 		return name;
@@ -17,10 +17,10 @@ public class Patient {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public long getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(long phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public long getAge() {
@@ -29,5 +29,8 @@ public class Patient {
 	public void setAge(long age) {
 		this.age = age;
 	}
-	
+	@Override
+	public String toString() {
+		return "Patient [name=" + name + ", id=" + id + ", phone=" + phone + ", age=" + age + "]";
+	}
 }

@@ -1,13 +1,30 @@
 package com.bridgelabz.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.bridgelabz.controller.AddDetailsImpl;
+import com.bridgelabz.controller.DisplayDetailsImpl;
+import com.bridgelabz.model.Appointment;
+import com.bridgelabz.model.Doctor;
+import com.bridgelabz.model.Patient;
 import com.bridgelabz.utility.Utility;
 
 public class Clinic {
-	public static void main(String[] args) {
+	public static List<Doctor> doctorList = new ArrayList<>();
+	public static List<Patient> patientList = new ArrayList<>();
+	public static List<Appointment> appointmentList = new ArrayList<>();
+	
+	public static void main(String[] args) throws Exception {
 		Utility utility = new Utility();
+		AddDetailsImpl addDetails = new AddDetailsImpl();
+		DisplayDetailsImpl displayDetails = new DisplayDetailsImpl();
+		doctorList = addDetails.read(doctorList, "doctor","Doctor");
+		patientList = addDetails.read(patientList, "patient", "Patient");
+		appointmentList = addDetails.read(appointmentList, "appointment", "Appointment");
 		int loop = 0;
 		while (loop == 0) {
-			System.out.println("1. Add new entries\n" + "2. Save in file\n" + "3. Display Details\n"
+			System.out.println("1. Take Appointment and Add new entries\n" + "2. Save in file\n" + "3. Display Details\n"
 					+ "4. Search Details\n" + "5. Close the Clinic\n");
 			int choice = utility.inputInteger();
 			switch (choice) {
@@ -19,10 +36,25 @@ public class Clinic {
 					int choiceAdd = utility.inputInteger();
 					switch (choiceAdd) {
 					case 1:
+						String admin = "Admin";
+						String pass = "password";
+						System.out.println("Enter Admin Id");
+						String user = utility.inputString();
+						System.out.println("Enter password");
+						String password = utility.inputString();
+						if(user.equals(admin) && password.equals(pass)) {
+							System.out.println("Enter doctor details");
+							doctorList = addDetails.addDoctor(doctorList);
+						}
+						else {
+							System.out.println("Wrong ID or password");
+						}	
 						break;
 					case 2:
+						patientList = addDetails.addPatient(patientList);
 						break;
 					case 3:
+						appointmentList = addDetails.takeAppointment(doctorList,patientList,appointmentList);
 						break;
 					case 4:
 						loopAdd = 1;
@@ -42,10 +74,13 @@ public class Clinic {
 					int choiceSave = utility.inputInteger();
 					switch (choiceSave) {
 					case 1:
+						addDetails.save(doctorList, "doctor");
 						break;
 					case 2:
+						addDetails.save(patientList, "patient");
 						break;
 					case 3:
+						addDetails.save(appointmentList, "appointment");
 						break;
 					case 4:
 						loopSave = 1;
@@ -63,18 +98,22 @@ public class Clinic {
 				while (loopDisplay == 0) {
 					System.out.println(
 							"1. Display all Doctors\n" + "2. Display all Patients\n" + "3. Display all Appointments\n"
-									+ "4. Display Popular Doctors\n" + "5. Display Available Doctors\n" + "6. Exit\n");
+									+ "4. Display Popular Doctors\n" + "5. Display Popular Specialization\n" + "6. Exit\n");
 					int choiceDisplay = utility.inputInteger();
 					switch (choiceDisplay) {
 					case 1:
+						displayDetails.displayDoctor(doctorList);
 						break;
 					case 2:
+						displayDetails.displayPatient(patientList);
 						break;
 					case 3:
+						displayDetails.displayAppointment(appointmentList);
 						break;
 					case 4:
 						break;
 					case 5:
+						displayDetails.displayPopularSpecialization(doctorList);
 						break;
 					case 6:
 						loopDisplay = 1;
