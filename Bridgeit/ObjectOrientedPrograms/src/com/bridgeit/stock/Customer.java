@@ -22,4 +22,8 @@ public class Customer {
 	public void setShares(long shares) {
 		this.shares = shares;
 	}
+	@Override
+	public String toString() {
+		return "Customer [symbol=" + symbol + ", pricePerShare=" + pricePerShare + ", shares=" + shares + "]";
+	}
 }

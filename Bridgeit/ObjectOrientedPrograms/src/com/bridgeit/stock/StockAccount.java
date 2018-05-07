@@ -7,5 +7,5 @@ public interface StockAccount {
 	public void buy(String existingCustomerName,long amount, String symbol, List<Company> company);
 	public void sell(String existingCustomerName,long amount, String symbol, List<Company> company);
 	public void save(String filename);
-	public void printReport(List<Company> company);
+	public void printReport();
 }

@@ -31,6 +31,6 @@ public class Patient {
 	}
 	@Override
 	public String toString() {
-		return "Patient [name=" + name + ", id=" + id + ", phone=" + phone + ", age=" + age + "]";
+		return "\n\t\t\tPatient \n\t\t\t\tName  : " + name + "\n\t\t\t\tID    : " + id + "\n\t\t\t\tPhone : " + phone + "\n\t\t\t\tAge   : " + age;
 	}
 }

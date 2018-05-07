@@ -31,6 +31,7 @@ public class Utility {
 		}
 		return 0;
 	}
+
 	/**
 	 * Generating Random Numbers without bound
 	 * 
@@ -58,7 +59,7 @@ public class Utility {
 		}
 		return "";
 	}
-	
+
 	/**
 	 * Takes input with the user via Scanner for StringLine
 	 * 
@@ -117,58 +118,66 @@ public class Utility {
 
 	public Doctor addDoctorToList() {
 		Doctor doctor = new Doctor();
-		System.out.println("Enter Name");
+		System.out.println("\n\t\t\tEnter Name");
 		doctor.setName(inputString());
-		System.out.println("Enter ID in number");
+		System.out.println("\n\t\t\tEnter ID in number");
 		doctor.setId(inputInteger());
-		System.out.println("Enter Specialization");
+		System.out.println("\n\t\t\tEnter Specialization");
 		doctor.setSpecialization(inputString());
-		System.out.println("Enter Availability");
+		System.out.println("\n\t\t\tEnter Availability");
 		doctor.setAvailability(inputString());
+		doctor.setNumberOfPatients(0);
 		return doctor;
 	}
-	
+
 	public Patient addPatientToList() {
 		Patient patient = new Patient();
-		
-		System.out.println("Enter Name");
+
+		System.out.println("\n\t\t\tEnter Name");
 		patient.setName(inputString());
-		System.out.println("Enter ID in number");
+		System.out.println("\n\t\t\tEnter ID in number");
 		patient.setId(inputInteger());
-		System.out.println("Enter Phone Number");
+		System.out.println("\n\t\t\tEnter Phone Number");
 		patient.setPhone(inputString());
-		System.out.println("Enter Age");
+		System.out.println("\n\t\t\tEnter Age");
 		patient.setAge(inputInteger());
 		return patient;
 	}
-	
+
 	public Appointment addAppointmentToList(List<Doctor> doctorList, List<Patient> patientList) {
 		Appointment appointment = new Appointment();
-		System.out.println("Enter name of Patient");
+		System.out.println("\n\t\t\tEnter name of Patient");
 		String patientAppointment = inputString();
 		int count = 0;
-		for(Patient patient : patientList) {
-			if(patient.getName().equals(patientAppointment)) {
+		for (Patient patient : patientList) {
+			if (patient.getName().equals(patientAppointment)) {
 				count++;
-				System.out.println("Enter the name of Doctor for Appointment");
+				System.out.println("\n\t\t\tEnter the name of Doctor for Appointment");
 				String doctorAppointment = inputString();
-				System.out.println("Enter the ID of Doctor for Appointment");
+				System.out.println("\n\t\t\tEnter the ID of Doctor for Appointment");
 				long doctorAppointmentId = inputInteger();
-				for(Doctor doctor : doctorList) {
-					if(doctor.getName().equals(doctorAppointment)) {
-						if(doctor.getId()==doctorAppointmentId) {
-							if(count>0) {
-							appointment.setDoctor(doctor);
-							appointment.setPatient(patient);
-							System.out.println("Appointment fixed");
-							return appointment;
-						}}
+				System.out.println("\n\t\t\tEnter the date for Appointment");
+				String date = inputString();
+				for (Doctor doctor : doctorList) {
+					if (doctor.getName().equals(doctorAppointment)) {
+						if (doctor.getId() == doctorAppointmentId) {
+							if (doctor.getNumberOfPatients() < 5) {
+								appointment.setDoctor(doctor);
+								appointment.setPatient(patient);
+								appointment.setDate(date);
+								doctor.setNumberOfPatients(doctor.getNumberOfPatients() + 1);
+								System.out.println("\n\t\t\tAppointment fixed on " + date);
+								return appointment;
+							} else {
+								System.out.println("\n\t\t\tTake appointment on some other day\n\t\t\tDoctor reached maximum number of patients");
+							}
+						}
 					}
 				}
 			}
 		}
-		if(count==0){
-			System.out.println("Sorry you are not a registered patient\nClinic closed");
+		if (count == 0) {
+			System.out.println("\n\t\t\tSorry you are not a registered patient\nClinic closed");
 			System.exit(0);
 		}
 		return null;

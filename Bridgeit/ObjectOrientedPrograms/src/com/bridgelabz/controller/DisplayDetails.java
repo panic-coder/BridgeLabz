@@ -10,6 +10,6 @@ public interface DisplayDetails {
 	void displayDoctor(List<Doctor> doctorList);
 	void displayPatient(List<Patient> patientList);
 	void displayAppointment(List<Appointment> appointmentList);
-	void displayPopularDoctor();
+	void displayPopularDoctor(List<Doctor> doctorList);
 	void displayPopularSpecialization(List<Doctor> doctorList);
 }

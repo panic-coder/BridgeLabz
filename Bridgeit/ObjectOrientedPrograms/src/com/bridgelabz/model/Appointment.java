@@ -3,6 +3,13 @@ package com.bridgelabz.model;
 public class Appointment {
 	Patient patient;
 	Doctor doctor;
+	String date;
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	public Patient getPatient() {
 		return patient;
 	}
@@ -17,6 +24,6 @@ public class Appointment {
 	}
 	@Override
 	public String toString() {
-		return "Appointment [patient=" + patient + ", doctor=" + doctor + "]";
+		return "\n\n\t    Appointment " + patient + doctor + "\n\t\t\tDate  : "+date;
 	}
 }

@@ -416,7 +416,7 @@ public class Utility {
 	 * @throws IOException
 	 * @throws ParseException
 	 */
-	public List<Company> getCompanyInfo() throws Exception, IOException, ParseException {
+/*	public List<Company> getCompanyInfo() throws Exception, IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
 		List<Company> companyList = new ArrayList<>();
 		JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockAccountInput.json"));
@@ -433,7 +433,7 @@ public class Utility {
 		}
 		return companyList;
 	}
-
+*/
 	/**
 	 * Creates new file with the name of the user and keeps all their transactions
 	 * 
@@ -462,7 +462,7 @@ public class Utility {
 	public long totalValuesOfShares(List<Company> company) {
 		long totalShares = 0;
 		for (Company c : company) {
-			long share = c.getTotalShares();
+			long share = c.getSharesAvailable();
 			long price = c.getPricePerShare();
 			totalShares += (share * price);
 		}
@@ -476,60 +476,23 @@ public class Utility {
 	 * @param symbol of company for buying
 	 * @param company list
 	 */
-	public void buy(String existingCustomerName,long amount, String symbol, List<Company> company) {
+	/*public void buy(String existingCustomerName,long amount, String symbol, List<Company> company) {
 		for (Company c : company) {
 			if (c.getSymbol().equals(symbol)) {
 				long price = c.getPricePerShare();
 				if (amount >= price) {
 					long numberOfShares = amount / price;
-					long totalShares = c.getTotalShares();
+					long totalShares = c.getSharesAvailable();
 					c.setTotalShares(totalShares - numberOfShares);
-					System.out.println(c.getTotalShares());
+					System.out.println(c.getSharesAvailable());
 				}else {
 					System.out.println("Amount entered is less than price of one share");
 				}
 			}
 		}
 	}
-
-	/**
-	 * Displays the values stored in the array list company  
-	 * 
-	 * @param company list
-	 */
-	public void display(List<Company> company) {
-		for (Company c : company) {
-			System.out.println(c);
-		}
-	}
-
-	/**
-	 * Writes the array list in json file
-	 * 
-	 * @param company list
-	 * @throws IOException
-	 */
-	@SuppressWarnings("unchecked")
-	public void writeInFile(List<Company> company) throws IOException {
+*/
 		
-		JSONArray jsonArray = new JSONArray();
-		try {
-		for(Company c : company) {
-			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("Symbol",c.getSymbol());
-			jsonObject.put("SharesAvailable", c.getTotalShares());
-			jsonObject.put("PricePerShare", c.getPricePerShare());
-			jsonArray.add(jsonObject);
-		}
-		FileWriter file = new FileWriter("json/stockAccountInput.json");
-		file.write(jsonArray.toJSONString());
-		file.flush();
-		file.close();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	/**
 	 * Sell the shares Customer is having 
 	 * 
@@ -537,22 +500,22 @@ public class Utility {
 	 * @param symbol of company to buy shares
 	 * @param company list
 	 */
-	public void sell(String existingCustomerName, long amount, String symbol, List<Company> company) {
+/*	public void sell(String existingCustomerName, long amount, String symbol, List<Company> company) {
 		for (Company c : company) {
 			if (c.getSymbol().equals(symbol)) {
 				long price = c.getPricePerShare();
 				if (amount >= price) {
 					long numberOfShares = amount / price;
-					long totalShares = c.getTotalShares();
+					long totalShares = c.getSharesAvailable();
 					c.setTotalShares(totalShares + numberOfShares);
-					System.out.println(c.getTotalShares());
+					System.out.println(c.getSharesAvailable());
 				}else {
 					System.out.println("Amount entered is larger than price of all the share");
 				}
 			}
 		}
 	}
-
+*/
 	/**
 	 * @return shuffled array 
 	 */

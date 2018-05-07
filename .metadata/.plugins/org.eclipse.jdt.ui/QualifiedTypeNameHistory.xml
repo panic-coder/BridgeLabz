@@ -3,9 +3,6 @@
     <fullyQualifiedTypeName name="LinkedList.Node"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="com.bridgelabz.model.Appointment"/>
-    <fullyQualifiedTypeName name="com.bridgelabz.model.Patient"/>
     <fullyQualifiedTypeName name="com.bridgeit.utility.Utility"/>
     <fullyQualifiedTypeName name="com.bridgelabz.controller.DisplayDetails"/>
     <fullyQualifiedTypeName name="com.bridgelabz.controller.SearchDetails"/>
@@ -13,4 +10,9 @@
     <fullyQualifiedTypeName name="com.bridgelabz.model.Doctor"/>
     <fullyQualifiedTypeName name="com.bridgelabz.utility.Utility"/>
     <fullyQualifiedTypeName name="com.bridgelabz.controller.AddDetailsImpl"/>
+    <fullyQualifiedTypeName name="com.bridgelabz.controller.SearchDetailsImpl"/>
+    <fullyQualifiedTypeName name="com.bridgelabz.model.Patient"/>
+    <fullyQualifiedTypeName name="java.security.SecureRandom"/>
+    <fullyQualifiedTypeName name="com.bridgelabz.model.Appointment"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

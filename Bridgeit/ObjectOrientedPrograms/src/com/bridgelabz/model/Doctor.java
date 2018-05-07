@@ -3,8 +3,9 @@ package com.bridgelabz.model;
 public class Doctor {
 	private String name;
 	private long id;
-	private String Specialization;
-	private String Availability;
+	private String specialization;
+	private String availability;
+	private long numberOfPatients;
 	
 	public String getName() {
 		return name;
@@ -19,20 +20,27 @@ public class Doctor {
 		this.id = id;
 	}
 	public String getSpecialization() {
-		return Specialization;
+		return specialization;
 	}
 	public void setSpecialization(String specialization) {
-		Specialization = specialization;
+		this.specialization = specialization;
 	}
 	public String getAvailability() {
-		return Availability;
+		return availability;
 	}
 	public void setAvailability(String availability) {
-		Availability = availability;
+		this.availability = availability;
+	}
+	
+	public long getNumberOfPatients() {
+		return numberOfPatients;
+	}
+	public void setNumberOfPatients(long numberOfPatients) {
+		this.numberOfPatients = numberOfPatients;
 	}
 	@Override
 	public String toString() {
-		return "Doctor [name=" + name + ", id=" + id + ", Specialization=" + Specialization + ", Availability="
-				+ Availability + "]";
+		return "\n\t\t\tDoctor \n\t\t\t\tName : " + name + "\n\t\t\t\tID   : " + id + "\n\t\t\t\tSpecialization : " + specialization + "\n\t\t\t\tAvailability   : "
+				+ availability;
 	}
 }
