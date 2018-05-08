@@ -1,9 +1,15 @@
 package com.bridgeit.stock;
 
-public class Company {
+public class Company 
+{
 	private String company;
 	private long sharesAvailable;
 	private long pricePerShare;
+	@Override
+	public String toString() {
+		return "Company [company=" + company + ", sharesAvailable=" + sharesAvailable + ", pricePerShare="
+				+ pricePerShare + "]";
+	}
 	public String getCompany() {
 		return company;
 	}
@@ -22,10 +28,4 @@ public class Company {
 	public void setPricePerShare(long pricePerShare) {
 		this.pricePerShare = pricePerShare;
 	}
-	@Override
-	public String toString() {
-		return "Company [Company=" + company + ", SharesAvailable=" + sharesAvailable + ", PricePerShare="
-				+ pricePerShare + "]";
-	}
-
 }

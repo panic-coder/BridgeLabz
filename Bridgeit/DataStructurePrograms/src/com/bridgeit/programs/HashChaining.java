@@ -53,7 +53,7 @@ public class HashChaining {
 				break;
 			else
 				previous = temp;
-				temp=temp.next;
+			temp=temp.next;
 		}
 		previous.next = temp.next;
 	}

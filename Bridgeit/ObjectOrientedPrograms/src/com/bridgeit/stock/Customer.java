@@ -2,7 +2,7 @@ package com.bridgeit.stock;
 
 public class Customer {
 	private String symbol;
-	private long pricePerShare;
+	private long amount;
 	private long shares;
 	public String getSymbol() {
 		return symbol;
@@ -11,10 +11,10 @@ public class Customer {
 		this.symbol = symbol;
 	}
 	public long getAmount() {
-		return pricePerShare;
+		return amount;
 	}
 	public void setAmount(long amount) {
-		this.pricePerShare = amount;
+		this.amount = amount;
 	}
 	public long getShares() {
 		return shares;
@@ -24,6 +24,7 @@ public class Customer {
 	}
 	@Override
 	public String toString() {
-		return "Customer [symbol=" + symbol + ", pricePerShare=" + pricePerShare + ", shares=" + shares + "]";
+		return "Customer [symbol=" + symbol + ", amount=" + amount + ", shares=" + shares
+				+ "]";
 	}
 }

@@ -1,6 +1,7 @@
 package com.bridgeit.stock;
 
 import java.io.IOException;
+import java.util.Date;
 
 import org.json.simple.parser.ParseException;
 
@@ -10,7 +11,8 @@ public class StockManager {
 	public static void main(String[] args) throws IOException, ParseException, Exception {
 		Utility utility = new Utility();
 		StockAccountImpl stockAccount = new StockAccountImpl();
-
+		Date date = new Date();
+		System.out.println(date.toString());
 		int y = 0;
 		while(y==0) {
 			System.out.println("1. Create Account\n2. Open Existing Account\n3. Exit");
@@ -21,30 +23,59 @@ public class StockManager {
 				break;
 			case 2:
 				int x = 0;
+				System.out.println("Enter the name of account");
+				String name = utility.inputString();
+				String file = "Company";
+				stockAccount.read(file);
+				stockAccount.read("Transaction");
+				stockAccount.read(name);
 				while (x == 0) {
-					System.out.println("Enter the name of account");
-					String name = utility.inputString();
 					if(stockAccount.checkAddress(name)) {
-					System.out.println("\n1. Buy Shares"
-							+ "\n2. Sell Shares" + "\n3. Save Account" + "\n4. Print Report" + "\n5. Exit");
+					System.out.println("\n1. Add Amount\n2. Buy Shares"
+							+ "\n3. Sell Shares" + "\n4. Save Account" + "\n5. Print Report" + "\n6. Exit");
 					System.out.println("\nEnter your choice");
-					String file = "Company";
-					stockAccount.read(file);
 					int ch = utility.inputInteger();
 					switch (ch) {
 					case 1:
-						System.out.println("Enter following details for buying\n" + "=================");
-						System.out.println("Enter your name");
+						stockAccount.addMoney();
 						break;
 					case 2:
-						System.out.println("Enter the following details for selling\n" + "=================");
+						stockAccount.buy();
 						break;
 					case 3:
+						stockAccount.sell();
 						break;
 					case 4:
-						stockAccount.printReport();
+						stockAccount.save(file,name);
 						break;
 					case 5:
+						int m=0;
+						while(m==0) {
+							System.out.println("1. To display company\n2. To display current Customer\n3. To display Transaction\n4. Exit");
+							int choiceDisplay = utility.inputInteger();
+							switch(choiceDisplay) {
+							case 1:
+								stockAccount.printReport();
+								break;
+							case 2:
+								stockAccount.printCustomer();
+								break;
+							case 3:
+								stockAccount.printTransaction();
+								break;
+							case 4:
+								m=1;
+								System.out.println("Display menu closed");
+								break;
+							default:
+								System.out.println("Something went wrong\nDisplay menu closed");
+								break;
+							}
+						}
+						
+						
+						break;
+					case 6:
 						System.out.println("Menu closed...!!!");
 						System.out.println("=================THANK YOU=================");
 						x = 1;
