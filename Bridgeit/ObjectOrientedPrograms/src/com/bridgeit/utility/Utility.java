@@ -406,34 +406,6 @@ public class Utility {
 		}
 	}
 
-	
-	/**
-	 * Reads json file and stores its data in an array list
-	 * 
-	 * @return List in which there are Company symbol, price per share and total
-	 *         share
-	 * @throws Exception
-	 * @throws IOException
-	 * @throws ParseException
-	 */
-/*	public List<Company> getCompanyInfo() throws Exception, IOException, ParseException {
-		JSONParser jsonParser = new JSONParser();
-		List<Company> companyList = new ArrayList<>();
-		JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("json/stockAccountInput.json"));
-		for (Object o : jsonArray) {
-			JSONObject jsonObject = (JSONObject) o;
-			Company company = new Company();
-			String symbol = (String) jsonObject.get("Symbol");
-			company.setSymbol(symbol);
-			long pricePerShare = (long) jsonObject.get("PricePerShare");
-			company.setPricePerShare(pricePerShare);
-			long totalShare = (long) jsonObject.get("SharesAvailable");
-			company.setTotalShares(totalShare);
-			companyList.add(company);
-		}
-		return companyList;
-	}
-*/
 	/**
 	 * Creates new file with the name of the user and keeps all their transactions
 	 * 
@@ -469,53 +441,6 @@ public class Utility {
 		return totalShares;
 	}
 
-	/**
-	 * Buying of shares from stock 
-	 * 
-	 * @param amount for buying
-	 * @param symbol of company for buying
-	 * @param company list
-	 */
-	/*public void buy(String existingCustomerName,long amount, String symbol, List<Company> company) {
-		for (Company c : company) {
-			if (c.getSymbol().equals(symbol)) {
-				long price = c.getPricePerShare();
-				if (amount >= price) {
-					long numberOfShares = amount / price;
-					long totalShares = c.getSharesAvailable();
-					c.setTotalShares(totalShares - numberOfShares);
-					System.out.println(c.getSharesAvailable());
-				}else {
-					System.out.println("Amount entered is less than price of one share");
-				}
-			}
-		}
-	}
-*/
-		
-	/**
-	 * Sell the shares Customer is having 
-	 * 
-	 * @param amount for selling
-	 * @param symbol of company to buy shares
-	 * @param company list
-	 */
-/*	public void sell(String existingCustomerName, long amount, String symbol, List<Company> company) {
-		for (Company c : company) {
-			if (c.getSymbol().equals(symbol)) {
-				long price = c.getPricePerShare();
-				if (amount >= price) {
-					long numberOfShares = amount / price;
-					long totalShares = c.getSharesAvailable();
-					c.setTotalShares(totalShares + numberOfShares);
-					System.out.println(c.getSharesAvailable());
-				}else {
-					System.out.println("Amount entered is larger than price of all the share");
-				}
-			}
-		}
-	}
-*/
 	/**
 	 * @return shuffled array 
 	 */

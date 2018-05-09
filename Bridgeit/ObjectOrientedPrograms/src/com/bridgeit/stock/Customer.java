@@ -1,3 +1,10 @@
+/**
+ * Purpose : POJO for Customer
+ * 
+ * @author Kumar Shubham
+ * @since  07/05/2018
+ *
+ */
 package com.bridgeit.stock;
 
 public class Customer {
@@ -24,7 +31,7 @@ public class Customer {
 	}
 	@Override
 	public String toString() {
-		return "Customer [symbol=" + symbol + ", amount=" + amount + ", shares=" + shares
-				+ "]";
+		return "\n\t\t\tCustomer \n\t\t\t\tsymbol : " + symbol + "\n\t\t\t\tshares : " + shares
+				+ "\n";
 	}
 }

@@ -12,9 +12,9 @@ import java.io.*;
 
 public class LinkedList<T> {
 	Node<T> head;
-
-	public void add(T fileInt) {
-		Node<T> n = new Node<T>(fileInt);
+	public static Company company = new Company();
+	public void add(T file) {
+		Node<T> n = new Node<T>(file);
 		
 		if(head==null) {
 			head=n;
@@ -63,7 +63,7 @@ public class LinkedList<T> {
 	public void display() {
 		Node<T> t=head;
 		while(t!=null) {
-			System.out.println(t.data);
+			System.out.println(t.data.toString());
 			t=t.next;
 		}
 		
@@ -112,14 +112,15 @@ public class LinkedList<T> {
 		System.out.println(t.data);
 	}
 	
-	public void pop(int pos) {
+	public T pop(int pos) {
 		Node<T> t=head;
 		int i=1;
 		while(t!=null && i<pos ) {
 			t=t.next;
 			i++;
 		}
-		System.out.println(t.data);
+		//System.out.println(t.data);
+		return t.data;
 	}
 	
 	public boolean isEmpty() {
@@ -143,18 +144,22 @@ public class LinkedList<T> {
 		return i;
 	}
 	
-	public void remove(T item) {
+	public void remove(int item) {
 		Node<T> temp = head,prev=null;
-		if(temp.data.equals(item)) {
+		
+		if(item == 1) {
 			head = temp.next;
 			return;
 		}
-		while(temp!=null && !temp.data.equals(item)) {
+		int i = 2;
+		while(temp!=null && i<=item ) {
 			prev = temp;
 			temp = temp.next;
+			i++;
 		}
 		if(temp==null)
 			return;
+		
 		prev.next=temp.next;
 	}
 	

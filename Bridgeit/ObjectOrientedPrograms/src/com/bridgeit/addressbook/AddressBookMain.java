@@ -1,3 +1,10 @@
+/**
+ * Purpose : Main class for Address Book, all the methods are called from this class
+ * 
+ * @author Kumar Shubham
+ * @since  30/04/2018
+ *
+ */
 package com.bridgeit.addressbook;
 
 import com.bridgeit.utility.Utility;

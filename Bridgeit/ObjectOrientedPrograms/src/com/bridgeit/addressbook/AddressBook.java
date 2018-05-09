@@ -1,3 +1,11 @@
+/**
+ * Purpose : Interface to add functionalities for add, edit, remove, sort by name, 
+ * sort by zip and display with respect to Person
+ * 
+ * @author Kumar Shubham
+ * @since  30/04/2018
+ *
+ */
 package com.bridgeit.addressbook;
 
 import java.util.List;

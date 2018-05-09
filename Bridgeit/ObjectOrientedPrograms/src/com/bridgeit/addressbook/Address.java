@@ -1,3 +1,11 @@
+/**
+ * Purpose : POJO for Address
+ * 
+ * @author Kumar Shubham
+ * @since  30/04/2018
+ *
+ */
+
 package com.bridgeit.addressbook;
 
 public class Address {

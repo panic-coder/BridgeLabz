@@ -1,3 +1,10 @@
+/**
+ * Purpose : Class contains methods implemented by address book interface methods
+ * 
+ * @author Kumar Shubham
+ * @since  30/04/2018
+ *
+ */
 package com.bridgeit.addressbook;
 
 import java.io.BufferedReader;
@@ -20,6 +27,9 @@ public class AddressBookImpl implements AddressBook {
 	public static List<Person> list = new ArrayList<Person>();
 	ObjectMapper mapper = new ObjectMapper();
 
+	/* 
+	 * Purpose : add person in person list
+	 */
 	public List<Person> add() {
 		list.add(addUser());
 		for (Person P : list) {
@@ -27,7 +37,12 @@ public class AddressBookImpl implements AddressBook {
 		}
 		return list;
 	}
+	
 	static int count = 0;
+	
+	/* 
+	 *Purpose : Edit information of existing Person from list 
+	 */
 	public void edit() {
 		System.out.println("\n\t\t\tEnter first name");
 		String firstName = utility.inputString();
@@ -53,6 +68,9 @@ public class AddressBookImpl implements AddressBook {
 			System.out.println("\n\t\t\tData not found");
 	}
 
+	/* 
+	 * Purpose : Removing data of a person from list
+	 */
 	public void remove() throws Exception {
 		System.out.println("\n\t\t\tEnter first name whose data is to be removed");
 		String firstName = utility.inputString();
@@ -70,6 +88,9 @@ public class AddressBookImpl implements AddressBook {
 			System.out.println("\n\t\t\tSorry, no such data found");
 	}
 
+	/* 
+	 * Purpose : Sorting of list with respect to name
+	 */
 	public void sortByName() {
 		Collections.sort(list, new SortByName());
 		for (Person person : list) {
@@ -77,6 +98,9 @@ public class AddressBookImpl implements AddressBook {
 		}
 	}
 
+	/*
+	 * Purpose : Sorting of list respect to zip
+	 */
 	public void sortByZip() {
 		Collections.sort(list, new SortByZip());
 		for (Person person : list) {
@@ -84,12 +108,20 @@ public class AddressBookImpl implements AddressBook {
 		}
 	}
 
+	/* 
+	 * Purpose : Displaying the list
+	 */
 	public void printAll() {
 		for (Person P : list) {
 			System.out.println(P.toString());
 		}
 	}
 
+	/**
+	 * Purpose : Adding information of person and add it in an object
+	 * 
+	 * @return object of person with added information in it
+	 */
 	private Person addUser() {
 		Person person = new Person();
 		Address address = new Address();
@@ -110,6 +142,12 @@ public class AddressBookImpl implements AddressBook {
 		return person;
 	}
 
+	/**
+	 * Purpose : Editing of Address and phone number
+	 * 
+	 * @param P is the person object
+	 * @param i is the case for editing address or phone number
+	 */
 	private void editAddressPhone(Person P, int i) {
 		switch (i) {
 		case 1:
@@ -130,6 +168,11 @@ public class AddressBookImpl implements AddressBook {
 		}
 	}
 
+	/**
+	 * Purpose : Saving list data in file 
+	 * 
+	 * @param file is the name of file in which list is saved 
+	 */
 	public void save(String file) {
 		try {
 			mapper.writeValue(new File("AddressBook/" + file + ".json"), list);
@@ -143,6 +186,12 @@ public class AddressBookImpl implements AddressBook {
 		}
 	}
 
+	/**
+	 * Purpose : Reading file from file
+	 * 
+	 * @param existingAddressBook is the name of File from which data is to read
+	 * @throws Exception for file not found
+	 */
 	public void read(String existingAddressBook) throws Exception {
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
@@ -160,10 +209,18 @@ public class AddressBookImpl implements AddressBook {
 
 	}
 
+	/**
+	 * Purpose : clears the list from previous address book if new address book is opened
+	 * 
+	 * @param existingAddressBook
+	 */
 	public void close(String existingAddressBook) {
 		list.clear();
 	}
 
+	/**
+	 * Purpose : Saves the person list in a differnt file
+	 */
 	public void saveAs() {
 		System.out.println("\n\t\t\tEnter the name of the new file");
 		String fileNameNew = utility.inputString();

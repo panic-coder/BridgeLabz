@@ -1,3 +1,10 @@
+/**
+ * Financial system to keep track of Company shares and user shares 
+ * 
+ * @author Kumar Shubham
+ * @since  07/05/2018
+ *
+ */
 package com.bridgeit.stock;
 
 import java.io.IOException;
@@ -13,27 +20,43 @@ public class StockManager {
 		StockAccountImpl stockAccount = new StockAccountImpl();
 		Date date = new Date();
 		System.out.println(date.toString());
-		int y = 0;
-		while(y==0) {
-			System.out.println("1. Create Account\n2. Open Existing Account\n3. Exit");
+		String file = "Company";
+		stockAccount.read(file);
+		stockAccount.read("Transaction");
+		
+		int loopClinic = 0;
+		while(loopClinic==0) {
+			System.out.println("\t\t\t_________________________________\n"
+							 + "\t\t\t|         Stock Manager          |\n"
+							 + "\t\t\t|        ---------------         |\n"
+							 + "\t\t\t|   1. Create Account            |\n"
+							 + "\t\t\t|   2. Open Existing Account     |\n"
+							 + "\t\t\t|   3. Add & Remove Company      |\n"
+							 + "\t\t\t|   4. Exit                      |\n"
+							 + "\t\t\t|________________________________|\n");
 			int choice = utility.inputInteger();
 			switch(choice) {
 			case 1:
 				stockAccount.create();
 				break;
 			case 2:
-				int x = 0;
-				System.out.println("Enter the name of account");
+				int loopMenu = 0;
+				System.out.println("\n\t\t\tEnter the name of account");
 				String name = utility.inputString();
-				String file = "Company";
-				stockAccount.read(file);
-				stockAccount.read("Transaction");
 				stockAccount.read(name);
-				while (x == 0) {
+				while (loopMenu == 0) {
 					if(stockAccount.checkAddress(name)) {
-					System.out.println("\n1. Add Amount\n2. Buy Shares"
-							+ "\n3. Sell Shares" + "\n4. Save Account" + "\n5. Print Report" + "\n6. Exit");
-					System.out.println("\nEnter your choice");
+					System.out.println("\t\t\t_____________________\n"
+									 + "\t\t\t|       Menu         |\n"
+									 + "\t\t\t|      ------        |\n"
+									 + "\t\t\t|  1. Add Amount     |\n"
+									 + "\t\t\t|  2. Buy Shares     |\n"
+									 + "\t\t\t|  3. Sell Shares    |\n"  
+									 + "\t\t\t|  4. Save Account   |\n" 
+									 + "\t\t\t|  5. Print Report   |\n" 
+									 + "\t\t\t|  6. Exit           |\n"
+									 + "\t\t\t|____________________|\n");
+					System.out.println("\n\t\t\tEnter your choice");
 					int ch = utility.inputInteger();
 					switch (ch) {
 					case 1:
@@ -49,9 +72,16 @@ public class StockManager {
 						stockAccount.save(file,name);
 						break;
 					case 5:
-						int m=0;
-						while(m==0) {
-							System.out.println("1. To display company\n2. To display current Customer\n3. To display Transaction\n4. Exit");
+						int loopDisplay=0;
+						while(loopDisplay==0) {
+							System.out.println("\t\t\t_______________________________________\n"
+											 + "\t\t\t|            Display Menu              |\n"
+											 + "\t\t\t|           --------------             |\n"
+											 + "\t\t\t|  1. To display company               |\n"
+											 + "\t\t\t|  2. To display current Customer      |\n"
+											 + "\t\t\t|  3. To display Transaction           |\n"
+											 + "\t\t\t|  4. Exit                             |\n"
+											 + "\t\t\t|______________________________________|\n");
 							int choiceDisplay = utility.inputInteger();
 							switch(choiceDisplay) {
 							case 1:
@@ -64,11 +94,12 @@ public class StockManager {
 								stockAccount.printTransaction();
 								break;
 							case 4:
-								m=1;
-								System.out.println("Display menu closed");
+								loopDisplay=1;
+								System.out.println("\n\t\t\tDisplay menu closed");
 								break;
 							default:
-								System.out.println("Something went wrong\nDisplay menu closed");
+								loopDisplay=1;
+								System.out.println("\n\t\t\tSomething went wrong\n\t\t\tDisplay menu closed");
 								break;
 							}
 						}
@@ -76,35 +107,36 @@ public class StockManager {
 						
 						break;
 					case 6:
-						System.out.println("Menu closed...!!!");
-						System.out.println("=================THANK YOU=================");
-						x = 1;
+						System.out.println("\n\t\t\tMenu closed...!!!");
+						loopMenu = 1;
 						break;
 					default:
-						System.out.println("Oops!!!...your choice doesn't meet our " + "requirement\nSystem closed...!!!");
-						System.out.println("=================THANK YOU=================");
-						x = 1;
+						System.out.println("\n\t\t\tSomething went wrong\n\t\t\tMenu closed");
+						loopMenu = 1;
 						break;
 					
 						
 					}
 					
 					}else {
-						System.out.println("You are not registered\nPlease Create Account");
-						x=1;
+						System.out.println("\n\t\t\tYou are not registered\n\t\t\tPlease Create Account");
+						loopMenu=1;
 					}
 				}
 
 				break;
 			case 3:
-				System.out.println("System closed\nThank You");
-				y=1;
+				stockAccount.addRemoveCompany();
+				break;
+			case 4:
+				System.out.println("\n\t\t\tSystem closed\n\t\t\tThank You");
+				loopClinic=1;
 				break;
 			default:
-				System.out.println("Something went wrong\nSystem closed\nThank You");
-				y=1;
+				System.out.println("\n\t\t\tSomething went wrong\n\t\t\tSystem closed\n\t\t\tThank You");
+				loopClinic=1;
 				break;
 			}
 		}
-			}
+	}
 }

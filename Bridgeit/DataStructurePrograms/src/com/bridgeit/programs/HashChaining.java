@@ -66,13 +66,13 @@ public class HashChaining {
 	
 	public void display() {
 		for(int i=0;i<table.length;i++) {
-			System.out.print(i+" : ");
+				System.out.print(i+" : ");
 			Node t = table[i];
 			while(t!=null) {
 				System.out.print(t.data+" ");
 				t=t.next;
 			}
-			System.out.println();
+				System.out.println();
 		}
 	}
 	

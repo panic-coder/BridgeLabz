@@ -1,3 +1,10 @@
+/**
+ * Purpose : POJO for Transaction
+ * 
+ * @author Kumar Shubham
+ * @since  07/05/2018
+ *
+ */
 package com.bridgeit.stock;
 
 public class Transaction {
@@ -24,7 +31,7 @@ public class Transaction {
 	}
 	@Override
 	public String toString() {
-		return "Transaction [buySell=" + buySell + ", symbol=" + symbol + ", date=" + date + "]";
+		return "\n\t\t\tTransaction \n\t\t\t\tbuySell : " + buySell + "\n\t\t\t\tsymbol : " + symbol + "\n\t\t\t\tdate : " + date + "\n";
 	}
 
 }

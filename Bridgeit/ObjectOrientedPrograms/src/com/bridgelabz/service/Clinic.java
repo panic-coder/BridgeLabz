@@ -27,8 +27,8 @@ public class Clinic {
 		int loop = 0;
 		while (loop == 0) {
 			System.out.println("\t\t\t__________________________________\n"
-					+ "\t\t\t|\t\tClinic\t\t  |\n"
-					+ "\t\t\t|\t\t------\t\t  |\n"
+					+ "\t\t\t|\t       Clinic\t\t  |\n"
+					+ "\t\t\t|\t      --------\t\t  |\n"
 					+ "\t\t\t|\t1. Add new entries\t  |\n"
 					+ "\t\t\t|\t2. Take Appointment\t  |\n"
 					+ "\t\t\t|\t3. Save in file\t\t  |\n" 

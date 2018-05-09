@@ -1,3 +1,10 @@
+/**
+ * Financial system to keep track of Company shares and user shares 
+ * 
+ * @author Kumar Shubham
+ * @since  07/05/2018
+ *
+ */
 package com.bridgeit.stock;
 
 import java.io.BufferedReader;
@@ -25,23 +32,21 @@ public class StockAccountImpl implements StockAccount {
 	Date date = new Date();
 	long currentAmount;
 
-	public StockAccountImpl() {
-
-	}
-
-	public StockAccountImpl(String filename) {
-		utility.createNewAccount(filename);
-	}
-
+	/* 
+	 * Purpose : Finding total value of share
+	 */
 	public long valueOf(List<Company> company) {
 		long value = utility.totalValuesOfShares(company);
 		return value;
 	}
 
+	/* 
+	 * Purpose : Buy shares from the user from particular company.
+	 */
 	public void buy() {
-		System.out.println("Enter the symbol");
+		System.out.println("\n\t\t\tEnter the symbol");
 		String symbol = utility.inputString();
-		System.out.println("Enter the Amount");
+		System.out.println("\n\t\t\tEnter the Amount");
 		long amount = utility.inputInteger();
 		shareIncreaseDecrease = 0;
 		Transaction transaction = new Transaction();
@@ -59,7 +64,7 @@ public class StockAccountImpl implements StockAccount {
 								amountSmall++;
 								symbolEqual++;
 								customerLoop.setAmount(customerLoop.getAmount() - amount);
-								customerLoop.setSymbol(symbol);
+								//customerLoop.setSymbol(symbol);
 								customerLoop.setShares(customerLoop.getShares() + (amount / c.getPricePerShare()));
 							}
 						}
@@ -71,7 +76,7 @@ public class StockAccountImpl implements StockAccount {
 						customer.setSymbol(symbol);
 						customer.setShares(amount / c.getPricePerShare());
 						customerList.add(customer);
-					}else {
+					}/*else {
 						amountSmall++;
 						Customer customer = new Customer();
 						customer.setAmount(currentAmount - amount);
@@ -79,29 +84,32 @@ public class StockAccountImpl implements StockAccount {
 						customer.setShares(amount / c.getPricePerShare());
 						customerList.add(customer);
 					}
-					LinkedStack<String> stack = new LinkedStack<String>();
+					*/LinkedStack<String> stack = new LinkedStack<String>();
 					shareIncreaseDecrease = amount / c.getPricePerShare();
 					c.setSharesAvailable(c.getSharesAvailable() - shareIncreaseDecrease);
 					stack.add(date.toString());
-					System.out.println("Transaction Started");
+					System.out.println("\n\t\t\tTransaction Started");
 					transaction.setBuySell("Buy");
 					transaction.setSymbol(symbol);
 					transaction.setDate(date.toString());
 					transactionList.add(transaction);
 					stack.remove();
-					System.out.println("Transaction Stopped");
+					System.out.println("\n\t\t\tTransaction Stopped");
 				}
 			}
 		}
 		if (amountSmall == 0) {
-			System.out.println("Your Balance is low\nPlease Add money");
+			System.out.println("\n\t\t\tYour Balance is low\n\t\t\tPlease Add money");
 		}
 	}
 	
+	/* 
+	 * Purpose : Sell the shares that the customer has.
+	 */
 	public void sell() {
-		System.out.println("Enter the symbol");
+		System.out.println("\n\t\t\tEnter the symbol");
 		String symbol = utility.inputString();
-		System.out.println("Enter the Amount");
+		System.out.println("\n\t\t\tEnter the Amount");
 		long amount = utility.inputInteger();
 		Transaction transaction = new Transaction();
 		shareIncreaseDecrease = 0;
@@ -116,29 +124,38 @@ public class StockAccountImpl implements StockAccount {
 							customer.setShares(customer.getShares() - (amount / company.getPricePerShare()));
 							LinkedStack<String> stack = new LinkedStack<String>();
 							stack.add(date.toString());
-							System.out.println("Transaction Started");
+							System.out.println("\n\t\t\tTransaction Started");
 							transaction.setBuySell("Sell");
 							transaction.setSymbol(symbol);
 							transaction.setDate(date.toString());
+							transactionList.add(transaction);
 							stack.remove();
-							System.out.println("Transaction Stopped");
+							System.out.println("\n\t\t\tTransaction Stopped");
 						}
 					}
 				} else {
-					System.out.println("Entered amount is greater than your balance amount");
+					System.out.println("\n\t\t\tEntered amount is greater than your balance amount");
 				}
 			} else {
-				System.out.println("No such company Found");
+				System.out.println("\n\t\t\tNo such company Found");
 			}
 		}
 	}
 
+	/* 
+	 * Purpose : Displays the List of Companies
+	 */
 	public void printReport() {
 		for (Company c : companyList) {
 			System.out.println(c.toString());
 		}
 	}
 
+	/**
+	 * Purpose : Creates file for n user
+	 * 
+	 * @throws IOException
+	 */
 	public void create() throws IOException {
 		Utility utility = new Utility();
 		System.out.println("\n\t\t\tEnter the name of for new Account");
@@ -151,6 +168,12 @@ public class StockAccountImpl implements StockAccount {
 		}
 	}
 
+	/**
+	 * Purpose : Saves List in file
+	 * 
+	 * @param file is the name of file in which data is to be saved 
+	 * @param T is the list in which data is there
+	 */
 	public <T> void saveInFile(String file, List<T> T) {
 		try {
 			mapper.writeValue(new File("Stock/" + file + ".json"), T);
@@ -164,6 +187,12 @@ public class StockAccountImpl implements StockAccount {
 		}
 	}
 
+	/**
+	 * Purpose : Reads data from file
+	 * 
+	 * @param file is the name of the file from where data is read 
+	 * @throws Exception
+	 */
 	public void read(String file) throws Exception {
 		ObjectMapper objectMapper = new ObjectMapper();
 		try {
@@ -189,6 +218,12 @@ public class StockAccountImpl implements StockAccount {
 
 	}
 
+	/**
+	 * Purpose : Checks whether entered file is present or not  
+	 * 
+	 * @param existingAddressBook
+	 * @return true if file is present
+	 */
 	public boolean checkAddress(String existingAddressBook) {
 		File f = new File("Stock/");
 		for (File file : f.listFiles()) {
@@ -202,12 +237,23 @@ public class StockAccountImpl implements StockAccount {
 		return false;
 	}
 
+	/**
+	 * Displays customer list
+	 */
 	public void printCustomer() {
 		for (Customer customer : customerList) {
 			System.out.println(customer.toString());
 		}
+		long amount=0;
+		for (Customer customer2 : customerList) {
+			amount = customer2.getAmount();
+		}
+		System.out.println("\t\t\tBalance : "+amount);
 	}
 
+	/**
+	 * Purpose : Displays transaction list
+	 */
 	public void printTransaction() {
 		LinkedStack<String> stack = new LinkedStack<String>();
 		for (Transaction transaction : transactionList) {
@@ -216,16 +262,29 @@ public class StockAccountImpl implements StockAccount {
 		stack.display();
 	}
 
+	/**
+	 * Purpose : Adds money in User Account
+	 */
 	public void addMoney() {
-		System.out.println("Enter the amount");
+		System.out.println("\n\t\t\tEnter the amount");
 		currentAmount = utility.inputInteger();
 	}
 
+	/* 
+	 * Purpose : Save menu for different list
+	 */
 	@Override
 	public void save(String file, String name) {
-		int z = 0;
-		while (z == 0) {
-			System.out.println("1. Save Company \n2. Save User\n3. Save Transaction\n4. Exit");
+		int loopSave = 0;
+		while (loopSave == 0) {
+			System.out.println("\t\t\t_________________________\n"
+							 + "\t\t\t|       Save Menu        |\n"
+							 + "\t\t\t|      -----------       |\n"
+							 + "\t\t\t|  1. Save Company       |\n"
+							 + "\t\t\t|  2. Save User          |\n"
+							 + "\t\t\t|  3. Save Transaction   |\n"
+							 + "\t\t\t|  4. Exit               |\n"
+							 + "\t\t\t|________________________|\n");
 			int choiceSave = utility.inputInteger();
 			switch (choiceSave) {
 			case 1:
@@ -238,15 +297,87 @@ public class StockAccountImpl implements StockAccount {
 				saveInFile("Transaction", transactionList);
 				break;
 			case 4:
-				z = 1;
-				System.out.println("Save Menu closed\n");
+				loopSave = 1;
+				System.out.println("\n\t\t\tSave Menu closed\n");
 				break;
 			default:
-				System.out.println("Something went wrong\nSave Menu closed\n");
+				System.out.println("\n\t\t\tSomething went wrong\n\t\t\tSave Menu closed\n");
 				break;
 			}
 		}
+	}
 
+	/**
+	 * Purpose : Add or remove company from company list 
+	 */
+	public void addRemoveCompany() {
+		LinkedList<Company> list = new LinkedList<Company>();
+		
+		System.out.println("\n\t\t\tEnter ID");
+		String id = utility.inputString();
+		System.out.println("\n\t\t\tEnter password");
+		String password = utility.inputString();
+		if(id.equals("Admin") && password.equals("Admin")) {
+			
+			for (Company company : companyList) {
+				list.add(company);
+			}
+			list.display();
+		}
+		int loopAdd=0;
+		while(loopAdd==0) {
+		System.out.println("\t\t\t______________________________\n"
+						 + "\t\t\t|  Company Add & Remove Menu  |\n"
+						 + "\t\t\t| --------------------------- |\n"
+						 + "\t\t\t|         1. Add              |\n"
+						 + "\t\t\t|         2. Remove           |\n"
+						 + "\t\t\t|         3. Save             |\n"
+						 + "\t\t\t|         3. Exit             |\n"
+						 + "\t\t\t|_____________________________|\n");
+		int choice = utility.inputInteger();
+		switch(choice) {
+		case 1:
+			Company company = new Company();
+			System.out.println("\n\t\t\tEnter the company name");
+			String name = utility.inputString();
+			company.setCompany(name);
+			System.out.println("\n\t\t\tEnter Share Available");
+			long shares = utility.inputInteger();
+			company.setSharesAvailable(shares);
+			System.out.println("\n\t\t\tEnter price per share");
+			long price = utility.inputInteger();
+			company.setPricePerShare(price);
+			list.add(company);
+			companyList.add(company);
+			System.out.println("\n");
+			list.display();
+			break;
+		case 2:
+			System.out.println("\n\t\t\tEnter the name of company to remove");
+			int i=1;
+			for (Company company2 : companyList) {
+				System.out.println("\n\t\t\t"+i+" for "+company2.getCompany());
+				i++;
+			}
+			System.out.println("\n\t\t\tEnter your choice to remove company");
+			int removeChoice = utility.inputInteger();
+			list.remove(removeChoice);
+			companyList.remove(removeChoice-1);
+			list.display();
+			break;
+		case 3:
+			saveInFile("Company",companyList);
+			break;
+		case 4:
+			loopAdd = 1;
+			System.out.println("\n\t\t\tAdd & Remove menu closed");
+			break;
+		default:
+			loopAdd = 1;
+			System.out.println("\n\t\t\tSomething went wrong\n\t\t\tAdd & Remove menu closed");
+			break;
+		}
+		}
 	}
 
 }

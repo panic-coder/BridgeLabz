@@ -1,5 +1,6 @@
 package com.bridgelabz.utility;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -156,8 +157,8 @@ public class Utility {
 				String doctorAppointment = inputString();
 				System.out.println("\n\t\t\tEnter the ID of Doctor for Appointment");
 				long doctorAppointmentId = inputInteger();
-				System.out.println("\n\t\t\tEnter the date for Appointment");
-				String date = inputString();
+				Date d = new Date();
+				String date = d.toString();
 				for (Doctor doctor : doctorList) {
 					if (doctor.getName().equals(doctorAppointment)) {
 						if (doctor.getId() == doctorAppointmentId) {
