@@ -1,3 +1,10 @@
+/**
+ * Purpose : Main class for clinic from where all the methods are called
+ * 
+ * @author Kumar Shubham
+ * @since  03/05/2018
+ *
+ */
 package com.bridgelabz.service;
 
 import java.util.ArrayList;

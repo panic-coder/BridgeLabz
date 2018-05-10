@@ -1,3 +1,11 @@
+/**
+ * Purpose : Interface to add functionalities to search doctor by id, name, specialization,
+ * and availability & search patient by id, name and contact  
+ * 
+ * @author Kumar Shubham
+ * @since  03/05/2018
+ *
+ */
 package com.bridgelabz.controller;
 
 import java.util.List;

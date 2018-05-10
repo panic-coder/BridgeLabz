@@ -1,3 +1,11 @@
+/**
+ * Purpose : Class implements the interface AddDetails
+ * 
+ * @author Kumar Shubham
+ * @since  03/05/2018
+ *
+ */
+
 package com.bridgelabz.controller;
 
 import java.io.BufferedReader;
@@ -22,18 +30,27 @@ public class AddDetailsImpl implements AddDetails {
 	Utility utility = new Utility();
 	ObjectMapper mapper = new ObjectMapper();
 
+	/* 
+	 * Purpose : Adding doctor in doctor list and returning the list
+	 */
 	@Override
 	public List<Doctor> addDoctor(List<Doctor> doctorList) {
 		doctorList.add(utility.addDoctorToList());
 		return doctorList;
 	}
 
+	/* 
+	 * Purpose : Adding patient in patient list and returning the list
+	 */
 	@Override
 	public List<Patient> addPatient(List<Patient> patientList) {
 		patientList.add(utility.addPatientToList());
 		return patientList;
 	}
 
+	/*
+	 * Purpose : Adding appointments in appointment list and returning the list
+	 */
 	@Override
 	public List<Appointment> takeAppointment(List<Doctor> doctorList, List<Patient> patientList,
 			List<Appointment> appointmentList) {
@@ -41,6 +58,9 @@ public class AddDetailsImpl implements AddDetails {
 		return appointmentList;
 	}
 
+	/* 
+	 * Purpose : Saving list in a file
+	 */
 	@Override
 	public <T> void save(List<T> T, String file) {
 		try {
@@ -55,6 +75,9 @@ public class AddDetailsImpl implements AddDetails {
 		}
 	}
 
+	/* 
+	 * Purpose : Reading data from file and storing it in a list
+	 */
 	@Override
 	public <T> List<T> read(List<T> T, String file, String model) throws Exception {
 		ObjectMapper objectMapper = new ObjectMapper();

@@ -1,3 +1,10 @@
+/**
+ * Purpose : Class that implements interface SearchDetails
+ * 
+ * @author Kumar Shubham
+ * @since  03/05/2018
+ *
+ */
 package com.bridgelabz.controller;
 
 import java.util.List;
@@ -8,6 +15,10 @@ import com.bridgelabz.utility.Utility;
 
 public class SearchDetailsImpl implements SearchDetails {
 	Utility utility = new Utility();
+	
+	/* 
+	 * Purpose : Search doctor by id
+	 */
 	@Override
 	public void searchDoctorById(List<Doctor> doctorList) {
 		System.out.println("\n\t\t\tEnter the ID to be searched");
@@ -24,6 +35,9 @@ public class SearchDetailsImpl implements SearchDetails {
 		}
 	}
 
+	/*
+	 * Purpose : Search doctor by name
+	 */
 	@Override
 	public void searchDoctorByName(List<Doctor> doctorList) {
 		System.out.println("\n\t\t\tEnter the name to be searched");
@@ -40,6 +54,9 @@ public class SearchDetailsImpl implements SearchDetails {
 		}
 	}
 
+	/*
+	 * Purpose : Search doctor by specialization
+	 */
 	@Override
 	public void searchDoctorBySpecialization(List<Doctor> doctorList) {
 		System.out.println("\n\t\t\tEnter the specialization to be searched");
@@ -56,6 +73,9 @@ public class SearchDetailsImpl implements SearchDetails {
 		}
 	}
 
+	/* 
+	 * Purpose : Search doctor by availability
+	 */
 	@Override
 	public void searchDoctorByAvailability(List<Doctor> doctorList) {
 		System.out.println("\n\t\t\tEnter the availability as AM, PM or both to be searched");
@@ -72,6 +92,9 @@ public class SearchDetailsImpl implements SearchDetails {
 		}
 	}
 
+	/* 
+	 * Purpose : Search patient by id
+	 */
 	@Override
 	public void searchPatientById(List<Patient> patientList) {
 		System.out.println("\n\t\t\tEnter the ID to be searched");
@@ -88,6 +111,9 @@ public class SearchDetailsImpl implements SearchDetails {
 		}
 	}
 
+	/* 
+	 * Purpose : Search patient by name
+	 */
 	@Override
 	public void searchPatientByName(List<Patient> patientList) {
 		System.out.println("\n\t\t\tEnter the Name to be searched");
@@ -104,6 +130,9 @@ public class SearchDetailsImpl implements SearchDetails {
 		}
 	}
 
+	/*
+	 * Purpose : Search patient by contact 
+	 */
 	@Override
 	public void searchPatientByContact(List<Patient> patientList) {
 		System.out.println("\n\t\t\tEnter the phone number to be searched");

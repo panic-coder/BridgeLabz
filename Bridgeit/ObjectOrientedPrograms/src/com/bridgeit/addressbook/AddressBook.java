@@ -1,5 +1,5 @@
 /**
- * Purpose : Interface to add functionalities for add, edit, remove, sort by name, 
+ * Purpose : Interface to add functionalities to add, edit, remove, sort by name, 
  * sort by zip and display with respect to Person
  * 
  * @author Kumar Shubham

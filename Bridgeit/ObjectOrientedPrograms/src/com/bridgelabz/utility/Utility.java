@@ -1,3 +1,10 @@
+/**
+ * Purpose : Utility class contains some of the logics
+ * 
+ * @author Kumar Shubham
+ * @since  03/05/2018
+ *
+ */
 package com.bridgelabz.utility;
 
 import java.util.Date;
@@ -117,6 +124,11 @@ public class Utility {
 		return false;
 	}
 
+	/**
+	 * Purpose : Adding doctors in doctor object and returning the object
+	 * 
+	 * @return object having doctor data
+	 */
 	public Doctor addDoctorToList() {
 		Doctor doctor = new Doctor();
 		System.out.println("\n\t\t\tEnter Name");
@@ -131,6 +143,11 @@ public class Utility {
 		return doctor;
 	}
 
+	/**
+	 * Purpose : Adding patient in patient object and returning the object
+	 * 
+	 * @return object of having patient data
+	 */
 	public Patient addPatientToList() {
 		Patient patient = new Patient();
 
@@ -145,6 +162,13 @@ public class Utility {
 		return patient;
 	}
 
+	/**
+	 * Purpose : Adding appointment details in appointment object and returning the object
+	 * 
+	 * @param doctorList
+	 * @param patientList
+	 * @return
+	 */
 	public Appointment addAppointmentToList(List<Doctor> doctorList, List<Patient> patientList) {
 		Appointment appointment = new Appointment();
 		System.out.println("\n\t\t\tEnter name of Patient");

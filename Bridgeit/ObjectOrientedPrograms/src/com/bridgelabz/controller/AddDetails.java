@@ -1,3 +1,10 @@
+/**
+ * Purpose : Interface to add functionalities to add doctor, patient and take appointment
+ * 
+ * @author Kumar Shubham
+ * @since  03/05/2018
+ *
+ */
 package com.bridgelabz.controller;
 
 import java.util.List;
