@@ -32,9 +32,7 @@ public class RegularExpressionDemonstration {
 		firstName=utility.inputString();
 		Pattern p =Pattern.compile("^[A-Za-z]{3,20}$");
 		boolean b =p.matcher(firstName).matches();
-		//System.out.println(b);
 		if(b) {
-			//throw new IllegalArgumentException("Invalid String");
 			x=1;
 		}	
 		if(x==0)

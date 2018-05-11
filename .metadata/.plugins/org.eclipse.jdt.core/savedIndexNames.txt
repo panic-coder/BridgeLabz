@@ -1,5 +1,4 @@
 INDEX VERSION 1.130+/home/bridgeit/eclipse-workspace/BridgeLabz/.metadata/.plugins/org.eclipse.jdt.core
-135423874.index
 325209179.index
 1262985460.index
 2978273245.index

@@ -242,7 +242,7 @@ public class Utility {
 	public static String replaceExpressionDemonstration(String string, String firstName, String lastName,
 			String phoneNumber) {
 		string = string.replaceAll("<<name>>", firstName);
-		string = string.replaceAll("<<full name>>", lastName);
+		string = string.replaceAll("<<full name>>", firstName+" "+lastName);
 		string = string.replaceAll("xxxxxxxxxx", phoneNumber);
 		LocalDate ldate = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
