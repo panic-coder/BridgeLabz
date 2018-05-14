@@ -11,7 +11,8 @@
 }
 
 body{
-  background-image: linear-gradient(rgba(62, 20, 20, 0.4),rgba(62, 20, 20, 0.4)),url(back.jpg);
+  background:linear-gradient(rgba(62, 20, 20, 0.4),rgba(62, 20, 20, 0.4)), url("back.jpg");
+  /* background: linear-gradient(rgba(62, 20, 20, 0.4),rgba(62, 20, 20, 0.4)); */
   background-size: cover;
   background-position: center;
   font-family: Lato;
@@ -56,12 +57,12 @@ body{
   font-size: 80px;
   font-weight: 100;
   color: #EB4D4D;
-  margin-bottom: 150px;
+  margin-bottom: 130px;
 }
 
-.active{background: color:#f7f7f7;}
-.active.player-name{font-weight: 300;}
-.active.player-name::after{
+.active{background-color:#f7f7f7;}
+.active  .player-name{font-weight: 300;}
+.active  .player-name::after{
   content: "\2022";
   font-size: 47px;
   position: absolute;
