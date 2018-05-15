@@ -91,7 +91,7 @@ body{
   font-size: 30px;
 }
 
-button{
+button {
   position: absolute;
   width: 200px;
   left: 50%;
@@ -105,6 +105,22 @@ button{
   cursor: pointer;
   font-weight: 300;
   transition:background-color 0.3s, color 0.3s;
+}
+
+input{
+  position: absolute;
+  width: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  border: none;
+  top: 520px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: Lato;
+}
+.in-value:focus{
+  outline: none;
 }
 
 button:hover{font-weight: 600;}
@@ -128,6 +144,7 @@ i{
 .btn-new{top: 45px;}
 .btn-roll{top: 403px;}
 .btn-hold{top: 467px;}
+.btn-enter{top: 570px;}
 
  .dice{
   position: absolute;

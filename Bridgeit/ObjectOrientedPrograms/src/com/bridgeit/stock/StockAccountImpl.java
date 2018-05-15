@@ -84,16 +84,16 @@ public class StockAccountImpl implements StockAccount {
 						customer.setShares(amount / c.getPricePerShare());
 						customerList.add(customer);
 					}
-					*/LinkedStack<String> stack = new LinkedStack<String>();
+					*/LinkedQueue<String> queue = new LinkedQueue<String>();
 					shareIncreaseDecrease = amount / c.getPricePerShare();
 					c.setSharesAvailable(c.getSharesAvailable() - shareIncreaseDecrease);
-					stack.add(date.toString());
+					queue.add(date.toString());
 					System.out.println("\n\t\t\tTransaction Started");
 					transaction.setBuySell("Buy");
 					transaction.setSymbol(symbol);
 					transaction.setDate(date.toString());
 					transactionList.add(transaction);
-					stack.remove();
+					queue.remove();
 					System.out.println("\n\t\t\tTransaction Stopped");
 				}
 			}
@@ -122,14 +122,14 @@ public class StockAccountImpl implements StockAccount {
 									company.getSharesAvailable() + (amount / company.getPricePerShare()));
 							customer.setAmount(customer.getAmount() + amount);
 							customer.setShares(customer.getShares() - (amount / company.getPricePerShare()));
-							LinkedStack<String> stack = new LinkedStack<String>();
-							stack.add(date.toString());
+							LinkedQueue<String> queue = new LinkedQueue<String>();
+							queue.add(date.toString());
 							System.out.println("\n\t\t\tTransaction Started");
 							transaction.setBuySell("Sell");
 							transaction.setSymbol(symbol);
 							transaction.setDate(date.toString());
 							transactionList.add(transaction);
-							stack.remove();
+							queue.remove();
 							System.out.println("\n\t\t\tTransaction Stopped");
 						}
 					}
@@ -378,6 +378,9 @@ public class StockAccountImpl implements StockAccount {
 			break;
 		}
 		}
+	}
+	public void close() {
+		customerList.clear();
 	}
 
 }

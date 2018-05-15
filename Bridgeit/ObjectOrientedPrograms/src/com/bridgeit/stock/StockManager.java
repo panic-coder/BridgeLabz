@@ -38,8 +38,10 @@ public class StockManager {
 			switch(choice) {
 			case 1:
 				stockAccount.create();
+				stockAccount.close();
 				break;
 			case 2:
+				stockAccount.close();
 				int loopMenu = 0;
 				System.out.println("\n\t\t\tEnter the name of account");
 				String name = utility.inputString();

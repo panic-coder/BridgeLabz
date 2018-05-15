@@ -39,6 +39,10 @@
     <button class="btn-roll"><i class="ion-ios-loop"></i>Roll Dice</button>
     <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
       <img src="dice-5.png" alt="Dice" class="dice">
+      <form id = "form" onsubmit="return false;" >
+          <input  class="in-value" placeholder="Final Score" type="text" id="userInput" />
+          <button class="btn-enter" type="submit" onclick="winnerScore();"><i></i>Enter Win Score<button>
+      </form>
     </div>
     <script src = "app.js"></script>
 
