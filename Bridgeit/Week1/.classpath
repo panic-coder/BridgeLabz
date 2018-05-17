@@ -9,7 +9,7 @@
 	<classpathentry kind="src" path="Built-in Types of data"/>
 	<classpathentry kind="src" path="Conditional,Loops and Logical Programming"/>
 	<classpathentry kind="src" path="Get Started - Java Programming"/>
-	<classpathentry kind="lib" path="/home/bridgeit/Downloads/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/home/bridgeit/Downloads/jackson-all-1.9.0.jar"/>
+	<classpathentry kind="lib" path="/home/bridgelabz/Downloads/jackson-all-1.9.0.jar"/>
+	<classpathentry kind="lib" path="/home/bridgelabz/Downloads/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
