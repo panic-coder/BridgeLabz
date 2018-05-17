@@ -234,3 +234,4 @@ var mi = {
 };
 mi.age = jo.age;
 mi.age();
+console.log("Done");

@@ -76,15 +76,8 @@ public class StockAccountImpl implements StockAccount {
 						customer.setSymbol(symbol);
 						customer.setShares(amount / c.getPricePerShare());
 						customerList.add(customer);
-					}/*else {
-						amountSmall++;
-						Customer customer = new Customer();
-						customer.setAmount(currentAmount - amount);
-						customer.setSymbol(symbol);
-						customer.setShares(amount / c.getPricePerShare());
-						customerList.add(customer);
 					}
-					*/LinkedQueue<String> queue = new LinkedQueue<String>();
+					LinkedQueue<String> queue = new LinkedQueue<String>();
 					shareIncreaseDecrease = amount / c.getPricePerShare();
 					c.setSharesAvailable(c.getSharesAvailable() - shareIncreaseDecrease);
 					queue.add(date.toString());
