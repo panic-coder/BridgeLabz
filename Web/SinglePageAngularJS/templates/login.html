@@ -1,12 +1,54 @@
-<div class="loginbox">
-  <md-input-container>
-    <label>Username</label>
-    <input type=text>
+<!-- <div class="loginbox" layout-align="center">
+  <p align="center">LOGIN</p>
+  <md-input-container class="input" >
+    <label>Email</label>
+    <input ng-required="" type=text ng-model="user" >
+
   </md-input-container>
-  <md-input-container>
+  <md-input-container class="input">
     <label>Password</label>
-    <input type=text>
+    <input type=password ng-model="pass" >
   </md-input-container>
-  <md-button class="loginButton md-primary">Login</md-button>
+  <md-button class="loginButton md-primary" ng-click="consoleDisplay()">Login</md-button>
+
+</div> -->
+<div ng-controller="loginCtr" layout="column" ng-cloak class="loginbox">
+<p align="center">LOGIN</p>
+  <md-content layout-padding>
+    <form name="loginForm">
+
+      <md-input-container class="md-block">
+        <label>Email</label>
+        <input required type="email" name="email"
+                ng-pattern="/^.+@.+\..+$/" ng-model="user" />
+<!--
+            <div ng-messages="loginForm.email.$error">
+              <div ng-message="['required']">
+                This is required
+              </div>
+            </div> -->
+
+        <div ng-messages="loginForm.email.$error" role="alert">
+          <div ng-message-exp="['required','pattern']">
+            Enter valid Email
+          </div>
+        </div>
+
+      </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input required type="password" name="pass"  ng-model="pass" />
+          <div ng-messages="loginForm.pass.$error">
+            <div ng-message="required">This is required</div>
+          </div>
+        </md-input-container>
+
+      <div >
+        <md-button class="loginButton" type="submit" ng-disabled="loginForm.email.$invalid && loginForm.pass.$invalid" ng-click="goToHomePage()">LOGIN</md-button>
+      </div>
+
+    </form>
+  </md-content>
 
 </div>

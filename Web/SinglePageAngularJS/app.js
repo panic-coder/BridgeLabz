@@ -1,12 +1,17 @@
-var app = angular.module('angularApp',['ui.router','ngMaterial','ngMessages']);
+var app = angular.module('angularApp',['ui.router','ngMaterial']);
 app.config(function($stateProvider,$urlRouterProvider)
 {
   $stateProvider
   .state('login',{
     url:'/login',
     templateUrl: 'templates/login.html',
-    controller: 'DemoCtrl'
+    controller: 'loginCtr'
+  })
+  .state('home',{
+    url:'/home',
+    templateUrl: 'templates/home.html',
+    controller: 'homeCtr'
   });
 
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('login');
 });
