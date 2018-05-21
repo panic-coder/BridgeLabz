@@ -1,24 +1,19 @@
-<div ng-controller="toolbarCtr" ng-cloak="" class="toolbarUsage" ng-app="angularApp">
-  <md-content>
-    <br>
-    <md-toolbar class="md-hue-2">
+<div  class="toolbarUsage" ng-app="angularApp">
+    <md-toolbar id="toolColor">
       <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
-          <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/design/ic_menu_48px.svg"></md-icon>
+        <md-button class="iconButton" aria-label="Settings" ng-click="toggleLeft()" class="md-raised">
+          <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/design/ic_menu_48px.svg" class="toolbarMenuColor"></md-icon>
         </md-button>
 
-        <h2 flex="" md-truncate="">MOBILE</h2>
+        <h2 flex="" md-truncate="" id="toolbarNameColor">MOBILE</h2>
 
-        <md-button class="md-icon-button" aria-label="Favorite">
-          <md-icon md-svg-icon="bower_components/material-design-icons/action/svg/design/ic_favorite_outline_48px.svg" class="favorite-icon"></md-icon>
+        <md-button class="iconButton" aria-label="Favorite">
+          <md-icon md-svg-icon="bower_components/material-design-icons/action/svg/design/ic_favorite_outline_48px.svg" class="favouriteIcon"></md-icon>
         </md-button>
 
-        <md-button class="md-icon-button" aria-label="More">
-          <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/design/ic_more_vert_48px.svg"></md-icon>
+        <md-button class="iconButton" aria-label="More" >
+          <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/design/ic_more_vert_48px.svg" class="my-icon"  ></md-icon>
         </md-button>
       </div>
     </md-toolbar>
-    <br>
-
-  </md-content>
 </div>
