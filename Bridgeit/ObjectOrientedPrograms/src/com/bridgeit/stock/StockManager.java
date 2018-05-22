@@ -15,6 +15,7 @@ import org.json.simple.parser.ParseException;
 import com.bridgeit.utility.Utility;
 
 public class StockManager {
+	
 	public static void main(String[] args) throws IOException, ParseException, Exception {
 		Utility utility = new Utility();
 		StockAccountImpl stockAccount = new StockAccountImpl();
@@ -23,7 +24,7 @@ public class StockManager {
 		String file = "Company";
 		stockAccount.read(file);
 		stockAccount.read("Transaction");
-		
+		String name;
 		int loopClinic = 0;
 		while(loopClinic==0) {
 			System.out.println("\t\t\t_________________________________\n"
@@ -44,7 +45,7 @@ public class StockManager {
 				stockAccount.close();
 				int loopMenu = 0;
 				System.out.println("\n\t\t\tEnter the name of account");
-				String name = utility.inputString();
+				name = utility.inputString();
 				stockAccount.read(name);
 				while (loopMenu == 0) {
 					if(stockAccount.checkAddress(name)) {
@@ -65,10 +66,10 @@ public class StockManager {
 						stockAccount.addMoney();
 						break;
 					case 2:
-						stockAccount.buy();
+						stockAccount.buy(name);
 						break;
 					case 3:
-						stockAccount.sell();
+						stockAccount.sell(name);
 						break;
 					case 4:
 						stockAccount.save(file,name);

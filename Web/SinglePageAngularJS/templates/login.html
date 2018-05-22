@@ -13,15 +13,14 @@
 
 </div> -->
 <div ng-controller="loginCtr" layout="column" ng-cloak class="loginbox">
-<p align="center">LOGIN</p>
+  <p align="center">LOGIN</p>
   <md-content layout-padding>
     <form name="loginForm">
 
       <md-input-container class="md-block">
         <label>Email</label>
-        <input required type="email" name="email"
-                ng-pattern="/^.+@.+\..+$/" ng-model="user" />
-<!--
+        <input required type="email" name="email" ng-pattern="/^.+@.+\..+$/" ng-model="user" />
+        <!--
             <div ng-messages="loginForm.email.$error">
               <div ng-message="['required']">
                 This is required
@@ -36,15 +35,15 @@
 
       </md-input-container>
 
-        <md-input-container class="md-block">
-          <label>Password</label>
-          <input required type="password" name="pass"  ng-model="pass" />
-          <div ng-messages="loginForm.pass.$error">
-            <div ng-message="required">This is required</div>
-          </div>
-        </md-input-container>
+      <md-input-container class="md-block">
+        <label>Password</label>
+        <input required type="password" name="pass" ng-model="pass" />
+        <div ng-messages="loginForm.pass.$error">
+          <div ng-message="required">This is required</div>
+        </div>
+      </md-input-container>
 
-      <div >
+      <div>
         <md-button class="loginButton" ng-disabled="loginForm.email.$invalid && loginForm.pass.$invalid" ng-click="goToHomePage()">LOGIN</md-button>
       </div>
 

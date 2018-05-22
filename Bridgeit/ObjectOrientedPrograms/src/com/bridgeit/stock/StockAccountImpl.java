@@ -43,7 +43,7 @@ public class StockAccountImpl implements StockAccount {
 	/* 
 	 * Purpose : Buy shares from the user from particular company.
 	 */
-	public void buy() {
+	public void buy(String name) {
 		System.out.println("\n\t\t\tEnter the symbol");
 		String symbol = utility.inputString();
 		System.out.println("\n\t\t\tEnter the Amount");
@@ -83,6 +83,7 @@ public class StockAccountImpl implements StockAccount {
 					queue.add(date.toString());
 					System.out.println("\n\t\t\tTransaction Started");
 					transaction.setBuySell("Buy");
+					transaction.setName(name);
 					transaction.setSymbol(symbol);
 					transaction.setDate(date.toString());
 					transactionList.add(transaction);
@@ -99,7 +100,7 @@ public class StockAccountImpl implements StockAccount {
 	/* 
 	 * Purpose : Sell the shares that the customer has.
 	 */
-	public void sell() {
+	public void sell(String name) {
 		System.out.println("\n\t\t\tEnter the symbol");
 		String symbol = utility.inputString();
 		System.out.println("\n\t\t\tEnter the Amount");
@@ -119,6 +120,7 @@ public class StockAccountImpl implements StockAccount {
 							queue.add(date.toString());
 							System.out.println("\n\t\t\tTransaction Started");
 							transaction.setBuySell("Sell");
+							transaction.setName(name);
 							transaction.setSymbol(symbol);
 							transaction.setDate(date.toString());
 							transactionList.add(transaction);

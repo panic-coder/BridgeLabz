@@ -2,12 +2,42 @@
 
   <section>
 
-    <md-sidenav class="md-sidenav-left side" md-component-id="left"  >
+    <md-sidenav class="md-sidenav-left side" md-component-id="left">
 
       <md-content>
-        <!-- <md-button ng-click="toggleLeft()" class="md-accent">
-          Close
-        </md-button> -->
+
+        <md-subheader class="md-no-sticky">Manufacturer</md-subheader>
+        <md-list-item ng-repeat="display in data">
+          <p> {{ display.specs.manufacturer }} </p>
+          <md-checkbox class="md-secondary"></md-checkbox>
+        </md-list-item>
+
+        <md-divider></md-divider>
+
+        <md-subheader class="md-no-sticky">Storage</md-subheader>
+        <md-list-item ng-repeat="display in data">
+          <p> {{ display.specs.storage }} </p>
+          <md-checkbox class="md-secondary"></md-checkbox>
+        </md-list-item>
+
+        <md-divider></md-divider>
+
+        <md-subheader class="md-no-sticky">OS</md-subheader>
+        <md-list-item ng-repeat="display in data">
+          <p> {{ display.specs.os }} </p>
+          <md-checkbox class="md-secondary"></md-checkbox>
+        </md-list-item>
+
+        <md-divider></md-divider>
+
+        <md-subheader class="md-no-sticky">Camera</md-subheader>
+        <md-list-item ng-repeat="display in data">
+          <p> {{ display.specs.camera }} </p>
+          <md-checkbox class="md-secondary"></md-checkbox>
+        </md-list-item>
+
+        <md-divider></md-divider>
+
       </md-content>
 
     </md-sidenav>
