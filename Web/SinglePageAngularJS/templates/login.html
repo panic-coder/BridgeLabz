@@ -20,12 +20,6 @@
       <md-input-container class="md-block">
         <label>Email</label>
         <input required type="email" name="email" ng-pattern="/^.+@.+\..+$/" ng-model="user" />
-        <!--
-            <div ng-messages="loginForm.email.$error">
-              <div ng-message="['required']">
-                This is required
-              </div>
-            </div> -->
 
         <div ng-messages="loginForm.email.$error" role="alert">
           <div ng-message-exp="['required','pattern']">

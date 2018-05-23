@@ -11,7 +11,11 @@ app.config(function($stateProvider,$urlRouterProvider)
     url:'/home',
     templateUrl: 'templates/home.html',
     controller: 'homeCtr'
+  })
+  .state('home.dashboard',{
+    url:'/home',
+    templateUrl: 'templates/dashboard.html',
+    controller: 'dashboardCtr'
   });
-
   $urlRouterProvider.otherwise('login');
 });

@@ -3,7 +3,7 @@ app.service('readJsonData',function($http)
   return $http.get("products.json").then(function(response){
     return response.data;
     // $scope.getJson;
-    //  console.log(getJson);
+    // console.log(getJson);
    })
  }
 });

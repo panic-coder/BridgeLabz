@@ -1,0 +1,19 @@
+<div layout="row" layout-wrap >
+  <md-card ng-repeat="file in data" ng-controller="dashboardCtr" class="card" flex-gt-sm="30" >
+    <md-card-title>
+      <md-card-title-text>
+        <p>{{file.name}}</p>
+      </md-card-title-text>
+    </md-card-title>
+
+          <img ng-src="{{file.image.small}}" class="md-card-image" alt="Washed Out" style="height:150,width:100" >
+          <md-card-content>
+
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <p>${{file.price}}</p>
+            <md-button>Buy</md-button>
+          </md-card-actions>
+        </md-card>
+
+</div>
