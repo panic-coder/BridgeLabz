@@ -12,7 +12,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
     "rating": 4,
     "image": {
-      "small": "assets/images/sony-xperia-z3.jpg",
+      "small": "assets/images/sony-xperia-z3.png",
       "large": "assets/images/sony-xperia-z3-large.jpg"
     }
   },
@@ -29,7 +29,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
     "rating": 4,
     "image": {
-      "small": "assets/images/iphone6.jpg",
+      "small": "assets/images/iphone6.png",
       "large": "assets/images/iphone6-large.jpg"
     }
   },
@@ -46,7 +46,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
     "rating": 4,
     "image": {
-      "small": "assets/images/htc-one.jpg",
+      "small": "assets/images/htc-one.png",
       "large": "assets/images/htc-one-large.jpg"
     }
   },
@@ -63,7 +63,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
     "rating": 4,
     "image": {
-      "small": "assets/images/galaxy-alpha.jpg",
+      "small": "assets/images/galaxy-alpha.png",
       "large": "assets/images/galaxy-alpha-large.jpg"
     }
   },
@@ -80,7 +80,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
     "rating": 4,
     "image": {
-      "small": "assets/images/nokia-lumia.jpg",
+      "small": "assets/images/nokia-lumia.png",
       "large": "assets/images/nokia-lumia-large.jpg"
     }
   },
@@ -97,7 +97,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
     "rating": 4,
     "image": {
-      "small": "assets/images/zte-nubia.jpg",
+      "small": "assets/images/zte-nubia.png",
       "large": "assets/images/zte-nubia-large.jpg"
     }
   },
@@ -114,7 +114,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
     "rating": 4,
     "image": {
-      "small": "assets/images/galaxy-s5.jpg",
+      "small": "assets/images/galaxy-s5.png",
       "large": "assets/images/galaxy-s5-large.jpg"
     }
   },
@@ -131,7 +131,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
     "rating": 4,
     "image": {
-      "small": "assets/images/iphone5s.jpg",
+      "small": "assets/images/iphone5s.png",
       "large": "assets/images/iphone5s-large.jpg"
     }
   }

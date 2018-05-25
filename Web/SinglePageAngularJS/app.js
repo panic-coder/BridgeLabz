@@ -13,7 +13,7 @@ app.config(function($stateProvider,$urlRouterProvider)
     controller: 'homeCtr'
   })
   .state('home.dashboard',{
-    url:'/home',
+    url:'/dashboard',
     templateUrl: 'templates/dashboard.html',
     controller: 'dashboardCtr'
   });
