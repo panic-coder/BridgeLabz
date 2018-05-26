@@ -27,24 +27,6 @@ app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $md
 
 $state.go('home.dashboard');
 
-$scope.showAdvanced = function(ev) {
-    $mdDialog.show({
-      //controller: 'dialogCtr',
-      //locals : {info : data},
-      templateUrl: 'templates/popup.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose:true
-    })}
-
-    $scope.cancel = function() {
-        $mdDialog.cancel();
-    }
-
-function dialogCtr($scope, $mdDialog, info) {
-    // Assigned from construction <code>locals</code> options...
-    $scope.info = info;
-  }
 
 });
 // var e = document.getElementById(id);

@@ -1,5 +1,5 @@
 <div layout="row" layout-wrap >
-  <md-card ng-repeat="file in data" ng-controller="dashboardCtr" class="card" flex-gt-sm="30" >
+  <md-card ng-repeat="file in data" aria-label="" class="card" flex-gt-sm="30" ng-controller="dashboardCtr">
     <md-card-title>
       <md-card-title-text>
         <p>{{file.name}}</p>
@@ -12,7 +12,7 @@
           </md-card-content>
           <md-card-actions layout="row" layout-align="end center">
             <p>${{file.price}}</p>
-            <md-button ng-click="showAdvanced($event)">Buy</md-button>
+            <md-button ng-click="showAdvanced($event,file)">Buy</md-button>
           </md-card-actions>
         </md-card>
 
