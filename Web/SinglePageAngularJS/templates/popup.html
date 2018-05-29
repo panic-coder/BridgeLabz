@@ -1,8 +1,8 @@
 <md-dialog aria-label="Shubham" ng-controller="dashboardCtr">
   <form>
-    <md-toolbar>
+    <md-toolbar style="background-color:grey;">
       <div class="md-toolbar-tools">
-        <h2>Phones</h2>
+        <h2>{{locals.name}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-svg-src="bower_components/material-design-icons/navigation/svg/design/ic_close_48px.svg" aria-label="Close dialog"></md-icon>
@@ -12,9 +12,10 @@
 
     <md-dialog-content>
       <div class="md-dialog-content">
-        {{presentData.image.large}}
-        <!-- <img src="assets/images/galaxy-s5-large.jpg"> -->
+        <img ng-src="{{locals.image.large}}">
       </div>
+      <p style="padding-left:20px;">Rating : {{locals.rating}}</p>
+      <p style="padding-left:20px;">Description : {{locals.description}}</p>
     </md-dialog-content>
 
   </form>

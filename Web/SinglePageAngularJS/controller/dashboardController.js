@@ -2,22 +2,26 @@ app.controller('dashboardCtr', function($scope,$mdDialog) {
 
 console.log("dashboard");
 
-$scope.showAdvanced = function(ev,presentData) {
+$scope.showAdvanced = function(presentData) {
   console.log(presentData);
     $mdDialog.show({
+      controller: 'dialogCtr',
       templateUrl: 'templates/popup.html',
       parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose:true
+      //targetEvent: ev,
+      clickOutsideToClose:true,
+      locals:{
+        phoneData: presentData
+      }
     })}
 
     $scope.cancel = function() {
         $mdDialog.cancel();
     }
 
-function dialogCtr($scope, $mdDialog, info) {
-    // Assigned from construction <code>locals</code> options...
-    $scope.info = info;
-  }
-
 });
+app.controller('dialogCtr',function ($scope, $mdDialog, locals) {
+    // Assigned from construction <code>locals</code> options...
+    $scope.locals = locals.phoneData;
+    console.log(locals);
+  })

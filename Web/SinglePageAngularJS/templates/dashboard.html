@@ -1,18 +1,28 @@
 <div layout="row" layout-wrap >
-  <md-card ng-repeat="file in data" aria-label="" class="card" flex-gt-sm="30" ng-controller="dashboardCtr">
+  <md-card ng-repeat="file in data | filterDashboard : uniqueManufacturer : uniqueStorage " class="card" flex-gt-sm="30" ng-controller="dashboardCtr">
     <md-card-title>
       <md-card-title-text>
-        <p>{{file.name}}</p>
+        <p style="font-weight:bold ">{{file.name}}</p>
       </md-card-title-text>
     </md-card-title>
 
           <img ng-src="{{file.image.small}}" class="md-card-image" alt="Washed Out" style="height:150,width:100" >
-          <md-card-content>
+    <md-card-content>
+        <p>Manufacturer : {{file.specs.manufacturer}}</p>
+        <p>OS : {{file.specs.os}}</p>
+        <p>Storage : {{file.specs.storage}}</p>
+        <p>Camera : {{file.specs.camera}}</p>
 
-          </md-card-content>
-          <md-card-actions layout="row" layout-align="end center">
-            <p>${{file.price}}</p>
-            <md-button ng-click="showAdvanced($event,file)">Buy</md-button>
+    </md-card-content>
+
+          <md-card-actions layout="row" >
+            <div class="" flex="auto">
+              <md-button ng-click="showAdvanced(file)" style="font-weight:bold;font-style:italic;margin:10px;">Buy</md-button>
+            </div>
+            <!-- <img src="bower_components/material-design-icons/icons8-us-dollar-80.png" alt="" style="height:20px;width:20px;"> -->
+            <md-card-actions layout="row" layout-align="end">
+              <p style="font-weight:bold;">$ {{file.price}}</p>
+            </md-card-actions>
           </md-card-actions>
         </md-card>
 
