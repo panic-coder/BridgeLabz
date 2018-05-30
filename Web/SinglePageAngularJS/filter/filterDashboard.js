@@ -1,7 +1,7 @@
 app.filter('filterDashboard',function(){
   return function(item,detail,storage){
-    console.log(detail);
-    console.log(item);
+    //console.log(detail);
+    //console.log(item);
     //console.log(storage);
     var sortedHai = [];
     var values;
@@ -27,20 +27,43 @@ app.filter('filterDashboard',function(){
         }
       }
     }
+    if (count>0) {
+
     if(storage!=undefined){
-    for (var k = 0; k < storage.length; k++) {
-      memory = storage[k];
+    for (var k = 0; k < sortedHai.length; k++) {
+      memory = sortedHai[k];
       //console.log(memory);
-      if(memory == item[i].specs.storage){
-        //index = sortedHai.indexOf()
-        sortedHai.push(values);
-        count++;
+      if(storage == sortedHai[k].specs.storage){
+        index = sortedHai.indexOf();
+        console.log(sortedHai);
+        console.log(index);
+        // if (index == -1) {
+        //   sortedHai.push(values);
+        //   count++;
+        // }
+        if(index>-1){
+          sortedHai.splice(index,1);
+          count++;
+          break;
+
+        }
+        else {
+          sortedHai.push(memory);
+          count++;
+          break;
+
+        }
+
       }
     }
 
   }
 }
 }
+}
+
+
+
 if(count>0){
   return sortedHai;
 }

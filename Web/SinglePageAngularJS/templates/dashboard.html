@@ -1,5 +1,5 @@
 <div layout="row" layout-wrap >
-  <md-card ng-repeat="file in data | filterDashboard : uniqueManufacturer : uniqueStorage " class="card" flex-gt-sm="30" ng-controller="dashboardCtr">
+  <md-card ng-repeat="file in values=(data | filterDashboard:uniqueManufacturer:uniqueStorage) " class="card" flex-gt-sm="30" ng-controller="dashboardCtr">
     <md-card-title>
       <md-card-title-text>
         <p style="font-weight:bold ">{{file.name}}</p>
