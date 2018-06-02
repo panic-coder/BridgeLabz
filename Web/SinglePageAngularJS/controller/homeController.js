@@ -41,13 +41,13 @@ app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $md
   $scope.getData = readJsonData.getJson();
   $scope.getData.then(function(response) {
     $scope.data = response;
-    console.log($scope.data);
+    //console.log($scope.data);
   })
 
-  $rootScope.uniqueManufacturer = [];
+  $scope.uniqueManufacturer = [];
   $scope.uniqueStorage = [];
-  var uniqueOS = [];
-  var uniqueCamera = [];
+  $scope.uniqueOS = [];
+  $scope.uniqueCamera = [];
 
   $scope.printManufacturer = function(id,data){
     var index;
@@ -57,7 +57,7 @@ app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $md
       value = data[i].specs[m];
 
     index = $scope.uniqueManufacturer.indexOf(id);
-    console.log(index);
+    //console.log(index);
     if(index>-1){
       $scope.uniqueManufacturer.splice(index,1);
       break;
@@ -79,7 +79,7 @@ $scope.printStorage = function(id,data){
     value = data[i].specs[m];
 
   index = $scope.uniqueStorage.indexOf(id);
-  console.log(index);
+  //console.log(index);
   if(index>-1){
     $scope.uniqueStorage.splice(index,1);
     break;
@@ -100,19 +100,19 @@ $scope.printOS = function(id,data){
   for (var i = 0; i < data.length; i++) {
     value = data[i].specs[m];
 
-  index = uniqueOS.indexOf(id);
-  console.log(index);
+  index = $scope.uniqueOS.indexOf(id);
+  //console.log(index);
   if(index>-1){
-    uniqueOS.splice(index,1);
+    $scope.uniqueOS.splice(index,1);
     break;
   }
   else {
-    uniqueOS.push(id);
+    $scope.uniqueOS.push(id);
     break;
   }
-  console.log(value);
+  //console.log(value);
 }
-  console.log(uniqueOS);
+  //console.log($scope.uniqueOS);
 }
 
 $scope.printCamera = function(id,data){
@@ -122,19 +122,19 @@ $scope.printCamera = function(id,data){
   for (var i = 0; i < data.length; i++) {
     value = data[i].specs[m];
 
-  index = uniqueCamera.indexOf(id);
-  console.log(index);
+  index = $scope.uniqueCamera.indexOf(id);
+  //console.log(index);
   if(index>-1){
-    uniqueCamera.splice(index,1);
+    $scope.uniqueCamera.splice(index,1);
     break;
   }
   else {
-    uniqueCamera.push(id);
+    $scope.uniqueCamera.push(id);
     break;
   }
-    console.log(value);
+    //console.log(value);
 }
-  console.log(uniqueCamera);
+  //console.log($scope.uniqueCamera);
 }
 
   // $scope.exists = function(id){

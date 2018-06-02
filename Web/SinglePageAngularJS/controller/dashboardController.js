@@ -1,6 +1,6 @@
 app.controller('dashboardCtr', function($scope,$mdDialog) {
 
-console.log("dashboard");
+//console.log("dashboard");
 
 $scope.showAdvanced = function(presentData) {
   console.log(presentData);

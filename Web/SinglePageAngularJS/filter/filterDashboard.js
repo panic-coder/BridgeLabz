@@ -1,80 +1,76 @@
 app.filter('filterDashboard',function(){
-  return function(item,detail,storage){
-    //console.log(detail);
-    //console.log(item);
-    //console.log(storage);
+  return function(item,maker,storage,operating,camera){
+
     var sortedHai = [];
+    var array = [];
     var values;
     var company;
     var memory;
     var index;
     var count=0;
-    if(item!=undefined){
-    for (var i = 0; i < item.length; i++) {
-      values = item[i];
 
-      //console.log(values);
-      if (detail!=undefined) {
-      for (var j = 0; j < detail.length; j++) {
-        company = detail[j];
-        //console.log(select);
-        if(company == item[i].specs.manufacturer){
-          //index = sortedHai.indexOf(values);
-          //if(index==-1){
-            sortedHai.push(values);
-            count++;
-          //}
+    if(maker.length!=0 || storage.length!=0 || operating.length!=0 || camera.length!=0){
+      // console.log(maker);
+      // console.log(storage);
+      // console.log(operating);
+      // console.log(camera);
+      if (maker.length!=0) {
+        //console.log(maker);
+        for (var i = 0; i < item.length; i++) {
+          for (var j = 0; j < maker.length; j++) {
+            if(maker[j]==item[i].specs.manufacturer){
+              //console.log(maker);
+              sortedHai.push(item[i]);
+            }
+          }
         }
+        //console.log(sortedHai);
       }
+      else {
+        sortedHai = item;
+      }
+
+      if (storage.length!=0) {
+        for (var i = 0; i < sortedHai.length; i++) {
+          for (var j = 0; j < storage.length; j++) {
+            if(storage[j]==sortedHai[i].specs.storage){
+                array.push(sortedHai[i]);
+              }
+            }
+          }
+          sortedHai = array;
+          array = [];
+        }
+
+        if (operating.length!=0) {
+          for (var i = 0; i < sortedHai.length; i++) {
+            for (var j = 0; j < operating.length; j++) {
+              if (operating[j]==sortedHai[i].specs.os) {
+                array.push(sortedHai[i]);
+              }
+            }
+          }
+          sortedHai = array;
+          array = [];
+        }
+
+        if (camera.length!=0) {
+          for (var i = 0; i < sortedHai.length; i++) {
+            for (var j = 0; j < camera.length; j++) {
+              if (camera[j]==sortedHai[i].specs.camera) {
+                array.push(sortedHai[i]);
+              }
+            }
+          }
+          sortedHai = array;
+          array = [];
+        }
+      return sortedHai;
     }
-    if (count>0) {
-
-    if(storage!=undefined){
-    for (var k = 0; k < sortedHai.length; k++) {
-      memory = sortedHai[k];
-      //console.log(memory);
-      if(storage == sortedHai[k].specs.storage){
-        index = sortedHai.indexOf();
-        console.log(sortedHai);
-        console.log(index);
-        // if (index == -1) {
-        //   sortedHai.push(values);
-        //   count++;
-        // }
-        if(index>-1){
-          sortedHai.splice(index,1);
-          count++;
-          break;
-
-        }
-        else {
-          sortedHai.push(memory);
-          count++;
-          break;
-
-        }
-
-      }
+    //console.log(sortedHai);
+    else {
+      return item;
     }
 
   }
-}
-}
-}
-
-
-
-if(count>0){
-  return sortedHai;
-}
-else {
-  //sortedHai = item;
-  return item;
-}
-//console.log(sortedHai);
-
-}
-
-  }
-
-)
+})

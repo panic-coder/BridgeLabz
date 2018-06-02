@@ -2,14 +2,14 @@
 
   <section>
 
-    <md-sidenav class="md-sidenav-left side" md-component-id="left" id="hideSideBar" md-disable-backdrop style="position: fixed;" >
+    <md-sidenav class="md-sidenav-left side"  md-component-id="left" id="hideSideBar" md-disable-backdrop style="position: fixed;" >
 
       <md-content>
 
         <md-subheader class="md-no-sticky">Manufacturer</md-subheader>
         <md-list-item ng-repeat="display in data | removeDuplicate:'manufacturer'">
           <p> {{ display }} </p>
-          <md-checkbox class="md-secondary" ng-click="printManufacturer(display,data)"></md-checkbox>
+          <md-checkbox aria-label="Manufacturer" class="md-secondary" ng-click="printManufacturer(display,data)"></md-checkbox>
 
         </md-list-item>
 
@@ -18,7 +18,7 @@
         <md-subheader class="md-no-sticky">Storage</md-subheader>
         <md-list-item ng-repeat="display in data | removeDuplicate:'storage'">
           <p> {{ display }} </p>
-          <md-checkbox class="md-secondary" ng-click="printStorage(display,data)"></md-checkbox>
+          <md-checkbox aria-label="Storage" class="md-secondary" ng-click="printStorage(display,data)"></md-checkbox>
         </md-list-item>
 
         <md-divider></md-divider>
@@ -26,7 +26,7 @@
         <md-subheader class="md-no-sticky">OS</md-subheader>
         <md-list-item ng-repeat="display in data | removeDuplicate:'os'">
           <p> {{ display }} </p>
-          <md-checkbox class="md-secondary" ng-click="printOS(display,data)"></md-checkbox>
+          <md-checkbox aria-label="OS" class="md-secondary" ng-click="printOS(display,data)"></md-checkbox>
         </md-list-item>
 
         <md-divider></md-divider>
@@ -34,7 +34,7 @@
         <md-subheader class="md-no-sticky">Camera</md-subheader>
         <md-list-item ng-repeat="display in data | removeDuplicate:'camera'">
           <p> {{ display }} </p>
-          <md-checkbox class="md-secondary" ng-click="printCamera(display,data)"></md-checkbox>
+          <md-checkbox aria-label="Camera" class="md-secondary" ng-click="printCamera(display,data)"></md-checkbox>
         </md-list-item>
 
         <md-divider></md-divider>
