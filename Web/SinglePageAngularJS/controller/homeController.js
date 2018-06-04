@@ -1,19 +1,100 @@
 app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $mdDialog, $rootScope) {
-  // $scope.consoleDisplay = function() {
-  //   console.log($scope.user);
-  //   console.log($scope.pass);
-  // }
 
   $scope.toggleLeft = buildToggler('left');
   function buildToggler(id) {
     return function() {
-      $mdSidenav(id).toggle();
+      //$mdSidenav(id).toggle();
+      //$scope.t = 0;
+      //console.log($mdSidenav(id));
+      //console.log(document.getElementById("hideSideBar"));
+
+      if (id ==='left') {
+        $mdSidenav(id).toggle();
+        var isOpen=$mdSidenav(id).isOpen();
+        if(isOpen)
+        {
+          document.getElementById("dashboardid").style.marginLeft = "25%";
+          document.getElementById("hideSideBar").style.width = "25%";
+
+        }
+        else {
+        document.getElementById("dashboardid").style.marginLeft = "0%";
+        //document.getElementById("hideSideBar").style.width = "0%";
+        //$scope.t=0;
+      }
+
     }
+  }
+}
+
+  $scope.logout = function(){
+    $state.go('login');
   }
 
   $scope.fileData = function(){
     console.log($scope.display);
   }
+
+  $scope.getData = readJsonData.getJson();
+  $scope.getData.then(function(response) {
+    $scope.data = response;
+  })
+
+  $scope.uniqueManufacturer = [];
+  $scope.uniqueStorage = [];
+  $scope.uniqueOS = [];
+  $scope.uniqueCamera = [];
+
+  $scope.selectingValues = function(id,value){
+    switch(value){
+      case 1 :
+        printManufacturer(id);
+        break;
+      case 2 :
+        printStorage(id);
+        break;
+      case 3 :
+        printOS(id);
+        break;
+      case 4 :
+        printCamera(id);
+        break;
+    }
+  }
+
+function printManufacturer(id){
+    adding($scope.uniqueManufacturer,id);
+}
+
+function printStorage(id){
+    adding($scope.uniqueStorage,id);
+}
+
+function printOS(id){
+    adding($scope.uniqueOS,id);
+}
+
+function printCamera(id){
+    adding($scope.uniqueCamera,id);
+}
+
+function adding(array,id){
+  var index;
+  index = array.indexOf(id);
+  if(index>-1){
+    array.splice(index,1);
+  }
+  else {
+    array.push(id);
+  }
+}
+
+$state.go('home.dashboard');
+
+$scope.showFavorite = function(){
+  console.log($rootScope.favouriteElements);
+  $state.go('home.dashboard');
+}
 
 // $scope.toggleLeft = buildToggler('hideSideBar');
 //   function buildToggler(id) {
@@ -29,118 +110,5 @@ app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $md
 //       }
 //     }
 //   }
-
-// function buildToggler(componentId){
-//   if (!hidden) {
-//     jq('#hideme').addClass('hidden');
-//   } else {
-//     jq
-//   }
-//
-// }
-  $scope.getData = readJsonData.getJson();
-  $scope.getData.then(function(response) {
-    $scope.data = response;
-    //console.log($scope.data);
-  })
-
-  $scope.uniqueManufacturer = [];
-  $scope.uniqueStorage = [];
-  $scope.uniqueOS = [];
-  $scope.uniqueCamera = [];
-
-  $scope.printManufacturer = function(id,data){
-    var index;
-    var value;
-    var m = 'manufacturer';
-    for (var i = 0; i < data.length; i++) {
-      value = data[i].specs[m];
-
-    index = $scope.uniqueManufacturer.indexOf(id);
-    //console.log(index);
-    if(index>-1){
-      $scope.uniqueManufacturer.splice(index,1);
-      break;
-    }
-    else {
-      $scope.uniqueManufacturer.push(id);
-      break;
-    }
-    //console.log(value);
-  }
-  //  console.log($scope.uniqueManufacturer);
-}
-
-$scope.printStorage = function(id,data){
-  var index;
-  var value;
-  var m = 'storage';
-  for (var i = 0; i < data.length; i++) {
-    value = data[i].specs[m];
-
-  index = $scope.uniqueStorage.indexOf(id);
-  //console.log(index);
-  if(index>-1){
-    $scope.uniqueStorage.splice(index,1);
-    break;
-  }
-  else {
-    $scope.uniqueStorage.push(id);
-    break;
-  }
-  //console.log(value);
-}
-  //console.log($scope.uniqueStorage);
-}
-
-$scope.printOS = function(id,data){
-  var index;
-  var value;
-  var m = 'os';
-  for (var i = 0; i < data.length; i++) {
-    value = data[i].specs[m];
-
-  index = $scope.uniqueOS.indexOf(id);
-  //console.log(index);
-  if(index>-1){
-    $scope.uniqueOS.splice(index,1);
-    break;
-  }
-  else {
-    $scope.uniqueOS.push(id);
-    break;
-  }
-  //console.log(value);
-}
-  //console.log($scope.uniqueOS);
-}
-
-$scope.printCamera = function(id,data){
-  var index;
-  var value;
-  var m = 'camera';
-  for (var i = 0; i < data.length; i++) {
-    value = data[i].specs[m];
-
-  index = $scope.uniqueCamera.indexOf(id);
-  //console.log(index);
-  if(index>-1){
-    $scope.uniqueCamera.splice(index,1);
-    break;
-  }
-  else {
-    $scope.uniqueCamera.push(id);
-    break;
-  }
-    //console.log(value);
-}
-  //console.log($scope.uniqueCamera);
-}
-
-  // $scope.exists = function(id){
-  //   return uniqueManufacturer.indexOf(id) > -1;
-  // }
-
-$state.go('home.dashboard');
 
 });

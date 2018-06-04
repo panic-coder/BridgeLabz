@@ -10,12 +10,12 @@
 
       <h2 flex="" md-truncate="" id="toolbarNameColor">MOBILE</h2>
 
-      <md-button class="iconButton" aria-label="Favorite">
+      <md-button class="iconButton" aria-label="Favorite" ng-click="showFavorite()">
         <md-icon md-svg-icon="bower_components/material-design-icons/action/svg/design/ic_favorite_48px.svg" class="favouriteIcon"></md-icon>
       </md-button>
 
-      <md-button class="iconButton" aria-label="More">
-        <md-icon md-svg-icon="bower_components/material-design-icons/navigation/svg/design/ic_more_vert_48px.svg" class="my-icon"></md-icon>
+      <md-button class="iconButton" aria-label="More" ng-click="logout()" style="color:grey">Logout
+        <md-icon md-svg-icon="bower_components/material-design-icons/notification/svg/design/ic_vpn_lock_48px.svg" class="my-icon"></md-icon>
       </md-button>
 
     </div>
