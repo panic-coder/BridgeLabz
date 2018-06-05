@@ -3,8 +3,9 @@ app.filter('filterDashboard', function() {
   var array = [];
   var values;
   return function(item, maker, storage, operating, camera) {
-
-    if (maker.length != 0 || storage.length != 0 || operating.length != 0 || camera.length != 0) {
+    //console.log(fav);
+    if (maker.length != 0 || storage.length != 0 || operating.length != 0 || camera.length != 0 ) {
+      console.log(fav);
       if (maker.length != 0) {
         sortedHai = adding(item, maker, 'manufacturer');
       } else {
@@ -19,8 +20,16 @@ app.filter('filterDashboard', function() {
       if (camera.length != 0) {
         sortedHai = adding(sortedHai, camera, 'camera');
       }
+      // if (fav != undefined) {
+      //   sortedHai = fav;
+      // }
       return sortedHai;
-    } else {
+    }
+    // else if (fav.length != 0) {
+    //   console.log(fav);
+    //   return fav;
+    // }
+    else {
         return item;
     }
   }

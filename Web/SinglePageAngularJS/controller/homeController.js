@@ -1,13 +1,9 @@
 app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $mdDialog, $rootScope) {
 
+
   $scope.toggleLeft = buildToggler('left');
   function buildToggler(id) {
     return function() {
-      //$mdSidenav(id).toggle();
-      //$scope.t = 0;
-      //console.log($mdSidenav(id));
-      //console.log(document.getElementById("hideSideBar"));
-
       if (id ==='left') {
         $mdSidenav(id).toggle();
         var isOpen=$mdSidenav(id).isOpen();
@@ -15,14 +11,10 @@ app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $md
         {
           document.getElementById("dashboardid").style.marginLeft = "25%";
           document.getElementById("hideSideBar").style.width = "25%";
-
         }
         else {
         document.getElementById("dashboardid").style.marginLeft = "0%";
-        //document.getElementById("hideSideBar").style.width = "0%";
-        //$scope.t=0;
       }
-
     }
   }
 }
@@ -44,39 +36,24 @@ app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $md
   $scope.uniqueStorage = [];
   $scope.uniqueOS = [];
   $scope.uniqueCamera = [];
+  $scope.favourite = [];
 
   $scope.selectingValues = function(id,value){
     switch(value){
       case 1 :
-        printManufacturer(id);
+        adding($scope.uniqueManufacturer,id);
         break;
       case 2 :
-        printStorage(id);
+        adding($scope.uniqueStorage,id);
         break;
       case 3 :
-        printOS(id);
+        adding($scope.uniqueOS,id);
         break;
       case 4 :
-        printCamera(id);
+        adding($scope.uniqueCamera,id);
         break;
     }
   }
-
-function printManufacturer(id){
-    adding($scope.uniqueManufacturer,id);
-}
-
-function printStorage(id){
-    adding($scope.uniqueStorage,id);
-}
-
-function printOS(id){
-    adding($scope.uniqueOS,id);
-}
-
-function printCamera(id){
-    adding($scope.uniqueCamera,id);
-}
 
 function adding(array,id){
   var index;
@@ -88,13 +65,20 @@ function adding(array,id){
     array.push(id);
   }
 }
-
 $state.go('home.dashboard');
 
+console.log($scope.quantity);
+
 $scope.showFavorite = function(){
-  console.log($rootScope.favouriteElements);
-  $state.go('home.dashboard');
+  $state.go('home.favourite');
+  //console.log($rootScope.favouriteElements);
 }
+//console.log(showFavorite);
+  $state.go('home.favourite');
+
+$scope.states = [1,2,3,4,5];
+
+
 
 // $scope.toggleLeft = buildToggler('hideSideBar');
 //   function buildToggler(id) {
@@ -112,3 +96,5 @@ $scope.showFavorite = function(){
 //   }
 
 });
+
+  $state.go('home.favourite');

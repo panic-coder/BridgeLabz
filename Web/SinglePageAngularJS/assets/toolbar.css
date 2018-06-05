@@ -1,5 +1,5 @@
  .toolbarUsage md-toolbar  .md-button.iconButton .favouriteIcon {
-  fill: #DE3641;
+  fill: #696969;
 }
 
 #toolColor{
@@ -19,10 +19,10 @@
 }
 
 .toolbarUsage md-button:hover{
-  background-color: #DCDCDC;
+  background-color: black;
 }
 
 .iconButton:hover{
-  color: red;
+  color: black;
   width:80px;
 }

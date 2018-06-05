@@ -19,15 +19,17 @@ $scope.showAdvanced = function(presentData) {
         $mdDialog.cancel();
     }
 
-
 $rootScope.favouriteElements = [];
 $scope.favourite = function(favouriteData){
-  $rootScope.favouriteElements.push(favouriteData);
-  //console.log($scope.favouriteElements);
-  console.log($rootScope.favouriteElements);
+  var index;
+  index = $rootScope.favouriteElements.indexOf(favouriteData);
+  if(index>-1){
+    $rootScope.favouriteElements.splice(index,1);
+  }
+  else {
+    $rootScope.favouriteElements.push(favouriteData);
+  }
 }
-
-
 });
 app.controller('dialogCtr',function ($scope, $mdDialog, locals) {
     // Assigned from construction <code>locals</code> options...

@@ -16,6 +16,11 @@ app.config(function($stateProvider,$urlRouterProvider)
     url:'/dashboard',
     templateUrl: 'templates/dashboard.html',
     controller: 'dashboardCtr'
+  })
+  .state('home.favourite',{
+    url:'/favourite',
+    templateUrl: 'templates/favourites.html',
+    controller: 'homeCtr'
   });
   $urlRouterProvider.otherwise('login');
 });
