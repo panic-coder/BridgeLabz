@@ -3,7 +3,7 @@ app.controller('dashboardCtr', function($scope,$mdDialog,$rootScope) {
 //console.log("dashboard");
 
 $scope.showAdvanced = function(presentData) {
-  console.log(presentData);
+  //console.log(presentData);
     $mdDialog.show({
       controller: 'dialogCtr',
       templateUrl: 'templates/popup.html',
@@ -23,16 +23,15 @@ $rootScope.favouriteElements = [];
 $scope.favourite = function(favouriteData){
   var index;
   index = $rootScope.favouriteElements.indexOf(favouriteData);
-  if(index>-1){
-    $rootScope.favouriteElements.splice(index,1);
-  }
-  else {
+  if(index==-1){
     $rootScope.favouriteElements.push(favouriteData);
   }
 }
 });
 app.controller('dialogCtr',function ($scope, $mdDialog, locals) {
-    // Assigned from construction <code>locals</code> options...
+    //Assigned from construction <code>locals</code> options...
     $scope.locals = locals.phoneData;
-    console.log(locals);
+    $scope.rate = locals.phoneData.rating;
+    console.log($scope.rate);
+    //console.log(locals);
   })

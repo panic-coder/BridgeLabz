@@ -76,9 +76,52 @@ $scope.showFavorite = function(){
 //console.log(showFavorite);
   $state.go('home.favourite');
 
-$scope.states = [1,2,3,4,5];
+$scope.numbers = [1,2,3,4,5];
+//console.log($scope.quantity);
+$scope.quantity = 0;
+$scope.presentPrice = 0;
+$scope.p = [];
+$scope.addingQuantity = function(s,f){
+  $scope.presentPrice = 0;
+  //console.log($rootScope.favouriteElements);
+  var index;
+// if ($scope.p.length != 0) {
+//  for (var i = 0; i < $scope.p.length; i++)
+var count = 0;
+for (var i = 1; i <= 5; i++) {
+  index = $scope.p.indexOf({id:f.id,quantity:i});
+  console.log(index);
+  console.log({id:f.id,quantity:i});
+      if (index > -1) {
+        $scope.p.splice(index,1);
+        $scope.p.push({id:f.id,quantity:s})
+        count++;
+      }
 
+console.log(i);
+}
+if(count==0) {
+  $scope.p.push({id:f.id,quantity:s});
+}
 
+//}
+//}
+  console.log($scope.p);
+  var cartFile = $rootScope.favouriteElements;
+  //console.log(cartFile);
+  for (var i = 0; i < cartFile.length; i++) {
+    $scope.quantity = (s*cartFile[i].price);
+  }
+
+  $scope.presentPrice = $scope.presentPrice+$scope.quantity;
+  // console.log(f.price);
+  // console.log($scope.quantity);
+  //console.log($scope.presentPrice);
+
+}
+$scope.ad = function(num){
+  //console.log(num);
+}
 
 // $scope.toggleLeft = buildToggler('hideSideBar');
 //   function buildToggler(id) {

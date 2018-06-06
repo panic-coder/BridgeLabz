@@ -11,39 +11,43 @@
 </div>
 <md-content>
   <md-list style="margin-top: 4%;">
-    <md-list-item ng-repeat="file in data | filterFavourite:favouriteElements "  class="master-view" class="md-3-line">
-<div class="" flex="25">
+    <md-list-item ng-repeat="file in data | filterFavourite:favouriteElements" class="master-view" class="md-3-line">
+<div class="" flex="20">
   <p style="font-weight:bold; ">{{file.name}}</p>
 </div>
-      <div class="" flex="25">
+      <div class="" flex="20">
         <img ng-src="{{file.image.small}}" class="md-card-image" style="height:100px;width:80px" alt="Washed Out">
       </div>
 
-      <div flex="25" layout-align="center" layout-margin>
+      <div flex="20" layout-align="center" layout-margin>
         <p>Manufacturer : {{file.specs.manufacturer}}</p>
         <p>OS : {{file.specs.os}}</p>
         <p>Storage : {{file.specs.storage}}</p>
         <p>Camera : {{file.specs.camera}}</p>
       </div>
 
-      <div layout-align="center" flex="25">
-        <p style="font-weight:bold;">Price per product  :  $ {{file.price}}</p>
+      <div layout-align="center" flex="20"  >
+        <p style="font-weight:bold;" >Price per product  :  $ {{file.price}}</p>
       </div>
-      <div class="" flex="25">
+      <div class="" flex="20">
         <md-input-container>
           <label>Quantity</label>
           <md-select ng-model="userState">
             <md-option><em>None</em></md-option>
-            <md-option ng-repeat="state in states" ng-value="state" ng-model="quantity">
-              {{state}}
+            <md-option ng-repeat="number in numbers" ng-value="number" ng-model="quantity" ng-init="ad(number)" ng-click="addingQuantity(number,file)">
+              {{number}}
             </md-option>
           </md-select>
         </md-input-container>
       </div>
+
       <md-divider></md-divider>
     </md-list-item>
   </md-list>
+    <md-card-actions layout="row" layout-align="end" style="margin-right:30px;font-weight:bold">
+    Total Price : {{presentPrice}}
+  </md-card-actions>
 </md-content>
-<div class="" flex="75">
+<!-- <div class="" flex="75">
 Total Price : {{}}
-</div>
+</div> -->

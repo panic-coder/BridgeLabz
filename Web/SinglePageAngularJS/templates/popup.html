@@ -14,7 +14,10 @@
       <div class="md-dialog-content">
         <img ng-src="{{locals.image.large}}">
       </div>
-      <p style="padding-left:20px;">Rating : {{locals.rating}}</p>
+      <div class="">Rating :
+        <div ng-repeat="d in rate">*</div>
+      </div>
+
       <p style="padding-left:20px;">Description : {{locals.description}}</p>
     </md-dialog-content>
 
