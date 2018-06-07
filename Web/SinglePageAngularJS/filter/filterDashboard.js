@@ -5,7 +5,7 @@ app.filter('filterDashboard', function() {
   return function(item, maker, storage, operating, camera) {
     //console.log(fav);
     if (maker.length != 0 || storage.length != 0 || operating.length != 0 || camera.length != 0 ) {
-      console.log(fav);
+      //console.log(fav);
       if (maker.length != 0) {
         sortedHai = adding(item, maker, 'manufacturer');
       } else {

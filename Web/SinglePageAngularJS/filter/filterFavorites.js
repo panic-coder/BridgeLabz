@@ -6,8 +6,6 @@ app.filter('filterFavourite', function($state){
     }
     else {
       $state.go('home.dashboard')
-
     }
-
   }
 })

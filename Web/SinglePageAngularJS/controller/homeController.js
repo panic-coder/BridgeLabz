@@ -1,6 +1,12 @@
 app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $mdDialog, $rootScope) {
 
+  //$filter('currency')(amount, symbol, fractionSize)
+  $state.go('home.dashboard');
 
+  $scope.homePage = function(){
+    $state.go('home.dashboard');
+  }
+  //$state.go('home');
   $scope.toggleLeft = buildToggler('left');
   function buildToggler(id) {
     return function() {
@@ -18,9 +24,10 @@ app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $md
     }
   }
 }
-
   $scope.logout = function(){
     $state.go('login');
+    
+
   }
 
   $scope.fileData = function(){
@@ -65,9 +72,9 @@ function adding(array,id){
     array.push(id);
   }
 }
-$state.go('home.dashboard');
 
-console.log($scope.quantity);
+
+//console.log($scope.quantity);
 
 $scope.showFavorite = function(){
   $state.go('home.favourite');
@@ -78,47 +85,64 @@ $scope.showFavorite = function(){
 
 $scope.numbers = [1,2,3,4,5];
 //console.log($scope.quantity);
-$scope.quantity = 0;
+
+
+
+$scope.addingQuantity = function(s,f){
+$scope.quantity=0;
 $scope.presentPrice = 0;
 $scope.p = [];
-$scope.addingQuantity = function(s,f){
-  $scope.presentPrice = 0;
   //console.log($rootScope.favouriteElements);
+  var a = $scope.p;
   var index;
 // if ($scope.p.length != 0) {
 //  for (var i = 0; i < $scope.p.length; i++)
 var count = 0;
 for (var i = 1; i <= 5; i++) {
-  index = $scope.p.indexOf({id:f.id,quantity:i});
+  index = findingIndex({id:f.id,quantity:i});
   console.log(index);
-  console.log({id:f.id,quantity:i});
+  //console.log({id:f.id,quantity:i});
       if (index > -1) {
-        $scope.p.splice(index,1);
-        $scope.p.push({id:f.id,quantity:s})
+        a.splice(index,1);
+        a.push({id:f.id,quantity:s})
         count++;
       }
 
-console.log(i);
+//console.log(i);
 }
 if(count==0) {
-  $scope.p.push({id:f.id,quantity:s});
+  a.push({id:f.id,quantity:s});
 }
-
+$scope.p = a;
 //}
 //}
-  console.log($scope.p);
+//  console.log($scope.p[0].quantity);
   var cartFile = $rootScope.favouriteElements;
   //console.log(cartFile);
-  for (var i = 0; i < cartFile.length; i++) {
-    $scope.quantity = (s*cartFile[i].price);
+  $scope.quantity = 0;
+  for (var i = 0; i < $scope.p.length; i++) {
+    for (var j = 0; j < cartFile.length; j++) {
+      //console.log($scope.p[i].id,'id',cartFile[j].id);
+      if ($scope.p[i].id == cartFile[j].id) {
+          $scope.quantity = $scope.quantity + (($scope.p[i].quantity)*(cartFile[j].price));
+      }
+    }
   }
-
-  $scope.presentPrice = $scope.presentPrice+$scope.quantity;
-  // console.log(f.price);
-  // console.log($scope.quantity);
+  $scope.presentPrice =  $scope.quantity ;
+  //console.log(f.price);
+  //console.log($scope.quantity);
   //console.log($scope.presentPrice);
-
+  function findingIndex(o) {
+      for (var i = 0; i < $scope.p.length; i++) {
+          if ($scope.p[i].id == o.id && $scope.p[i].quantity == o.quantity) {
+              return i;
+          }
+      }
+      return -1;
+  }
 }
+
+
 $scope.ad = function(num){
   //console.log(num);
 }
@@ -140,4 +164,4 @@ $scope.ad = function(num){
 
 });
 
-  $state.go('home.favourite');
+  //$state.go('home.favourite');
