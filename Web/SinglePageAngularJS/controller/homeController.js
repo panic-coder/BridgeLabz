@@ -26,8 +26,6 @@ app.controller('homeCtr', function($scope, $mdSidenav, readJsonData, $state, $md
 }
   $scope.logout = function(){
     $state.go('login');
-    
-
   }
 
   $scope.fileData = function(){
@@ -86,12 +84,12 @@ $scope.showFavorite = function(){
 $scope.numbers = [1,2,3,4,5];
 //console.log($scope.quantity);
 
-
-
-$scope.addingQuantity = function(s,f){
 $scope.quantity=0;
 $scope.presentPrice = 0;
 $scope.p = [];
+
+$scope.addingQuantity = function(s,f){
+
   //console.log($rootScope.favouriteElements);
   var a = $scope.p;
   var index;
@@ -142,6 +140,15 @@ $scope.p = a;
   }
 }
 
+$scope.remove = function(file){
+  var index = $rootScope.favouriteElements.indexOf(file);
+  $rootScope.favouriteElements.splice(index,1);
+  var e = $rootScope.favouriteElements;
+  localStorage.removeItem('key');
+  localStorage.setItem('key',JSON.stringify(e));
+  var d = localStorage.getItem('key');
+  console.log(d);
+}
 
 $scope.ad = function(num){
   //console.log(num);
