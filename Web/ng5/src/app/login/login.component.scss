@@ -1,0 +1,32 @@
+.example-card {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+    padding: 80px;
+  }
+  
+  .loginbox{
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    height: 480px;
+    //background: #E8E8E8;
+    color: #383838;
+    top:50%;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 30px;
+    border-color:  #E8E8E8;
+  }
+
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-form-field{
+      padding: 6px;
+  }
+ 
